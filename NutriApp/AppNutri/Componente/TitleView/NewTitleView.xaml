@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:icon="clr-namespace:NutriApp.Resources"
+             x:Name="NewTitleViewRoot"
+             BackgroundColor="#E77717"
+             x:Class="NutriApp.AppNutri.TitleView.NewTitleView">
+     <StackLayout
+        Margin="0,12,0,12">
+        <Grid
+            x:Name="Title">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                Grid.Column="0"
+                BackgroundColor="Transparent"
+                x:Name="FrameBack"
+                CornerRadius="10"
+                BorderColor="Transparent"
+                Padding="10"
+                IsVisible="{Binding VisibleBack ,Source={x:Reference NewTitleViewRoot}}"
+                Opacity="20"
+                HasShadow="False"
+                Margin="20,0,0,0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center">
+
+                <Label 
+                    Text="{x:Static icon:IconName.ChevronLeft}"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="20"
+                    TextColor="White"
+                    FontFamily="FontAwesomeBold"/>
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                </Frame.GestureRecognizers>
+
+            </Frame>
+
+            <Label
+                Grid.Column="1"
+                x:Name="LabelTitle"
+                FontSize="18"
+                FontAttributes="Bold"
+                FontFamily=""
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand"
+                VerticalTextAlignment="Center"
+                TextColor="{StaticResource PageColor}" />
+
+            <Frame
+                x:Name="FrameLogo"
+                Grid.Column="2"
+                HorizontalOptions="End"
+                CornerRadius="10"
+                HasShadow="False"
+                BorderColor="Transparent"
+                BackgroundColor="Transparent"
+                Padding="18"
+                Opacity="20">
+
+                <Label 
+                   x:Name="Icon"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="27"
+                   TextColor="White"
+                   FontFamily="FontAwesomeRegular"/>
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Command" />
+                </Frame.GestureRecognizers>
+
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentView>

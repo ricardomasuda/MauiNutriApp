@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:icon="clr-namespace:NutriApp.Resources"
+             x:Class="NutriApp.AppNutri.Componente.NewItemMenu.NewItemMenuView">
+    <Border 
+        Margin="20,5"
+        Padding="15"
+        StrokeShape="RoundRectangle 30"
+        BackgroundColor="{StaticResource DarkBlue}">
+        
+        <!-- <pancakeView:PancakeView.Shadow> -->
+        <!--     <pancakeView:DropShadow BlurRadius="2" Color="#000000" Offset="1,5" /> -->
+        <!-- </pancakeView:PancakeView.Shadow> -->
+        <!--  <pancakeView:PancakeView.CornerRadius> -->
+        <!--     <OnPlatform x:TypeArguments="system:Single"> -->
+        <!--         <On Platform="iOS">30</On> -->
+        <!--         <On Platform="Android">40</On> -->
+        <!--     </OnPlatform> -->
+        <!-- </pancakeView:PancakeView.CornerRadius> -->
+
+        <StackLayout Orientation="Horizontal">
+            <Label Margin="10,0,0,0"
+                   x:Name="TitleLabel"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="white" />
+
+            <Label
+                Text="{x:Static icon:IconName.ChevronRight}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="EndAndExpand"
+                Margin="0,0,10,0"
+                FontSize="30"
+                TextColor="White"
+                FontFamily="FontAwesomeBold"/>
+        </StackLayout>
+
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Command" />
+        </Border.GestureRecognizers>
+    </Border>
+</ContentView>

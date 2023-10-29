@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="ResultLineViewRoot"
+             x:Class="NutriApp.AppNutri.Componente.ResultLineView">
+    <Grid
+        Margin="0"
+        ColumnSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border
+            x:Name="TitleView"
+            Margin="40,0,0,0"
+            Padding="15"
+            Grid.Row="0"
+            Grid.Column="0"
+            BackgroundColor="{StaticResource LightBlue}">
+
+            <Label
+                Text="{Binding TextTitle ,Source={x:Reference ResultLineViewRoot}}"
+                HorizontalOptions="Center"
+                VerticalTextAlignment="Center"
+                FontAttributes="Bold"
+                TextColor="{StaticResource DarkBlue}" />
+
+        </Border>
+
+        <Border
+            x:Name="BodyView"
+            Margin="0,0,40,0"
+            Padding="8"
+            BackgroundColor="{StaticResource DarkBlue}"
+            Grid.Row="0"
+            Grid.Column="1">
+
+            <Label
+                x:Name="BodyTextLabel"
+                TextColor="White"
+                FontSize="15"
+                HorizontalTextAlignment="Center"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontAttributes="Bold">
+
+            </Label>
+
+        </Border>
+    </Grid>
+</ContentView>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="http://schemas.syncfusion.com/maui"
+             x:Class="NutriApp.AppNutri.Componente.SlideCustomer.SlideView">
+    <StackLayout>
+            <Grid
+                ColumnDefinitions="*,*,*">
+
+                <core:SfTextInputLayout
+                    Grid.Column="0"
+                    ContainerType="Outlined"
+                    Hint="Proteína"
+                    IsHintAlwaysFloated="True"
+                    HorizontalOptions="FillAndExpand"
+                    OutlineCornerRadius="8">
+
+                    <Entry
+                        BackgroundColor="#F4F4F4"
+                        Text="{Binding ProteinaPercentage, Mode=TwoWay, Source={x:Reference View}}"
+                        TextColor="Black"
+                        Keyboard="Numeric"
+                        MaxLength="3"
+                        Unfocused="OnUnfocusedProtein"
+                        PlaceholderColor="Black"/>
+
+                </core:SfTextInputLayout>
+
+                <core:SfTextInputLayout
+                    Grid.Column="1"
+                    ContainerType="Outlined"
+                    Hint="Carboidratos"
+                    IsHintAlwaysFloated="True"
+                    HorizontalOptions="FillAndExpand"
+                    OutlineCornerRadius="8">
+
+                    <Entry
+                        BackgroundColor="#F4F4F4"
+                        Text="{Binding CarboidratoPercentage, Mode=TwoWay, Source={x:Reference View}}"
+                        TextColor="Black"
+                        Keyboard="Numeric"
+                        Unfocused="OnUnfocusedCarb"
+                        MaxLength="3"
+                        PlaceholderColor="Black"/>
+
+                </core:SfTextInputLayout>
+
+                <core:SfTextInputLayout
+                    Grid.Column="2"
+                    ContainerType="Outlined"
+                    Hint="Lídios"
+                    IsHintAlwaysFloated="True"
+                    HorizontalOptions="FillAndExpand"
+                    OutlineCornerRadius="8">
+                    
+                    <Entry
+                        BackgroundColor="#F4F4F4"
+                        Text="{Binding LipidioPercentage, Mode=TwoWay, Source={x:Reference View}}"
+                        TextColor="Black"
+                        Keyboard="Numeric"
+                        Unfocused="OnUnfocusedLip"
+                        MaxLength="3"
+                        PlaceholderColor="Black"/>
+
+                </core:SfTextInputLayout>
+            </Grid>
+
+            <!-- <Slider -->
+            <!--     x:Name="RangeSlider" -->
+            <!--     Maximum="100" -->
+            <!--     ThumbColor="Aqua" -->
+            <!--     ValueLabelStringFormat="" -->
+            <!--     ValueChanged="RangeSlider_OnValueChanged" -->
+            <!--     LowerThumbColor="{StaticResource DarkBlue}" -->
+            <!--     UpperThumbColor="{StaticResource DarkBlue}" -->
+            <!--     TrackColor="{StaticResource DarkOrange}" -->
+            <!--     TrackHighlightColor="{StaticResource DarkOrange}" -->
+            <!--     MinimumValue="0" -->
+            <!--     StepValue="1" /> -->
+            
+        </StackLayout>
+</ContentView>
