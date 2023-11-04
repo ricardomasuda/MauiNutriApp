@@ -1,6 +1,6 @@
+using NutriApp.AppNutri.Componente;
 using NutriApp.AppNutri.View.Evaluation;
 using NutriApp.AppNutri.View.Evaluation.List;
-using NutriApp.Componente;
 
 namespace NutriApp.AppNutri.View.MainPage;
 

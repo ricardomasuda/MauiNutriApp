@@ -1,4 +1,4 @@
-using NutriApp.Componente;
+using NutriApp.AppNutri.Componente;
 
 namespace NutriApp.AppNutri.View.Evaluation.AdjustedWeight;
 

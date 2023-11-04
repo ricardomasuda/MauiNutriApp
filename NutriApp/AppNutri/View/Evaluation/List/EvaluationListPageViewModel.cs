@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
+using NutriApp.AppNutri.Componente;
 using NutriApp.AppNutri.Model;
 using NutriApp.AppNutri.service;
-using NutriApp.Componente;
 
 namespace NutriApp.AppNutri.View.Evaluation.List;
 

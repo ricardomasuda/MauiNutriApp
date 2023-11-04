@@ -1,8 +1,9 @@
 using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace NutriApp.Componente;
+namespace NutriApp.AppNutri.Componente;
 
-public partial class BaseViewModel : INotifyPropertyChanged
+public partial class BaseViewModel : ObservableObject
 {
     // protected void ErrorToaster(string message = "Error!", int durationInSeconds = 3, bool showInBottom = false)
     // {
@@ -38,7 +39,6 @@ public partial class BaseViewModel : INotifyPropertyChanged
     // {   
     //     UserDialogs.Instance.HideLoading();          
     // }
-        
     public event PropertyChangedEventHandler PropertyChanged;
     public void OnPropertyChanged(string nameProperty)
     {

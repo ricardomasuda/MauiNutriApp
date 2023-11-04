@@ -6,17 +6,13 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:model="clr-namespace:NutriApp.AppNutri.Model"
     xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
+    Size="400,750"
     x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceWaist.InfoCircumferenceWaistPopup">
     
-    <Frame
-        CornerRadius="15"
+    <VerticalStackLayout
         Padding="0"
         BackgroundColor="{StaticResource PageColor}"
-        Margin="10,50">
-
-        <StackLayout
-            Padding="0"
-            VerticalOptions="FillAndExpand">
+        Margin="0">
 
             <titleView:NewTitleView
                 VisibleBack="False"
@@ -25,10 +21,12 @@
                 TextTitle="Circunferência da Cintura" />
 
             <StackLayout
-                Margin="20,0,20,0"
+                Margin="20,10,20,0"
                 HorizontalOptions="FillAndExpand">
 
-                <Label Text="Tabela Mulher: " TextColor="{StaticResource DarkBlue}" FontAttributes="Bold" />
+                <Label Text="Tabela Mulher: " 
+                       TextColor="{StaticResource DarkBlue}" 
+                       FontAttributes="Bold" />
 
                 <ListView ItemsSource="{Binding ClassificationWoman}"
                           Margin="0"
@@ -235,10 +233,12 @@
                 </ListView>
             </StackLayout>
             <StackLayout
-                Margin="20,0,20,0"
+                Margin="20,20,20,0"
                 HorizontalOptions="FillAndExpand">
 
-                <Label Text="Tabela Homem: " TextColor="{StaticResource DarkBlue}" FontAttributes="Bold" />
+                <Label Text="Tabela Homem: " 
+                       TextColor="{StaticResource DarkBlue}" 
+                       FontAttributes="Bold" />
 
                 <ListView ItemsSource="{Binding ClassificationMan}"
                           Margin="0"
@@ -455,6 +455,5 @@
 
                 </ListView>
             </StackLayout>
-        </StackLayout>
-    </Frame>
+    </VerticalStackLayout>
 </toolkit:Popup>

@@ -10,8 +10,8 @@ public partial class InfoCircumferenceWaistPopup : Popup
         BindingContext = new InfoCircumferenceWaistPopupViewModel(this);
     }
 
-    public static void ClosePopup()
+    public void ClosePopupPage()
     {
-        ClosePopup();
+       CloseAsync();
     }
 }

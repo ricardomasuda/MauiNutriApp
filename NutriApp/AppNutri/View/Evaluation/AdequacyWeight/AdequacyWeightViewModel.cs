@@ -1,7 +1,7 @@
 using System.Globalization;
+using NutriApp.AppNutri.Componente;
 using NutriApp.AppNutri.service;
 using NutriApp.AppNutri.Utils;
-using NutriApp.Componente;
 
 namespace NutriApp.AppNutri.View.Evaluation.AdequacyWeight;
 

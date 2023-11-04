@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
+using NutriApp.AppNutri.Componente;
 using NutriApp.AppNutri.Model;
-using NutriApp.Componente;
 
 namespace NutriApp.AppNutri.View.Evaluation.CircumferenceWaist;
 
@@ -32,7 +32,7 @@ public class InfoCircumferenceWaistPopupViewModel : BaseViewModel
     
     private void ClosePage()
     {
-        InfoCircumferenceWaistPopup.ClosePopup();
+        _infoCircumferenceWaistPopup.ClosePopupPage();
     }
     
     private void FillData()

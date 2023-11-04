@@ -7,9 +7,8 @@ using NutriApp.AppNutri.Utils;
 
 namespace NutriApp.AppNutri.View.Evaluation.Imc;
 
-public partial class ImcPageViewModel : ObservableObject
+public partial class ImcTesteViewModel : ObservableObject
 {
-    
     private bool _checkedElder;
 
     public bool CheckedElder
@@ -22,7 +21,7 @@ public partial class ImcPageViewModel : ObservableObject
             if (CheckedElder) CheckedAdult = false;
         }
     }
-    
+
     private bool _checkedAdult;
 
     public bool CheckedAdult
@@ -35,26 +34,76 @@ public partial class ImcPageViewModel : ObservableObject
             if (CheckedAdult) CheckedElder = false;
         }
     }
-    
-    [ObservableProperty]
+
     private bool _hasErrorWeight;
-    [ObservableProperty]
+
+    public bool HasErrorWeight
+    {
+        get => _hasErrorWeight;
+        set
+        {
+            _hasErrorWeight = value;
+            OnPropertyChanged("HasErrorWeight");
+        }
+    }
+
     private bool _hasErrorHeight;
-    [ObservableProperty]
+
+    public bool HasErrorHeight
+    {
+        get => _hasErrorHeight;
+        set
+        {
+            _hasErrorHeight = value;
+            OnPropertyChanged("HasErrorHeight");
+        }
+    }
+
     private bool _canDisplayResult;
+
+    public bool CanDisplayResult
+    {
+        get => _canDisplayResult;
+        set
+        {
+            _canDisplayResult = value;
+            OnPropertyChanged("CanDisplayResult");
+        }
+    }
+
     [ObservableProperty]
-    private string _result;
-    [ObservableProperty]
+    public string result;
+
     private string _imcType;
-    [ObservableProperty]
+
+    public string ImcType
+    {
+        get => _imcType;
+        set
+        {
+            _imcType = value;
+            OnPropertyChanged("ImcType");
+        }
+    }
+
     private ImcModel _imc;
+
+    public ImcModel Imc
+    {
+        get => _imc;
+        set
+        {
+            _imc = value;
+            OnPropertyChanged("Imc");
+        }
+    }
 
     public Command CalculateCommand { get; set; }
     public Command InfoCommand { get; set; }
     public Command CheckedAdultCommand { get; set; }
     public Command CheckedElderCommand { get; set; }
 
-    public ImcPageViewModel()
+    public ImcTesteViewModel()
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);
@@ -71,11 +120,11 @@ public partial class ImcPageViewModel : ObservableObject
             return;
         }
 
-        Result = EvaluationCalculations.Imc(Convert.ToDouble(Imc.Altura), Convert.ToDouble(Imc.Peso)).ToString();
-        if (!string.IsNullOrEmpty(Result))
+        result = EvaluationCalculations.Imc(Convert.ToDouble(Imc.Altura), Convert.ToDouble(Imc.Peso)).ToString();
+        if (!string.IsNullOrEmpty(result))
         {
             var pessoa = CheckedAdult ? PersonAgeType.Adulto : PersonAgeType.Idoso;
-            ImcType = ImcService.CheckImc(Convert.ToDouble(Result), pessoa);
+            ImcType = ImcService.CheckImc(Convert.ToDouble(result), pessoa);
             CanDisplayResult = true;
         }
     }

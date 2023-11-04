@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
+using NutriApp.AppNutri.Componente;
 using NutriApp.AppNutri.Model;
-using NutriApp.Componente;
 
 namespace NutriApp.AppNutri.View.Evaluation.SemiologyNutritional;
 
