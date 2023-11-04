@@ -5,6 +5,8 @@
              xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
+             xmlns:adequacyWeight="clr-namespace:NutriApp.AppNutri.View.Evaluation.AdequacyWeight"
+             x:DataType="adequacyWeight:AdequacyWeightViewModel"
              x:Class="NutriApp.AppNutri.View.Evaluation.AdequacyWeight.AdequacyWeightPage">
     <StackLayout
         VerticalOptions="FillAndExpand">

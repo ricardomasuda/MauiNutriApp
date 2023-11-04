@@ -11,7 +11,7 @@ public class AdequacyWeightViewModel : BaseViewModel
 
     public string PesoAtual
     {
-        get { return _pesoAtual; }
+        get => _pesoAtual;
         set
         {
             _pesoAtual = value;
@@ -23,7 +23,7 @@ public class AdequacyWeightViewModel : BaseViewModel
 
     public string PesoIdeal
     {
-        get { return _pesoIdeal; }
+        get => _pesoIdeal;
         set
         {
             _pesoIdeal = value;
@@ -35,7 +35,7 @@ public class AdequacyWeightViewModel : BaseViewModel
 
     public bool HasErrorPesoAtual
     {
-        get { return _hasErrorPesoAtual; }
+        get => _hasErrorPesoAtual;
         set
         {
             _hasErrorPesoAtual = value;
@@ -47,7 +47,7 @@ public class AdequacyWeightViewModel : BaseViewModel
 
     public bool HasErrorPesoIdeal
     {
-        get { return _hasErrorPesoIdeal; }
+        get => _hasErrorPesoIdeal;
         set
         {
             _hasErrorPesoIdeal = value;
@@ -59,7 +59,7 @@ public class AdequacyWeightViewModel : BaseViewModel
 
     public string Result
     {
-        get { return _result; }
+        get => _result;
         set
         {
             _result = value;
@@ -71,7 +71,7 @@ public class AdequacyWeightViewModel : BaseViewModel
 
     public string ClassificacaoPesoAdequado
     {
-        get { return _classificacaoPesoAdequado; }
+        get => _classificacaoPesoAdequado;
         set
         {
             _classificacaoPesoAdequado = value;
@@ -83,7 +83,7 @@ public class AdequacyWeightViewModel : BaseViewModel
 
     public bool CanDisplayResult
     {
-        get { return _canDisplayResult; }
+        get => _canDisplayResult;
         set
         {
             _canDisplayResult = value;

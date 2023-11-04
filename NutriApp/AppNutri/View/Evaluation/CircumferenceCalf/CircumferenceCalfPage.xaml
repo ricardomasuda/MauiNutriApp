@@ -5,6 +5,8 @@
              xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
+             xmlns:circumferenceCalf="clr-namespace:NutriApp.AppNutri.View.Evaluation.CircumferenceCalf"
+             x:DataType="circumferenceCalf:CircumferenceCalfViewModel"
              x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceCalf.CircumferenceCalfPage">
    <StackLayout
         VerticalOptions="FillAndExpand">
