@@ -1,6 +1,14 @@
 using System.Collections.ObjectModel;
 using NutriApp.AppNutri.Model;
+using NutriApp.AppNutri.View.Evaluation.AdequacyWeight;
+using NutriApp.AppNutri.View.Evaluation.AdjustedWeight;
+using NutriApp.AppNutri.View.Evaluation.BodyComposition;
+using NutriApp.AppNutri.View.Evaluation.CircumferenceCalf;
+using NutriApp.AppNutri.View.Evaluation.CircumferenceWaist;
+using NutriApp.AppNutri.View.Evaluation.EstimatedHeight;
+using NutriApp.AppNutri.View.Evaluation.IdealWeight;
 using NutriApp.AppNutri.View.Evaluation.Imc;
+using NutriApp.AppNutri.View.Evaluation.SemiologyNutritional;
 using NutriApp.Resources.Strings;
 
 namespace NutriApp.AppNutri.service;
@@ -29,16 +37,16 @@ public class NavigationEvaluationService
         public static async void GoEvaluationMenu(ItemMenu itemMenu)
         {
             if (itemMenu.Titulo == EvaluationMenuStrings.Imc) { await Navigation.PushPageAsync(new ImcPage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.PesoIdeal) { await Navigation.PushPageAsync(new IdealWeightPage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.PesoAjustado) { await Navigation.PushPageAsync(new AdjustedWeightPage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.AdequacaoPeso) { await Navigation.PushPageAsync(new AdequacyWeightPage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.ComposicaoCorporal) { await Navigation.PushPageAsync(new BodyCompositionPage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.PesoEstimado)  { await Navigation.PushPageAsync(new EstimatedWeightPage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.AlturaEstimada) { await Navigation.PushPageAsync(new EstimatedHeightPage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaCintura) { await Navigation.PushPageAsync(new CircumferenceWaistPage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaPanturrilha) { await Navigation.PushPageAsync(new CircumferenceCalfPage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.ValorReference) { await Navigation.PushPageAsync(new ReferenceValuePage()); return;}
-            // if (itemMenu.Titulo == EvaluationMenuStrings.SemiologiaNutricional) { await Navigation.PushPageAsync(new SemiologiaNutricionalList()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.PesoIdeal) { await Navigation.PushPageAsync(new IdealWeightPage()); return;} 
+            if (itemMenu.Titulo == EvaluationMenuStrings.PesoAjustado) { await Navigation.PushPageAsync(new AdjustedWeightPage()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.AdequacaoPeso) { await Navigation.PushPageAsync(new AdequacyWeightPage()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.ComposicaoCorporal) { await Navigation.PushPageAsync(new BodyCompositionPage()); return;}
+            //if (itemMenu.Titulo == EvaluationMenuStrings.PesoEstimado)  { await Navigation.PushPageAsync(new EstimatedWeightPage()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.AlturaEstimada) { await Navigation.PushPageAsync(new EstimatedHeightPage()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaCintura) { await Navigation.PushPageAsync(new CircumferenceWaistPage()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaPanturrilha) { await Navigation.PushPageAsync(new CircumferenceCalfPage()); return;}
+            //if (itemMenu.Titulo == EvaluationMenuStrings.ValorReference) { await Navigation.PushPageAsync(new ReferenceValuePage()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.SemiologiaNutricional) { await Navigation.PushPageAsync(new SemiologiaNutricionalList()); return;}
             await App.NavPage.DisplayAlert("Em Construção", "Em construção", "OK");
             
         }

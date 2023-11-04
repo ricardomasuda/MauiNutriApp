@@ -7,6 +7,8 @@
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              xmlns:adjustedWeight="clr-namespace:NutriApp.AppNutri.View.Evaluation.AdjustedWeight"
              x:DataType="adjustedWeight:AdjustedWeightPageViewModel"
+             BackgroundColor="{StaticResource PageColor}"
+             NavigationPage.HasNavigationBar="False"
              x:Class="NutriApp.AppNutri.View.Evaluation.AdjustedWeight.AdjustedWeightPage">
    <StackLayout
         VerticalOptions="FillAndExpand">

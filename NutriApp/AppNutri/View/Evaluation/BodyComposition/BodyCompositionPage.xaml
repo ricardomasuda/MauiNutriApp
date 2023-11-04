@@ -8,6 +8,8 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:bodyComposition="clr-namespace:NutriApp.AppNutri.View.Evaluation.BodyComposition"
              x:DataType="bodyComposition:BodyCompositionPageViewModel"
+             BackgroundColor="{StaticResource PageColor}"
+             NavigationPage.HasNavigationBar="False"
              x:Class="NutriApp.AppNutri.View.Evaluation.BodyComposition.BodyCompositionPage">
     <StackLayout
         VerticalOptions="FillAndExpand">
