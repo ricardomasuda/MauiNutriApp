@@ -19,12 +19,12 @@
                 <Image
                     WidthRequest="130"
                     HeightRequest="130"
-                    Source="orangeIcon.png" />
+                    Source="orange.png" />
                 
                 <Image
-                    WidthRequest="80"
-                    HeightRequest="50"
-                    Source="TitleGuiaNutricionista.png" />
+                    WidthRequest="180"
+                    HeightRequest="90"
+                    Source="titleguianutricionista.png" />
                 
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding AboutAppCommand}" />
