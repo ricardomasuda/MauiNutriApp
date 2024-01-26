@@ -32,7 +32,7 @@ public class InfoCircumferenceWaistPopupViewModel : BaseViewModel
     
     private void ClosePage()
     {
-        _infoCircumferenceWaistPopup.ClosePopupPage();
+        _infoCircumferenceWaistPopup.CloseAsync();
     }
     
     private void FillData()

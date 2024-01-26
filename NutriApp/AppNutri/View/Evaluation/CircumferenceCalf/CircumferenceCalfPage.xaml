@@ -25,6 +25,7 @@
                 <StackLayout>
 
                     <core:SfTextInputLayout
+                        HeightRequest="80"
                         ContainerType="Outlined"
                         Hint="Circunferência da Panturrilha (cm)"
                         IsHintAlwaysFloated="True"

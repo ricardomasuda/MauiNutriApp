@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
+             xmlns:cardLine="clr-namespace:NutriApp.AppNutri.Componente.CardLine"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
+             x:Class="NutriApp.AppNutri.View.Food.Detail.FoodDetailPage">
+     <ScrollView>
+            
+            <StackLayout>
+
+                <titleView:NewTitleView
+                    TypeTitle="InfoCircle"
+                    Command="{Binding InfoCommand}"
+                    TextTitle="Alimento" />
+                
+                <Frame 
+                    CornerRadius="10"
+                    Margin="30,10,30,0"
+                    HasShadow="False"
+                    BackgroundColor="{StaticResource LightBlue}">
+                    
+                    <Label
+                        Text="{Binding Food.Nome}"
+                        FontAttributes="Bold"
+                        FontSize="Title"
+                        VerticalOptions="Center"
+                        HorizontalOptions="CenterAndExpand"
+                        TextColor="{StaticResource DarkBlue}" />
+                </Frame>
+                
+                <Grid
+                    Margin="30,30,30,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <!-- <pancakeView:PancakeView  -->
+                    <!--     Margin="0,0,-8,0" -->
+                    <!--     CornerRadius="20,0,20,0" -->
+                    <!--     Padding="0" -->
+                    <!--     BackgroundColor="{StaticResource LightBlueGrey}"> -->
+                    <!--     <components1:MyEntry -->
+                    <!--         Margin="0,0,0,0" -->
+                    <!--         VerticalTextAlignment="Center" -->
+                    <!--         HorizontalTextAlignment="Center" -->
+                    <!--         FontAttributes="Bold" -->
+                    <!--         FontSize="14" -->
+                    <!--         BackgroundColor="{StaticResource LightBlueGrey}" -->
+                    <!--         TextChanged="InputView_OnTextChanged" -->
+                    <!--         Text="{Binding Measure}" -->
+                    <!--         HeightRequest="40"/> -->
+                    <!-- </pancakeView:PancakeView> -->
+                    
+                    <!-- <pancakeView:PancakeView  -->
+                    <!--     Grid.Column="1" -->
+                    <!--     Margin="-3,0,0,0" -->
+                    <!--     HorizontalOptions="Fill" -->
+                    <!--     CornerRadius="0,20,0,20" -->
+                    <!--     Padding="0" -->
+                    <!--     BackgroundColor="{StaticResource DarkBlue}"> -->
+                    <!--     <Label -->
+                    <!--         Margin="20,0,0,0" -->
+                    <!--         Padding="0" -->
+                    <!--         HorizontalOptions="Start" -->
+                    <!--         VerticalTextAlignment="Center" -->
+                    <!--         TextColor="White" -->
+                    <!--         Text="Medida (g)"/> -->
+                    <!-- </pancakeView:PancakeView> -->
+                </Grid>
+                
+                <Label
+                    Margin="0,0"
+                    TextColor="#797979"
+                    FontSize="12"
+                    FontAttributes="Italic"
+                    HorizontalTextAlignment="Center"
+                    Text="*Valor de referência igual a 100g" />
+
+                <cardLine:CardLineView
+                    Margin="0,20,0,0"
+                    BodyText="Carboidratos"
+                    ValueText="{Binding .Carbohydrates}" />
+
+                <cardLine:CardLineView
+                    Margin="0,8,0,0"
+                    BodyText="Proteínas"
+                    ValueText="{Binding  Proteins}" />
+
+                <cardLine:CardLineView
+                    Margin="0,8,0,0"
+                    BodyText="Lipídios"
+                    ValueText="{Binding Lipids}" />
+
+                <cardLine:CardLineView
+                    Margin="0,8,0,0"
+                    BodyText="Sódios"
+                    ValueText="{Binding Sodium}"/>
+                
+                <cardLine:CardLineView
+                    Margin="0,8,0,0"
+                    BodyText="Fibras Alimentares"
+                    ValueText="{Binding DietaryFiber}"/>
+                
+                <StackLayout Margin="0,24,0,0">
+                    
+                    <!-- <pancakeView:PancakeView  -->
+                    <!--     Margin="0,0,0,0" -->
+                    <!--     CornerRadius="10,10,0,0" -->
+                    <!--     HorizontalOptions="Center" -->
+                    <!--     Padding="0" -->
+                    <!--     WidthRequest="150" -->
+                    <!--     Shadow="{pancakeView:ShadowMarkup Color=Transparent, Offset='0,0'}" -->
+                    <!--     BackgroundColor="{StaticResource LightBlueGrey}"> -->
+                    <!--     <Label -->
+                    <!--         Margin="0" -->
+                    <!--         VerticalTextAlignment="Center" -->
+                    <!--         HorizontalOptions="Center" -->
+                    <!--         FontAttributes="Bold" -->
+                    <!--         FontSize="15" -->
+                    <!--         Text="{Binding CalorificValue}" -->
+                    <!--         HeightRequest="40"/> -->
+                    <!-- </pancakeView:PancakeView> -->
+                    <!-- -->
+                    <!-- <pancakeView:PancakeView  -->
+                    <!--     Margin="0,-10,0,0" -->
+                    <!--     CornerRadius="0,0,10,10" -->
+                    <!--     Padding="0" -->
+                    <!--     WidthRequest="150" -->
+                    <!--     Shadow="{pancakeView:ShadowMarkup Color=Transparent, Offset='10,10'}" -->
+                    <!--     HorizontalOptions="Center" -->
+                    <!--     BackgroundColor="{StaticResource DarkBlue}"> -->
+                    <!--     <Label -->
+                    <!--         HeightRequest="40" -->
+                    <!--         Margin="0,0,0,0" -->
+                    <!--         Padding="0" -->
+                    <!--         HorizontalOptions="Center" -->
+                    <!--         VerticalTextAlignment="Center" -->
+                    <!--         TextColor="White" -->
+                    <!--         Text="Valor Calórico"/> -->
+                    <!-- </pancakeView:PancakeView> -->
+                </StackLayout>
+                
+                <componente:ButtonView
+                    Margin="30,10"
+                    Command="{ Binding GoReportCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Text=" Relatório " />
+
+                <Label
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="12"
+                    TextColor="DimGray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Fonte: " />
+                            <Span Text="{Binding Source}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </StackLayout>
+        </ScrollView>
+</ContentPage>
