@@ -65,6 +65,7 @@
                 IsHintAlwaysFloated="True"
                 HasError="{Binding Properties.HasErrorCurrencyWeight}"
                 ErrorText="Peso Atual não informada"
+                HeightRequest="80"
                 OutlineCornerRadius="8">
 
                 <Entry
@@ -80,6 +81,7 @@
                 ContainerType="Outlined"
                 Hint="Peso Ideal (kg)"
                 IsHintAlwaysFloated="True"
+                HeightRequest="80"
                 HasError="{Binding Properties.HasErrorIdealWeight}"
                 ErrorText="Peso Ideal não informada"
                 OutlineCornerRadius="8">

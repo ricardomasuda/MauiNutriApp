@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:NutriApp.AppNutri.Model"
+             xmlns:list="clr-namespace:NutriApp.AppNutri.View.Food.List"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+             x:Name="FoodListRoot"
+             x:DataType="list:FoodListViewModel"
+             x:Class="NutriApp.AppNutri.View.Food.List.FoodListPage">
+   <StackLayout>
+        
+        <!-- <titleView:SearchTitleView -->
+        <!--     Command="{Binding GoAddFoodCommand}" -->
+        <!--     TypeTitle="None" -->
+        <!--     TextSearch="{Binding SearchBar}" -->
+        <!--     VisibleBack="True" -->
+        <!--     TextTitle="Lista de Alimentos" />    -->
+                 
+        <StackLayout Margin="20,0,20,0">
+            
+            <Label
+                FontSize="16"
+                TextColor="{StaticResource DarkBlue}"
+                FontAttributes="Bold">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="oi" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <ListView>
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Apple</x:String>
+                        <x:String>Orange</x:String>
+                        <x:String>Banana</x:String>
+                        <x:String>Grape</x:String>
+                        <x:String>Mango</x:String>
+                    </x:Array>
+                </ListView.ItemsSource>
+            </ListView>
+            <ListView
+                x:Name="ListFood"
+                Margin="10"
+                ItemsSource="{Binding ListFood}"
+                BackgroundColor="{StaticResource DarkGreen}"
+                HasUnevenRows="False">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:FoodModel">
+                        <ViewCell>
+
+                            <StackLayout
+                                Margin="0,10"
+                                HorizontalOptions="FillAndExpand">
+
+                                <Label
+                                    FontSize="16"
+                                    TextColor="{StaticResource DarkBlue}"
+                                    FontAttributes="Bold">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="oi" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <Label
+                                    Text="{Binding Fonte}"
+                                    FontSize="10"
+                                    TextColor="Gray" />
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={x:Reference FoodListRoot}, Path=BindingContext.GoEditFoodCommand}"
+                                        CommandParameter="{Binding .}" />
+                                </StackLayout.GestureRecognizers>
+
+                            </StackLayout>
+
+                        </ViewCell>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -30,6 +30,7 @@
                 HorizontalOptions="Center"
                 VerticalTextAlignment="Center"
                 FontAttributes="Bold"
+                Padding="10,0,0,0"
                 TextColor="{StaticResource DarkBlue}" />
 
         </Border>

@@ -25,6 +25,7 @@
                 <StackLayout>
                     
                     <core:SfTextInputLayout
+                        HeightRequest="80"
                         ContainerType="Outlined"
                         Hint="Circunferência da Cintura (cm)"
                         IsHintAlwaysFloated="True"
@@ -44,6 +45,7 @@
                     </core:SfTextInputLayout>
                     
                     <core:SfTextInputLayout
+                        HeightRequest="80"
                         ContainerType="Outlined"
                         Hint="Circunferência do Quadril (cm)"
                         IsHintAlwaysFloated="True"
@@ -63,6 +65,7 @@
                     </core:SfTextInputLayout>
                     
                     <core:SfTextInputLayout
+                        HeightRequest="80"
                         ContainerType="Outlined"
                         Hint="Idade (anos)"
                         IsHintAlwaysFloated="True"

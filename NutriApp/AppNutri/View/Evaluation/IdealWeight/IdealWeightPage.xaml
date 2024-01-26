@@ -25,6 +25,7 @@
                         ContainerType="Outlined"
                         Hint="IMC Ideal (kg/m²)"
                         IsHintAlwaysFloated="True"
+                        HeightRequest="80"
                         HasError="{Binding HasErrorImcIdeal}"
                         ErrorText="IMC Ideal não informado"
                         OutlineCornerRadius="8">
@@ -41,6 +42,7 @@
                     <core:SfTextInputLayout
                         ContainerType="Outlined"
                         Hint="Altura (m)"
+                        HeightRequest="80"
                         HasError="{Binding HasErrorHeight}"
                         ErrorText="Altura não informado"
                         IsHintAlwaysFloated="True"
@@ -78,6 +80,7 @@
                     Command="{Binding CalculateCommand}"
                     VerticalOptions="CenterAndExpand"
                     BackgroundColor="#283555"
+                    TextColor="White"
                     Text="Calcular" />
 
             </StackLayout>

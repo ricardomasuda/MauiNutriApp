@@ -61,6 +61,7 @@
             </StackLayout>
 
             <core:SfTextInputLayout
+                HeightRequest="80"
                 ContainerType="Outlined"
                 Hint="Idade"
                 IsHintAlwaysFloated="True"
@@ -78,6 +79,7 @@
             </core:SfTextInputLayout>
 
             <core:SfTextInputLayout
+                HeightRequest="80"
                 ContainerType="Outlined"
                 Hint="Altura Joelho(cm)"
                 IsHintAlwaysFloated="True"

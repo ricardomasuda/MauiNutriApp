@@ -64,7 +64,12 @@
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0"/>
+        <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+        <PackageReference Include="SQLitePCLRaw.core" Version="2.1.0" />
+        <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.0" />
+        <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
+        <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.0" />
         <PackageReference Include="Syncfusion.Maui.Core" Version="23.1.40" />
         <PackageReference Include="Syncfusion.Maui.Inputs" Version="23.1.40" />
     </ItemGroup>
@@ -93,6 +98,9 @@
       <MauiXaml Update="AppNutri\View\Evaluation\List\EvaluationListPage.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
+      <MauiXaml Update="AppNutri\View\Food\List\FoodListPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
@@ -119,6 +127,12 @@
       </Compile>
       <Compile Update="AppNutri\View\Evaluation\List\EvaluationListPage.xaml.cs">
         <DependentUpon>EvaluationListPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <None Remove="nutridb.db3" />
+      <EmbeddedResource Include="nutridb.db3" />
+      <Compile Update="AppNutri\View\Food\List\FoodListPage.xaml.cs">
+        <DependentUpon>FoodListPage.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>
