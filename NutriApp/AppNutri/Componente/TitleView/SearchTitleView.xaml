@@ -4,6 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:icon="clr-namespace:NutriApp.Resources"
+             BackgroundColor="#E77717"
+             x:Name="SearchTitleViewRoot"
              x:Class="NutriApp.AppNutri.Componente.TitleView.SearchTitleView">
      <StackLayout
         Margin="0,12,0,12">
@@ -26,6 +28,7 @@
                 CornerRadius="10"
                 Padding="10"
                 Opacity="20"
+                BorderColor="Transparent"
                 HasShadow="False"
                 Margin="20,0,0,0"
                 HorizontalOptions="Start"
@@ -62,6 +65,7 @@
                 VerticalOptions="Center"
                 CornerRadius="30"
                 HasShadow="False"
+                BorderColor="Transparent"
                 Grid.Column="1">
                 
                 <Frame.CornerRadius>
@@ -90,6 +94,7 @@
                 CornerRadius="10"
                 HasShadow="False"
                 BackgroundColor="Transparent"
+                BorderColor="Transparent"
                 Padding="18"
                 Opacity="20">
 

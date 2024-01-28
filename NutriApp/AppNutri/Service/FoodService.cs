@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
+using NutriApp.AppNutri.BancoDados;
 using NutriApp.AppNutri.Model;
 using NutriApp.AppNutri.Utils;
 
@@ -22,8 +23,7 @@ namespace NutriApp.AppNutri.service;
 
         public static async Task<FoodModel> ChangeUnitMeasure(int foodId, double measure)
         {
-            //FoodModel food = RemoveNotApplicable(await new FoodDB().ConsultarAsync(foodId));
-            FoodModel food = new FoodModel();
+            FoodModel food = RemoveNotApplicable(await new FoodDb().ConsultarAsync(foodId));
             food.Carboidratos = $"{CommonCalculations.Proportion(food.Carboidratos, measure)} {GetUnitMeasure(food.Carboidratos, NutrientsTypes.CARBOIDRATO)}";
             food.Proteinas = $"{CommonCalculations.Proportion(food.Proteinas, measure)} {GetUnitMeasure(food.Proteinas, NutrientsTypes.PROTEINA)}";
             food.Lipidios = $"{CommonCalculations.Proportion(food.Lipidios, measure)} {GetUnitMeasure(food.Lipidios, NutrientsTypes.LIPIDIO)}";

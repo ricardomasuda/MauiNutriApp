@@ -8,7 +8,7 @@ public class DataBaseService
 {
     public static async Task<ObservableCollection<FoodModel>> GetFoods()
     {
-        return new ObservableCollection<FoodModel>(await new FoodDB().ListarAsync());
+        return new ObservableCollection<FoodModel>(await new FoodDb().ListarAsync());
     }
 
     public static async Task<ObservableCollection<FoodPlanModel>> GetPlanFoods()

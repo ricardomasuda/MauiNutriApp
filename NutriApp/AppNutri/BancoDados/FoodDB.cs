@@ -3,9 +3,9 @@ using NutriApp.AppNutri.Model;
 
 namespace NutriApp.AppNutri.BancoDados;
 
-public class FoodDB
+public class FoodDb
 {
-    public FoodDB()
+    public FoodDb()
     {
         App.Database.CreateTableAsync<FoodModel>().Wait();
     }
@@ -18,7 +18,8 @@ public class FoodDB
             foodModel.Nome = foodModel.Nome.Replace("-Não se aplica", "");
             foodListResult.Add(foodModel);
         }
-        return foodListResult.OrderBy(food => food.Nome);
+        //TODO - ARRUMAR LISTAGEM
+        return foodListResult.Take(500).OrderBy(food => food.Nome);
     }
 
     public async Task<int> CadastrarListaAsync(FoodModel foodModel)

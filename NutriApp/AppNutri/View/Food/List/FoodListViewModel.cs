@@ -28,16 +28,9 @@ public class FoodListViewModel : BaseViewModel
 
     private async void FetchList()
     {
-        try
-        {
-            ListFood = await DataBaseService.GetFoods();
-            _listFoodAux = ListFood;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-        }
-      
+        ListFood = new ObservableCollection<FoodModel>();
+        ListFood = await DataBaseService.GetFoods();
+        _listFoodAux = ListFood;
     }
 
     private void GoBack()

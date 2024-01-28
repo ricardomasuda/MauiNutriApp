@@ -91,39 +91,7 @@ public partial class SearchTitleView : ContentView
         private void TipoAcao()
         {
             if (Icon == null) return;
-            switch (TypeTitle)
-            {
-                case TypeTitleEnum.InfoCircle:
-                    Icon.Text = IconName.QuestionCircle; 
-                    break;
-                case TypeTitleEnum.Edit:
-                    Icon.Text = IconName.PencilSquare; 
-                    //ImageLogo.Source = ImageSource.FromFile("edit.png");
-                    break;
-                case TypeTitleEnum.Plus:
-                    Icon.Text = IconName.Plus; 
-                    //ImageLogo.Source = ImageSource.FromFile("plusBlack.png");
-                    break;
-                case TypeTitleEnum.Trash:
-                    Icon.Text = IconName.Trash; 
-                    //ImageLogo.Source = ImageSource.FromFile("trashIcon.png");
-                    break;
-                case TypeTitleEnum.Close:
-                    Icon.Text = IconName.Times;
-                    Icon.FontFamily = "FontAwesomeBold";
-                    //ImageLogo.Source = ImageSource.FromFile("close.png");
-                    break;
-                case TypeTitleEnum.Share:
-                    Icon.Text = IconName.ShareAlt; 
-                    //ImageLogo.Source = ImageSource.FromFile("share.png");
-                    break;
-                case TypeTitleEnum.None:
-                default:
-                    Icon.IsVisible = false;
-                    FrameLogo.IsVisible = false;
-                    Title.Margin = new Thickness(0, 10, 0, 0);
-                    break;
-            }
+          
         }
 
         private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
