@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NutriApp", "NutriApp\NutriA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Route", "Route\Route\Route.csproj", "{0C6D48B0-CAD7-4F4C-801C-7FD1C620A73A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Route.Sample", "Route\Route.Sample\Route.Sample.csproj", "{9FBA7346-BC07-4146-B329-4C6A296A3443}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Route.Tests", "Route\Route.Tests\Route.Tests.csproj", "{FE2FB659-E4B5-4B78-93C6-B05A406B47D7}"
 EndProject
 Global
@@ -26,10 +24,6 @@ Global
 		{0C6D48B0-CAD7-4F4C-801C-7FD1C620A73A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C6D48B0-CAD7-4F4C-801C-7FD1C620A73A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C6D48B0-CAD7-4F4C-801C-7FD1C620A73A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9FBA7346-BC07-4146-B329-4C6A296A3443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FBA7346-BC07-4146-B329-4C6A296A3443}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FBA7346-BC07-4146-B329-4C6A296A3443}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FBA7346-BC07-4146-B329-4C6A296A3443}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FE2FB659-E4B5-4B78-93C6-B05A406B47D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FE2FB659-E4B5-4B78-93C6-B05A406B47D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE2FB659-E4B5-4B78-93C6-B05A406B47D7}.Release|Any CPU.ActiveCfg = Release|Any CPU

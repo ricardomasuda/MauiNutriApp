@@ -160,4 +160,8 @@
       </EmbeddedResource>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Route\Route\Route.csproj" />
+    </ItemGroup>
+
 </Project>
