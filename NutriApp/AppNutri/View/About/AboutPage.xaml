@@ -5,6 +5,9 @@
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              xmlns:titleFrame="clr-namespace:NutriApp.AppNutri.Componente.TitleFrame"
              xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="False"
+             NavigationPage.HasNavigationBar="False"
              Title="Sobre o Aplicativo"
              BackgroundColor="{StaticResource PageColor}"
              x:Class="NutriApp.AppNutri.View.About.AboutPage">
@@ -24,7 +27,7 @@
                     <Image
                         WidthRequest="100"
                         HeightRequest="100"
-                        Source="orangeIcon.png" />
+                        Source="orange.png" />
 
                     <Label
                         Text="Guia do Nutricionista"
