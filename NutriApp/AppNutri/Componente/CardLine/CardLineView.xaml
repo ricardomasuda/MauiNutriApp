@@ -34,7 +34,7 @@
         </Frame>
         <Frame
             Grid.Column="0"
-            WidthRequest="180"
+            WidthRequest="150"
             HasShadow="False"
             CornerRadius="30"
             Padding="5"
