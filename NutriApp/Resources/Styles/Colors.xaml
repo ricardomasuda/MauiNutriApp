@@ -17,6 +17,7 @@
     <Color x:Key="Gray600">#404040</Color>
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
+    
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
@@ -40,5 +41,51 @@
     <Color x:Key="Blue100Accent">#3E8EED</Color>
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
+    
+    <Color x:Key="PageColor">#F1F1F1</Color>
+    <Color x:Key="TextColor">#FF8473</Color>
+    <Color x:Key="TextColorBrown">#330600</Color>
+    <Color x:Key="BackgroundColor">#FFF8EE</Color>
+    <Color x:Key="TitleColor">#91C788</Color>
+    <Color x:Key="TitleColor2">#000000</Color>
+    <Color x:Key="SearchButtonBorderColor">#F4F4F4</Color>
+    <Color x:Key="FrameColor">#FAF3EB</Color>
+    <Color x:Key="DarkGreen">#5E9554</Color>
+    <Color x:Key="FrameGreen">#86BA7E</Color>
+            
+    <!--ColorsPageMenu-->
+    <Color x:Key="DarkPurple">#5954A1</Color>
+    <Color x:Key="LightPurple">#A3A0CA</Color>
+    <Color x:Key="DarkBrown">#330600</Color>
+    <Color x:Key="DarkOrange">#E4791D</Color>
+    <Color x:Key="DarkBlue">#283555</Color>
+    <Color x:Key="IconBlue">#3F548A</Color>
+    <Color x:Key="LightBlueInput">#9AA8CB</Color>
+    <Color x:Key="LightBlue">#C3C7D3</Color>
+    <Color x:Key="DarkSalmon">#ff8473</Color>
+    <Color x:Key="LightSalmon">#FF806E</Color>
+    <Color x:Key="DarkGrey">#7B7B7B</Color>
+    <Color x:Key="LightBlueGrey">#D9D9D9</Color>
+    <Color x:Key="WhiteText">#ffffff</Color>
+            
+    <!--ColorsPageSearch-->
+    <Color x:Key="LightGrey">#999999</Color>
+            
+    <!--ColorsPageInformations-->
+    <Color x:Key="LightGreen">#7CBC71</Color>
+    <Color x:Key="LightGreyText">#A9A9A9</Color>
+    <Color x:Key="DarkSalmonBackground">#FFEACC</Color>
+    <Color x:Key="LightSalmonBackground">#FFF8EE</Color>
+            
+    <!--ColorsPageNewFood-->
+    <Color x:Key="DarkGreyText">#5C5C5C</Color>
+    <Color x:Key="LightGreyTextHint">#999999</Color>
+            
+    <Color x:Key="BorderColor">#283555</Color>
+    
+    <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+        <On Platform="Android" Value="signika.semibold.ttf"/>
+        <On Platform="iOS" Value="signika.semibold.ttf"/>
+    </OnPlatform>
 
 </ResourceDictionary>

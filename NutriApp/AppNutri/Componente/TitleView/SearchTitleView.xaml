@@ -56,7 +56,6 @@
                 FontAttributes="Bold"
                 HorizontalTextAlignment="Center"
                 HorizontalOptions="CenterAndExpand"
-             
                 VerticalTextAlignment="Center"
                 TextColor="{StaticResource PageColor}" />
             
@@ -82,7 +81,7 @@
                     FontSize="15"
                     Placeholder="Buscar Alimento"
                     PlaceholderColor="#999999"
-                    BackgroundColor="Transparent"
+                    BackgroundColor="{StaticResource PageColor}"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
             </Frame>

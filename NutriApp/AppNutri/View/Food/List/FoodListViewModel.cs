@@ -29,7 +29,11 @@ public class FoodListViewModel : BaseViewModel
     private async void FetchList()
     {
         ListFood = new ObservableCollection<FoodModel>();
-        ListFood = await DataBaseService.GetFoods();
+        var listFoodItem = await DataBaseService.GetFoods();
+        foreach (var foodModel in listFoodItem)
+        {
+            ListFood.Add(foodModel);
+        }
         _listFoodAux = ListFood;
     }
 

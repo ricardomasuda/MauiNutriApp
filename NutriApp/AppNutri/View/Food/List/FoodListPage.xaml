@@ -26,7 +26,7 @@
                 Margin="10"
                 ItemsSource="{Binding ListFood}"
                 BackgroundColor="Transparent"
-                HasUnevenRows="False">
+                HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:FoodModel">
                         <ViewCell>
