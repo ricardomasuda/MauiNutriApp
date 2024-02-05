@@ -1,4 +1,4 @@
-namespace NutriApp;
+namespace NutriApp.Navigation;
 
 public class Navigation
 {

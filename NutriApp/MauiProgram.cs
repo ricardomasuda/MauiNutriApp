@@ -1,9 +1,11 @@
 ﻿using CommunityToolkit.Maui;
+using RouteGenerator;
 using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace NutriApp;
 
+[AutoRoutes("Page")]
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()

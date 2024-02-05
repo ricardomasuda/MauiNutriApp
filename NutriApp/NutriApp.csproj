@@ -83,85 +83,34 @@
     </ItemGroup>
 
     <ItemGroup>
-      <MauiXaml Update="View\MainPage\MainPage.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
-      <MauiXaml Update="AppNutri\NewItemMenu\NewItemMenuView.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
-      <MauiXaml Update="AppNutri\Componente\Button\ButtonView.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
-      <MauiXaml Update="AppNutri\Componente\ResultLine\ResultLineView.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
-      <MauiXaml Update="AppNutri\View\Evaluation\List\EvaluationListPage.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
-      <MauiXaml Update="AppNutri\View\Food\List\FoodListPage.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
+        <None Remove="nutridb.db3"/>
+        <EmbeddedResource Include="nutridb.db3"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="View\MainPage\MainPage.xaml.cs">
-        <DependentUpon>MainPage.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="AppNutri\NewItemMenu\NewItemMenuView.xaml.cs">
-        <DependentUpon>NewItemMenuView.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Resources\Strings\EvaluationMenuStrings.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>EvaluationMenuStrings.resx</DependentUpon>
-      </Compile>
-      <Compile Update="AppNutri\Componente\Button\ButtonView.xaml.cs">
-        <DependentUpon>ButtonView.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="AppNutri\Componente\ResultLine\ResultLineView.xaml.cs">
-        <DependentUpon>ResultLineView.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="AppNutri\View\Evaluation\List\EvaluationListPage.xaml.cs">
-        <DependentUpon>EvaluationListPage.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <None Remove="nutridb.db3" />
-      <EmbeddedResource Include="nutridb.db3" />
-      <Compile Update="AppNutri\View\Food\List\FoodListPage.xaml.cs">
-        <DependentUpon>FoodListPage.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
+        <Reference Include="PancakeViewCompat">
+            <HintPath>..\..\..\.nuget\packages\pancakeviewcompat\6.0.1-pre\lib\net6.0-android31.0\PancakeViewCompat.dll</HintPath>
+        </Reference>
+        <Reference Include="Syncfusion.Maui.Core">
+            <HintPath>..\..\..\.nuget\packages\syncfusion.maui.core\23.1.40\lib\net7.0-maccatalyst13.5\Syncfusion.Maui.Core.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="PancakeViewCompat">
-        <HintPath>..\..\..\.nuget\packages\pancakeviewcompat\6.0.1-pre\lib\net6.0-android31.0\PancakeViewCompat.dll</HintPath>
-      </Reference>
-      <Reference Include="Syncfusion.Maui.Core">
-        <HintPath>..\..\..\.nuget\packages\syncfusion.maui.core\23.1.40\lib\net7.0-maccatalyst13.5\Syncfusion.Maui.Core.dll</HintPath>
-      </Reference>
+        <Compile Update="Resources\Strings\EvaluationMenuStrings.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>EvaluationMenuStrings.resx</DependentUpon>
+        </Compile>
+
+        <EmbeddedResource Update="Resources\Strings\EvaluationMenuStrings.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>EvaluationMenuStrings.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="AppNutri\Componente\NewItemMenu\NewItemMenuView.xaml" />
-      <AdditionalFiles Include="AppNutri\Componente\TitleView\NewTitleView.xaml" />
-      <AdditionalFiles Include="AppNutri\View\Evaluation\Imc\ImcPage.xaml" />
-      <AdditionalFiles Include="AppNutri\View\MainPage\MainPage.xaml" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Update="Resources\Strings\EvaluationMenuStrings.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>EvaluationMenuStrings.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Route\Route\Route.csproj" />
+        <ProjectReference Include="..\Route\Route\Route.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
 </Project>

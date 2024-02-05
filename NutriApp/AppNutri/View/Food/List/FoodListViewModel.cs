@@ -46,7 +46,7 @@ public class FoodListViewModel : BaseViewModel
 
     private static async void EditFood(object sender)
     {
-        await Navigation.PushPageAsync(new FoodDetailPage((FoodModel)sender));
+        await Navigation.Navigation.PushPageAsync(new FoodDetailPage((FoodModel)sender));
     }
 
     private async void AddFood(object sender)

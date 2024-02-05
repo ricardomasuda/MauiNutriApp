@@ -197,7 +197,7 @@ public class RouteGenerator : IIncrementalGenerator {
         return """
                using System;
 
-               namespace epj.RouteGenerator;
+               namespace RouteGenerator;
 
                [AttributeUsage(AttributeTargets.Class, Inherited = false)]
                public class AutoRoutesAttribute : Attribute
@@ -216,7 +216,7 @@ public class RouteGenerator : IIncrementalGenerator {
         return """
                using System;
 
-               namespace epj.RouteGenerator;
+               namespace RouteGenerator;
 
                [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = true)]
                public class ExtraRouteAttribute : Attribute
