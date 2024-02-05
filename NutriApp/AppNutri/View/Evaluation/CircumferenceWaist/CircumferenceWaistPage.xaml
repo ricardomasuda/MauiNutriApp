@@ -85,7 +85,7 @@
                     </core:SfTextInputLayout>
                     
                     <Label Text="Grupo:"
-                           TextColor="{StaticResource DarkBlue}"
+                           TextColor="{StaticResource PageBackgroundColor}"
                            VerticalOptions="CenterAndExpand"
                            HorizontalOptions="StartAndExpand" />
                     

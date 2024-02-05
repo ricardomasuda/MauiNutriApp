@@ -133,4 +133,6 @@ public class FoodDetailViewModel : BaseViewModel
         // List<FoodModel> listFood = new List<FoodModel> { foodReport };
         // await App.NavPage.PushAsync(new ReportPage(listFood));
     }
+    
+    
 }

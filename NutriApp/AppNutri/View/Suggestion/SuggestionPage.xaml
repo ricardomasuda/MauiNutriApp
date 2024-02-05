@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
+             xmlns:core="http://schemas.syncfusion.com/maui"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
+             xmlns:suggestion="clr-namespace:NutriApp.AppNutri.View.Suggestion"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{StaticResource PageColor}"
+             x:DataType="suggestion:SuggestionViewModel"
+             x:Class="NutriApp.AppNutri.View.Suggestion.SuggestionPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <titleView:NewTitleView
+                TextTitle="Sugestão" />
+            
+            <StackLayout
+                Margin="20,15">
+            
+                <ScrollView VerticalOptions="FillAndExpand">
+
+                    <StackLayout>
+                        <core:SfTextInputLayout
+                            ContainerType="Outlined"
+                            Hint="Adicione uma sugestão"
+                            EnableHintAnimation="True"
+                            Margin="0,20,0,0"
+                            HasError="{Binding HasErrorBodyText}"
+                            ErrorText="Sugestão não informada"
+                            IsHintAlwaysFloated="True"
+                            OutlineCornerRadius="8">
+
+                            <Editor
+                                HeightRequest="350"
+                                Text="{Binding BodyText}"
+                                BackgroundColor="{StaticResource FrameColor}" />
+                    
+                        </core:SfTextInputLayout>
+                    </StackLayout>
+                
+                </ScrollView>
+                
+                <componente:ButtonView
+                    Command="{Binding SendEmailCommand}"
+                    VerticalOptions="End"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Text="Enviar por Email" />
+            
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
