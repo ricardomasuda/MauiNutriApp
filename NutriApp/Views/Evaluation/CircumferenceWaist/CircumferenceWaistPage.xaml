@@ -1,0 +1,141 @@
+<?xml version="1.0"
+      encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="http://schemas.syncfusion.com/maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
+             xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
+             BackgroundColor="{StaticResource PageColor}"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceWaist.CircumferenceWaistPage">
+    <StackLayout VerticalOptions="FillAndExpand"
+                 Margin="0,0,0,0">
+
+        <titleView1:NewTitleView Command="{Binding InfoImcCommand}"
+                                 TypeTitle="InfoCircle"
+                                 TextTitle="Circunferência da Cintura" />
+
+        <ScrollView>
+
+            <StackLayout Margin="20,20,20,0">
+
+                <StackLayout>
+
+                    <core:SfTextInputLayout HeightRequest="80"
+                                            ContainerType="Outlined"
+                                            Hint="Circunferência da Cintura (cm)"
+                                            IsHintAlwaysFloated="True"
+                                            HasError="{Binding HasErrorCircumferenceAbdominal}"
+                                            ErrorText="Circunferência da cintura não informado"
+                                            OutlineCornerRadius="8">
+                        <Entry BackgroundColor="#F4F4F4"
+                               Keyboard="Numeric"
+                               Text="{Binding CircumferenceAbdominal}"
+                               TextColor="Black"
+                               PlaceholderColor="Black">
+                            <Entry.Behaviors>
+                                <toolkit:MaskedBehavior Mask="XXX" />
+                            </Entry.Behaviors>
+                        </Entry>
+                    </core:SfTextInputLayout>
+
+                    <core:SfTextInputLayout HeightRequest="80"
+                                            ContainerType="Outlined"
+                                            Hint="Circunferência do Quadril (cm)"
+                                            IsHintAlwaysFloated="True"
+                                            HasError="{Binding HasErrorCircumferenceHip}"
+                                            ErrorText="Circunferência do quadril não informado"
+                                            OutlineCornerRadius="8">
+                        <Entry BackgroundColor="#F4F4F4"
+                               TextColor="Black"
+                               Keyboard="Numeric"
+                               Text="{Binding CircumferenceHip}"
+                               PlaceholderColor="Black">
+                            <Entry.Behaviors>
+                                <toolkit:MaskedBehavior Mask="XXX" />
+                            </Entry.Behaviors>
+                        </Entry>
+                    </core:SfTextInputLayout>
+
+                    <core:SfTextInputLayout HeightRequest="80"
+                                            ContainerType="Outlined"
+                                            Hint="Idade (anos)"
+                                            IsHintAlwaysFloated="True"
+                                            HasError="{Binding HasErrorAge}"
+                                            ErrorText="Idade não informado"
+                                            OutlineCornerRadius="8">
+                        <Entry BackgroundColor="#F4F4F4"
+                               TextColor="Black"
+                               Keyboard="Numeric"
+                               Text="{Binding Age}"
+                               PlaceholderColor="Black">
+                            <Entry.Behaviors>
+                                <toolkit:MaskedBehavior Mask="XXX" />
+                            </Entry.Behaviors>
+                        </Entry>
+                    </core:SfTextInputLayout>
+
+                    <Label Text="Grupo:"
+                           TextColor="{StaticResource PageBackgroundColor}"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand" />
+
+                    <StackLayout Orientation="Horizontal">
+
+                        <CheckBox IsChecked="{Binding CheckedMan}"
+                                  Color="{StaticResource DarkBlue}" />
+
+                        <Label VerticalTextAlignment="Center"
+                               Text="Homem"
+                               TextColor="Black">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ManCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+
+                        <CheckBox IsChecked="{Binding CheckedWoman}"
+                                  Color="{StaticResource DarkBlue}" />
+
+                        <Label VerticalTextAlignment="Center"
+                               Text="Mulher"
+                               TextColor="Black">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding WomanCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </StackLayout>
+
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="EndAndExpand"
+                             IsVisible="{Binding DisplayResult}">
+
+                    <componente:ResultLineView Margin="0,40,0,0"
+                                               ResultType="FIRST"
+                                               TextTitle="Cincunfêrencia/Cintura:"
+                                               BodyText="{Binding Result}" />
+
+                    <componente:ResultLineView TextTitle="Classificação:"
+                                               BodyText="{Binding Classification}" />
+
+                </StackLayout>
+
+                <componente:ButtonView Margin="0,-3,0,0"
+                                       Command="{Binding CalculateCommand}"
+                                       VerticalOptions="CenterAndExpand"
+                                       BackgroundColor="#283555"
+                                       TextColor="White"
+                                       Text="Calcular" />
+
+            </StackLayout>
+
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
