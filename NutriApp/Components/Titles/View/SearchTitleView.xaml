@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:icon="clr-namespace:NutriApp.Resources"
+             BackgroundColor="#E77717"
+             x:Name="SearchTitleViewRoot"
+             x:Class="NutriApp.Components.Titles.TitleView.SearchTitleView">
+     <StackLayout
+        Margin="0,12,0,12">
+        <Grid
+            x:Name="Title">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                Grid.Column="0"
+                BackgroundColor="Transparent"
+                x:Name="FrameBack"
+                CornerRadius="10"
+                Padding="10"
+                Opacity="20"
+                BorderColor="Transparent"
+                HasShadow="False"
+                Margin="20,0,0,0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center">
+
+                <Label 
+                    Text="{x:Static icon:IconName.ChevronLeft}"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="20"
+                    TextColor="White"
+                    FontFamily="FontAwesomeBold"/>
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                </Frame.GestureRecognizers>
+
+            </Frame>
+
+            <Label
+                Grid.Column="1"
+                x:Name="LabelTitle"
+                FontSize="18"
+                IsVisible="False"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand"
+                VerticalTextAlignment="Center"
+                TextColor="{StaticResource PageColor}" />
+            
+            <Frame
+                Padding="0"
+                VerticalOptions="Center"
+                CornerRadius="30"
+                HasShadow="False"
+                BorderColor="Transparent"
+                Grid.Column="1">
+                
+                <Frame.CornerRadius>
+                    <OnPlatform x:TypeArguments="system:Single">
+                        <On Platform="iOS">20</On>
+                        <On Platform="Android">30</On>
+                    </OnPlatform>
+                </Frame.CornerRadius>
+                
+                <SearchBar
+                    Text="{Binding TextSearch ,Source={x:Reference SearchTitleViewRoot}, Mode=TwoWay}"
+                    Margin="-5,0"
+                    HeightRequest="40"
+                    FontSize="15"
+                    Placeholder="Buscar Alimento"
+                    PlaceholderColor="#999999"
+                    BackgroundColor="{StaticResource PageColor}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+            </Frame>
+            
+            <Frame
+                x:Name="FrameLogo"
+                Grid.Column="2"
+                HorizontalOptions="End"
+                CornerRadius="10"
+                HasShadow="False"
+                BackgroundColor="Transparent"
+                BorderColor="Transparent"
+                Padding="18"
+                Opacity="20">
+
+                <Label 
+                   x:Name="Icon"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="27"
+                   TextColor="White"
+                   FontFamily="FontAwesomeRegular"/>
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Command" />
+                </Frame.GestureRecognizers>
+
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentView>
