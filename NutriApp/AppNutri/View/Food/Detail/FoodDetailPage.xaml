@@ -6,11 +6,14 @@
              xmlns:cardLine="clr-namespace:NutriApp.AppNutri.Componente.CardLine"
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              xmlns:detail="clr-namespace:NutriApp.AppNutri.View.Food.Detail"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="false"
              x:Name="FoodListRoot"
              x:DataType="detail:FoodDetailViewModel"
              x:Class="NutriApp.AppNutri.View.Food.Detail.FoodDetailPage">
-     <ScrollView>
+    <ContentPage.BindingContext>
+        <detail:FoodDetailViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
             
             <StackLayout>
 
@@ -58,7 +61,6 @@
                             FontAttributes="Bold"
                             FontSize="14"
                             BackgroundColor="{StaticResource LightBlueGrey}"
-                            TextChanged="InputView_OnTextChanged"
                             Text="{Binding Measure}"
                             HeightRequest="40"/>
                     </Border>

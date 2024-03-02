@@ -6,10 +6,12 @@
              xmlns:list="clr-namespace:NutriApp.AppNutri.View.Food.List"
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="false"
              x:Name="FoodListRoot"
              x:DataType="list:FoodListViewModel"
              x:Class="NutriApp.AppNutri.View.Food.List.FoodListPage">
+
+
     <StackLayout>
 
         <titleView:SearchTitleView

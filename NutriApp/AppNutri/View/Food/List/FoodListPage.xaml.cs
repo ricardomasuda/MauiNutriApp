@@ -6,13 +6,13 @@ public partial class FoodListPage : ContentPage
     public FoodListPage()
     {
         InitializeComponent();
-        BindingContext = new FoodListViewModel();
+        //BindingContext = new FoodListViewModel();
     }
     
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        //BindingContext = FoodViewModel;
+        BindingContext = new FoodListViewModel();
     }
     
     // private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

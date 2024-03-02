@@ -1,15 +1,16 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.Componente;
+using MvvmHelpers;
 using NutriApp.AppNutri.Model;
 using NutriApp.AppNutri.service;
 using NutriApp.AppNutri.View.Food.Detail;
+using BaseViewModel = NutriApp.AppNutri.Componente.BaseViewModel;
 
 namespace NutriApp.AppNutri.View.Food.List;
 
 public class FoodListViewModel : BaseViewModel
 {
-    private ObservableCollection<FoodModel> _listFood;
-    public ObservableCollection<FoodModel> ListFood { get => _listFood; set { _listFood = value; OnPropertyChanged("ListFood"); } }
+    private ObservableRangeCollection<FoodModel> _listFood;
+    public ObservableRangeCollection<FoodModel> ListFood { get => _listFood; set { _listFood = value; OnPropertyChanged("ListFood"); } }
         
     private ObservableCollection<FoodModel> _listFoodAux;
         
@@ -28,12 +29,9 @@ public class FoodListViewModel : BaseViewModel
 
     private async void FetchList()
     {
-        ListFood = new ObservableCollection<FoodModel>();
+        ListFood = new ObservableRangeCollection<FoodModel>();
         var listFoodItem = await DataBaseService.GetFoods();
-        foreach (var foodModel in listFoodItem)
-        {
-            ListFood.Add(foodModel);
-        }
+        ListFood.AddRange(listFoodItem);
         _listFoodAux = ListFood;
     }
 
@@ -45,12 +43,16 @@ public class FoodListViewModel : BaseViewModel
     private void SearchBarAction()
     {
         var list = string.IsNullOrEmpty(SearchBar) ? _listFoodAux : _listFoodAux.Where(x => x.Nome.ToUpper().Contains(SearchBar.ToUpper()));
-        ListFood = new ObservableCollection<FoodModel>(list.ToList());
+        ListFood = new ObservableRangeCollection<FoodModel>(list.ToList());
     }
 
     private static async void EditFood(object sender)
     {
-        await Navigation.Navigation.PushPageAsync(new FoodDetailPage((FoodModel)sender));
+        var navigationParameter = new ShellNavigationQueryParameters
+        {
+            { "food", (FoodModel)sender }
+        };
+        await Shell.Current.GoToAsync(nameof(FoodDetailPage), navigationParameter);
     }
 
     private async void AddFood(object sender)
