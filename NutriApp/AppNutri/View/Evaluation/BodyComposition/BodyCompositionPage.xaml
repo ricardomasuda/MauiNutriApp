@@ -9,7 +9,7 @@
              xmlns:bodyComposition="clr-namespace:NutriApp.AppNutri.View.Evaluation.BodyComposition"
              x:DataType="bodyComposition:BodyCompositionPageViewModel"
              BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
              x:Class="NutriApp.AppNutri.View.Evaluation.BodyComposition.BodyCompositionPage">
     <StackLayout
         VerticalOptions="FillAndExpand">

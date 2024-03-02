@@ -7,7 +7,7 @@
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              xmlns:circumferenceCalf="clr-namespace:NutriApp.AppNutri.View.Evaluation.CircumferenceCalf"
              BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
              x:DataType="circumferenceCalf:CircumferenceCalfViewModel"
              x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceCalf.CircumferenceCalfPage">
    <StackLayout

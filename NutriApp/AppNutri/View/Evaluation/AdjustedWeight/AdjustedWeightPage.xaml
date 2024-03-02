@@ -8,7 +8,7 @@
              xmlns:adjustedWeight="clr-namespace:NutriApp.AppNutri.View.Evaluation.AdjustedWeight"
              x:DataType="adjustedWeight:AdjustedWeightPageViewModel"
              BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
              x:Class="NutriApp.AppNutri.View.Evaluation.AdjustedWeight.AdjustedWeightPage">
    <StackLayout
         VerticalOptions="FillAndExpand">
