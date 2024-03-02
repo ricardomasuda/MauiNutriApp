@@ -6,7 +6,7 @@
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              x:Name="EvaluationListRoot"
              BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="false"
              x:Class="NutriApp.AppNutri.View.Evaluation.List.EvaluationListPage">
     <ContentPage.Content>
 

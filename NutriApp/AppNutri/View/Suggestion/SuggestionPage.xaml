@@ -7,7 +7,7 @@
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              xmlns:suggestion="clr-namespace:NutriApp.AppNutri.View.Suggestion"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="false"
              ios:Page.UseSafeArea="true"
              BackgroundColor="{StaticResource PageColor}"
              x:DataType="suggestion:SuggestionViewModel"

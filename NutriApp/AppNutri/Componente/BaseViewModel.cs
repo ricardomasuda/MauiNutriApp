@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace NutriApp.AppNutri.Componente;
 
-public partial class BaseViewModel : INotifyPropertyChanged
+public partial class BaseViewModel : IBaseViewModel, INotifyPropertyChanged
 {
     // protected void ErrorToaster(string message = "Error!", int durationInSeconds = 3, bool showInBottom = false)
     // {

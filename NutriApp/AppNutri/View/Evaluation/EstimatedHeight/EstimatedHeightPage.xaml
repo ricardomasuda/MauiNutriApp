@@ -6,7 +6,7 @@
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
              x:Class="NutriApp.AppNutri.View.Evaluation.EstimatedHeight.EstimatedHeightPage">
     <StackLayout>
 
