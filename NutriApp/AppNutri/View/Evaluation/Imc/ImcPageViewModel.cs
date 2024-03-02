@@ -1,9 +1,11 @@
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using NutriApp.AppNutri.Model;
 using NutriApp.AppNutri.service;
 using NutriApp.AppNutri.Utils;
+using NutriApp.AppNutri.View.Evaluation.Imc.Info;
 
 namespace NutriApp.AppNutri.View.Evaluation.Imc;
 
@@ -54,11 +56,11 @@ public partial class ImcPageViewModel : ObservableObject
     public Command CheckedAdultCommand { get; set; }
     public Command CheckedElderCommand { get; set; }
 
-    public ImcPageViewModel()
+    public ImcPageViewModel(ImcPage page)
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);
-        //InfoCommand = new Command(async () => await Navigation.PushPopupAsync(new InfoImcPopup())) ;
+        InfoCommand = new Command(async () => page.ShowPopup(new InfoImcPopup()));
         CheckedAdultCommand = new Command(() => CheckedAdult = !CheckedAdult);
         CheckedElderCommand = new Command(() => CheckedElder = !CheckedElder);
     }

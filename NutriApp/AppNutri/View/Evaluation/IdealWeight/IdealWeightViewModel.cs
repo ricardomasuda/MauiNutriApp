@@ -3,6 +3,8 @@ using System.Globalization;
 using NutriApp.AppNutri.Componente;
 using NutriApp.AppNutri.Model;
 using NutriApp.AppNutri.Utils;
+using NutriApp.AppNutri.View.Evaluation.IdealWeight.InfoPopup;
+using CommunityToolkit.Maui.Views;
 
 namespace NutriApp.AppNutri.View.Evaluation.IdealWeight;
 
@@ -29,10 +31,10 @@ public class IdealWeightViewModel : BaseViewModel
         public ObservableCollection<Item> ItemImcIdeal { get; set; } 
         public Command CalculateCommand { get; set; }
         public Command InfoCommand { get; set; }
-        public IdealWeightViewModel()
+        public IdealWeightViewModel(IdealWeightPage page)
         {
             CalculateCommand = new Command(Calculate);
-            InfoCommand = new Command(GotoInfo);
+            InfoCommand = new Command(() => page.ShowPopup(new InfoIdealWeightPopup()));
             CanDisplay = false;
             Fill();
         }

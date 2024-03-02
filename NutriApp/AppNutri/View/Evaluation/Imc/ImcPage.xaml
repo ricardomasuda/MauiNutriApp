@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<contentPageCustomer:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
              xmlns:imc="clr-namespace:NutriApp.AppNutri.View.Evaluation.Imc"
-             BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
+             xmlns:contentPageCustomer="clr-namespace:NutriApp.AppNutri.Componente.ContentPageCustomer"
              x:DataType="imc:ImcPageViewModel"
              x:Class="NutriApp.AppNutri.View.Evaluation.Imc.ImcPage">
     <VerticalStackLayout
         VerticalOptions="Fill">
 
-        <titleView:NewTitleView
-            TypeTitle="InfoCircle"
-            Command="{Binding InfoCommand}"
-            TextTitle="IMC" />
-
         <VerticalStackLayout
             BackgroundColor="#F1F1F1"
             Margin="20,10,20,0">
-
-
+            
             <StackLayout>
 
                 <StackLayout>
@@ -46,7 +39,7 @@
                     <!-- Mjc1NTg1N0AzMjMzMmUzMDJlMzBjb2hraHRqMDl4R1hGUGlKSFhxRlcrZmhSMis3MXNPVklyNytxT1R3Sm1jPQ== -->
                     <core:SfTextInputLayout
                         ContainerType="Outlined"
-                        Hint="Altura (m)"
+                        Hint="Altura  (m)"
                         IsHintAlwaysFloated="True"
                         HeightRequest="80"
                         HasError="{Binding HasErrorHeight}"
@@ -141,4 +134,4 @@
 
         </VerticalStackLayout>
     </VerticalStackLayout>
-</ContentPage>
+</contentPageCustomer:BaseContentPage>
