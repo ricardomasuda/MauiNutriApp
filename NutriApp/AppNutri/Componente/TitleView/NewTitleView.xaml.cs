@@ -123,7 +123,9 @@ public partial class NewTitleView : ContentView
         {
             try
             {
-                App.NavPage.PopAsync();
+                //App.NavPage.PopAsync();
+                Shell.Current.Navigation.PopAsync();
+                Shell.Current.Navigation.PopAsync();
             }
             catch (Exception exception)
             {

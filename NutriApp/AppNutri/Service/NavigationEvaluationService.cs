@@ -36,18 +36,53 @@ public class NavigationEvaluationService
         
         public static async void GoEvaluationMenu(ItemMenu itemMenu)
         {
-            if (itemMenu.Titulo == EvaluationMenuStrings.Imc) { await Navigation.Navigation.PushPageAsync(new ImcPage()); return;}
-            if (itemMenu.Titulo == EvaluationMenuStrings.PesoIdeal) { await Navigation.Navigation.PushPageAsync(new IdealWeightPage()); return;} 
-            if (itemMenu.Titulo == EvaluationMenuStrings.PesoAjustado) { await Navigation.Navigation.PushPageAsync(new AdjustedWeightPage()); return;}
-            if (itemMenu.Titulo == EvaluationMenuStrings.AdequacaoPeso) { await Navigation.Navigation.PushPageAsync(new AdequacyWeightPage()); return;}
-            if (itemMenu.Titulo == EvaluationMenuStrings.ComposicaoCorporal) { await Navigation.Navigation.PushPageAsync(new BodyCompositionPage()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.Imc)
+            {
+                await Shell.Current.GoToAsync(nameof(ImcPage));
+                return;
+            }
+            if (itemMenu.Titulo == EvaluationMenuStrings.PesoIdeal)
+            {
+                await Shell.Current.GoToAsync(nameof(IdealWeightPage));
+                return;
+            }
+            if (itemMenu.Titulo == EvaluationMenuStrings.PesoAjustado)
+            {
+                await Shell.Current.GoToAsync(nameof(AdjustedWeightPage));
+                return;
+            }
+            if (itemMenu.Titulo == EvaluationMenuStrings.AdequacaoPeso)
+            {
+                await Shell.Current.GoToAsync(nameof(AdequacyWeightPage));
+                return;
+            }
+            if (itemMenu.Titulo == EvaluationMenuStrings.ComposicaoCorporal)
+            {
+                await Shell.Current.GoToAsync(nameof(BodyCompositionPage));
+                return;
+            }
+            if (itemMenu.Titulo == EvaluationMenuStrings.AlturaEstimada)
+            {
+                await Shell.Current.GoToAsync(nameof(EstimatedHeightPage));
+                return;
+            }
+            if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaCintura)
+            {
+                await Shell.Current.GoToAsync(nameof(CircumferenceWaistPage));
+                return;
+            }
+            if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaPanturrilha)
+            {
+                await Shell.Current.GoToAsync(nameof(CircumferenceCalfPage));
+                return;
+            }
+            if (itemMenu.Titulo == EvaluationMenuStrings.SemiologiaNutricional)
+            {
+                await Shell.Current.GoToAsync(nameof(SemiologiaNutricionalList));
+                return;
+            }
             //if (itemMenu.Titulo == EvaluationMenuStrings.PesoEstimado)  { await Navigation.PushPageAsync(new EstimatedWeightPage()); return;}
-            if (itemMenu.Titulo == EvaluationMenuStrings.AlturaEstimada) { await Navigation.Navigation.PushPageAsync(new EstimatedHeightPage()); return;}
-            if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaCintura) { await Navigation.Navigation.PushPageAsync(new CircumferenceWaistPage()); return;}
-            if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaPanturrilha) { await Navigation.Navigation.PushPageAsync(new CircumferenceCalfPage()); return;}
             //if (itemMenu.Titulo == EvaluationMenuStrings.ValorReference) { await Navigation.PushPageAsync(new ReferenceValuePage()); return;}
-            if (itemMenu.Titulo == EvaluationMenuStrings.SemiologiaNutricional) { await Navigation.Navigation.PushPageAsync(new SemiologiaNutricionalList()); return;}
-            await App.NavPage.DisplayAlert("Em Construção", "Em construção", "OK");
-            
+            await Shell.Current.DisplayAlert("Em Construção", "Em construção", "OK");
         }
 }
