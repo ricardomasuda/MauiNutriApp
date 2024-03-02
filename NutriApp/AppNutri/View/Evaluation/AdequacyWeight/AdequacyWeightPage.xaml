@@ -8,7 +8,7 @@
              xmlns:adequacyWeight="clr-namespace:NutriApp.AppNutri.View.Evaluation.AdequacyWeight"
              x:DataType="adequacyWeight:AdequacyWeightViewModel"
              BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
              x:Class="NutriApp.AppNutri.View.Evaluation.AdequacyWeight.AdequacyWeightPage">
     <StackLayout
         VerticalOptions="FillAndExpand">
