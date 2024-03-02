@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:NutriApp.AppNutri.Model"
+    xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
+    Color="{StaticResource BackgroundPopupPage}"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="NutriApp.AppNutri.View.Evaluation.Imc.Info.InfoImcPopup">
+
+    <ScrollView>
+        <Border
+            VerticalOptions="Fill"
+            Margin="20,20">
+
+            <StackLayout
+                Padding="0"
+                BackgroundColor="{StaticResource PageColor}"
+                VerticalOptions="FillAndExpand">
+
+                <titleView:NewTitleView
+                    VisibleBack="False"
+                    TypeTitle="Close"
+                    Command="{Binding CloseCommand}"
+                    TextTitle="IMC" />
+
+                <StackLayout Margin="20,0">
+                    <StackLayout
+                        HorizontalOptions="FillAndExpand">
+
+                        <Label Text="Tabela Adulto " TextColor="{StaticResource DarkBlue}" FontAttributes="Bold" />
+
+                        <ListView
+                            ItemsSource="{Binding ImcAdultClassification}"
+                            Margin="0"
+                            HeightRequest="350"
+                            VerticalOptions="FillAndExpand"
+                            HasUnevenRows="True">
+
+                            <ListView.Header>
+                                <Grid
+                                    RowSpacing="0"
+                                    ColumnSpacing="0">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame BorderColor="{StaticResource DarkGreyText}"
+                                           HorizontalOptions="Fill"
+                                           BackgroundColor="{StaticResource DarkBlue}"
+                                           CornerRadius="0"
+                                           Padding="5">
+
+                                        <Label Text="Classificacao" Grid.Column="0"
+                                               FontSize="Medium"
+                                               HorizontalOptions="Center"
+                                               FontAttributes="Bold" TextColor="White" />
+                                    </Frame>
+
+                                    <Frame
+                                        Grid.Column="1"
+                                        BorderColor="{StaticResource DarkGreyText}"
+                                        CornerRadius="0"
+                                        BackgroundColor="{StaticResource DarkBlue}"
+                                        HorizontalOptions="Fill"
+                                        Padding="5">
+
+                                        <Label Text="IMC" Grid.Column="0"
+                                               FontSize="Medium"
+                                               HorizontalOptions="Center"
+                                               FontAttributes="Bold" TextColor="White" />
+
+                                    </Frame>
+
+                                </Grid>
+                            </ListView.Header>
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="model:ImcClassificacao">
+                                    <ViewCell>
+
+                                        <Grid RowSpacing="0"
+                                              ColumnSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Frame Grid.Column="0"
+                                                   Margin="0"
+                                                   BackgroundColor="{StaticResource PageColor}"
+                                                   BorderColor="{StaticResource DarkGreyText}"
+                                                   CornerRadius="0"
+                                                   HorizontalOptions="Fill"
+                                                   Padding="4">
+                                                <Label Grid.Column="0" Text="{Binding Classificacao}"
+                                                       Margin="0"
+                                                       TextColor="Black"
+                                                       HorizontalOptions="Start" />
+                                            </Frame>
+
+                                            <Frame Grid.Column="1"
+                                                   BorderColor="{StaticResource DarkGreyText}"
+                                                   Margin="0"
+                                                   CornerRadius="0"
+                                                   BackgroundColor="{StaticResource PageColor}"
+                                                   HorizontalOptions="Fill"
+                                                   Padding="4">
+
+                                                <Label Text="{Binding Imc}"
+                                                       Margin="0"
+                                                       TextColor="Black"
+                                                       HorizontalOptions="Start" />
+
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.Footer>
+                                <Label Text="Fonte: Organização Mundial da Saúde (OMS) , 1995 e 1997"
+                                       TextColor="{StaticResource DarkGreyText}"
+                                       FontAttributes="Bold" FontSize="12" Margin="0" />
+                            </ListView.Footer>
+
+                        </ListView>
+                    </StackLayout>
+
+                    <StackLayout
+                        VerticalOptions="Start">
+
+                        <Label Text="Tabela Idoso: " TextColor="{StaticResource DarkGreyText}" FontAttributes="Bold" />
+
+                        <ListView
+                            BackgroundColor="{StaticResource PageColor}"
+                            ItemsSource="{Binding ImcSeniorClassification}"
+                            HeightRequest="250"
+                            HasUnevenRows="True">
+
+                            <ListView.Header>
+
+                                <Grid RowSpacing="0" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Frame BorderColor="{StaticResource DarkGreyText}"
+                                           HorizontalOptions="Fill"
+                                           BackgroundColor="{StaticResource DarkBlue}"
+                                           CornerRadius="0"
+                                           Padding="5">
+                                        <Label Text="Classificacao" Grid.Column="0"
+                                               FontSize="Medium"
+                                               HorizontalOptions="Center"
+                                               FontAttributes="Bold" TextColor="White" />
+                                    </Frame>
+
+                                    <Frame Grid.Column="1"
+                                           BorderColor="{StaticResource DarkGreyText}"
+                                           CornerRadius="0"
+                                           BackgroundColor="{StaticResource DarkBlue}"
+                                           HorizontalOptions="Fill"
+                                           Padding="5">
+                                        <Label Text="IMC" Grid.Column="0"
+                                               FontSize="Medium"
+                                               HorizontalOptions="Center"
+                                               FontAttributes="Bold" TextColor="White" />
+                                    </Frame>
+                                </Grid>
+                            </ListView.Header>
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="model:ImcClassificacao">
+                                    <ViewCell>
+                                        <Grid RowSpacing="0"
+                                              ColumnSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Frame Grid.Column="0"
+                                                   Margin="0"
+                                                   BorderColor="{StaticResource DarkGreyText}"
+                                                   CornerRadius="0"
+                                                   BackgroundColor="{StaticResource PageColor}"
+                                                   HorizontalOptions="Fill"
+                                                   Padding="4">
+                                                <Label Grid.Column="0" Text="{Binding Classificacao}"
+                                                       Margin="0"
+                                                       TextColor="Black"
+                                                       HorizontalOptions="Start" />
+                                            </Frame>
+
+                                            <Frame Grid.Column="1"
+                                                   BorderColor="{StaticResource DarkGreyText}"
+                                                   Margin="0"
+                                                   CornerRadius="0"
+                                                   BackgroundColor="{StaticResource PageColor}"
+                                                   HorizontalOptions="Fill"
+                                                   Padding="4">
+                                                <Label Text="{Binding Imc}"
+                                                       Margin="0"
+                                                       TextColor="Black"
+                                                       HorizontalOptions="Start" />
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.Footer>
+                                <Label
+                                    BackgroundColor="{StaticResource PageColor}"
+                                    Text="Fonte Lipschitz 1994" TextColor="{StaticResource DarkGreyText}"
+                                    FontAttributes="Bold" FontSize="12"
+                                    Margin="0" />
+                            </ListView.Footer>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+        </Border>
+    </ScrollView>
+</toolkit:Popup>

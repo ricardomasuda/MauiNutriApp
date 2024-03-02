@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Color="{StaticResource BackgroundPopupPage}"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill"
+    x:Class="NutriApp.AppNutri.View.Evaluation.IdealWeight.InfoPopup.InfoIdealWeightPopup">
+
+    <ScrollView>
+        <Border
+            VerticalOptions="Fill"
+            Margin="20,20">
+
+            <StackLayout
+                VerticalOptions="FillAndExpand">
+
+                <titleView:NewTitleView
+                    VisibleBack="False"
+                    TypeTitle="Close"
+                    Command="{Binding CloseCommand}"
+                    TextTitle="IMC Médio" />
+
+                <StackLayout Margin="10,0">
+
+                    <Frame BorderColor="{StaticResource DarkGreyText}"
+                           CornerRadius="5"
+                           Padding="10"
+                           BackgroundColor="{StaticResource PageColor}"
+                           HasShadow="False">
+
+                        <StackLayout>
+
+                            <Label
+                                Text="IMC Médio"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                TextColor="Black" />
+
+                            <BoxView Color="{StaticResource DarkGreyText}"
+                                     HeightRequest="2"
+                                     HorizontalOptions="Fill" />
+
+                            <Label Text="Homens: 22.0(kg/m²)" HorizontalTextAlignment="Center" TextColor="Black" />
+                            <Label Text="Mulheres: 21.0(kg/m²)" HorizontalTextAlignment="Center" TextColor="Black" />
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Label Text="Fonte: Apostila Hospital das Clínicas de Goiás - HC/UFG,2010" TextColor="Black"
+                           FontSize="12" />
+                </StackLayout>
+
+
+            </StackLayout>
+        </Border>
+    </ScrollView>
+</toolkit:Popup>
