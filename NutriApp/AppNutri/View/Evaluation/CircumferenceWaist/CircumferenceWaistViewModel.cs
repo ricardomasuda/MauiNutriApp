@@ -4,6 +4,7 @@ using NutriApp.AppNutri.Componente;
 using NutriApp.AppNutri.Model;
 using NutriApp.AppNutri.service;
 using NutriApp.AppNutri.Utils;
+using NutriApp.AppNutri.View.Evaluation.CircumferenceWaist.InfoPopup;
 
 namespace NutriApp.AppNutri.View.Evaluation.CircumferenceWaist;
 
