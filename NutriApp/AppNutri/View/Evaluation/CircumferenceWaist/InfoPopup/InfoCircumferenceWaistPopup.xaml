@@ -7,12 +7,13 @@
     xmlns:model="clr-namespace:NutriApp.AppNutri.Model"
     xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
     xmlns:circumferenceWaist="clr-namespace:NutriApp.AppNutri.View.Evaluation.CircumferenceWaist"
+    xmlns:infoPopup="clr-namespace:NutriApp.AppNutri.View.Evaluation.CircumferenceWaist.InfoPopup"
     x:Name="Popup"
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
     Color="{StaticResource BackgroundPopupPage}"
-    x:DataType="circumferenceWaist:InfoCircumferenceWaistPopupViewModel"
-    x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceWaist.InfoCircumferenceWaistPopup">
+    x:DataType="infoPopup:InfoCircumferenceWaistPopupViewModel"
+    x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceWaist.InfoPopup.InfoCircumferenceWaistPopup">
 
     <ScrollView>
         <Border  

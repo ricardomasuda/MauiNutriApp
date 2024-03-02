@@ -1,13 +1,15 @@
 using CommunityToolkit.Maui.Views;
 
-namespace NutriApp.AppNutri.View.Evaluation.CircumferenceWaist;
+namespace NutriApp.AppNutri.View.Evaluation.CircumferenceWaist.InfoPopup;
 
 public partial class InfoCircumferenceWaistPopup : Popup
 {
     public InfoCircumferenceWaistPopup()
     {
         InitializeComponent();
-        BindingContext = new InfoCircumferenceWaistPopupViewModel(this);
+        var popupPage = new InfoCircumferenceWaistPopupViewModel(this);
+        BindingContext = popupPage;
+        popupPage.Popup = this;
     }
 
     public void ClosePopupPage()
