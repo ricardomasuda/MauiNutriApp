@@ -7,7 +7,7 @@
              xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              ios:Page.UseSafeArea="False"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="false"
              Title="Sobre o Aplicativo"
              BackgroundColor="{StaticResource PageColor}"
              x:Class="NutriApp.AppNutri.View.About.AboutPage">
