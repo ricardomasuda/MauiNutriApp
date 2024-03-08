@@ -5,10 +5,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             xmlns:cardLine="clr-namespace:NutriApp.AppNutri.Componente.CardLine"
-             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
-             xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
-             x:Class="NutriApp.AppNutri.View.FoodPlan.SelectFood.ChangeFoodView">
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
+             xmlns:button="clr-namespace:NutriApp.Components.Button"
+             x:Class="NutriApp.Views.FoodPlan.SelectFood.ChangeFoodView">
     <Frame HasShadow="False"
            Margin="10,50"
            Padding="0"
@@ -18,7 +18,7 @@
         <ScrollView>
             <StackLayout>
 
-                <titleView1:NewTitleView Command="{Binding CloseCommand}"
+                <view:NewTitleView Command="{Binding CloseCommand}"
                                          TypeTitle="Close"
                                          VisibleBack="False"
                                          TextTitle="{Binding Title}" />
@@ -98,7 +98,7 @@
                 <StackLayout Margin="20,20"
                              VerticalOptions="EndAndExpand">
 
-                    <componente:ButtonView IsVisible="True"
+                    <button:ButtonView IsVisible="True"
                                            Margin="0,20,0,0"
                                            Command="{Binding ReportCommand}"
                                            TextColor="{StaticResource DarkBlue}"
@@ -107,7 +107,7 @@
 
                     <StackLayout Orientation="Horizontal">
 
-                        <componente:ButtonView IsVisible="{Binding CanDelete}"
+                        <button:ButtonView IsVisible="{Binding CanDelete}"
                                                HorizontalOptions="FillAndExpand"
                                                Margin="0,10,0,0"
                                                Command="{Binding RemoveFoodCommand }"
@@ -115,7 +115,7 @@
                                                BackgroundColor="{StaticResource DarkOrange}"
                                                Text="Retirar" />
 
-                        <componente:ButtonView Margin="0,10,0,0"
+                        <button:ButtonView Margin="0,10,0,0"
                                                HorizontalOptions="FillAndExpand"
                                                Command="{Binding AddFoodCommand }"
                                                TextColor="White"

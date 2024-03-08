@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.FoodPlan.FoodDetail;
+namespace NutriApp.Views.FoodPlan.FoodDetail;
 
 public partial class FoodDetailPage : ContentPage
 {

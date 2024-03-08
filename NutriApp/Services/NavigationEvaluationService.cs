@@ -1,17 +1,17 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.View.Evaluation.AdequacyWeight;
-using NutriApp.AppNutri.View.Evaluation.AdjustedWeight;
-using NutriApp.AppNutri.View.Evaluation.BodyComposition;
-using NutriApp.AppNutri.View.Evaluation.CircumferenceCalf;
-using NutriApp.AppNutri.View.Evaluation.CircumferenceWaist;
-using NutriApp.AppNutri.View.Evaluation.EstimatedHeight;
-using NutriApp.AppNutri.View.Evaluation.IdealWeight;
-using NutriApp.AppNutri.View.Evaluation.Imc;
-using NutriApp.AppNutri.View.Evaluation.SemiologyNutritional;
+using NutriApp.Models;
 using NutriApp.Resources.Strings;
+using NutriApp.Views.Evaluation.AdequacyWeight;
+using NutriApp.Views.Evaluation.AdjustedWeight;
+using NutriApp.Views.Evaluation.BodyComposition;
+using NutriApp.Views.Evaluation.CircumferenceCalf;
+using NutriApp.Views.Evaluation.CircumferenceWaist;
+using NutriApp.Views.Evaluation.EstimatedHeight;
+using NutriApp.Views.Evaluation.IdealWeight;
+using NutriApp.Views.Evaluation.Imc;
+using NutriApp.Views.Evaluation.SemiologyNutritional;
 
-namespace NutriApp.AppNutri.service;
+namespace NutriApp.Services;
 
 public class NavigationEvaluationService
 {

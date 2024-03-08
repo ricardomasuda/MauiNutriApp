@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.FoodPlan.MealList;
+namespace NutriApp.Views.FoodPlan.MealList;
 
 public class FoodPlanDetailViewModel
 {

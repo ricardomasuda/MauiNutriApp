@@ -1,8 +1,8 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
+using NutriApp.Components;
+using NutriApp.Models;
 
-namespace NutriApp.AppNutri.View.Evaluation.CircumferenceWaist;
+namespace NutriApp.Views.Evaluation.CircumferenceWaist;
 
 public class InfoCircumferenceWaistPopupViewModel : BaseViewModel
 {

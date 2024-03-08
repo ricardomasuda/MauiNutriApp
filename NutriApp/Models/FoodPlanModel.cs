@@ -1,6 +1,6 @@
 using SQLite;
 
-namespace NutriApp.AppNutri.Model;
+namespace NutriApp.Models;
 
 public class FoodPlanModel
 {

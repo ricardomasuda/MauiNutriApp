@@ -4,18 +4,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
-             xmlns:imc="clr-namespace:NutriApp.AppNutri.View.Evaluation.Imc"
-             xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+             xmlns:button="clr-namespace:NutriApp.Components.Button"
+             xmlns:imc="clr-namespace:NutriApp.Views.Evaluation.Imc"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
              x:DataType="imc:ImcPageViewModel"
-             x:Class="NutriApp.AppNutri.View.Evaluation.Imc.ImcPage">
+             x:Class="NutriApp.Views.Evaluation.Imc.ImcPage">
     <VerticalStackLayout VerticalOptions="Fill">
 
-        <titleView1:NewTitleView TypeTitle="InfoCircle"
-                                 Command="{Binding InfoCommand}"
-                                 TextTitle="IMC" />
+        <view:NewTitleView TypeTitle="InfoCircle"
+                           Command="{Binding InfoCommand}"
+                           TextTitle="IMC" />
 
         <VerticalStackLayout BackgroundColor="#F1F1F1"
                              Margin="20,10,20,0">
@@ -103,22 +104,22 @@
 
                     <StackLayout IsVisible="{Binding CanDisplayResult}">
 
-                        <componente:ResultLineView Margin="0,40,0,0"
+                        <resultLine:ResultLineView Margin="0,40,0,0"
                                                    ResultType="FIRST"
                                                    TextTitle="Imc:"
                                                    BodyText="{Binding Result}" />
 
-                        <componente:ResultLineView TextTitle="Classificação:"
+                        <resultLine:ResultLineView TextTitle="Classificação:"
                                                    BodyText="{Binding ImcType}" />
 
                     </StackLayout>
 
-                    <componente:ButtonView Margin="0,-3,0,0"
-                                           Command="{Binding CalculateCommand}"
-                                           VerticalOptions="CenterAndExpand"
-                                           BackgroundColor="{StaticResource DarkBlue}"
-                                           TextColor="White"
-                                           Text="Calcular" />
+                    <button:ButtonView Margin="0,-3,0,0"
+                                       Command="{Binding CalculateCommand}"
+                                       VerticalOptions="CenterAndExpand"
+                                       BackgroundColor="{StaticResource DarkBlue}"
+                                       TextColor="White"
+                                       Text="Calcular" />
                 </StackLayout>
 
             </StackLayout>

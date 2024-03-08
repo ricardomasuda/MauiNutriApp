@@ -1,6 +1,6 @@
-using NutriApp.AppNutri.Model;
+using NutriApp.Models;
 
-namespace NutriApp.AppNutri.View.Food.Detail;
+namespace NutriApp.Views.Food.Detail;
 
 public partial class FoodDetailPage : ContentPage
 {

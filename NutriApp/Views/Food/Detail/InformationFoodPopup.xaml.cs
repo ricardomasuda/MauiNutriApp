@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui.Views;
 
-namespace NutriApp.AppNutri.View.Food.Detail;
+namespace NutriApp.Views.Food.Detail;
 
 public partial class InformationFoodPopup : Popup
 {

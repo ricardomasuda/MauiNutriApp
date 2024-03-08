@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.FoodPlan.FoodDetail.SelectList;
+namespace NutriApp.Views.FoodPlan.FoodDetail.SelectList;
 
 public partial class SelectListFoodPopup : ContentPage
 {

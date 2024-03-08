@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Evaluation.List;
+namespace NutriApp.Views.Evaluation.List;
 
 public partial class EvaluationListPage : ContentPage
 {

@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Evaluation.BodyComposition;
+namespace NutriApp.Views.Evaluation.BodyComposition;
 
 public partial class BodyCompositionPage : ContentPage
 {

@@ -1,5 +1,5 @@
-﻿using NutriApp.AppNutri.BancoDados.Config;
-using NutriApp.AppNutri.View.MainPage;
+﻿using NutriApp.Database.Configuration;
+using NutriApp.Views.MainPage;
 using SQLite;
 
 namespace NutriApp;

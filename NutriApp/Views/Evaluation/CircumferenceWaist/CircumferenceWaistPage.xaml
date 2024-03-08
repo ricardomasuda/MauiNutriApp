@@ -5,15 +5,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
-             xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+             xmlns:button="clr-namespace:NutriApp.Components.Button"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
-             x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceWaist.CircumferenceWaistPage">
+             x:Class="NutriApp.Views.Evaluation.CircumferenceWaist.CircumferenceWaistPage">
     <StackLayout VerticalOptions="FillAndExpand"
                  Margin="0,0,0,0">
 
-        <titleView1:NewTitleView Command="{Binding InfoImcCommand}"
+        <view:NewTitleView Command="{Binding InfoImcCommand}"
                                  TypeTitle="InfoCircle"
                                  TextTitle="Circunferência da Cintura" />
 
@@ -117,17 +118,17 @@
                 <StackLayout HorizontalOptions="EndAndExpand"
                              IsVisible="{Binding DisplayResult}">
 
-                    <componente:ResultLineView Margin="0,40,0,0"
+                    <resultLine:ResultLineView Margin="0,40,0,0"
                                                ResultType="FIRST"
                                                TextTitle="Cincunfêrencia/Cintura:"
                                                BodyText="{Binding Result}" />
 
-                    <componente:ResultLineView TextTitle="Classificação:"
+                    <resultLine:ResultLineView TextTitle="Classificação:"
                                                BodyText="{Binding Classification}" />
 
                 </StackLayout>
 
-                <componente:ButtonView Margin="0,-3,0,0"
+                <button:ButtonView Margin="0,-3,0,0"
                                        Command="{Binding CalculateCommand}"
                                        VerticalOptions="CenterAndExpand"
                                        BackgroundColor="#283555"

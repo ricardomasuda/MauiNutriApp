@@ -1,6 +1,6 @@
-using NutriApp.AppNutri.Model;
+using NutriApp.Models;
 
-namespace NutriApp.AppNutri.Utils;
+namespace NutriApp.Utils;
 
 public static class EvaluationCalculations
     {

@@ -5,15 +5,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
-             xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+             xmlns:button="clr-namespace:NutriApp.Components.Button"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
-             x:Class="NutriApp.AppNutri.View.Evaluation.IdealWeight.IdealWeightPage">
+             x:Class="NutriApp.Views.Evaluation.IdealWeight.IdealWeightPage">
     <StackLayout VerticalOptions="FillAndExpand"
                  Margin="0,0,0,20">
 
-        <titleView1:NewTitleView TypeTitle="InfoCircle"
+        <view:NewTitleView TypeTitle="InfoCircle"
                                  Command="{Binding InfoCommand}"
                                  TextTitle="Peso Ideal" />
 
@@ -60,7 +61,7 @@
             <StackLayout HorizontalOptions="EndAndExpand"
                          IsVisible="{Binding CanDisplay}">
 
-                <componente:ResultLineView Margin="0,40,0,0"
+                <resultLine:ResultLineView Margin="0,40,0,0"
                                            ResultType="FIRST"
                                            TextTitle="Peso Ideal:"
                                            UnityMeasureType="KILOS"
@@ -68,7 +69,7 @@
 
             </StackLayout>
 
-            <componente:ButtonView Margin="0,-3,0,0"
+            <button:ButtonView Margin="0,-3,0,0"
                                    Command="{Binding CalculateCommand}"
                                    VerticalOptions="CenterAndExpand"
                                    BackgroundColor="#283555"

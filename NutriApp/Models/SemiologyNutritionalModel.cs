@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace NutriApp.AppNutri.Model;
+namespace NutriApp.Models;
 
  public class SemiologyNutritionalModel
 {

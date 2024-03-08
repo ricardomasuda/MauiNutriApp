@@ -1,11 +1,11 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.BancoDados;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
-using NutriApp.AppNutri.View.FoodPlan.MealList;
+using NutriApp.Components;
+using NutriApp.Database;
+using NutriApp.Models;
+using NutriApp.Services;
+using NutriApp.Views.FoodPlan.MealList;
 
-namespace NutriApp.AppNutri.View.FoodPlan.FoodDetail;
+namespace NutriApp.Views.FoodPlan.FoodDetail;
 
 public class FoodDetailViewModel : BaseViewModel
     {

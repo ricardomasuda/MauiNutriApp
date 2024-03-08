@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Evaluation.Imc;
+namespace NutriApp.Views.Evaluation.Imc;
 
 public partial class ImcPage : ContentPage
 {

@@ -1,9 +1,9 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
+using NutriApp.Components;
+using NutriApp.Models;
+using NutriApp.Services;
 
-namespace NutriApp.AppNutri.View.Evaluation.List;
+namespace NutriApp.Views.Evaluation.List;
 
 public class EvaluationListPageViewModel : BaseViewModel
 {

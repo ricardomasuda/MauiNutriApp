@@ -3,21 +3,22 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
-             xmlns:cardLine="clr-namespace:NutriApp.AppNutri.Componente.CardLine"
-             xmlns:detail="clr-namespace:NutriApp.AppNutri.View.Food.Detail"
-             xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:components="clr-namespace:NutriApp.Components"
+             xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
+             xmlns:button="clr-namespace:NutriApp.Components.Button"
+             xmlns:detail="clr-namespace:NutriApp.Views.Food.Detail"
              NavigationPage.HasNavigationBar="False"
              x:Name="FoodListRoot"
              x:DataType="detail:FoodDetailViewModel"
-             x:Class="NutriApp.AppNutri.View.Food.Detail.FoodDetailPage">
+             x:Class="NutriApp.Views.Food.Detail.FoodDetailPage">
     <ScrollView>
 
         <StackLayout>
 
-            <titleView1:NewTitleView TypeTitle="InfoCircle"
-                                     Command="{Binding InfoCommand}"
-                                     TextTitle="Alimento" />
+            <view:NewTitleView TypeTitle="InfoCircle"
+                               Command="{Binding InfoCommand}"
+                               TextTitle="Alimento" />
 
             <Frame CornerRadius="10"
                    Margin="30,10,30,0"
@@ -47,7 +48,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,0,20,0" />
                     </Border.StrokeShape>
-                    <componente:MyEntry Margin="0,0,0,0"
+                    <components:MyEntry Margin="0,0,0,0"
                                         VerticalTextAlignment="Center"
                                         HorizontalTextAlignment="Center"
                                         FontAttributes="Bold"
@@ -139,13 +140,13 @@
                 </Border>
             </StackLayout>
 
-            <componente:ButtonView Margin="30,10"
-                                   Command="{ Binding GoReportCommand}"
-                                   HorizontalOptions="FillAndExpand"
-                                   VerticalOptions="EndAndExpand"
-                                   BackgroundColor="{StaticResource DarkBlue}"
-                                   TextColor="White"
-                                   Text=" Relatório " />
+            <button:ButtonView Margin="30,10"
+                               Command="{ Binding GoReportCommand}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="EndAndExpand"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               TextColor="White"
+                               Text=" Relatório " />
 
             <Label HorizontalOptions="CenterAndExpand"
                    FontSize="12"

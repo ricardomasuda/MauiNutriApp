@@ -1,9 +1,9 @@
 using System.Globalization;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.Utils;
+using NutriApp.Components;
+using NutriApp.Models;
+using NutriApp.Utils;
 
-namespace NutriApp.AppNutri.View.Evaluation.EstimatedHeight;
+namespace NutriApp.Views.Evaluation.EstimatedHeight;
 
 public class EstimatedHeightPageViewModel : BaseViewModel
 {

@@ -1,10 +1,10 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
-using NutriApp.AppNutri.View.Food.Detail;
+using NutriApp.Components;
+using NutriApp.Models;
+using NutriApp.Services;
+using NutriApp.Views.Food.Detail;
 
-namespace NutriApp.AppNutri.View.Food.List;
+namespace NutriApp.Views.Food.List;
 
 public class FoodListViewModel : BaseViewModel
 {

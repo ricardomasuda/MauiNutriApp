@@ -4,16 +4,16 @@
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-               xmlns:model="clr-namespace:NutriApp.AppNutri.Model"
-               xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
-               x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceWaist.InfoCircumferenceWaistPopup">
+               xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+               xmlns:models="clr-namespace:NutriApp.Models"
+               x:Class="NutriApp.Views.Evaluation.CircumferenceWaist.InfoCircumferenceWaistPopup">
 
     <StackLayout BackgroundColor="{StaticResource PageColor}">
 
-        <titleView1:NewTitleView VisibleBack="False"
-                                 TypeTitle="Close"
-                                 Command="{Binding CloseCommand}"
-                                 TextTitle="Circunferência da Cintura" />
+        <view:NewTitleView VisibleBack="False"
+                           TypeTitle="Close"
+                           Command="{Binding CloseCommand}"
+                           TextTitle="Circunferência da Cintura" />
 
         <StackLayout Margin="20,10,20,0"
                      HorizontalOptions="FillAndExpand">
@@ -117,7 +117,7 @@
                 </ListView.Header>
 
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="model:CircunferenciaCintura">
+                    <DataTemplate x:DataType="models:CircunferenciaCintura">
                         <ViewCell>
                             <Grid RowSpacing="0"
                                   ColumnSpacing="0">
@@ -335,7 +335,7 @@
                 </ListView.Header>
 
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="model:CircunferenciaCintura">
+                    <DataTemplate x:DataType="models:CircunferenciaCintura">
                         <ViewCell>
                             <Grid RowSpacing="0"
                                   ColumnSpacing="0">

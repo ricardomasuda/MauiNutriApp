@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Food.List;
+namespace NutriApp.Views.Food.List;
 
 public partial class FoodListPage : ContentPage
 {

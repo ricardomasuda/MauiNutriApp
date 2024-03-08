@@ -1,4 +1,4 @@
-namespace NutriApp.Components.Titles.TitleFrame;
+namespace NutriApp.Components.Titles.Frame;
 
 public partial class TitleFrameView : ContentView
 {

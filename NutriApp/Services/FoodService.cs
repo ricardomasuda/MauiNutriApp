@@ -1,10 +1,10 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
-using NutriApp.AppNutri.BancoDados;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.Utils;
+using NutriApp.Database;
+using NutriApp.Models;
+using NutriApp.Utils;
 
-namespace NutriApp.AppNutri.service;
+namespace NutriApp.Services;
 
  public static class FoodService
     {

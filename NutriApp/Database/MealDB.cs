@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.Model;
+using NutriApp.Models;
 
-namespace NutriApp.AppNutri.BancoDados;
+namespace NutriApp.Database;
 
 public class MealDB
 {

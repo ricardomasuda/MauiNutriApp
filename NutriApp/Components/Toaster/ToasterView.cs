@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.Componente.Toaster;
+namespace NutriApp.Components.Toaster;
 
 public static class ToasterView
 {

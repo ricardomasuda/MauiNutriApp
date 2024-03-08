@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.Componente.CardLine;
+namespace NutriApp.Components.CardLine;
 
 public partial class CardLineView : ContentView
 {

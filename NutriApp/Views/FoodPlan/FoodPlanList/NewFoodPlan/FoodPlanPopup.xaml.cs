@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.FoodPlan.FoodPlanList.NewFoodPlan;
+namespace NutriApp.Views.FoodPlan.FoodPlanList.NewFoodPlan;
 
 public partial class FoodPlanPopup : ContentPage
 {

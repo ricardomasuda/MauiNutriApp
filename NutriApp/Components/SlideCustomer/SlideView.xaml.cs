@@ -1,7 +1,7 @@
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
+using NutriApp.Models;
+using NutriApp.Services;
 
-namespace NutriApp.AppNutri.Componente.SlideCustomer;
+namespace NutriApp.Components.SlideCustomer;
 
 public partial class SlideView : ContentView
 {

@@ -1,8 +1,8 @@
 using System.Reflection;
-using NutriApp.AppNutri.Model;
+using NutriApp.Models;
 using SQLite;
 
-namespace NutriApp.AppNutri.BancoDados.Config;
+namespace NutriApp.Database.Configuration;
 
 public class BancoContext
 {

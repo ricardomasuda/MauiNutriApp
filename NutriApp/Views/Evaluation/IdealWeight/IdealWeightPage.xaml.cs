@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Evaluation.IdealWeight;
+namespace NutriApp.Views.Evaluation.IdealWeight;
 
 public partial class IdealWeightPage : ContentPage
 {

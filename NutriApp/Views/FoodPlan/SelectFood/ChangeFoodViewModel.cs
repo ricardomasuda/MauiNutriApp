@@ -1,10 +1,10 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
-using NutriApp.AppNutri.View.FoodPlan.SelectFood.SelectFoodPopup;
+using NutriApp.Components;
+using NutriApp.Models;
+using NutriApp.Services;
+using NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup;
 
-namespace NutriApp.AppNutri.View.FoodPlan.SelectFood;
+namespace NutriApp.Views.FoodPlan.SelectFood;
 
 public class ChangeFoodViewModel : BaseViewModel
 {

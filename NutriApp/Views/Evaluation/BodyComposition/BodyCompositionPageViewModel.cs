@@ -1,9 +1,9 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service.AnthropometricEvaluation;
+using NutriApp.Components;
+using NutriApp.Models;
+using NutriApp.Services.AnthropometricEvaluation;
 
-namespace NutriApp.AppNutri.View.Evaluation.BodyComposition;
+namespace NutriApp.Views.Evaluation.BodyComposition;
 
 public class BodyCompositionPageViewModel : BaseViewModel
 {

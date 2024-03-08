@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Suggestion;
+namespace NutriApp.Views.Suggestion;
 
 public partial class SuggestionPage : ContentPage
 {

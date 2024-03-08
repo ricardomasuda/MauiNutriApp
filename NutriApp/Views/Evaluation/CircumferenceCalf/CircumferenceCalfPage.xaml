@@ -3,19 +3,20 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
              xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:circumferenceCalf="clr-namespace:NutriApp.AppNutri.View.Evaluation.CircumferenceCalf"
-             xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+             xmlns:button="clr-namespace:NutriApp.Components.Button"
+             xmlns:circumferenceCalf="clr-namespace:NutriApp.Views.Evaluation.CircumferenceCalf"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
              x:DataType="circumferenceCalf:CircumferenceCalfViewModel"
-             x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceCalf.CircumferenceCalfPage">
+             x:Class="NutriApp.Views.Evaluation.CircumferenceCalf.CircumferenceCalfPage">
     <StackLayout VerticalOptions="FillAndExpand">
 
-        <titleView1:NewTitleView TypeTitle="InfoCircle"
-                                 Command="{Binding InfoCommand}"
-                                 TextTitle="Circunferência da &#x0a;Panturrilha" />
+        <view:NewTitleView TypeTitle="InfoCircle"
+                           Command="{Binding InfoCommand}"
+                           TextTitle="Circunferência da &#x0a;Panturrilha" />
 
         <ScrollView>
 
@@ -48,19 +49,19 @@
                 <StackLayout HorizontalOptions="EndAndExpand"
                              IsVisible="{Binding CanDisplayResult}">
 
-                    <componente:ResultLineView Margin="0,40,0,0"
+                    <resultLine:ResultLineView Margin="0,40,0,0"
                                                ResultType="FIRST"
                                                TextTitle="Classificação:"
                                                BodyText="{Binding Result}" />
 
                 </StackLayout>
 
-                <componente:ButtonView Margin="0,-3,0,0"
-                                       Command="{Binding CalculateCommand}"
-                                       VerticalOptions="CenterAndExpand"
-                                       TextColor="White"
-                                       BackgroundColor="#283555"
-                                       Text="Calcular" />
+                <button:ButtonView Margin="0,-3,0,0"
+                                   Command="{Binding CalculateCommand}"
+                                   VerticalOptions="CenterAndExpand"
+                                   TextColor="White"
+                                   BackgroundColor="#283555"
+                                   Text="Calcular" />
             </StackLayout>
 
         </ScrollView>

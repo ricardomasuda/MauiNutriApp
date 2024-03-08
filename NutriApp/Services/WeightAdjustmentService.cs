@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.service;
+namespace NutriApp.Services;
 
 public static class WeightAdjustmentService
 {

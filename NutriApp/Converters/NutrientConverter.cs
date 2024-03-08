@@ -1,7 +1,7 @@
 using System.Globalization;
-using NutriApp.AppNutri.Utils;
+using NutriApp.Utils;
 
-namespace NutriApp.Converter;
+namespace NutriApp.Converters;
 
 public class NutrientConverter : IValueConverter, IMarkupExtension
 {

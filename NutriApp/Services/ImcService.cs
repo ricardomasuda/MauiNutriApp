@@ -1,6 +1,6 @@
-using NutriApp.AppNutri.Model;
+using NutriApp.Models;
 
-namespace NutriApp.AppNutri.service;
+namespace NutriApp.Services;
 
 public static class ImcService
 {

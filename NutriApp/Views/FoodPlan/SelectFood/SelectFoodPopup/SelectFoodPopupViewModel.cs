@@ -1,9 +1,9 @@
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
-using NutriApp.AppNutri.View.FoodPlan.FoodDetail;
+using NutriApp.Components;
+using NutriApp.Models;
+using NutriApp.Services;
+using NutriApp.Views.FoodPlan.FoodDetail;
 
-namespace NutriApp.AppNutri.View.FoodPlan.SelectFood.SelectFoodPopup;
+namespace NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup;
 
 public class SelectFoodPopupViewModel : BaseViewModel
 {

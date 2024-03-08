@@ -4,8 +4,8 @@
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-               xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
-               x:Class="NutriApp.AppNutri.View.Food.Detail.InformationFoodPopup">
+               xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+               x:Class="NutriApp.Views.Food.Detail.InformationFoodPopup">
     <Frame CornerRadius="15"
            BackgroundColor="{StaticResource BackgroundColor}"
            Padding="5"
@@ -16,7 +16,7 @@
             <StackLayout Padding="0"
                          Margin="10, 0">
 
-                <titleView1:NewTitleView VisibleBack="False"
+                <view:NewTitleView VisibleBack="False"
                                          TypeTitle="Close"
                                          Command="{Binding CloseCommand}"
                                          TextTitle="Informações" />

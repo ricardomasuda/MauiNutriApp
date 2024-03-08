@@ -1,10 +1,10 @@
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.View.About;
-using NutriApp.AppNutri.View.Evaluation.List;
-using NutriApp.AppNutri.View.Food.List;
-using NutriApp.AppNutri.View.Suggestion;
+using NutriApp.Components;
+using NutriApp.Views.About;
+using NutriApp.Views.Evaluation.List;
+using NutriApp.Views.Food.List;
+using NutriApp.Views.Suggestion;
 
-namespace NutriApp.AppNutri.View.MainPage;
+namespace NutriApp.Views.MainPage;
 
 public class MainPageViewModel : BaseViewModel
 {

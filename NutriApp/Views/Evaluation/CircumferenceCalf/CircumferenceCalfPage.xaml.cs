@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Evaluation.CircumferenceCalf;
+namespace NutriApp.Views.Evaluation.CircumferenceCalf;
 
 public partial class CircumferenceCalfPage : ContentPage
 {

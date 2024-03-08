@@ -3,7 +3,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             x:Class="NutriApp.Components.Titles.TitleFrame.TitleFrameView">
+             x:Class="NutriApp.Components.Titles.Frame.TitleFrameView">
     <Frame
         Margin="0,5"
         Padding="10"

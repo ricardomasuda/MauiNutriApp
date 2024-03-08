@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui.Views;
 
-namespace NutriApp.AppNutri.View.Evaluation.CircumferenceWaist;
+namespace NutriApp.Views.Evaluation.CircumferenceWaist;
 
 public partial class InfoCircumferenceWaistPopup : Popup
 {
