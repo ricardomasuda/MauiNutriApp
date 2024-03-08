@@ -64,6 +64,7 @@
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+        <PackageReference Include="epj.RouteGenerator" Version="1.0.1" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
         <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
         <PackageReference Include="SQLitePCLRaw.core" Version="2.1.0" />
@@ -282,10 +283,6 @@
           <DependentUpon>SearchTitleView.xaml</DependentUpon>
           <SubType>Code</SubType>
         </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\Route\Route\Route.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
     <ItemGroup>
