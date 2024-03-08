@@ -1,4 +1,4 @@
-﻿namespace NutriApp.AppNutri.View.MainPage;
+﻿namespace NutriApp.Views.MainPage;
 
 public partial class MainPage : ContentPage
 {

@@ -3,15 +3,16 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
              xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+             xmlns:button="clr-namespace:NutriApp.Components.Button"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
-             x:Class="NutriApp.AppNutri.View.Evaluation.EstimatedHeight.EstimatedHeightPage">
+             x:Class="NutriApp.Views.Evaluation.EstimatedHeight.EstimatedHeightPage">
     <StackLayout>
 
-        <titleView1:NewTitleView TypeTitle="None"
+        <view:NewTitleView TypeTitle="None"
                                  TextTitle="Altura Estimada" />
 
         <StackLayout VerticalOptions="FillAndExpand"
@@ -89,7 +90,7 @@
             <StackLayout HorizontalOptions="EndAndExpand"
                          IsVisible="{Binding CanDisplayResult}">
 
-                <componente:ResultLineView Margin="0,40,0,0"
+                <resultLine:ResultLineView Margin="0,40,0,0"
                                            ResultType="FIRST"
                                            TextTitle="Altura Estimada:"
                                            BodyText="{Binding Result}"
@@ -97,7 +98,7 @@
 
             </StackLayout>
 
-            <componente:ButtonView Margin="0,-3,0,0"
+            <button:ButtonView Margin="0,-3,0,0"
                                    Command="{Binding CalculateCommand}"
                                    VerticalOptions="Start"
                                    BackgroundColor="#283555"

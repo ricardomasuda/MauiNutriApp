@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.BancoDados.Config;
+namespace NutriApp.Database.Configuration;
 
 public class Constantes
 {

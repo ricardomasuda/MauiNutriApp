@@ -1,11 +1,11 @@
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
-using NutriApp.AppNutri.Utils;
+using NutriApp.Models;
+using NutriApp.Services;
+using NutriApp.Utils;
 
-namespace NutriApp.AppNutri.View.Evaluation.Imc;
+namespace NutriApp.Views.Evaluation.Imc;
 
 public partial class ImcTesteViewModel : ObservableObject
 {

@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.About;
+namespace NutriApp.Views.About;
 
 public partial class AboutPage : ContentPage
 {

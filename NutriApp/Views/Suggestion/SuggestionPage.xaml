@@ -3,19 +3,19 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
              xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:suggestion="clr-namespace:NutriApp.AppNutri.View.Suggestion"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-             xmlns:titleView1="clr-namespace:NutriApp.Components.Titles.TitleView"
+             xmlns:suggestion="clr-namespace:NutriApp.Views.Suggestion"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:button="clr-namespace:NutriApp.Components.Button"
              NavigationPage.HasNavigationBar="False"
              ios:Page.UseSafeArea="true"
              BackgroundColor="{StaticResource PageColor}"
              x:DataType="suggestion:SuggestionViewModel"
-             x:Class="NutriApp.AppNutri.View.Suggestion.SuggestionPage">
+             x:Class="NutriApp.Views.Suggestion.SuggestionPage">
     <ContentPage.Content>
         <StackLayout>
-            <titleView1:NewTitleView TextTitle="Sugestão" />
+            <view:NewTitleView TextTitle="Sugestão" />
 
             <StackLayout Margin="20,15">
 
@@ -40,7 +40,7 @@
 
                 </ScrollView>
 
-                <componente:ButtonView Command="{Binding SendEmailCommand}"
+                <button:ButtonView Command="{Binding SendEmailCommand}"
                                        VerticalOptions="End"
                                        TextColor="White"
                                        BackgroundColor="{StaticResource DarkBlue}"

@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace NutriApp.AppNutri.Componente;
+namespace NutriApp.Components;
 
 public partial class BaseViewModel : INotifyPropertyChanged
 {

@@ -1,8 +1,8 @@
 using Microsoft.Maui.Controls.Shapes;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.Utils;
+using NutriApp.Models;
+using NutriApp.Utils;
 
-namespace NutriApp.AppNutri.Componente;
+namespace NutriApp.Components.ResultLine;
 
 public partial class ResultLineView : ContentView
 {

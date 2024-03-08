@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using SQLite;
 
-namespace NutriApp.AppNutri.Model;
+namespace NutriApp.Models;
 
 public class MealModel
 {

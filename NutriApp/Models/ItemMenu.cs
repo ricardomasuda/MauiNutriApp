@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.Model;
+namespace NutriApp.Models;
 
 public class ItemMenu
 {

@@ -1,8 +1,8 @@
 using System.Collections.ObjectModel;
-using NutriApp.AppNutri.BancoDados;
-using NutriApp.AppNutri.Model;
+using NutriApp.Database;
+using NutriApp.Models;
 
-namespace NutriApp.AppNutri.service;
+namespace NutriApp.Services;
 
 public class DataBaseService
 {

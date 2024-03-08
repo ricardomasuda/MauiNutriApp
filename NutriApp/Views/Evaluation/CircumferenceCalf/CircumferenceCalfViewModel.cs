@@ -1,7 +1,7 @@
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.service;
+using NutriApp.Components;
+using NutriApp.Services;
 
-namespace NutriApp.AppNutri.View.Evaluation.CircumferenceCalf;
+namespace NutriApp.Views.Evaluation.CircumferenceCalf;
 
 public class CircumferenceCalfViewModel : BaseViewModel
 {

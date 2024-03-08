@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Evaluation.SemiologyNutritional;
+namespace NutriApp.Views.Evaluation.SemiologyNutritional;
 
 public partial class SemiologiaNutricionalList : ContentPage
 {

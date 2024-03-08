@@ -1,9 +1,9 @@
 using CommunityToolkit.Maui.Views;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
+using NutriApp.Components;
+using NutriApp.Models;
+using NutriApp.Services;
 
-namespace NutriApp.AppNutri.View.Food.Detail;
+namespace NutriApp.Views.Food.Detail;
 
 public class FoodDetailViewModel : BaseViewModel
 {

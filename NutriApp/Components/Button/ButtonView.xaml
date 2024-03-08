@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              x:Name="ButtonViewRoot"
-             x:Class="NutriApp.AppNutri.Componente.ButtonView">
+             x:Class="NutriApp.Components.Button.ButtonView">
     <Border
         StrokeShape="RoundRectangle 20"
         Padding="5,12"

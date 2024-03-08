@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.Componente;
+namespace NutriApp.Components;
 
 public class MyEntry : Entry
 {

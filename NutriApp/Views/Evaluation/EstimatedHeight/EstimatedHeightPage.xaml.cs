@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Evaluation.EstimatedHeight;
+namespace NutriApp.Views.Evaluation.EstimatedHeight;
 
 public partial class EstimatedHeightPage : ContentPage
 {

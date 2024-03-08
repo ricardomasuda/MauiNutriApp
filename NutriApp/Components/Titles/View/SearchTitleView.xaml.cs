@@ -1,7 +1,7 @@
 using System.Windows.Input;
-using NutriApp.AppNutri.Model;
+using NutriApp.Models;
 
-namespace NutriApp.Components.Titles.TitleView;
+namespace NutriApp.Components.Titles.View;
 
 public partial class SearchTitleView : ContentView
 {

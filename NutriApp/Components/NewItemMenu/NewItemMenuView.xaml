@@ -3,7 +3,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:icon="clr-namespace:NutriApp.Resources"
-             x:Class="NutriApp.AppNutri.Componente.NewItemMenu.NewItemMenuView">
+             x:Class="NutriApp.Components.NewItemMenu.NewItemMenuView">
     <Border 
         Margin="20,5"
         Padding="15"

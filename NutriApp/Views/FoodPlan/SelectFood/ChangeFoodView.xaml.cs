@@ -1,6 +1,6 @@
-using NutriApp.AppNutri.View.FoodPlan.SelectFood.SelectFoodPopup;
+using NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup;
 
-namespace NutriApp.AppNutri.View.FoodPlan.SelectFood;
+namespace NutriApp.Views.FoodPlan.SelectFood;
 
 public partial class ChangeFoodView : ContentPage
 {

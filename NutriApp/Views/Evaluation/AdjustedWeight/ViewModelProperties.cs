@@ -1,6 +1,6 @@
-using NutriApp.AppNutri.Componente;
+using NutriApp.Components;
 
-namespace NutriApp.AppNutri.View.Evaluation.AdjustedWeight;
+namespace NutriApp.Views.Evaluation.AdjustedWeight;
 
 public class ViewModelProperties : BaseViewModel
 {

@@ -1,6 +1,6 @@
-using NutriApp.AppNutri.Model;
+using NutriApp.Models;
 
-namespace NutriApp.AppNutri.service.AnthropometricEvaluation;
+namespace NutriApp.Services.AnthropometricEvaluation;
 
 public static class BodyCompositionService
 {

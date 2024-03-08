@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace NutriApp.AppNutri.Componente.NewItemMenu;
+namespace NutriApp.Components.NewItemMenu;
 
 public partial class NewItemMenuView : ContentView
 {

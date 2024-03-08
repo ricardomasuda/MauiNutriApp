@@ -3,9 +3,9 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             xmlns:converter="clr-namespace:NutriApp.Converter"
+             xmlns:converters="clr-namespace:NutriApp.Converters"
              x:Name="CardLineViewRoot"
-             x:Class="NutriApp.AppNutri.Componente.CardLine.CardLineView">
+             x:Class="NutriApp.Components.CardLine.CardLineView">
     <Grid Margin="40,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*" />
@@ -52,7 +52,7 @@
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
                 FontAttributes="Bold"
-                Text="{Binding ValueText,Converter={converter:NutrientConverter} ,Source={x:Reference CardLineViewRoot}}" />
+                Text="{Binding ValueText,Converter={converters:NutrientConverter} ,Source={x:Reference CardLineViewRoot}}" />
         </Frame>
 
     </Grid>

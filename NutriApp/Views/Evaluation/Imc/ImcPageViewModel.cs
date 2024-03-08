@@ -1,11 +1,11 @@
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
-using NutriApp.AppNutri.Utils;
+using NutriApp.Models;
+using NutriApp.Services;
+using NutriApp.Utils;
 
-namespace NutriApp.AppNutri.View.Evaluation.Imc;
+namespace NutriApp.Views.Evaluation.Imc;
 
 public partial class ImcPageViewModel : ObservableObject
 {
@@ -71,11 +71,11 @@ public partial class ImcPageViewModel : ObservableObject
             return;
         }
 
-        Result = EvaluationCalculations.Imc(Convert.ToDouble(Imc.Altura), Convert.ToDouble(Imc.Peso)).ToString();
+        Result = EvaluationCalculations.Imc(Convert.ToDouble((string)Imc.Altura), Convert.ToDouble((string)Imc.Peso)).ToString();
         if (!string.IsNullOrEmpty(Result))
         {
             var pessoa = CheckedAdult ? PersonAgeType.Adulto : PersonAgeType.Idoso;
-            ImcType = ImcService.CheckImc(Convert.ToDouble(Result), pessoa);
+            ImcType = ImcService.CheckImc(Convert.ToDouble((string)Result), pessoa);
             CanDisplayResult = true;
         }
     }

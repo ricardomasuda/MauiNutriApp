@@ -1,9 +1,9 @@
 using System.Globalization;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.service;
-using NutriApp.AppNutri.Utils;
+using NutriApp.Components;
+using NutriApp.Services;
+using NutriApp.Utils;
 
-namespace NutriApp.AppNutri.View.Evaluation.AdequacyWeight;
+namespace NutriApp.Views.Evaluation.AdequacyWeight;
 
 public class AdequacyWeightViewModel : BaseViewModel
 {

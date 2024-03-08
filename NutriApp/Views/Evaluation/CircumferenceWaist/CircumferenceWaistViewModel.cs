@@ -1,11 +1,11 @@
 using System.Globalization;
 using CommunityToolkit.Maui.Views;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.service;
-using NutriApp.AppNutri.Utils;
+using NutriApp.Components;
+using NutriApp.Models;
+using NutriApp.Services;
+using NutriApp.Utils;
 
-namespace NutriApp.AppNutri.View.Evaluation.CircumferenceWaist;
+namespace NutriApp.Views.Evaluation.CircumferenceWaist;
 
 public class CircumferenceWaistViewModel : BaseViewModel
     {

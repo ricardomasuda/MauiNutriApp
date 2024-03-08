@@ -1,4 +1,4 @@
-namespace NutriApp.AppNutri.View.Evaluation.AdjustedWeight;
+namespace NutriApp.Views.Evaluation.AdjustedWeight;
 
 public partial class AdjustedWeightPage : ContentPage
 {

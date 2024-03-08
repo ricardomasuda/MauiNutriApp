@@ -1,10 +1,10 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
-using NutriApp.AppNutri.Componente;
-using NutriApp.AppNutri.Model;
-using NutriApp.AppNutri.Utils;
+using NutriApp.Components;
+using NutriApp.Models;
+using NutriApp.Utils;
 
-namespace NutriApp.AppNutri.View.Evaluation.IdealWeight;
+namespace NutriApp.Views.Evaluation.IdealWeight;
 
 public class IdealWeightViewModel : BaseViewModel
 {

@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace NutriApp.AppNutri.Componente;
+namespace NutriApp.Components.Button;
 
 public partial class ButtonView : ContentView
 {

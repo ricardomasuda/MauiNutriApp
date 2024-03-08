@@ -6,7 +6,7 @@
              xmlns:icon="clr-namespace:NutriApp.Resources"
              BackgroundColor="#E77717"
              x:Name="SearchTitleViewRoot"
-             x:Class="NutriApp.Components.Titles.TitleView.SearchTitleView">
+             x:Class="NutriApp.Components.Titles.View.SearchTitleView">
      <StackLayout
         Margin="0,12,0,12">
         <Grid
