@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Route", "Route\Route\Route.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Route.Tests", "Route\Route.Tests\Route.Tests.csproj", "{FE2FB659-E4B5-4B78-93C6-B05A406B47D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseMauiLib", "BaseMauiLib\BaseMauiLib.csproj", "{35DA78AF-8C5D-45EF-B2F1-D0F02AF13D45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
