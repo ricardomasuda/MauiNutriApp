@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NutriApp.AppNutri.Componente.ContentPageCustomer;
 
 namespace NutriApp.AppNutri.View.Evaluation.IdealWeight;
 
-public partial class IdealWeightPage : ContentPage
+public partial class IdealWeightPage : BaseContentPage
 {
     public IdealWeightPage()
     {
