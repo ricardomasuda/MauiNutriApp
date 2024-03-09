@@ -3,11 +3,14 @@
 <contentPageCustomer:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
              xmlns:imc="clr-namespace:NutriApp.AppNutri.View.Evaluation.Imc"
              xmlns:contentPageCustomer="clr-namespace:NutriApp.AppNutri.Componente.ContentPageCustomer"
              x:DataType="imc:ImcPageViewModel"
+             TypeTitle="InfoCircle"
+             TextTitle="IMC"
+             Command="{Binding InfoCommand}"
+             VisibleBack="True"
              x:Class="NutriApp.AppNutri.View.Evaluation.Imc.ImcPage">
     <VerticalStackLayout
         VerticalOptions="Fill">

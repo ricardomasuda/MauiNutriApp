@@ -120,7 +120,7 @@ public class SelectFoodPopupViewModel : BaseViewModel
 
     private async void RemoveFood()
     {
-        if (await App.NavPage.DisplayAlert("Retirar Alimento", "Deseja retirar o alimento da refeição?", "Sim", "Não"))
+        if (await Shell.Current.DisplayAlert("Retirar Alimento", "Deseja retirar o alimento da refeição?", "Sim", "Não"))
         {
             _foodDetailViewModel.RemoveFoodList(_foodAssistant);
             //await App.NavPage.Navigation.PopPopupAsync();
