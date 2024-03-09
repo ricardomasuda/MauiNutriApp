@@ -5,7 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using NutriApp.AppNutri.Model;
 using NutriApp.AppNutri.service;
 using NutriApp.AppNutri.Utils;
-using NutriApp.AppNutri.View.Evaluation.Imc.Info;
+using NutriApp.AppNutri.View.Evaluation.Imc.InfoPopup;
 
 namespace NutriApp.AppNutri.View.Evaluation.Imc;
 
@@ -60,7 +60,7 @@ public partial class ImcPageViewModel : ObservableObject
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);
-        InfoCommand = new Command(async () => page.ShowPopup(new InfoImcPopup()));
+        InfoCommand = new Command(async () => Shell.Current.CurrentPage.ShowPopup(new InfoImcPopup()));
         CheckedAdultCommand = new Command(() => CheckedAdult = !CheckedAdult);
         CheckedElderCommand = new Command(() => CheckedElder = !CheckedElder);
     }

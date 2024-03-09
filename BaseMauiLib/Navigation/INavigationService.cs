@@ -1,4 +1,4 @@
-﻿namespace NutriApp.Navigation;
+﻿namespace MauiLib1.Navigation;
 
 public interface INavigationService {
     Task GoToAsync(ShellNavigationState state);

@@ -4,12 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:model="clr-namespace:NutriApp.AppNutri.Model"
-    xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
     Color="{StaticResource BackgroundPopupPage}"
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    x:Class="NutriApp.AppNutri.View.Evaluation.Imc.Info.InfoImcPopup">
+    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+    x:Class="NutriApp.AppNutri.View.Evaluation.Imc.InfoPopup.InfoImcPopup">
 
     <ScrollView>
         <Border
