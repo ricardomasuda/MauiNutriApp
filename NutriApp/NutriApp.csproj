@@ -65,13 +65,17 @@
         <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.7" />
+        <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
         <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-        <PackageReference Include="SQLitePCLRaw.core" Version="2.1.0" />
-        <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.0" />
-        <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
-        <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.0" />
-        <PackageReference Include="Syncfusion.Maui.Core" Version="23.1.40" />
-        <PackageReference Include="Syncfusion.Maui.Inputs" Version="23.1.40" />
+        <PackageReference Include="SQLitePCLRaw.core" Version="2.1.8" />
+        <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.8" />
+        <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.8" />
+        <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.8" />
+        <PackageReference Include="Syncfusion.Maui.Core" Version="23.1.44" />
+        <PackageReference Include="Syncfusion.Maui.Inputs" Version="23.1.44" />
+        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.7" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.7" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
@@ -110,6 +114,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\BaseMauiLib\BaseMauiLib.csproj" />
         <ProjectReference Include="..\Route\Route\Route.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
