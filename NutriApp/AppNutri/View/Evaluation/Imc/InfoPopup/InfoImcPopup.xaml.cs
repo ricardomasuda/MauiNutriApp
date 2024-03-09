@@ -1,5 +1,7 @@
 using CommunityToolkit.Maui.Views;
-namespace NutriApp.AppNutri.View.Evaluation.Imc.Info;
+using NutriApp.AppNutri.View.Evaluation.Imc.Info;
+
+namespace NutriApp.AppNutri.View.Evaluation.Imc.InfoPopup;
 
 public partial class InfoImcPopup : Popup
 {
