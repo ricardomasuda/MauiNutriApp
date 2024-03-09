@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mainPage="clr-namespace:NutriApp.AppNutri.View.MainPage"
     xmlns:newItemMenu="clr-namespace:NutriApp.AppNutri.Componente.NewItemMenu"
-    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False"
     x:DataType="mainPage:MainPageViewModel"
     BackgroundColor="{StaticResource PageColor}"
     x:Class="NutriApp.AppNutri.View.MainPage.MainPage">
