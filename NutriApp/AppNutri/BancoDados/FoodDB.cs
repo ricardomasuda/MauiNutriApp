@@ -19,6 +19,7 @@ public class FoodDb
             foodListResult.Add(foodModel);
         }
         //TODO - ARRUMAR LISTAGEM
+        //return foodListResult.OrderBy(food => food.Nome);
         return foodListResult.Take(500).OrderBy(food => food.Nome);
     }
 
