@@ -2,11 +2,11 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.TitleView"
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:cardLine="clr-namespace:NutriApp.AppNutri.Componente.CardLine"
              xmlns:componente="clr-namespace:NutriApp.AppNutri.Componente"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              x:Class="NutriApp.AppNutri.View.FoodPlan.SelectFood.ChangeFoodView">
     <Frame
         HasShadow="False"
