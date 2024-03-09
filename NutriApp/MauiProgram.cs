@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using MauiLib1.Navigation;
 using RouteGenerator;
 using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
@@ -11,6 +12,9 @@ public static class MauiProgram
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
+
+        builder.Services.AddSingleton<INavigationService, NavigationService>();
+        
         builder
             .UseMauiApp<App>()
             .ConfigureSyncfusionCore()
