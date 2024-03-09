@@ -1,19 +1,20 @@
-﻿using NutriApp.AppNutri.BancoDados.Config;
+﻿using MauiLib1.Navigation;
+using NutriApp.AppNutri.BancoDados.Config;
 using NutriApp.AppNutri.View;
-using NutriApp.AppNutri.View.MainPage;
 using SQLite;
 
 namespace NutriApp;
 
 public partial class App : Application
 {
-    public static NavigationPage NavPage { get; set; }
+    public static INavigationService NavPage { get; set; }
     public static SQLiteAsyncConnection Database;
     public App()
     {
-        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjk2MjY4MkAzMjMzMmUzMDJlMzBFMnRySklPRjR4cGlWZ0U4WDFRR3NGOWkwUzF1VEZVd0tHRm1oUkwyUU5NPQ==");
+        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF5cWWdCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXxedXVURWZdVUFxWUI=");
         InitializeComponent();
 
+        
         MainPage = new AppShell();
         // NavPage = new NavigationPage(new MainPage());
         // MainPage = NavPage;

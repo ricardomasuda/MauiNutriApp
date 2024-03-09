@@ -11,7 +11,6 @@ using NutriApp.AppNutri.View.Evaluation.List;
 using NutriApp.AppNutri.View.Evaluation.SemiologyNutritional;
 using NutriApp.AppNutri.View.Food.Detail;
 using NutriApp.AppNutri.View.Food.List;
-using NutriApp.AppNutri.View.MainPage;
 using NutriApp.AppNutri.View.Suggestion;
 
 namespace NutriApp.AppNutri.View;
@@ -27,7 +26,6 @@ public partial class AppShell : Shell
        
         Routing.RegisterRoute(nameof(SuggestionPage), typeof(SuggestionPage));
         Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
-        Routing.RegisterRoute(nameof(LoaginPage), typeof(LoaginPage));
 
         Routing.RegisterRoute(nameof(ImcPage), typeof(ImcPage));
         Routing.RegisterRoute(nameof(IdealWeightPage), typeof(IdealWeightPage));
@@ -47,29 +45,5 @@ public partial class AppShell : Shell
     protected override async void OnNavigating(ShellNavigatingEventArgs args)
     {
         base.OnNavigating(args);
-
-        // try
-        // {
-        //     if (Current != null && !(args.Target.Location.OriginalString.Contains("LoaginPage")))
-        //     {
-        //         await Current.Navigation.PushModalAsync(new LoaginPage());
-        //     }
-        // }
-        // catch (Exception e)
-        // {
-        //     Console.WriteLine(e);
-        // }
-       
-       
-    }
-
-    protected override void OnNavigated(ShellNavigatedEventArgs args)
-    {
-        base.OnNavigated(args);
-    
-        // if (Current != null && Current.Navigation.ModalStack.LastOrDefault() is LoaginPage)
-        // {
-        //     Current.Navigation.PopModalAsync();
-        // }
     }
 }
