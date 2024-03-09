@@ -6,7 +6,7 @@ public partial class FoodListPage : ContentPage
     public FoodListPage()
     {
         InitializeComponent();
-        //BindingContext = new FoodListViewModel();
+        BindingContext = new FoodListViewModel();
     }
     
     protected override void OnAppearing()
@@ -20,9 +20,9 @@ public partial class FoodListPage : ContentPage
     //     ListFood.ItemsSource = string.IsNullOrEmpty(e.NewTextValue) ? FoodViewModel.ListFood : FoodViewModel.ListFood.Where(x => x.Nome.ToUpper().Contains(e.NewTextValue.ToUpper()));
     // } 
     
-    protected override bool OnBackButtonPressed()
-    {
-        App.NavPage.PopAsync();
-        return base.OnBackButtonPressed();
-    }
+    // protected override bool OnBackButtonPressed()
+    // {
+    //     App.NavPage.PopAsync();
+    //     return base.OnBackButtonPressed();
+    // }
 }

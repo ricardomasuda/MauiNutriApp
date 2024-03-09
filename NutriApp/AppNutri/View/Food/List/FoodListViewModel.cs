@@ -24,7 +24,7 @@ public class FoodListViewModel : BaseViewModel
         FetchList();
         GoEditFoodCommand = new Command(EditFood);
         GoAddFoodCommand = new Command(AddFood);
-        GoBackCommand = new Command(GoBack);
+        GoBackCommand = new Command(() => Shell.Current.Navigation.PopAsync() );
     }
 
     private async void FetchList()
@@ -33,11 +33,6 @@ public class FoodListViewModel : BaseViewModel
         var listFoodItem = await DataBaseService.GetFoods();
         ListFood.AddRange(listFoodItem);
         _listFoodAux = ListFood;
-    }
-
-    private void GoBack()
-    {
-        App.NavPage.PopAsync();
     }
 
     private void SearchBarAction()
@@ -57,6 +52,6 @@ public class FoodListViewModel : BaseViewModel
 
     private async void AddFood(object sender)
     {
-        await App.NavPage.DisplayAlert("Em contrução", "Pagina em construção", "OK");
+        await Shell.Current.DisplayAlert("Em contrução", "Pagina em construção", "OK");
     }
 }
