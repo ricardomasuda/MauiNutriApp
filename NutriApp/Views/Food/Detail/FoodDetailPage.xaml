@@ -3,11 +3,9 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:components="clr-namespace:NutriApp.Components"
              xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:detail1="clr-namespace:NutriApp.AppNutri.View.Food.Detail"
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              xmlns:detail="clr-namespace:NutriApp.Views.Food.Detail"
              NavigationPage.HasNavigationBar="False"
