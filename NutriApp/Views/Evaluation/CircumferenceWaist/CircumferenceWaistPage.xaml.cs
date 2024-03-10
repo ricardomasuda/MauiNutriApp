@@ -5,6 +5,6 @@ public partial class CircumferenceWaistPage : ContentPage
     public CircumferenceWaistPage()
     {
         InitializeComponent();
-        BindingContext = new CircumferenceWaistViewModel(this);
+        BindingContext = new CircumferenceWaistViewModel();
     }
 }

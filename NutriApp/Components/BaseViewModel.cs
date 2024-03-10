@@ -1,8 +1,9 @@
 using System.ComponentModel;
+using NutriApp.AppNutri.Componente;
 
 namespace NutriApp.Components;
 
-public partial class BaseViewModel : INotifyPropertyChanged
+public partial class BaseViewModel : IBaseViewModel, INotifyPropertyChanged
 {
     // protected void ErrorToaster(string message = "Error!", int durationInSeconds = 3, bool showInBottom = false)
     // {

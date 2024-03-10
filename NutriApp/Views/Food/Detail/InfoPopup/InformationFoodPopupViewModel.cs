@@ -1,4 +1,4 @@
-namespace NutriApp.Views.Food.Detail;
+namespace NutriApp.Views.Food.Detail.InfoPopup;
 
 public class InformationFoodPopupViewModel
 {

@@ -1,9 +1,11 @@
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using NutriApp.Models;
 using NutriApp.Services;
 using NutriApp.Utils;
+using NutriApp.Views.Evaluation.Imc.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.Imc;
 
@@ -54,11 +56,11 @@ public partial class ImcPageViewModel : ObservableObject
     public Command CheckedAdultCommand { get; set; }
     public Command CheckedElderCommand { get; set; }
 
-    public ImcPageViewModel()
+    public ImcPageViewModel(ImcPage page)
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);
-        //InfoCommand = new Command(async () => await Navigation.PushPopupAsync(new InfoImcPopup())) ;
+        InfoCommand = new Command(() => Shell.Current.CurrentPage.ShowPopup(new InfoImcPopup()));
         CheckedAdultCommand = new Command(() => CheckedAdult = !CheckedAdult);
         CheckedElderCommand = new Command(() => CheckedElder = !CheckedElder);
     }
@@ -71,7 +73,7 @@ public partial class ImcPageViewModel : ObservableObject
             return;
         }
 
-        Result = EvaluationCalculations.Imc(Convert.ToDouble((string)Imc.Altura), Convert.ToDouble((string)Imc.Peso)).ToString();
+        Result = EvaluationCalculations.Imc(Convert.ToDouble(Imc.Altura), Convert.ToDouble(Imc.Peso)).ToString();
         if (!string.IsNullOrEmpty(Result))
         {
             var pessoa = CheckedAdult ? PersonAgeType.Adulto : PersonAgeType.Idoso;

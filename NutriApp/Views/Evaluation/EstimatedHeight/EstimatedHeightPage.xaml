@@ -7,12 +7,13 @@
              xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
              x:Class="NutriApp.Views.Evaluation.EstimatedHeight.EstimatedHeightPage">
     <StackLayout>
 
-        <view:NewTitleView TypeTitle="None"
+        <titleView:NewTitleView TypeTitle="None"
                                  TextTitle="Altura Estimada" />
 
         <StackLayout VerticalOptions="FillAndExpand"

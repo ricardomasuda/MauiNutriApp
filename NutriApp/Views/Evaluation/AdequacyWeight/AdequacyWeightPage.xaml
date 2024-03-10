@@ -7,15 +7,16 @@
              xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:adequacyWeight="clr-namespace:NutriApp.Views.Evaluation.AdequacyWeight"
-             x:DataType="adequacyWeight:AdequacyWeightViewModel"
+             xmlns:adequacyWeight1="clr-namespace:NutriApp.AppNutri.View.Evaluation.AdequacyWeight"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+             x:DataType="adequacyWeight1:AdequacyWeightViewModel"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
              x:Class="NutriApp.Views.Evaluation.AdequacyWeight.AdequacyWeightPage">
 
     <StackLayout VerticalOptions="FillAndExpand">
 
-        <view:NewTitleView TypeTitle="InfoCircle"
+        <titleView:NewTitleView TypeTitle="InfoCircle"
                            Command="{Binding InfoCommand}"
                            TextTitle="Adequação ao Peso" />
 

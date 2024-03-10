@@ -8,13 +8,14 @@
              xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
              xmlns:circumferenceCalf="clr-namespace:NutriApp.Views.Evaluation.CircumferenceCalf"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
              x:DataType="circumferenceCalf:CircumferenceCalfViewModel"
              x:Class="NutriApp.Views.Evaluation.CircumferenceCalf.CircumferenceCalfPage">
     <StackLayout VerticalOptions="FillAndExpand">
 
-        <view:NewTitleView TypeTitle="InfoCircle"
+        <titleView:NewTitleView TypeTitle="InfoCircle"
                            Command="{Binding InfoCommand}"
                            TextTitle="Circunferência da &#x0a;Panturrilha" />
 

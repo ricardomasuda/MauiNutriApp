@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill"
+               Color="{StaticResource BackgroundPopupPage}"
+               x:Class="MauiLib1.View.LoadPage">
+    <Grid HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Row="0"
+                     Grid.Column="0"
+                     HorizontalOptions="Center"
+                     VerticalOptions="CenterAndExpand"
+                     Spacing="20">
+            <ActivityIndicator IsRunning="True"
+                               HorizontalOptions="Center"
+                               Color="{StaticResource DarkOrange}"  />
+            <Label Text="Loading..." 
+                   TextColor="Azure" 
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </Grid>
+
+</toolkit:Popup>

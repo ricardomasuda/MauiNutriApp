@@ -1,6 +1,6 @@
 using System.Globalization;
 using CommunityToolkit.Maui.Views;
-using NutriApp.Components;
+using MvvmHelpers;
 using NutriApp.Models;
 using NutriApp.Services;
 using NutriApp.Utils;
@@ -63,10 +63,10 @@ public class CircumferenceWaistViewModel : BaseViewModel
         public Command WomanCommand { get; set; }
         public Command ManCommand { get; set; }
 
-        public CircumferenceWaistViewModel(CircumferenceWaistPage circumferenceWaistPage)
+        public CircumferenceWaistViewModel()
         {
             CalculateCommand = new Command(Calculate);
-            InfoImcCommand = new Command( async () => circumferenceWaistPage.ShowPopup(new InfoCircumferenceWaistPopup()));
+            InfoImcCommand = new Command( async () => Shell.Current.CurrentPage.ShowPopup(new InfoPopup.InfoCircumferenceWaistPopup()));
             WomanCommand = new Command(() => CheckedWoman = !CheckedWoman);
             ManCommand = new Command(() => CheckedMan = !CheckedMan);
         }

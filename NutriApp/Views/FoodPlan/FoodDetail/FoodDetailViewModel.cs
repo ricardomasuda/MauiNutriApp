@@ -1,5 +1,5 @@
 using System.Collections.ObjectModel;
-using NutriApp.Components;
+using MvvmHelpers;
 using NutriApp.Database;
 using NutriApp.Models;
 using NutriApp.Services;
@@ -67,11 +67,11 @@ public class FoodDetailViewModel : BaseViewModel
 
         private async void DeleteMeal()
         {
-            if (!await App.NavPage.DisplayAlert($"Apagar Refeição", $"Você deseja apagar refeição", "Sim", "Não"))
+            if (!await Shell.Current.DisplayAlert($"Apagar Refeição", $"Você deseja apagar refeição", "Sim", "Não"))
                 return;
             await new MealDB().ExcluirTotalAsync(_meal.Id);
             
-            await App.NavPage.PopAsync();
+            await Shell.Current.Navigation.PopAsync();
         }
 
         private void GoReport()
@@ -138,11 +138,11 @@ public class FoodDetailViewModel : BaseViewModel
                 Horario = Hour.ToString()
             };
 
-            if (!await App.NavPage.DisplayAlert($"{Title}", $"Você deseja {Title.ToLower()}", "Sim", "Não")) return;
+            if (!await Shell.Current.DisplayAlert($"{Title}", $"Você deseja {Title.ToLower()}", "Sim", "Não")) return;
 
             await new MealDB().SalvarAsync(mealModel);
             
-            await App.NavPage.PopAsync();
+            await Shell.Current.Navigation.PopAsync();
         }
 
         private void RemoveFoodTotal()

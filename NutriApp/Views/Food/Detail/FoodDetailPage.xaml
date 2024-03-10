@@ -3,10 +3,10 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:components="clr-namespace:NutriApp.Components"
              xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              xmlns:detail="clr-namespace:NutriApp.Views.Food.Detail"
              NavigationPage.HasNavigationBar="False"
              x:Name="FoodListRoot"
@@ -16,9 +16,10 @@
 
         <StackLayout>
 
-            <view:NewTitleView TypeTitle="InfoCircle"
-                               Command="{Binding InfoCommand}"
-                               TextTitle="Alimento" />
+            <titleView:NewTitleView
+                TypeTitle="InfoCircle"
+                Command="{Binding InfoCommand}"
+                TextTitle="Alimento" />
 
             <Frame CornerRadius="10"
                    Margin="30,10,30,0"
@@ -42,21 +43,24 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Border Margin="0,0,-8,0"
-                        Padding="0"
-                        BackgroundColor="{StaticResource LightBlueGrey}">
+                <Border
+                    Margin="0,0,-8,0"
+                    Padding="0"
+                    BackgroundColor="{StaticResource LightBlueGrey}">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,0,20,0" />
                     </Border.StrokeShape>
-                    <components:MyEntry Margin="0,0,0,0"
-                                        VerticalTextAlignment="Center"
-                                        HorizontalTextAlignment="Center"
-                                        FontAttributes="Bold"
-                                        FontSize="14"
-                                        BackgroundColor="{StaticResource LightBlueGrey}"
-                                        TextChanged="InputView_OnTextChanged"
-                                        Text="{Binding Measure}"
-                                        HeightRequest="40" />
+                    <components:MyEntry
+                        Margin="0,0,0,0"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        BackgroundColor="{StaticResource LightBlueGrey}"
+
+                        Text="{Binding Measure}"
+                        HeightRequest="40" />
+                    <!-- TextChanged="InputView_OnTextChanged" -->
                 </Border>
 
                 <Border Grid.Column="1"

@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
-using NutriApp.Components;
+using CommunityToolkit.Maui.Views;
+using MvvmHelpers;
 using NutriApp.Models;
 
 namespace NutriApp.Views.Evaluation.CircumferenceWaist;
@@ -19,9 +20,20 @@ public class InfoCircumferenceWaistPopupViewModel : BaseViewModel
         get => _classificationWoman;
         set { _classificationWoman = value; OnPropertyChanged("ClassificationWoman"); }
     }
+    
+    private Size _size;
+    public Size Size
+    {
+        get => _size;
+        set { _size = value; OnPropertyChanged("Size"); }
+    }
+    
+    public double Height { get; set; }
+    public double Width { get; set; }
 
     private InfoCircumferenceWaistPopup _infoCircumferenceWaistPopup;
     public Command CloseCommand { get; set; }
+    public Popup Popup { get; set; }
 
     public InfoCircumferenceWaistPopupViewModel(InfoCircumferenceWaistPopup infoCircumferenceWaistPopup)
     {
@@ -32,7 +44,7 @@ public class InfoCircumferenceWaistPopupViewModel : BaseViewModel
     
     private void ClosePage()
     {
-        _infoCircumferenceWaistPopup.CloseAsync();
+        Popup.CloseAsync();
     }
     
     private void FillData()

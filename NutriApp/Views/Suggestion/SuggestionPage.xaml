@@ -8,6 +8,7 @@
              xmlns:suggestion="clr-namespace:NutriApp.Views.Suggestion"
              xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              NavigationPage.HasNavigationBar="False"
              ios:Page.UseSafeArea="true"
              BackgroundColor="{StaticResource PageColor}"
@@ -15,7 +16,7 @@
              x:Class="NutriApp.Views.Suggestion.SuggestionPage">
     <ContentPage.Content>
         <StackLayout>
-            <view:NewTitleView TextTitle="Sugestão" />
+            <titleView:NewTitleView TextTitle="Sugestão" />
 
             <StackLayout Margin="20,15">
 

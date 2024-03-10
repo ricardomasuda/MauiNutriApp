@@ -1,10 +1,12 @@
+using NutriApp.Components.ContentPageCustomer;
+
 namespace NutriApp.Views.Evaluation.Imc;
 
-public partial class ImcPage : ContentPage
+public partial class ImcPage : BaseContentPage
 {
     public ImcPage()
     {
         InitializeComponent();
-        BindingContext = new ImcPageViewModel();
+        BindingContext = new Views.Evaluation.Imc.ImcPageViewModel(this);
     }
 }
