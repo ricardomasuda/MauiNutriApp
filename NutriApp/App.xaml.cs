@@ -1,6 +1,6 @@
-﻿using MauiLib1.Navigation;
-using NutriApp.AppNutri.BancoDados.Config;
-using NutriApp.AppNutri.View;
+using MauiLib1.Navigation;
+using NutriApp.Database.Configuration;
+using NutriApp.Views;
 using SQLite;
 
 namespace NutriApp;

@@ -11,7 +11,7 @@ public partial class LoadPage : Popup
     
     public void HidePopupPage()
     {
-        this.Close();
+        Close();
     }
 
 }

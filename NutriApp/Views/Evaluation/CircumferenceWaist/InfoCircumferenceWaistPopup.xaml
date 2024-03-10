@@ -1,0 +1,453 @@
+<?xml version="1.0"
+      encoding="utf-8"?>
+
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+               xmlns:models="clr-namespace:NutriApp.Models"
+               xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+               x:Class="NutriApp.Views.Evaluation.CircumferenceWaist.InfoCircumferenceWaistPopup">
+
+    <StackLayout BackgroundColor="{StaticResource PageColor}">
+
+        <titleView:NewTitleView VisibleBack="False"
+                           TypeTitle="Close"
+                           Command="{Binding CloseCommand}"
+                           TextTitle="Circunferência da Cintura" />
+
+        <StackLayout Margin="20,10,20,0"
+                     HorizontalOptions="FillAndExpand">
+
+            <Label Text="Tabela Mulher: "
+                   TextColor="{StaticResource DarkBlue}"
+                   FontAttributes="Bold" />
+
+            <ListView ItemsSource="{Binding ClassificationWoman}"
+                      Margin="0"
+                      BackgroundColor="{StaticResource PageColor}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True">
+
+                <ListView.Header>
+                    <Grid RowSpacing="0"
+                          ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Frame BorderColor="{StaticResource DarkGreyText}"
+                               HorizontalOptions="Fill"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               CornerRadius="0"
+                               Padding="5">
+                            <Label Text="Idade"
+                                   Grid.Column="0"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+                        </Frame>
+
+                        <Frame Grid.Column="1"
+                               BorderColor="{StaticResource DarkGreyText}"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               HorizontalOptions="Fill"
+                               CornerRadius="0"
+                               Padding="5">
+                            <Label Text="Baixo"
+                                   Grid.Column="0"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+                        </Frame>
+
+                        <Frame Grid.Column="2"
+                               BorderColor="{StaticResource DarkGreyText}"
+                               CornerRadius="0"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               HorizontalOptions="Fill"
+                               Padding="5">
+                            <Label Text="Moderado"
+                                   Grid.Column="0"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+                        </Frame>
+
+                        <Frame Grid.Column="3"
+                               BorderColor="{StaticResource DarkGreyText}"
+                               CornerRadius="0"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               HorizontalOptions="Fill"
+                               Padding="5">
+                            <Label Text="Alto"
+                                   Grid.Column="0"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+                        </Frame>
+
+                        <Frame Grid.Column="4"
+                               BorderColor="{StaticResource DarkGreyText}"
+                               CornerRadius="0"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               HorizontalOptions="Fill"
+                               Padding="5">
+                            <Label Text="Muito Alto"
+                                   Grid.Column="0"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+                        </Frame>
+
+                    </Grid>
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:CircunferenciaCintura">
+                        <ViewCell>
+                            <Grid RowSpacing="0"
+                                  ColumnSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Frame Grid.Column="0"
+                                       Margin="0"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       CornerRadius="0"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+                                    <Label Grid.Column="0"
+                                           Margin="0"
+                                           FontSize="11"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Idade}"
+                                           TextColor="Black"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                                <Frame Grid.Column="1"
+                                       Margin="0"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       CornerRadius="0"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+                                    <Label Margin="0"
+                                           FontSize="11"
+                                           VerticalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Baixo}"
+                                           TextColor="Black"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                                <Frame Grid.Column="2"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       Margin="0"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       CornerRadius="0"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+                                    <Label Margin="0"
+                                           FontSize="11"
+                                           VerticalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Moderado}"
+                                           TextColor="Black"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                                <Frame Grid.Column="3"
+                                       Margin="0"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       CornerRadius="0"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+                                    <Label Grid.Column="0"
+                                           Margin="0"
+                                           FontSize="11"
+                                           VerticalOptions="Center"
+                                           TextColor="Black"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Alto}"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                                <Frame Grid.Column="4"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       Margin="0"
+                                       CornerRadius="0"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+                                    <Label Margin="0"
+                                           TextColor="Black"
+                                           FontSize="11"
+                                           VerticalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding MuitoAlto}"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+                <ListView.Footer>
+                    <Label Text="Fonte: Adaptado de Bray &amp; Gray(1998)"
+                           TextColor="{StaticResource DarkGreyText}"
+                           FontAttributes="Bold"
+                           FontSize="12"
+                           Margin="0"
+                           BackgroundColor="{StaticResource PageColor}" />
+                </ListView.Footer>
+
+            </ListView>
+        </StackLayout>
+        <StackLayout Margin="20,20,20,0"
+                     HorizontalOptions="FillAndExpand">
+
+            <Label Text="Tabela Homem: "
+                   TextColor="{StaticResource DarkBlue}"
+                   FontAttributes="Bold" />
+
+            <ListView ItemsSource="{Binding ClassificationMan}"
+                      Margin="0"
+                      BackgroundColor="{StaticResource PageColor}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True">
+
+                <ListView.Header>
+                    <Grid RowSpacing="0"
+                          ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Frame BorderColor="{StaticResource DarkGreyText}"
+                               HorizontalOptions="Fill"
+                               CornerRadius="0"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               Padding="5">
+
+                            <Label Text="Idade"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+                        </Frame>
+
+                        <Frame Grid.Column="1"
+                               BorderColor="{StaticResource DarkGreyText}"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               HorizontalOptions="Fill"
+                               CornerRadius="0"
+                               Padding="5">
+
+                            <Label Text="Baixo"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+                        </Frame>
+
+                        <Frame Grid.Column="2"
+                               BorderColor="{StaticResource DarkGreyText}"
+                               CornerRadius="0"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               HorizontalOptions="Fill"
+                               Padding="5">
+
+                            <Label Text="Moderado"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+
+                        </Frame>
+
+                        <Frame Grid.Column="3"
+                               BorderColor="{StaticResource DarkGreyText}"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               CornerRadius="0"
+                               HorizontalOptions="Fill"
+                               Padding="5">
+
+                            <Label Text="Alto"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+
+                        </Frame>
+
+                        <Frame Grid.Column="4"
+                               BorderColor="{StaticResource DarkGreyText}"
+                               CornerRadius="0"
+                               BackgroundColor="{StaticResource DarkBlue}"
+                               HorizontalOptions="Fill"
+                               Padding="5">
+
+                            <Label Text="Muito Alto"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+
+                        </Frame>
+
+                    </Grid>
+
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:CircunferenciaCintura">
+                        <ViewCell>
+                            <Grid RowSpacing="0"
+                                  ColumnSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Frame Grid.Column="0"
+                                       Margin="0"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       CornerRadius="0"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+
+                                    <Label Grid.Column="0"
+                                           Margin="0"
+                                           FontSize="11"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Idade}"
+                                           TextColor="Black"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                                <Frame Grid.Column="1"
+                                       Margin="0"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       CornerRadius="0"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+                                    <Label Margin="0"
+                                           FontSize="11"
+                                           VerticalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Baixo}"
+                                           TextColor="Black"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                                <Frame Grid.Column="2"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       Margin="0"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       CornerRadius="0"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+                                    <Label Margin="0"
+                                           FontSize="11"
+                                           VerticalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Moderado}"
+                                           TextColor="Black"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                                <Frame Grid.Column="3"
+                                       Margin="0"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       CornerRadius="0"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+                                    <Label Margin="0"
+                                           FontSize="11"
+                                           TextColor="Black"
+                                           VerticalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Alto}"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                                <Frame Grid.Column="4"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       Margin="0"
+                                       BackgroundColor="{StaticResource PageColor}"
+                                       CornerRadius="0"
+                                       HorizontalOptions="Fill"
+                                       Padding="4">
+                                    <Label Margin="0"
+                                           TextColor="Black"
+                                           FontSize="11"
+                                           VerticalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding MuitoAlto}"
+                                           HorizontalOptions="Center" />
+                                </Frame>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+                <ListView.Footer>
+                    <Label Text="Fonte: Adaptado de Bray &amp; Gray(1998)"
+                           TextColor="{StaticResource DarkGreyText}"
+                           FontAttributes="Bold"
+                           FontSize="12"
+                           Margin="0"
+                           BackgroundColor="{StaticResource PageColor}" />
+                </ListView.Footer>
+
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+
+</toolkit:Popup>
