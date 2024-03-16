@@ -1,22 +1,22 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:frame="clr-namespace:NutriApp.Components.Titles.Frame"
-             xmlns:components="clr-namespace:NutriApp.Components"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
-             ios:Page.UseSafeArea="False"
-             NavigationPage.HasNavigationBar="False"
-             Title="Sobre o Aplicativo"
-             BackgroundColor="{StaticResource PageColor}"
-             x:Class="NutriApp.Views.About.AboutPage">
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    xmlns:frame="clr-namespace:NutriApp.Components.Titles.Frame"
+    xmlns:components="clr-namespace:NutriApp.Components"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    ios:Page.UseSafeArea="False"
+    Title="Sobre o Aplicativo"
+    BackgroundColor="{StaticResource PageColor}"
+    x:Class="NutriApp.Views.About.AboutPage">
 
     <StackLayout>
 
-        <titleView:NewTitleView 
+        <view:NewTitleView
             TypeTitle="None"
             TextTitle="Sobre" />
 
@@ -54,7 +54,7 @@
                     </Frame>
 
                     <frame:TitleFrameView Margin="0,15,0,0"
-                                                TextTitle="Desenvolvimento" />
+                                          TextTitle="Desenvolvimento" />
 
                     <Label TextColor="{StaticResource DarkGreyText}"
                            VerticalOptions="Center"
@@ -77,7 +77,7 @@
                            Text="Lyncoln Carmo - Programador" />
 
                     <frame:TitleFrameView Margin="0,15,0,0"
-                                                TextTitle="Entre em contato" />
+                                          TextTitle="Entre em contato" />
 
                     <Label FontAttributes="None"
                            HorizontalTextAlignment="Center"
@@ -124,7 +124,7 @@
                     </Label>
 
                     <frame:TitleFrameView Margin="0,15,0,0"
-                                                TextTitle="Agradecimento" />
+                                          TextTitle="Agradecimento" />
 
                     <Label Margin="0"
                            TextColor="{StaticResource DarkGreyText}"
@@ -143,4 +143,4 @@
         </ScrollView>
 
     </StackLayout>
-</ContentPage>
+</contentPageCustomer:BaseContentPage>
