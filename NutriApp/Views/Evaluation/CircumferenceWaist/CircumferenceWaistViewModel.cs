@@ -66,7 +66,7 @@ public class CircumferenceWaistViewModel : BaseViewModel
         public CircumferenceWaistViewModel()
         {
             CalculateCommand = new Command(Calculate);
-            InfoImcCommand = new Command( async () => Shell.Current.CurrentPage.ShowPopup(new InfoPopup.InfoCircumferenceWaistPopup()));
+            InfoImcCommand = new Command(() => Shell.Current.CurrentPage.ShowPopup(new InfoPopup.InfoCircumferenceWaistPopup()));
             WomanCommand = new Command(() => CheckedWoman = !CheckedWoman);
             ManCommand = new Command(() => CheckedMan = !CheckedMan);
         }
