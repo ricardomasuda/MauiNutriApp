@@ -1,6 +1,8 @@
+using NutriApp.Components.ContentPageCustomer;
+
 namespace NutriApp.Views.Evaluation.CircumferenceWaist;
 
-public partial class CircumferenceWaistPage : ContentPage
+public partial class CircumferenceWaistPage : BaseContentPage
 {
     public CircumferenceWaistPage()
     {
