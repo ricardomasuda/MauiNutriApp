@@ -31,10 +31,10 @@ public class IdealWeightViewModel : BaseViewModel
         public ObservableCollection<Item> ItemImcIdeal { get; set; } 
         public Command CalculateCommand { get; set; }
         public Command InfoCommand { get; set; }
-        public IdealWeightViewModel(IdealWeightPage page)
+        public IdealWeightViewModel()
         {
             CalculateCommand = new Command(Calculate);
-            InfoCommand = new Command(() => page.ShowPopup(new InfoIdealWeightPopup()));
+            InfoCommand = new Command(() => Shell.Current.CurrentPage.ShowPopup(new InfoIdealWeightPopup()));
             CanDisplay = false;
             Fill();
         }
@@ -46,11 +46,6 @@ public class IdealWeightViewModel : BaseViewModel
                 new() {Id = 22, Nome = "Homem 22 kg/m²"},
                 new() {Id = 21, Nome = "Mulher 21 kg/m²"}
             };
-        }
-        
-        private async void GotoInfo()
-        {
-            //await Navigation.PushPopupAsync(new InfoIdealWeightPopup());
         }
 
         private void Calculate()
