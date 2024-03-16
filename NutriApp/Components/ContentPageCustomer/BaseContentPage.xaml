@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              BackgroundColor="{StaticResource PageColor}"
              Shell.NavBarIsVisible="False"
              x:Name="PageBase"
@@ -11,7 +11,7 @@
         <ControlTemplate>
             <Grid RowDefinitions="100,*"  >
                 
-                <titleView:NewTitleView
+                <view:NewTitleView
                     x:Name="ViewTeste"
                     Grid.Row="0"
                     HorizontalOptions="Fill"
