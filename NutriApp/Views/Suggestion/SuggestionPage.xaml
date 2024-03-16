@@ -8,7 +8,6 @@
              xmlns:suggestion="clr-namespace:NutriApp.Views.Suggestion"
              xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              NavigationPage.HasNavigationBar="False"
              ios:Page.UseSafeArea="true"
              BackgroundColor="{StaticResource PageColor}"
@@ -16,21 +15,22 @@
              x:Class="NutriApp.Views.Suggestion.SuggestionPage">
     <ContentPage.Content>
         <StackLayout>
-            <titleView:NewTitleView TextTitle="Sugestão" />
+            <view:NewTitleView TextTitle="Sugestão" />
 
             <StackLayout Margin="20,15">
 
                 <ScrollView VerticalOptions="FillAndExpand">
 
                     <StackLayout>
-                        <core:SfTextInputLayout ContainerType="Outlined"
-                                                Hint="Adicione uma sugestão"
-                                                EnableHintAnimation="True"
-                                                Margin="0,20,0,0"
-                                                HasError="{Binding HasErrorBodyText}"
-                                                ErrorText="Sugestão não informada"
-                                                IsHintAlwaysFloated="True"
-                                                OutlineCornerRadius="8">
+                        <core:SfTextInputLayout
+                            ContainerType="Outlined"
+                            Hint="Adicione uma sugestão"
+                            EnableHintAnimation="True"
+                            Margin="0,20,0,0"
+                            HasError="{Binding HasErrorBodyText}"
+                            ErrorText="Sugestão não informada"
+                            IsHintAlwaysFloated="True"
+                            OutlineCornerRadius="8">
 
                             <Editor HeightRequest="350"
                                     Text="{Binding BodyText}"
@@ -41,11 +41,12 @@
 
                 </ScrollView>
 
-                <button:ButtonView Command="{Binding SendEmailCommand}"
-                                       VerticalOptions="End"
-                                       TextColor="White"
-                                       BackgroundColor="{StaticResource DarkBlue}"
-                                       Text="Enviar por Email" />
+                <button:ButtonView
+                    Command="{Binding SendEmailCommand}"
+                    VerticalOptions="End"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Text="Enviar por Email" />
 
             </StackLayout>
         </StackLayout>

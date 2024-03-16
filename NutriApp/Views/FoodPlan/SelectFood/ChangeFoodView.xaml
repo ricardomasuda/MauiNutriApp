@@ -7,7 +7,7 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              x:Class="NutriApp.Views.FoodPlan.SelectFood.ChangeFoodView">
     <Frame HasShadow="False"
            Margin="10,50"
@@ -18,19 +18,21 @@
         <ScrollView>
             <StackLayout>
 
-                <titleView:NewTitleView Command="{Binding CloseCommand}"
-                                         TypeTitle="Close"
-                                         VisibleBack="False"
-                                         TextTitle="{Binding Title}" />
+                <view:NewTitleView
+                    Command="{Binding CloseCommand}"
+                    TypeTitle="Close"
+                    VisibleBack="False"
+                    TextTitle="{Binding Title}" />
 
                 <StackLayout Margin="20,5,20,0">
 
-                    <core:SfTextInputLayout ContainerType="Outlined"
-                                            Hint="Alimento"
-                                            IsHintAlwaysFloated="True"
-                                            HasError="{Binding HasErrorFood}"
-                                            ErrorText="Alimento não informado"
-                                            OutlineCornerRadius="8">
+                    <core:SfTextInputLayout
+                        ContainerType="Outlined"
+                        Hint="Alimento"
+                        IsHintAlwaysFloated="True"
+                        HasError="{Binding HasErrorFood}"
+                        ErrorText="Alimento não informado"
+                        OutlineCornerRadius="8">
 
                         <Label BackgroundColor="Transparent"
                                TextColor="Black"
@@ -55,19 +57,21 @@
 
                     </core:SfTextInputLayout>
 
-                    <core:SfTextInputLayout ContainerType="Outlined"
-                                            Hint="Medida (g)"
-                                            HasError="{Binding HasErrorMeasure}"
-                                            ErrorText="Medida não informada"
-                                            IsHintAlwaysFloated="True"
-                                            OutlineCornerRadius="8">
+                    <core:SfTextInputLayout
+                        ContainerType="Outlined"
+                        Hint="Medida (g)"
+                        HasError="{Binding HasErrorMeasure}"
+                        ErrorText="Medida não informada"
+                        IsHintAlwaysFloated="True"
+                        OutlineCornerRadius="8">
 
-                        <Entry BackgroundColor="#F4F4F4"
-                               TextColor="Black"
-                               MaxLength="4"
-                               HeightRequest="55"
-                               Keyboard="Numeric"
-                               Text="{Binding Measure}">
+                        <Entry
+                            BackgroundColor="#F4F4F4"
+                            TextColor="Black"
+                            MaxLength="4"
+                            HeightRequest="55"
+                            Keyboard="Numeric"
+                            Text="{Binding Measure}">
                             <Label.HeightRequest>
                                 <OnPlatform x:TypeArguments="system:Double">
                                     <On Platform="iOS">25</On>
@@ -78,49 +82,57 @@
 
                     </core:SfTextInputLayout>
 
-                    <cardLine:CardLineView Margin="0,20,0,0"
-                                           BodyText="Carboidratos"
-                                           ValueText="{Binding Food.Carboidratos}" />
+                    <cardLine:CardLineView
+                        Margin="0,20,0,0"
+                        BodyText="Carboidratos"
+                        ValueText="{Binding Food.Carboidratos}" />
 
-                    <cardLine:CardLineView Margin="0,8,0,0"
-                                           BodyText="Proteínas"
-                                           ValueText="{Binding  Food.Proteinas}" />
+                    <cardLine:CardLineView
+                        Margin="0,8,0,0"
+                        BodyText="Proteínas"
+                        ValueText="{Binding  Food.Proteinas}" />
 
-                    <cardLine:CardLineView Margin="0,8,0,0"
-                                           BodyText="Lipídios"
-                                           ValueText="{Binding Food.Lipidios}" />
+                    <cardLine:CardLineView
+                        Margin="0,8,0,0"
+                        BodyText="Lipídios"
+                        ValueText="{Binding Food.Lipidios}" />
 
-                    <cardLine:CardLineView Margin="0,8,0,0"
-                                           BodyText="Valor Calórico"
-                                           ValueText="{Binding Food.ValorCalorico}" />
+                    <cardLine:CardLineView
+                        Margin="0,8,0,0"
+                        BodyText="Valor Calórico"
+                        ValueText="{Binding Food.ValorCalorico}" />
 
                 </StackLayout>
-                <StackLayout Margin="20,20"
-                             VerticalOptions="EndAndExpand">
+                <StackLayout
+                    Margin="20,20"
+                    VerticalOptions="EndAndExpand">
 
-                    <button:ButtonView IsVisible="True"
-                                           Margin="0,20,0,0"
-                                           Command="{Binding ReportCommand}"
-                                           TextColor="{StaticResource DarkBlue}"
-                                           BackgroundColor="{StaticResource LightBlueInput}"
-                                           Text="Relatório Completo" />
+                    <button:ButtonView
+                        IsVisible="True"
+                        Margin="0,20,0,0"
+                        Command="{Binding ReportCommand}"
+                        TextColor="{StaticResource DarkBlue}"
+                        BackgroundColor="{StaticResource LightBlueInput}"
+                        Text="Relatório Completo" />
 
                     <StackLayout Orientation="Horizontal">
 
-                        <button:ButtonView IsVisible="{Binding CanDelete}"
-                                               HorizontalOptions="FillAndExpand"
-                                               Margin="0,10,0,0"
-                                               Command="{Binding RemoveFoodCommand }"
-                                               TextColor="White"
-                                               BackgroundColor="{StaticResource DarkOrange}"
-                                               Text="Retirar" />
+                        <button:ButtonView
+                            IsVisible="{Binding CanDelete}"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="0,10,0,0"
+                            Command="{Binding RemoveFoodCommand }"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource DarkOrange}"
+                            Text="Retirar" />
 
-                        <button:ButtonView Margin="0,10,0,0"
-                                               HorizontalOptions="FillAndExpand"
-                                               Command="{Binding AddFoodCommand }"
-                                               TextColor="White"
-                                               BackgroundColor="{StaticResource DarkBlue}"
-                                               Text="Salvar" />
+                        <button:ButtonView
+                            Margin="0,10,0,0"
+                            HorizontalOptions="FillAndExpand"
+                            Command="{Binding AddFoodCommand }"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource DarkBlue}"
+                            Text="Salvar" />
 
                     </StackLayout>
 

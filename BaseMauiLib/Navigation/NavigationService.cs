@@ -7,10 +7,17 @@ public class NavigationService : INavigationService
 {
     public async Task GoToAsync(ShellNavigationState state)
     {
-        var loadingPage = new LoadPage();
-        Shell.Current.CurrentPage.ShowPopup(loadingPage);
-        await Shell.Current.GoToAsync(state);
-        loadingPage.HidePopupPage();
+        try
+        { 
+            var loadingPage = new LoadPage();
+            Shell.Current.CurrentPage.ShowPopup(loadingPage);
+            await Shell.Current.GoToAsync(state);
+            loadingPage.HidePopupPage();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
     }
     public Task GoToAsync(ShellNavigationState state, bool animate) => Shell.Current.GoToAsync(state, animate);
     public Task GoToAsync(ShellNavigationState state, IDictionary<string, object> parameters) => Shell.Current.GoToAsync(state, parameters);
