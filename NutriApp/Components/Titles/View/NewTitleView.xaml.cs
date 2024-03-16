@@ -1,9 +1,8 @@
 using System.Windows.Input;
-using NutriApp.AppNutri.Model;
 using NutriApp.Models;
 using NutriApp.Resources;
 
-namespace NutriApp.AppNutri.Componente.TitleView;
+namespace NutriApp.Components.Titles.View;
 
 public partial class NewTitleView : ContentView
 {
@@ -34,11 +33,24 @@ public partial class NewTitleView : ContentView
                 returnType: typeof(TypeTitleEnum),
                 declaringType: typeof(NewTitleView),
                 defaultValue: TypeTitleEnum.None);
+        
+        public static readonly BindableProperty CommandParameterProperty =
+            BindableProperty.Create(
+                nameof(CommandParameter),
+                typeof(object),
+                typeof(NewTitleView),
+                defaultValue: null);
 
         public ICommand Command
         {
             get => (ICommand) GetValue(CommandProperty);
             set => SetValue(CommandProperty, value);
+        }
+        
+        public object CommandParameter
+        {
+            get => GetValue(CommandParameterProperty);
+            set => SetValue(CommandParameterProperty, value);
         }
 
         public string TextTitle
@@ -131,9 +143,9 @@ public partial class NewTitleView : ContentView
         private void TapGestureRecognizer_Command(object sender, EventArgs e)
         {
             if (Command == null) return;
-            if (Command.CanExecute(null))
+            if (Command.CanExecute(CommandParameter))
             {
-                Command.Execute(null);
+                Command.Execute(CommandParameter);
             }
         }
 
