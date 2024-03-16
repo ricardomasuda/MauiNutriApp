@@ -37,14 +37,14 @@ public class InfoCircumferenceWaistPopupViewModel : BaseViewModel
 
     public InfoCircumferenceWaistPopupViewModel(InfoCircumferenceWaistPopup infoCircumferenceWaistPopup)
     {
-        CloseCommand = new Command(ClosePage);
+        CloseCommand = new Command<Popup>(ClosePage);
         _infoCircumferenceWaistPopup = infoCircumferenceWaistPopup;
         FillData();
     }
     
-    private void ClosePage()
+    private void ClosePage(Popup popup)
     {
-        Popup.CloseAsync();
+        popup.Close();
     }
     
     private void FillData()
