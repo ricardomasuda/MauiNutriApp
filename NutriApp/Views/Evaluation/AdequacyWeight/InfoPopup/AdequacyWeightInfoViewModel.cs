@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using CommunityToolkit.Maui.Views;
 using MvvmHelpers;
 using NutriApp.Models;
 
@@ -23,12 +24,12 @@ public class AdequacyWeightInfoViewModel : BaseViewModel
     public AdequacyWeightInfoViewModel()
     {
         FillData();
-        CloseCommand = new Command(ClosePage);
+        CloseCommand = new Command<Popup>(ClosePage);
     }
 
-    private static void ClosePage()
+    private void ClosePage(Popup popup)
     {
-        //App.NavPage.Navigation.PopPopupAsync();
+        popup.Close();
     }
 
     private void FillData()
