@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using CommunityToolkit.Maui.Views;
 using MvvmHelpers;
 using NutriApp.AppNutri.Model;
 
@@ -16,8 +17,13 @@ public class InfoCircumferenceCalfPopupViewModel : BaseViewModel
     public Command CloseCommand { get; set; }
     public InfoCircumferenceCalfPopupViewModel()
     {
-        //CloseCommand = new Command(() => App.NavPage.Navigation.PopPopupAsync());
+        CloseCommand = new Command<Popup>(ClosePage);
         Fill();
+    }
+    
+    private void ClosePage(Popup popup)
+    {
+        popup.Close();
     }
 
     private void Fill()

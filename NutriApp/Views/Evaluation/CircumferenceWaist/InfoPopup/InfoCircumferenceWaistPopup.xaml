@@ -4,13 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
     xmlns:models="clr-namespace:NutriApp.Models"
     xmlns:infoPopup="clr-namespace:NutriApp.Views.Evaluation.CircumferenceWaist.InfoPopup"
-    x:Name="Popup"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
     Color="{StaticResource BackgroundPopupPage}"
+    x:Name="Popup"
     x:DataType="infoPopup:InfoCircumferenceWaistPopupViewModel"
     x:Class="NutriApp.Views.Evaluation.CircumferenceWaist.InfoPopup.InfoCircumferenceWaistPopup">
 
@@ -21,10 +21,11 @@
             <VerticalStackLayout
                  BackgroundColor="{StaticResource PageColor}">
 
-                <titleView:NewTitleView
+                <view:NewTitleView
                     VisibleBack="False"
                     TypeTitle="Close"
                     Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding Source={x:Reference Popup}}"
                     TextTitle="Circunferência da Cintura" />
 
                 <StackLayout
