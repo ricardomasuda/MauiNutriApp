@@ -35,12 +35,12 @@ public class InfoImcPopupViewModel : BaseViewModel
         public InfoImcPopupViewModel()
         {
             FillData();
-            CloseCommand = new Command(ClosePage);
+            CloseCommand = new Command<Popup>(ClosePage);
         }
 
-        private void ClosePage()
+        private void ClosePage(Popup popup)
         {
-            Popup.CloseAsync();
+            popup.Close();
         }
 
         private void FillData()

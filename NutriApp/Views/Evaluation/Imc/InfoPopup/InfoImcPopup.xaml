@@ -7,8 +7,9 @@
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
     xmlns:models="clr-namespace:NutriApp.Models"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    x:Name="PopupImc"
     x:Class="NutriApp.Views.Evaluation.Imc.InfoPopup.InfoImcPopup">
 
     <ScrollView>
@@ -21,10 +22,11 @@
                 BackgroundColor="{StaticResource PageColor}"
                 VerticalOptions="FillAndExpand">
 
-                <titleView:NewTitleView
+                <view:NewTitleView
                     VisibleBack="False"
                     TypeTitle="Close"
                     Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding Source={x:Reference PopupImc}}"
                     TextTitle="IMC" />
 
                 <StackLayout Margin="20,0">
