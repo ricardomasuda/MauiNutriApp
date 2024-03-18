@@ -88,15 +88,7 @@ public partial class ImcPageViewModel :  BaseViewModel
         HasErrorWeight = string.IsNullOrWhiteSpace(_imc.Peso);
         if (!(CheckedElder || CheckedAdult))
         {
-            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-
-            string text = "Selecione um tipo de grupo";
-            ToastDuration duration = ToastDuration.Short;
-            double fontSize = 14;
-
-            var toast = Toast.Make(text, duration, fontSize);
-
-            await toast.Show(cancellationTokenSource.Token);
+            InfoToaster("Selecione um tipo de grupo", ToastDuration.Long);
             return false;
         }
 

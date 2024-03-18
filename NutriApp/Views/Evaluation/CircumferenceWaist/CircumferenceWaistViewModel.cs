@@ -1,6 +1,7 @@
 using System.Globalization;
+using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
-using MvvmHelpers;
+using NutriApp.Components;
 using NutriApp.Models;
 using NutriApp.Services;
 using NutriApp.Utils;
@@ -95,10 +96,10 @@ public class CircumferenceWaistViewModel : BaseViewModel
             
             if (!(CheckedWoman || CheckedMan))
             {
-                //App.NavPage.DisplayToastAsync( "Selecione um gênero");
+                InfoToaster("Selecione um gênero", ToastDuration.Long);
                 return false;
             }
-            return (!HasErrorCircumferenceAbdominal && !HasErrorCircumferenceHip );
+            return !HasErrorCircumferenceAbdominal && !HasErrorCircumferenceHip;
         }
 
     }
