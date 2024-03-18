@@ -39,11 +39,23 @@ public partial class FoodListViewModel : BaseViewModel {
             ? _listFoodAux
             : _listFoodAux.Where(x => x.Nome.ToUpper().Contains(SearchBar.ToUpper()));
         Foods = [..list.ToList()];
+    private void SearchBarAction()
+    {
+        var list = string.IsNullOrEmpty(SearchBar) ? _listFoodAux : _listFoodAux.Where(x => x.Nome.ToUpper().Contains(SearchBar.ToUpper()));
+        ListFood = new ObservableRangeCollection<FoodModel>(list.ToList());
     }
 
     [RelayCommand]
     private async Task EditFood(object sender) =>
         await Navigation.Navigation.PushPageAsync(new FoodDetailPage((FoodModel)sender));
+    private static async void EditFood(object sender)
+    {
+        var navigationParameter = new ShellNavigationQueryParameters
+        {
+            { "food", (FoodModel)sender }
+        };
+        await Shell.Current.GoToAsync(nameof(FoodDetailPage), navigationParameter);
+    }
 
     [RelayCommand]
     private async Task AddFood(object sender) =>
@@ -59,5 +71,8 @@ public partial class FoodListViewModel : BaseViewModel {
             CollectionViewHeight = DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density -
                                    SearchTitleHeight - CollectionViewCellHeight - COLLECTION_VIEW_BOTTOM_PADDING;
         }
+    private async void AddFood(object sender)
+    {
+        await Shell.Current.DisplayAlert("Em contrução", "Pagina em construção", "OK");
     }
 }

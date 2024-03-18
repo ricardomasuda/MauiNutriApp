@@ -1,4 +1,5 @@
-using NutriApp.Components;
+using MauiLib1.Navigation;
+using MvvmHelpers;
 using NutriApp.Views.About;
 using NutriApp.Views.Evaluation.List;
 using NutriApp.Views.Food.List;
@@ -10,18 +11,17 @@ public class MainPageViewModel : BaseViewModel
 {
     private string _version;
     public string Version { get => _version; set { _version = value; OnPropertyChanged("Version"); } }
-    public Command EvaluationCommand { get; set; } = new(async () => await Navigation.Navigation.PushPageAsync(new EvaluationListPage()));
+    public Command EvaluationCommand { get; set; } =  new ( () =>  App.NavPage.GoToAsync(nameof(EvaluationListPage)));
     public Command AnthropometricEvaluationCommand { get; set; }
-    public Command ListFoodCommand { get; set; } = new ( async() => await Navigation.Navigation.PushPageAsync(new FoodListPage()));
+    public Command ListFoodCommand { get; set; } = new ( () => App.NavPage.GoToAsync(nameof(FoodListPage)));
     public Command FoodPlanCommand { get; set; }
-    public Command SuggestionCommand { get; set; } = new(async () => await Navigation.Navigation.PushPageAsync(new SuggestionPage()));
-    public Command AboutAppCommand { get; set; } = new(async () => await Navigation.Navigation.PushPageAsync(new AboutPage()));
+    public Command SuggestionCommand { get; set; } = new( () => App.NavPage.GoToAsync(nameof(SuggestionPage)));
+    public Command AboutAppCommand { get; set; } = new( () => App.NavPage.GoToAsync(nameof(AboutPage)));
     // FoodPlanCommand = new Command( () => Navigation.PushPageAsync(new FoodPlanList()));
     // AnthropometricEvaluationCommand = new Command( () => Navigation.PushPageAsync(new AnthropometricEvaluationPage()));
-    //FillPage();
-
-    // private void FillPage()
-    // {
-    //     Version = App.Version;
-    // }
+ 
+    public MainPageViewModel() 
+    {
+        App.NavPage = Application.Current.MainPage.Handler.MauiContext.Services.GetService<INavigationService>();
+    }
 }

@@ -54,12 +54,12 @@ public class SuggestionViewModel : BaseViewModel
             if (await Utils.Utils.SendEmail(title, BodyText, toList)) return;
             if (!await Utils.Utils.SendWebEmail(title, BodyText, toList[0]))
             {
-                await App.NavPage.DisplayAlert("Erro", "Erro ao enviar email", "Ok");
+                await Shell.Current.DisplayAlert("Erro", "Erro ao enviar email", "Ok");
             }
         }
         catch (Exception e)
         {
-            await App.NavPage.DisplayAlert("Erro", "Erro ao enviar sugestão", "ok");
+            await Shell.Current.DisplayAlert("Erro", "Erro ao enviar sugestão", "ok");
             throw;
         }
     }

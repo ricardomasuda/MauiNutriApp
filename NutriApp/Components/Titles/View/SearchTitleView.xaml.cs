@@ -97,7 +97,8 @@ public partial class SearchTitleView : ContentView
         {
             try
             {
-                App.NavPage.PopAsync();
+                IEnumerable<Page> navigationStack = Shell.Current.Navigation.NavigationStack;
+                Shell.Current.Navigation.PopAsync();
             }
             catch (Exception exception)
             {

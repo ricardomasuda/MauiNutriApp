@@ -8,13 +8,14 @@
              xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
              x:Class="NutriApp.Views.Evaluation.CircumferenceWaist.CircumferenceWaistPage">
     <StackLayout VerticalOptions="FillAndExpand"
                  Margin="0,0,0,0">
 
-        <view:NewTitleView Command="{Binding InfoImcCommand}"
+        <titleView:NewTitleView Command="{Binding InfoImcCommand}"
                                  TypeTitle="InfoCircle"
                                  TextTitle="Circunferência da Cintura" />
 

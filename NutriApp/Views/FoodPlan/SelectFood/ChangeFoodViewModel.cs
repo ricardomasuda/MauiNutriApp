@@ -30,7 +30,7 @@ public class ChangeFoodViewModel : BaseViewModel
         FetchList();
         FoodDetailViewModel = foodDetailViewModel;
         //CloseCommand = new Command(async() => await App.NavPage.Navigation.PopPopupAsync());
-        GoBackCommand = new Command(() => App.NavPage.PopAsync());
+        GoBackCommand = new Command(() => Shell.Current.Navigation.PopAsync());
         SelectFoodCommand = new Command(SelectFood);
     }
 

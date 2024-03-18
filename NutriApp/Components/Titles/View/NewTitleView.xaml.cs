@@ -1,8 +1,9 @@
 using System.Windows.Input;
+using NutriApp.AppNutri.Model;
 using NutriApp.Models;
 using NutriApp.Resources;
 
-namespace NutriApp.Components.Titles.View;
+namespace NutriApp.AppNutri.Componente.TitleView;
 
 public partial class NewTitleView : ContentView
 {
@@ -118,7 +119,7 @@ public partial class NewTitleView : ContentView
         {
             try
             {
-                App.NavPage.PopAsync();
+                Shell.Current.Navigation.PopAsync();
             }
             catch (Exception exception)
             {

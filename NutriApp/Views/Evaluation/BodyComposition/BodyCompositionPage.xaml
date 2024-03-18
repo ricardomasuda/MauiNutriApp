@@ -9,13 +9,14 @@
              xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
              xmlns:bodyComposition="clr-namespace:NutriApp.Views.Evaluation.BodyComposition"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              x:DataType="bodyComposition:BodyCompositionPageViewModel"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
              x:Class="NutriApp.Views.Evaluation.BodyComposition.BodyCompositionPage">
     <StackLayout VerticalOptions="FillAndExpand">
 
-        <view:NewTitleView TypeTitle="None"
+        <titleView:NewTitleView TypeTitle="None"
                            TextTitle="Composição corporal" />
 
         <StackLayout Margin="20,20,20,0">

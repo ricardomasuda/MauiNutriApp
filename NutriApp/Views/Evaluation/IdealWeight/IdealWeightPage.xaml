@@ -1,22 +1,24 @@
-<?xml version="1.0"
-      encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
-             xmlns:button="clr-namespace:NutriApp.Components.Button"
-             BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
-             x:Class="NutriApp.Views.Evaluation.IdealWeight.IdealWeightPage">
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="http://schemas.syncfusion.com/maui"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    BackgroundColor="{StaticResource PageColor}"
+    NavigationPage.HasNavigationBar="False"
+    x:Class="NutriApp.Views.Evaluation.IdealWeight.IdealWeightPage">
+    
     <StackLayout VerticalOptions="FillAndExpand"
                  Margin="0,0,0,20">
 
-        <view:NewTitleView TypeTitle="InfoCircle"
-                                 Command="{Binding InfoCommand}"
-                                 TextTitle="Peso Ideal" />
+        <titleView:NewTitleView TypeTitle="InfoCircle"
+                                Command="{Binding InfoCommand}"
+                                TextTitle="Peso Ideal" />
 
         <StackLayout Margin="20,20,20,0">
             <StackLayout>
@@ -70,14 +72,14 @@
             </StackLayout>
 
             <button:ButtonView Margin="0,-3,0,0"
-                                   Command="{Binding CalculateCommand}"
-                                   VerticalOptions="CenterAndExpand"
-                                   BackgroundColor="#283555"
-                                   TextColor="White"
-                                   Text="Calcular" />
+                               Command="{Binding CalculateCommand}"
+                               VerticalOptions="CenterAndExpand"
+                               BackgroundColor="#283555"
+                               TextColor="White"
+                               Text="Calcular" />
 
         </StackLayout>
 
 
     </StackLayout>
-</ContentPage>
+</contentPageCustomer:BaseContentPage>

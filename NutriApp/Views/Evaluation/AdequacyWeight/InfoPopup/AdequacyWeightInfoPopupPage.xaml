@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+    x:Class="NutriApp.AppNutri.View.Evaluation.AdequacyWeight.InfoPopup.AdequacyWeightInfoPopupPage">
+
+    <Frame CornerRadius="15"
+           BackgroundColor="{StaticResource PageColor}"
+           Padding="0"
+           Margin="10,90">
+
+        <ScrollView>
+
+            <StackLayout>
+
+                <titleView:NewTitleView
+                    VisibleBack="False"
+                    TypeTitle="Close"
+                    Command="{Binding CloseCommand}"
+                    TextTitle="Adequação ao Peso" />
+
+                <StackLayout Margin="10, 0">
+
+                    <Label Text="Classificação do estado nutricional conforme adequação do peso atual."
+                           TextColor="{StaticResource DarkGreyText}" FontAttributes="Bold" />
+
+                    <ListView ItemsSource="{Binding AdequacaoPesos}" HasUnevenRows="True">
+
+                        <ListView.Header>
+                            <Grid RowSpacing="0" ColumnSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame BorderColor="{StaticResource DarkGreyText}"
+                                       HorizontalOptions="Fill"
+                                       BackgroundColor="{StaticResource DarkBlue}"
+                                       CornerRadius="0"
+                                       Padding="5">
+                                    <Label Text="Valor encontrado(%)" Grid.Column="0"
+                                           FontSize="Medium"
+                                           HorizontalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource WhiteText}" />
+                                </Frame>
+
+                                <Frame Grid.Column="1"
+                                       BorderColor="{StaticResource DarkGreyText}"
+                                       CornerRadius="0"
+                                       BackgroundColor="{StaticResource DarkBlue}"
+                                       HorizontalOptions="Fill"
+                                       Padding="5">
+                                    <Label Text="Classificação" Grid.Column="0"
+                                           FontSize="Medium"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource WhiteText}" />
+                                </Frame>
+                            </Grid>
+                        </ListView.Header>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid RowSpacing="0"
+                                          ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Frame Grid.Column="0"
+                                               Margin="0"
+                                               BorderColor="{StaticResource DarkGreyText}"
+                                               CornerRadius="0"
+                                               BackgroundColor="Transparent"
+                                               HorizontalOptions="Fill"
+                                               Padding="4">
+                                            <Label Grid.Column="0"
+                                                   Text="{Binding ValorEncontrado}"
+                                                   Margin="0"
+                                                   TextColor="Black"
+                                                   HorizontalOptions="Center" />
+                                        </Frame>
+
+                                        <Frame Grid.Column="1"
+                                               BorderColor="{StaticResource DarkGreyText}"
+                                               Margin="0"
+                                               BackgroundColor="Transparent"
+                                               CornerRadius="0"
+                                               HorizontalOptions="Fill"
+                                               Padding="4">
+                                            <Label Text="{Binding Classificacao}"
+                                                   Margin="0"
+                                                   TextColor="Black"
+                                                   HorizontalOptions="Center" />
+                                        </Frame>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                        <ListView.Footer>
+                            <Label Text="Fonte: Adaptada de Blackburn Thornton, 1979"
+                                   TextColor="{StaticResource DarkGreyText}"
+                                   FontAttributes="Bold"
+                                   FontSize="12"
+                                   Margin="0" />
+
+                        </ListView.Footer>
+
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+
+    </Frame>
+</toolkit:Popup>

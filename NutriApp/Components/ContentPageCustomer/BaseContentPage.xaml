@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+             BackgroundColor="{StaticResource PageColor}"
+             Shell.NavBarIsVisible="False"
+             x:Name="PageBase"
+             x:Class="NutriApp.Components.ContentPageCustomer.BaseContentPage">
+    <ContentPage.ControlTemplate >
+        <ControlTemplate>
+            <Grid RowDefinitions="100,*"  >
+                
+                <titleView:NewTitleView
+                    x:Name="ViewTeste"
+                    Grid.Row="0"
+                    HorizontalOptions="Fill"
+                    VisibleBack="{Binding VisibleBack, Source={x:Reference PageBase}}"
+                    TypeTitle="{Binding TypeTitle, Source={x:Reference PageBase}}"
+                    Command="{Binding Command, Source={x:Reference PageBase}}"
+                    TextTitle="{Binding TextTitle, Source={x:Reference PageBase}}" />
+                <ContentPresenter Grid.Row="1"/>
+            </Grid>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+    
+</ContentPage>

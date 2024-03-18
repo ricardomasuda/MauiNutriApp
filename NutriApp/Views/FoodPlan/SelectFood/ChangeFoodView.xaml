@@ -5,9 +5,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              x:Class="NutriApp.Views.FoodPlan.SelectFood.ChangeFoodView">
     <Frame HasShadow="False"
            Margin="10,50"
@@ -18,7 +18,7 @@
         <ScrollView>
             <StackLayout>
 
-                <view:NewTitleView Command="{Binding CloseCommand}"
+                <titleView:NewTitleView Command="{Binding CloseCommand}"
                                          TypeTitle="Close"
                                          VisibleBack="False"
                                          TextTitle="{Binding Title}" />

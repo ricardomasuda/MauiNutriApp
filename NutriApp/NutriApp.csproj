@@ -41,6 +41,9 @@
         <Debugger>Xamarin</Debugger>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+      <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
     <ItemGroup>
         <!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4"/>
@@ -62,6 +65,20 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.7" />
+        <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+        <PackageReference Include="SQLitePCLRaw.core" Version="2.1.8" />
+        <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.8" />
+        <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.8" />
+        <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.8" />
+        <PackageReference Include="Syncfusion.Maui.Core" Version="23.1.44" />
+        <PackageReference Include="Syncfusion.Maui.Inputs" Version="23.1.44" />
+        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.7" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.7" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.10"/>
         <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2"/>
@@ -394,35 +411,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <AdditionalFiles Include="Components\Button\ButtonView.xaml"/>
-        <AdditionalFiles Include="Components\CardLine\CardLineView.xaml"/>
-        <AdditionalFiles Include="Components\NewItemMenu\NewItemMenuView.xaml"/>
-        <AdditionalFiles Include="Components\ResultLine\ResultLineView.xaml"/>
-        <AdditionalFiles Include="Components\SlideCustomer\SlideView.xaml"/>
-        <AdditionalFiles Include="Views\About\AboutPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\AdequacyWeight\AdequacyWeightPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\AdjustedWeight\AdjustedWeightPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\BodyComposition\BodyCompositionPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\CircumferenceCalf\CircumferenceCalfPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\CircumferenceWaist\CircumferenceWaistPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\CircumferenceWaist\InfoCircumferenceWaistPopup.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\EstimatedHeight\EstimatedHeightPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\IdealWeight\IdealWeightPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\Imc\ImcPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\List\EvaluationListPage.xaml"/>
-        <AdditionalFiles Include="Views\Evaluation\SemiologyNutritional\SemiologiaNutricionalList.xaml"/>
-        <AdditionalFiles Include="Views\FoodPlan\FoodDetail\FoodDetailPage.xaml"/>
-        <AdditionalFiles Include="Views\FoodPlan\FoodDetail\SelectList\SelectListFoodPopup.xaml"/>
-        <AdditionalFiles Include="Views\FoodPlan\FoodPlanList\FoodPlanListPage.xaml"/>
-        <AdditionalFiles Include="Views\FoodPlan\FoodPlanList\NewFoodPlan\FoodPlanPopup.xaml"/>
-        <AdditionalFiles Include="Views\FoodPlan\MealList\FoodPlanDetail.xaml"/>
-        <AdditionalFiles Include="Views\FoodPlan\SelectFood\ChangeFoodView.xaml"/>
-        <AdditionalFiles Include="Views\FoodPlan\SelectFood\SelectFoodPopup\SelectFoodPopup.xaml"/>
-        <AdditionalFiles Include="Views\Food\Detail\FoodDetailPage.xaml"/>
-        <AdditionalFiles Include="Views\Food\Detail\InformationFoodPopup.xaml"/>
-        <AdditionalFiles Include="Views\Food\List\FoodListPage.xaml"/>
-        <AdditionalFiles Include="Views\MainPage\MainPage.xaml"/>
-        <AdditionalFiles Include="Views\Suggestion\SuggestionPage.xaml"/>
+        <ProjectReference Include="..\BaseMauiLib\BaseMauiLib.csproj"/><ProjectReference Include="..\Route\Route\Route.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    xmlns:models="clr-namespace:NutriApp.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="NutriApp.Views.Evaluation.SemiologyNutritional.SemiologiaNutricionalListPage">
+    <ScrollView>
+        <StackLayout
+            Margin="20,0,20,0"
+            BindableLayout.ItemsSource="{Binding ListSemiologyNutritional}">
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="models:SemiologyNutritionalModel">
+                    <toolkit:Expander>
+                        <toolkit:Expander.Header>
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label
+                                    FontSize="16"
+                                    Margin="0,10"
+                                    Text="{Binding Regiao}"
+                                    TextColor="{StaticResource DarkBlue}"
+                                    FontAttributes="Bold">
+                                </Label>
+
+                                <Image Source="expand_more.png"
+                                       WidthRequest="25"
+                                       HeightRequest="25"
+                                       Margin="0,0,10,0"
+                                       HorizontalOptions="EndAndExpand"
+                                       VerticalOptions="Center">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image"
+                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}"
+                                                     Value="True">
+                                            <Setter Property="Source"
+                                                    Value="expand_less.png" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+
+                            </StackLayout>
+                        </toolkit:Expander.Header>
+
+
+                        <StackLayout>
+
+                            <Label
+                                FontSize="13"
+                                TextColor="{StaticResource DarkBlue}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Significado: " FontAttributes="Bold" FontSize="12" />
+                                        <Span Text="{Binding Manifestacao}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label
+                                Text="{Binding Significados}"
+                                FontSize="13"
+                                Margin="0,0,0,10"
+                                TextColor="{StaticResource DarkBlue}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Manifestação: " FontAttributes="Bold" FontSize="12" />
+                                        <Span Text="{Binding Manifestacao}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                        </StackLayout>
+
+                    </toolkit:Expander>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </ScrollView>
+</contentPageCustomer:BaseContentPage>

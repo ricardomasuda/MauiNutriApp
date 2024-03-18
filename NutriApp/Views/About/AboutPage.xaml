@@ -7,6 +7,7 @@
              xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:frame="clr-namespace:NutriApp.Components.Titles.Frame"
              xmlns:components="clr-namespace:NutriApp.Components"
+             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              ios:Page.UseSafeArea="False"
              NavigationPage.HasNavigationBar="False"
              Title="Sobre o Aplicativo"
@@ -15,8 +16,9 @@
 
     <StackLayout>
 
-        <view:NewTitleView TypeTitle="None"
-                                 TextTitle="Sobre" />
+        <titleView:NewTitleView 
+            TypeTitle="None"
+            TextTitle="Sobre" />
 
         <ScrollView>
 

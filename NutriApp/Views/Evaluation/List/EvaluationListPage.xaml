@@ -1,20 +1,22 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:models="clr-namespace:NutriApp.Models"
-             x:Name="EvaluationListRoot"
-             BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
-             x:Class="NutriApp.Views.Evaluation.List.EvaluationListPage">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:NutriApp.Models"
+    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+    x:Name="EvaluationListRoot"
+    BackgroundColor="{StaticResource PageColor}"
+    Shell.NavBarIsVisible="False"
+    x:Class="NutriApp.Views.Evaluation.List.EvaluationListPage">
     <ContentPage.Content>
 
         <StackLayout>
 
-            <view:NewTitleView TypeTitle="None"
-                               TextTitle="Avaliação Nutricional" />
+            <titleView:NewTitleView
+                TypeTitle="None"
+                TextTitle="Avaliação Nutricional" />
 
             <ListView Margin="20,10"
                       ItemsSource="{Binding ItemMenu}"

@@ -1,14 +1,13 @@
-using CommunityToolkit.Maui.Views;
-using NutriApp.Components;
+using MvvmHelpers;
 using NutriApp.Models;
 using NutriApp.Services;
 
 namespace NutriApp.Views.Food.Detail;
 
-public class FoodDetailViewModel : BaseViewModel
+[QueryProperty(nameof(Food), "food")]
+public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
 {
     private double _measure;
-
     public double Measure
     {
         get => _measure;
@@ -56,7 +55,6 @@ public class FoodDetailViewModel : BaseViewModel
     }
 
     private string _sodium;
-
     public string Sodium
     {
         get => _sodium;
@@ -80,7 +78,6 @@ public class FoodDetailViewModel : BaseViewModel
     }
 
     private string _calorificValue;
-
     public string CalorificValue
     {
         get => _calorificValue;
@@ -90,23 +87,32 @@ public class FoodDetailViewModel : BaseViewModel
             OnPropertyChanged("CalorificValue");
         }
     }
+    
+    private FoodModel _food;
+    public FoodModel Food
+    {
+        get => _food;
+        set
+        {
+            _food = value;
+            OnPropertyChanged("Food");
+        }
+    }
 
     public string Source { get; set; }
     public Command InfoCommand { get; set; }
     public Command GoReportCommand { get; set; }
 
-    public FoodModel Food { get; set; }
-
-    public FoodDetailViewModel(FoodDetailPage foodDetailPage, FoodModel food = null)
+    public FoodDetailViewModel()
     {
-        Food = food;
-        InfoCommand = new Command(() => foodDetailPage.ShowPopup(new InformationFoodPopup()));
+        //InfoCommand = new Command(() => foodDetailPage.ShowPopup(new InformationFoodPopup()));
         GoReportCommand = new Command(GoReport);
         Fill();
     }
 
     public async void ChangeMeasure(bool isZero)
     {
+        if (Food == null) return;
         Measure = isZero ? 0 : Measure;
         var food = await FoodService.ChangeUnitMeasure(Food.Id, Measure);
         Carbohydrates = food.Carboidratos;
@@ -124,7 +130,7 @@ public class FoodDetailViewModel : BaseViewModel
         else
             Measure = 100;
         Source = Food != null ? FoodReference.GetReference(Food.Fonte) : null;
-        ChangeMeasure(false);
+        
     }
 
     private async void GoReport()
@@ -133,6 +139,10 @@ public class FoodDetailViewModel : BaseViewModel
         // List<FoodModel> listFood = new List<FoodModel> { foodReport };
         // await App.NavPage.PushAsync(new ReportPage(listFood));
     }
-    
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        Food = query["food"] as FoodModel;
+        ChangeMeasure(false);
+    }
     
 }
