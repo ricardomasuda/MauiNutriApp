@@ -11,10 +11,14 @@
              x:DataType="list:FoodListViewModel"
              x:Class="NutriApp.Views.Food.List.FoodListPage">
 
-        <view:SearchTitleView Command="{Binding GoAddFoodCommand}"
+    <VerticalStackLayout>
+
+        <view:SearchTitleView Command="{Binding AddFoodCommand}"
                               TypeTitle="None"
                               TextSearch="{Binding SearchBar}"
                               VisibleBack="True"
+                              SizeChanged="OnSizeChanged"
+                              Height="{Binding SearchTitleHeight}"
                               TextTitle="Lista de Alimentos" />
 
         <VerticalStackLayout>
