@@ -14,12 +14,13 @@
     TextTitle="Peso Ajustado"
     x:Class="NutriApp.Views.Evaluation.AdjustedWeight.AdjustedWeightPage">
     <ScrollView>
-        <StackLayout Margin="20,20,20,0">
+        <StackLayout 
+            Margin="20,20,20,10">
 
             <Label
                 Text="Categoria:"
                 TextColor="{StaticResource DarkBlue}"
-                VerticalOptions="CenterAndExpand"
+                VerticalOptions="Start"
                 HorizontalOptions="StartAndExpand" />
 
             <StackLayout
@@ -96,23 +97,25 @@
             </core:SfTextInputLayout>
 
             <StackLayout
-                HorizontalOptions="EndAndExpand"
-                IsVisible="{Binding Properties.CanDisplayResult}">
+                VerticalOptions="EndAndExpand">
 
                 <resultLine:ResultLineView
+                    IsVisible="{Binding Properties.CanDisplayResult}"
                     Margin="0,40,0,0"
                     ResultType="FIRST"
                     TextTitle="Peso Ajustado:"
                     BodyText="{Binding Properties.Result}" />
+                
+                <button:ButtonView
+                    Margin="0,-3,0,0"
+                    Command="{Binding CalculateCommand}"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Text="Calcular" />
 
             </StackLayout>
-            <button:ButtonView
-                Margin="0,-3,0,0"
-                Command="{Binding CalculateCommand}"
-                VerticalOptions="CenterAndExpand"
-                TextColor="White"
-                BackgroundColor="{StaticResource DarkBlue}"
-                Text="Calcular" />
+
 
         </StackLayout>
     </ScrollView>

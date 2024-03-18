@@ -5,9 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    xmlns:infoPopup="clr-namespace:NutriApp.Views.Evaluation.AdequacyWeight.InfoPopup"
+    xmlns:models="clr-namespace:NutriApp.Models"
     Color="{StaticResource BackgroundPopupPage}"
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
+    x:DataType="infoPopup:AdequacyWeightInfoViewModel"
     x:Name="PopupAdequacyWeight"
     x:Class="NutriApp.Views.Evaluation.AdequacyWeight.InfoPopup.AdequacyWeightInfoPopupPage">
 
@@ -80,7 +83,7 @@
                         </ListView.Header>
 
                         <ListView.ItemTemplate>
-                            <DataTemplate>
+                            <DataTemplate x:DataType="models:AdequacaoPeso">
                                 <ViewCell>
                                     <Grid RowSpacing="0"
                                           ColumnSpacing="0">

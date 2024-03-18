@@ -15,7 +15,7 @@
     x:DataType="idealWeight:IdealWeightViewModel"
     x:Class="NutriApp.Views.Evaluation.IdealWeight.IdealWeightPage">
 
-    <StackLayout Margin="20,20,20,0">
+    <StackLayout Margin="20,20,20,10">
         <StackLayout>
 
             <core:SfTextInputLayout
@@ -59,25 +59,25 @@
         </StackLayout>
 
         <StackLayout 
-            HorizontalOptions="EndAndExpand"
-                     IsVisible="{Binding CanDisplay}">
+            VerticalOptions="EndAndExpand">
 
             <resultLine:ResultLineView
+                IsVisible="{Binding CanDisplay}"
                 Margin="0,40,0,0"
                 ResultType="FIRST"
                 TextTitle="Peso Ideal:"
                 UnityMeasureType="KILOS"
                 BodyText="{Binding IdealWeight}" />
+            
+            <button:ButtonView
+                Margin="0,-3,0,0"
+                Command="{Binding CalculateCommand}"
+                VerticalOptions="CenterAndExpand"
+                BackgroundColor="#283555"
+                TextColor="White"
+                Text="Calcular" />
 
         </StackLayout>
-
-        <button:ButtonView
-            Margin="0,-3,0,0"
-            Command="{Binding CalculateCommand}"
-            VerticalOptions="CenterAndExpand"
-            BackgroundColor="#283555"
-            TextColor="White"
-            Text="Calcular" />
 
     </StackLayout>
 

@@ -97,24 +97,24 @@
             </core:SfTextInputLayout>
 
             <StackLayout
-                HorizontalOptions="EndAndExpand"
-                IsVisible="{Binding CanDisplayResult}">
+                VerticalOptions="EndAndExpand">
 
                 <resultLine:ResultLineView
+                    IsVisible="{Binding CanDisplayResult}"
                     Margin="0,40,0,0"
                     ResultType="FIRST"
                     TextTitle="Altura Estimada:"
                     BodyText="{Binding Result}"
                     UnityMeasureType="METERS" />
+                
+                <button:ButtonView
+                    Margin="0,-3,0,0"
+                    Command="{Binding CalculateCommand}"
+                    VerticalOptions="Start"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Text="Calcular" />
 
             </StackLayout>
-
-            <button:ButtonView
-                Margin="0,-3,0,0"
-                Command="{Binding CalculateCommand}"
-                VerticalOptions="Start"
-                BackgroundColor="{StaticResource DarkBlue}"
-                Text="Calcular" />
 
         </StackLayout>
     </ScrollView>

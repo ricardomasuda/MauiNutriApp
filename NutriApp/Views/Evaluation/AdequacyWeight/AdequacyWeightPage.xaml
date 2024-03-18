@@ -55,9 +55,10 @@
             </core:SfTextInputLayout>
 
             <StackLayout
+                VerticalOptions="EndAndExpand"
                 Margin="0,30,0,0">
+                
                 <StackLayout
-                    HorizontalOptions="EndAndExpand"
                     IsVisible="{Binding CanDisplayResult}">
 
                     <resultLine:ResultLineView

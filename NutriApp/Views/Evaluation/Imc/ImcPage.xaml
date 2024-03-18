@@ -123,6 +123,7 @@
                     BackgroundColor="{StaticResource DarkBlue}"
                     TextColor="White"
                     Text="Calcular" />
+                
             </StackLayout>
 
         </StackLayout>

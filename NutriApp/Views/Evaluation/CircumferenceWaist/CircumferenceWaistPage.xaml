@@ -18,7 +18,7 @@
 
     <ScrollView>
 
-        <StackLayout Margin="20,20,20,0">
+        <StackLayout Margin="20,20,20,10">
 
             <StackLayout>
 
@@ -119,29 +119,30 @@
 
             </StackLayout>
 
-            <StackLayout
-                HorizontalOptions="EndAndExpand"
-                IsVisible="{Binding DisplayResult}">
+            <StackLayout VerticalOptions="EndAndExpand">
+                
+                <StackLayout 
+                    IsVisible="{Binding DisplayResult}">
+                    <resultLine:ResultLineView
+                        Margin="0,40,0,0"
+                        ResultType="FIRST"
+                        TextTitle="Cincunfêrencia/Cintura:"
+                        BodyText="{Binding Result}" />
 
-                <resultLine:ResultLineView
-                    Margin="0,40,0,0"
-                    ResultType="FIRST"
-                    TextTitle="Cincunfêrencia/Cintura:"
-                    BodyText="{Binding Result}" />
+                    <resultLine:ResultLineView
+                        TextTitle="Classificação:"
+                        BodyText="{Binding Classification}" />
+                </StackLayout>
 
-                <resultLine:ResultLineView
-                    TextTitle="Classificação:"
-                    BodyText="{Binding Classification}" />
-
+                <button:ButtonView
+                    Margin="0,-3,0,0"
+                    Command="{Binding CalculateCommand}"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="#283555"
+                    TextColor="White"
+                    Text="Calcular" />
+                
             </StackLayout>
-
-            <button:ButtonView
-                Margin="0,-3,0,0"
-                Command="{Binding CalculateCommand}"
-                VerticalOptions="CenterAndExpand"
-                BackgroundColor="#283555"
-                TextColor="White"
-                Text="Calcular" />
 
         </StackLayout>
 

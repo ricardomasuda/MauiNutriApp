@@ -45,7 +45,6 @@
                             </StackLayout>
                         </toolkit:Expander.Header>
 
-
                         <StackLayout>
 
                             <Label

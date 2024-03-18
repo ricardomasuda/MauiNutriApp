@@ -16,7 +16,7 @@
     TextTitle="Composição corporal"
     x:Class="NutriApp.Views.Evaluation.BodyComposition.BodyCompositionPage">
 
-    <StackLayout Margin="20,20,20,0">
+    <StackLayout Margin="20,20,20,10">
 
         <core:SfTextInputLayout
             HeightRequest="80"
@@ -113,28 +113,32 @@
         </core:SfTextInputLayout>
 
         <StackLayout
-            HorizontalOptions="EndAndExpand"
-            IsVisible="{Binding CanDisplayResult}">
+            VerticalOptions="EndAndExpand">
 
-            <resultLine:ResultLineView
-                Margin="0,40,0,0"
-                ResultType="FIRST"
-                TextTitle="Peso Ósseo:"
-                BodyText="{Binding BoneMassResult}"
-                UnityMeasureType="KILOS" />
+            <StackLayout 
+                IsVisible="{Binding CanDisplayResult}">
+                <resultLine:ResultLineView
+                    Margin="0,40,0,0"
+                    ResultType="FIRST"
+                    TextTitle="Peso Ósseo:"
+                    BodyText="{Binding BoneMassResult}"
+                    UnityMeasureType="KILOS" />
 
-            <resultLine:ResultLineView
-                TextTitle="Peso Residual:"
-                BodyText="{Binding ResidualWeightResult}"
-                UnityMeasureType="KILOS" />
+                <resultLine:ResultLineView
+                    TextTitle="Peso Residual:"
+                    BodyText="{Binding ResidualWeightResult}"
+                    UnityMeasureType="KILOS" />
+            </StackLayout>
+       
+            <button:ButtonView
+                Margin="0,-3,0,0"
+                Command="{Binding CalculateCommand}"
+                VerticalOptions="CenterAndExpand"
+                TextColor="White"
+                BackgroundColor="#283555"
+                Text="Calcular" />
 
         </StackLayout>
-        <button:ButtonView
-            Margin="0,-3,0,0"
-            Command="{Binding CalculateCommand}"
-            VerticalOptions="CenterAndExpand"
-            TextColor="White"
-            BackgroundColor="#283555"
-            Text="Calcular" />
+
     </StackLayout>
 </contentPageCustomer:BaseContentPage>

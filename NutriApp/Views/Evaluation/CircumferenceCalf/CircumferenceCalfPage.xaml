@@ -17,7 +17,7 @@
 
     <ScrollView>
 
-        <StackLayout Margin="20,20,20,0">
+        <StackLayout Margin="20,20,20,10">
 
             <StackLayout>
 
@@ -45,24 +45,25 @@
             </StackLayout>
 
             <StackLayout
-                HorizontalOptions="EndAndExpand"
-                IsVisible="{Binding CanDisplayResult}">
+                HorizontalOptions="EndAndExpand">
 
                 <resultLine:ResultLineView
+                    IsVisible="{Binding CanDisplayResult}"
                     Margin="0,40,0,0"
                     ResultType="FIRST"
                     TextTitle="Classificação:"
                     BodyText="{Binding Result}" />
+                
+                <button:ButtonView
+                    Margin="0,-3,0,0"
+                    Command="{Binding CalculateCommand}"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Text="Calcular" />
 
             </StackLayout>
 
-            <button:ButtonView
-                Margin="0,-3,0,0"
-                Command="{Binding CalculateCommand}"
-                VerticalOptions="CenterAndExpand"
-                TextColor="White"
-                BackgroundColor="{StaticResource DarkBlue}"
-                Text="Calcular" />
         </StackLayout>
 
     </ScrollView>
