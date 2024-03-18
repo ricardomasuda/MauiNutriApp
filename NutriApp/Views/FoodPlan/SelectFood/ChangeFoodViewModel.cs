@@ -36,7 +36,7 @@ public class ChangeFoodViewModel : BaseViewModel
 
     private async void FetchList()
     {
-        ListFood = await DataBaseService.GetFoods();
+        ListFood = await DataBaseService.ListFoods();
         _listFoodAux = ListFood;
     }
 
