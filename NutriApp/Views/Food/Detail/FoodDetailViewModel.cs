@@ -1,11 +1,7 @@
-using MvvmHelpers;
-using NutriApp.Models;
-using NutriApp.Services;
-
 namespace NutriApp.Views.Food.Detail;
 
 [QueryProperty(nameof(Food), "food")]
-public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
+public class FoodDetailViewModel : BaseViewModel, IQueryAttributable
 {
     private double _measure;
     public double Measure
@@ -14,7 +10,7 @@ public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
         set
         {
             _measure = value;
-            OnPropertyChanged("Measure");
+            OnPropertyChanged();
         }
     }
 
@@ -26,7 +22,7 @@ public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
         set
         {
             _carbohydrates = value;
-            OnPropertyChanged("Carbohydrates");
+            OnPropertyChanged();
         }
     }
 
@@ -38,7 +34,7 @@ public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
         set
         {
             _proteins = value;
-            OnPropertyChanged("Proteins");
+            OnPropertyChanged();
         }
     }
 
@@ -50,7 +46,7 @@ public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
         set
         {
             _lipids = value;
-            OnPropertyChanged("Lipids");
+            OnPropertyChanged();
         }
     }
 
@@ -61,7 +57,7 @@ public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
         set
         {
             _sodium = value;
-            OnPropertyChanged("Sodium");
+            OnPropertyChanged();
         }
     }
 
@@ -73,7 +69,7 @@ public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
         set
         {
             _dietaryFiber = value;
-            OnPropertyChanged("DietaryFiber");
+            OnPropertyChanged();
         }
     }
 
@@ -84,7 +80,7 @@ public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
         set
         {
             _calorificValue = value;
-            OnPropertyChanged("CalorificValue");
+            OnPropertyChanged();
         }
     }
     
@@ -95,7 +91,7 @@ public partial class FoodDetailViewModel : BaseViewModel, IQueryAttributable
         set
         {
             _food = value;
-            OnPropertyChanged("Food");
+            OnPropertyChanged();
         }
     }
 
