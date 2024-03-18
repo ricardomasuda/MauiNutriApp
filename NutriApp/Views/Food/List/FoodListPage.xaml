@@ -7,7 +7,7 @@
              xmlns:list="clr-namespace:NutriApp.Views.Food.List"
              xmlns:models="clr-namespace:NutriApp.Models"
              BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
              x:DataType="list:FoodListViewModel"
              x:Class="NutriApp.Views.Food.List.FoodListPage">
 
