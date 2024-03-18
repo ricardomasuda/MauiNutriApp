@@ -56,8 +56,6 @@ public class IdealWeightViewModel : BaseViewModel
                 return;
             }
 
-            var teste = Convert.ToDouble(ImcIdeal.Id);
-            var teste1 = Utils.Utils.ConvertHeight(Height);
             IdealWeight = EvaluationCalculations.IdealWeight(Convert.ToDouble(ImcIdeal.Id), Utils.Utils.ConvertHeight(Height)).ToString(CultureInfo.InvariantCulture);
             if (!string.IsNullOrEmpty(IdealWeight))
             {
