@@ -33,19 +33,20 @@ public partial class FoodListViewModel : BaseViewModel {
         IsBusy = false;
     }
 
-    private void SearchBarAction()
-    {
-        var list = string.IsNullOrEmpty(SearchBar) ? _listFoodAux : _listFoodAux.Where(x => x.Nome.ToUpper().Contains(SearchBar.ToUpper()));
-        ListFood = new ObservableCollection<FoodModel>(list.ToList());
+    [RelayCommand]
+    private void SearchBarAction() {
+        IEnumerable<FoodModel> list = string.IsNullOrEmpty(SearchBar)
+            ? _listFoodAux
+            : _listFoodAux.Where(x => x.Nome.ToUpper().Contains(SearchBar.ToUpper()));
+        Foods = [..list.ToList()];
     }
 
-    private static async void EditFood(object sender)
-    {
+    [RelayCommand]
+    private async Task EditFood(object sender) =>
         await Navigation.Navigation.PushPageAsync(new FoodDetailPage((FoodModel)sender));
-    }
 
-    private async void AddFood(object sender)
-    {
+    [RelayCommand]
+    private async Task AddFood(object sender) =>
         await App.NavPage.DisplayAlert("Em contrução", "Pagina em construção", "OK");
 
     [RelayCommand]
