@@ -19,7 +19,6 @@ public partial class FoodListViewModel : BaseViewModel {
         MainThread.InvokeOnMainThreadAsync(FetchFoods);
     }
 
-
     private async Task FetchFoods() {
         if (IsBusy) return;
         IsBusy = true;
@@ -37,32 +36,25 @@ public partial class FoodListViewModel : BaseViewModel {
     private void SearchBarAction() {
         IEnumerable<FoodModel> list = string.IsNullOrEmpty(SearchBar)
             ? _listFoodAux
-            : _listFoodAux.Where(x => x.Nome.ToUpper().Contains(SearchBar.ToUpper()));
+            : _listFoodAux.Where(food => food.Nome.ToUpper().Contains(SearchBar.ToUpper()));
         Foods = [..list.ToList()];
-    private void SearchBarAction()
-    {
-        var list = string.IsNullOrEmpty(SearchBar) ? _listFoodAux : _listFoodAux.Where(x => x.Nome.ToUpper().Contains(SearchBar.ToUpper()));
-        ListFood = new ObservableRangeCollection<FoodModel>(list.ToList());
     }
 
     [RelayCommand]
-    private async Task EditFood(object sender) =>
-        await Navigation.Navigation.PushPageAsync(new FoodDetailPage((FoodModel)sender));
-    private static async void EditFood(object sender)
-    {
-        var navigationParameter = new ShellNavigationQueryParameters
-        {
+    private async Task EditFood(object sender) {
+        ShellNavigationQueryParameters navigationParameter = new() {
             { "food", (FoodModel)sender }
         };
+
         await Shell.Current.GoToAsync(nameof(FoodDetailPage), navigationParameter);
     }
 
     [RelayCommand]
     private async Task AddFood(object sender) =>
-        await App.NavPage.DisplayAlert("Em contrução", "Pagina em construção", "OK");
+        await Shell.Current.DisplayAlert("Em contrução", "Pagina em construção", "OK");
 
     [RelayCommand]
-    private static void GoBack() => App.NavPage.PopAsync();
+    private static void GoBack() => Shell.Current.Navigation.PopAsync();
 
     protected override void OnPropertyChanged(PropertyChangedEventArgs e) {
         base.OnPropertyChanged(e);
@@ -71,8 +63,5 @@ public partial class FoodListViewModel : BaseViewModel {
             CollectionViewHeight = DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density -
                                    SearchTitleHeight - CollectionViewCellHeight - COLLECTION_VIEW_BOTTOM_PADDING;
         }
-    private async void AddFood(object sender)
-    {
-        await Shell.Current.DisplayAlert("Em contrução", "Pagina em construção", "OK");
     }
 }
