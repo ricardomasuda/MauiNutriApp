@@ -118,7 +118,5 @@
 
     <ItemGroup>
         <ProjectReference Include="..\BaseMauiLib\BaseMauiLib.csproj" />
-        <ProjectReference Include="..\Route\Route\Route.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
-
 </Project>
