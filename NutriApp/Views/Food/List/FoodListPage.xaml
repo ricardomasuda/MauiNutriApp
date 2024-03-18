@@ -19,7 +19,12 @@
                               VisibleBack="True"
                               TextTitle="Lista de Alimentos" />
 
-        <StackLayout Margin="20,0,20,0">
+        <VerticalStackLayout>
+
+            <ActivityIndicator HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}" />
 
             <ListView x:Name="ListFood"
                       Margin="10"
