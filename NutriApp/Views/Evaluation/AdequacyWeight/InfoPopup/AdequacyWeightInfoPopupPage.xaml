@@ -24,7 +24,7 @@
             <StackLayout 
                 HorizontalOptions="Fill">
 
-                <view:TitlePopupView
+                <view:NewTitleView
                     VisibleBack="False"
                     TypeTitle="Close"
                     Command="{Binding CloseCommand}"
