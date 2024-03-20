@@ -9,7 +9,8 @@
              xmlns:button="clr-namespace:NutriApp.Components.Button"
              xmlns:adequacyWeight1="clr-namespace:NutriApp.AppNutri.View.Evaluation.AdequacyWeight"
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
-             x:DataType="adequacyWeight1:AdequacyWeightViewModel"
+             xmlns:adequacyWeight="clr-namespace:NutriApp.Views.Evaluation.AdequacyWeight"
+             x:DataType="adequacyWeight:AdequacyWeightViewModel"
              BackgroundColor="{StaticResource PageColor}"
              NavigationPage.HasNavigationBar="False"
              x:Class="NutriApp.Views.Evaluation.AdequacyWeight.AdequacyWeightPage">

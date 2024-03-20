@@ -1,31 +1,29 @@
-using System.Collections.ObjectModel;
-using MvvmHelpers;
 using NutriApp.AppNutri.Model;
 
 namespace NutriApp.Views.Evaluation.CircumferenceCalf.InfoPopup;
 
-public class InfoCircumferenceCalfPopupViewModel : BaseViewModel
-{
+public class InfoCircumferenceCalfPopupViewModel : BaseViewModel {
     private ObservableCollection<CircunferenciaPanturrilhaModel> _classificationCalf;
-    public ObservableCollection<CircunferenciaPanturrilhaModel> ClassificationCalf
-    {
+
+    public ObservableCollection<CircunferenciaPanturrilhaModel> ClassificationCalf {
         get => _classificationCalf;
-        set { _classificationCalf = value; OnPropertyChanged("ClassificationCalf"); }
+        set {
+            _classificationCalf = value;
+            OnPropertyChanged();
+        }
     }
-        
+
     public Command CloseCommand { get; set; }
-    public InfoCircumferenceCalfPopupViewModel()
-    {
+
+    public InfoCircumferenceCalfPopupViewModel() {
         //CloseCommand = new Command(() => App.NavPage.Navigation.PopPopupAsync());
         Fill();
     }
 
-    private void Fill()
-    {
-        ClassificationCalf = new ObservableCollection<CircunferenciaPanturrilhaModel>
-        {
-            new() { Classificacao = "Eutrofica", Valor = "maior igual a 31"},
-            new() { Classificacao = "Risco de desnutrição", Valor = " < 31 "},
+    private void Fill() {
+        ClassificationCalf = new ObservableCollection<CircunferenciaPanturrilhaModel> {
+            new() { Classificacao = "Eutrofica", Valor = "maior igual a 31" },
+            new() { Classificacao = "Risco de desnutrição", Valor = " < 31 " },
         };
     }
 }

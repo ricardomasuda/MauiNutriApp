@@ -9,7 +9,7 @@
              xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
              xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
-             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
              ios:Page.UseSafeArea="true"
              BackgroundColor="{StaticResource PageColor}"
              x:DataType="suggestion:SuggestionViewModel"
