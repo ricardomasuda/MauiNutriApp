@@ -39,7 +39,8 @@ public class CircumferenceWaistViewModel : BaseViewModel
             set { _circumferenceHip = value; OnPropertyChanged("CircumferenceHip"); } }
         
         private string _circumferenceAbdominal;
-        public string CircumferenceAbdominal { get { return _circumferenceAbdominal; } set { _circumferenceAbdominal = value; OnPropertyChanged("CircumferenceAbdominal"); } }
+        public string CircumferenceAbdominal { get => _circumferenceAbdominal;
+            set { _circumferenceAbdominal = value; OnPropertyChanged("CircumferenceAbdominal"); } }
         
         private string _age;
         public string Age { get => _age;

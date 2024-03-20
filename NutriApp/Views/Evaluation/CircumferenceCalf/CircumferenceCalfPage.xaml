@@ -45,7 +45,7 @@
             </StackLayout>
 
             <StackLayout
-                HorizontalOptions="EndAndExpand">
+                VerticalOptions="EndAndExpand">
 
                 <resultLine:ResultLineView
                     IsVisible="{Binding CanDisplayResult}"

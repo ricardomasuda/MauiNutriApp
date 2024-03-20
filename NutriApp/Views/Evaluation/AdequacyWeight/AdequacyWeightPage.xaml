@@ -16,7 +16,7 @@
     x:Class="NutriApp.Views.Evaluation.AdequacyWeight.AdequacyWeightPage">
 
     <ScrollView>
-        <StackLayout Margin="20,20,20,0">
+        <StackLayout Margin="20,20,20,10">
 
             <core:SfTextInputLayout
                 HeightRequest="80"

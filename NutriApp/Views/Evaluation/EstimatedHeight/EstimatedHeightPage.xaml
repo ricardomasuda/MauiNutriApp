@@ -111,6 +111,7 @@
                     Margin="0,-3,0,0"
                     Command="{Binding CalculateCommand}"
                     VerticalOptions="Start"
+                    TextColor="White"
                     BackgroundColor="{StaticResource DarkBlue}"
                     Text="Calcular" />
 
