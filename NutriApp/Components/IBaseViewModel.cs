@@ -1,6 +1,4 @@
-using System.ComponentModel;
-
-namespace NutriApp.AppNutri.Componente;
+namespace NutriApp.Components;
 
 public interface IBaseViewModel
 {
