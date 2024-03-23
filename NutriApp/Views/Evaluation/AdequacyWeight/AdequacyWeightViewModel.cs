@@ -1,7 +1,5 @@
 using System.Globalization;
 using CommunityToolkit.Maui.Views;
-using MvvmHelpers;
-using NutriApp.Services;
 using NutriApp.Utils;
 using NutriApp.Views.Evaluation.AdequacyWeight.InfoPopup;
 

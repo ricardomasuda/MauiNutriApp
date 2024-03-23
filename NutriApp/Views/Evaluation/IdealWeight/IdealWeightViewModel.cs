@@ -1,9 +1,6 @@
-using System.Collections.ObjectModel;
 using System.Globalization;
 using CommunityToolkit.Maui.Views;
-using MvvmHelpers;
 using NutriApp.AppNutri.View.Evaluation.IdealWeight.InfoPopup;
-using NutriApp.Models;
 using NutriApp.Utils;
 
 namespace NutriApp.Views.Evaluation.IdealWeight;

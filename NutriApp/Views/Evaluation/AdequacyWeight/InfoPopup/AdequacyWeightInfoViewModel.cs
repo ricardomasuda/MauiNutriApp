@@ -1,6 +1,4 @@
-using System.Collections.ObjectModel;
-using MvvmHelpers;
-using NutriApp.Models;
+using CommunityToolkit.Maui.Views;
 
 namespace NutriApp.Views.Evaluation.AdequacyWeight.InfoPopup;
 
