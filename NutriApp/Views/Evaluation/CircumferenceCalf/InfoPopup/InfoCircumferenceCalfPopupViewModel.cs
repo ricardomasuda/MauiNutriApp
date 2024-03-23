@@ -1,4 +1,3 @@
-
 using CommunityToolkit.Maui.Views;
 using NutriApp.AppNutri.Model;
 

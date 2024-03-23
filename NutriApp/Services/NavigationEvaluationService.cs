@@ -1,5 +1,3 @@
-using System.Collections.ObjectModel;
-using NutriApp.Models;
 using NutriApp.Resources.Strings;
 using NutriApp.Views.Evaluation.AdequacyWeight;
 using NutriApp.Views.Evaluation.AdjustedWeight;
@@ -7,6 +5,7 @@ using NutriApp.Views.Evaluation.BodyComposition;
 using NutriApp.Views.Evaluation.CircumferenceCalf;
 using NutriApp.Views.Evaluation.CircumferenceWaist;
 using NutriApp.Views.Evaluation.EstimatedHeight;
+using NutriApp.Views.Evaluation.EstimatedWeight;
 using NutriApp.Views.Evaluation.IdealWeight;
 using NutriApp.Views.Evaluation.Imc;
 using NutriApp.Views.Evaluation.SemiologyNutritional;
@@ -45,7 +44,7 @@ public class NavigationEvaluationService
             if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaCintura) { await App.NavPage.GoToAsync(nameof(CircumferenceWaistPage)); return; }
             if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaPanturrilha) { await App.NavPage.GoToAsync(nameof(CircumferenceCalfPage)); return; }
             if (itemMenu.Titulo == EvaluationMenuStrings.SemiologiaNutricional) { await App.NavPage.GoToAsync(nameof(SemiologiaNutricionalListPage)); return; }
-            //if (itemMenu.Titulo == EvaluationMenuStrings.PesoEstimado)  { await Navigation.PushPageAsync(new EstimatedWeightPage()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.PesoEstimado)  { await App.NavPage.GoToAsync( nameof(EstimatedWeightPage)); return;}
             //if (itemMenu.Titulo == EvaluationMenuStrings.ValorReference) { await Navigation.PushPageAsync(new ReferenceValuePage()); return;}
             await Shell.Current.DisplayAlert("Em Construção", "Em construção", "OK");
         }

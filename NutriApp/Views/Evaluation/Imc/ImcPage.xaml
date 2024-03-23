@@ -8,6 +8,7 @@
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:imc="clr-namespace:NutriApp.Views.Evaluation.Imc"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     TypeTitle="InfoCircle"
     Command="{Binding InfoCommand}"
     TextTitle="IMC"
@@ -40,13 +41,14 @@
 
                 </core:SfTextInputLayout>
                 <!-- Mjc1NTg1N0AzMjMzMmUzMDJlMzBjb2hraHRqMDl4R1hGUGlKSFhxRlcrZmhSMis3MXNPVklyNytxT1R3Sm1jPQ== -->
-                <core:SfTextInputLayout ContainerType="Outlined"
-                                        Hint="Altura (m)"
-                                        IsHintAlwaysFloated="True"
-                                        HeightRequest="80"
-                                        HasError="{Binding HasErrorHeight}"
-                                        ErrorText="Altura não informado"
-                                        OutlineCornerRadius="8">
+                <core:SfTextInputLayout
+                    ContainerType="Outlined"
+                    Hint="Altura (m)"
+                    IsHintAlwaysFloated="True"
+                    HeightRequest="80"
+                    HasError="{Binding HasErrorHeight}"
+                    ErrorText="Altura não informado"
+                    OutlineCornerRadius="8">
 
                     <Entry BackgroundColor="#F4F4F4"
                            TextColor="Black"
@@ -54,9 +56,9 @@
                            Text="{Binding Imc.Altura, Mode=TwoWay}"
                            PlaceholderColor="Black">
 
-                        <!-- <Entry.Behaviors> -->
-                        <!--     <behaviors:MaskedBehavior Mask="X,XX" /> -->
-                        <!-- </Entry.Behaviors> -->
+                        <Entry.Behaviors>
+                            <toolkit:MaskedBehavior Mask="X,XX" />
+                        </Entry.Behaviors>
 
                     </Entry>
 
@@ -123,7 +125,7 @@
                     BackgroundColor="{StaticResource DarkBlue}"
                     TextColor="White"
                     Text="Calcular" />
-                
+
             </StackLayout>
 
         </StackLayout>

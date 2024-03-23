@@ -1,8 +1,5 @@
-using System.ComponentModel;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Mvvm.ComponentModel;
-using NutriApp.AppNutri.Componente;
 
 namespace NutriApp.Components;
 
@@ -25,7 +22,6 @@ public partial class BaseViewModel : ObservableObject
 
         await toast.Show(cancellationTokenSource.Token);
     }
-    
     
     public event PropertyChangedEventHandler PropertyChanged;
     public void OnPropertyChanged(string nameProperty)

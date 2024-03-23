@@ -6,7 +6,13 @@
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     xmlns:models="clr-namespace:NutriApp.Models"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:semiologyNutritional="clr-namespace:NutriApp.Views.Evaluation.SemiologyNutritional"
+    TextTitle="Semiologia Nutricional"
+    x:DataType="semiologyNutritional:SemiologyNutritionalListViewModel"
     x:Class="NutriApp.Views.Evaluation.SemiologyNutritional.SemiologiaNutricionalListPage">
+    <ContentPage.BindingContext>
+        <semiologyNutritional:SemiologyNutritionalListViewModel />
+    </ContentPage.BindingContext>
     <ScrollView>
         <StackLayout
             Margin="20,0,20,0"
