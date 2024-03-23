@@ -1,12 +1,12 @@
-using NutriApp.AppNutri.View.Evaluation.AdequacyWeight;
+using NutriApp.Components.ContentPageCustomer;
 
 namespace NutriApp.Views.Evaluation.AdequacyWeight;
 
-public partial class AdequacyWeightPage : ContentPage
+public partial class AdequacyWeightPage : BaseContentPage
 {
     public AdequacyWeightPage()
     {
         InitializeComponent();
-        BindingContext = new AdequacyWeightViewModel(this);
+        BindingContext = new AdequacyWeightViewModel();
     }
 }

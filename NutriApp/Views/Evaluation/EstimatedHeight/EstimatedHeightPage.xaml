@@ -1,35 +1,37 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
-             xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
-             BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
-             x:Class="NutriApp.Views.Evaluation.EstimatedHeight.EstimatedHeightPage">
-    <StackLayout>
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="http://schemas.syncfusion.com/maui"
+    xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    xmlns:estimatedHeight="clr-namespace:NutriApp.Views.Evaluation.EstimatedHeight"
+    TypeTitle="None"
+    TextTitle="Altura Estimada"
+    x:DataType="estimatedHeight:EstimatedHeightPageViewModel"
+    x:Class="NutriApp.Views.Evaluation.EstimatedHeight.EstimatedHeightPage">
 
-        <titleView:NewTitleView TypeTitle="None"
-                                 TextTitle="Altura Estimada" />
-
-        <StackLayout VerticalOptions="FillAndExpand"
-                     Margin="20,20,20,20">
+    <ScrollView>
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            Margin="20,20,20,20">
 
             <StackLayout>
 
-                <Label Text="Gênero:"
-                       TextColor="{StaticResource DarkBlue}"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="StartAndExpand" />
+                <Label
+                    Text="Gênero:"
+                    TextColor="{StaticResource DarkBlue}"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand" />
 
                 <StackLayout Orientation="Horizontal">
 
-                    <CheckBox IsChecked="{Binding CheckedMan}"
-                              Color="{StaticResource DarkBlue}" />
+                    <CheckBox
+                        IsChecked="{Binding CheckedMan}"
+                        Color="{StaticResource DarkBlue}" />
 
                     <Label VerticalTextAlignment="Center"
                            Text="Homem"
@@ -42,12 +44,14 @@
 
                 <StackLayout Orientation="Horizontal">
 
-                    <CheckBox IsChecked="{Binding CheckedWoman}"
-                              Color="{StaticResource DarkBlue}" />
+                    <CheckBox
+                        IsChecked="{Binding CheckedWoman}"
+                        Color="{StaticResource DarkBlue}" />
 
-                    <Label VerticalTextAlignment="Center"
-                           Text="Mulher"
-                           TextColor="Black">
+                    <Label
+                        VerticalTextAlignment="Center"
+                        Text="Mulher"
+                        TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding WomanCommand}" />
                         </Label.GestureRecognizers>
@@ -57,54 +61,62 @@
 
             </StackLayout>
 
-            <core:SfTextInputLayout HeightRequest="80"
-                                    ContainerType="Outlined"
-                                    Hint="Idade"
-                                    IsHintAlwaysFloated="True"
-                                    HasError="{Binding HasErrorAge}"
-                                    ErrorText="Idade não informada"
-                                    OutlineCornerRadius="8">
+            <core:SfTextInputLayout
+                HeightRequest="80"
+                ContainerType="Outlined"
+                Hint="Idade"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding HasErrorAge}"
+                ErrorText="Idade não informada"
+                OutlineCornerRadius="8">
 
-                <Entry BackgroundColor="#F4F4F4"
-                       Keyboard="Numeric"
-                       TextColor="Black"
-                       Text="{Binding Age}"
-                       PlaceholderColor="Black" />
-
-            </core:SfTextInputLayout>
-
-            <core:SfTextInputLayout HeightRequest="80"
-                                    ContainerType="Outlined"
-                                    Hint="Altura Joelho(cm)"
-                                    IsHintAlwaysFloated="True"
-                                    HasError="{Binding HasErrorKneeHeight}"
-                                    ErrorText="Altura Joelho não informada"
-                                    OutlineCornerRadius="8">
-                <Entry BackgroundColor="#F4F4F4"
-                       TextColor="Black"
-                       Text="{Binding KneeHeight}"
-                       Keyboard="Numeric"
-                       PlaceholderColor="Black" />
+                <Entry
+                    BackgroundColor="#F4F4F4"
+                    Keyboard="Numeric"
+                    TextColor="Black"
+                    Text="{Binding Age}"
+                    PlaceholderColor="Black" />
 
             </core:SfTextInputLayout>
 
-            <StackLayout HorizontalOptions="EndAndExpand"
-                         IsVisible="{Binding CanDisplayResult}">
+            <core:SfTextInputLayout
+                HeightRequest="80"
+                ContainerType="Outlined"
+                Hint="Altura Joelho(cm)"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding HasErrorKneeHeight}"
+                ErrorText="Altura Joelho não informada"
+                OutlineCornerRadius="8">
+                <Entry
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Text="{Binding KneeHeight}"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
 
-                <resultLine:ResultLineView Margin="0,40,0,0"
-                                           ResultType="FIRST"
-                                           TextTitle="Altura Estimada:"
-                                           BodyText="{Binding Result}"
-                                           UnityMeasureType="METERS" />
+            </core:SfTextInputLayout>
+
+            <StackLayout
+                VerticalOptions="EndAndExpand">
+
+                <resultLine:ResultLineView
+                    IsVisible="{Binding CanDisplayResult}"
+                    Margin="0,40,0,0"
+                    ResultType="FIRST"
+                    TextTitle="Altura Estimada:"
+                    BodyText="{Binding Result}"
+                    UnityMeasureType="METERS" />
+                
+                <button:ButtonView
+                    Margin="0,-3,0,0"
+                    Command="{Binding CalculateCommand}"
+                    VerticalOptions="Start"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Text="Calcular" />
 
             </StackLayout>
 
-            <button:ButtonView Margin="0,-3,0,0"
-                                   Command="{Binding CalculateCommand}"
-                                   VerticalOptions="Start"
-                                   BackgroundColor="#283555"
-                                   Text="Calcular" />
-
         </StackLayout>
-    </StackLayout>
-</ContentPage>
+    </ScrollView>
+
+</contentPageCustomer:BaseContentPage>

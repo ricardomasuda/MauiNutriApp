@@ -7,79 +7,78 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
-    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
-    BackgroundColor="{StaticResource PageColor}"
-    NavigationPage.HasNavigationBar="False"
+    xmlns:idealWeight="clr-namespace:NutriApp.Views.Evaluation.IdealWeight"
+    TypeTitle="InfoCircle"
+    Command="{Binding InfoCommand}"
+    TextTitle="Peso Ideal"
+    x:DataType="idealWeight:IdealWeightViewModel"
     x:Class="NutriApp.Views.Evaluation.IdealWeight.IdealWeightPage">
-    
-    <StackLayout VerticalOptions="FillAndExpand"
-                 Margin="0,0,0,20">
 
-        <titleView:NewTitleView TypeTitle="InfoCircle"
-                                Command="{Binding InfoCommand}"
-                                TextTitle="Peso Ideal" />
+    <StackLayout Margin="20,20,20,10">
+        <StackLayout>
 
-        <StackLayout Margin="20,20,20,0">
-            <StackLayout>
+            <core:SfTextInputLayout
+                ContainerType="Outlined"
+                Hint="IMC Ideal (kg/m²)"
+                IsHintAlwaysFloated="True"
+                HeightRequest="80"
+                HasError="{Binding HasErrorImcIdeal}"
+                ErrorText="IMC Ideal não informado"
+                OutlineCornerRadius="8">
 
-                <core:SfTextInputLayout ContainerType="Outlined"
-                                        Hint="IMC Ideal (kg/m²)"
-                                        IsHintAlwaysFloated="True"
-                                        HeightRequest="80"
-                                        HasError="{Binding HasErrorImcIdeal}"
-                                        ErrorText="IMC Ideal não informado"
-                                        OutlineCornerRadius="8">
+                <Picker
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    ItemsSource="{Binding ItemImcIdeal}"
+                    ItemDisplayBinding="{Binding Nome}"
+                    SelectedItem="{Binding ImcIdeal}" />
 
-                    <Picker BackgroundColor="#F4F4F4"
-                            TextColor="Black"
-                            ItemsSource="{Binding ItemImcIdeal}"
-                            ItemDisplayBinding="{Binding Nome}"
-                            SelectedItem="{Binding ImcIdeal}" />
+            </core:SfTextInputLayout>
 
-                </core:SfTextInputLayout>
+            <core:SfTextInputLayout
+                ContainerType="Outlined"
+                Hint="Altura (m)"
+                HeightRequest="80"
+                HasError="{Binding HasErrorHeight}"
+                ErrorText="Altura não informado"
+                IsHintAlwaysFloated="True"
+                OutlineCornerRadius="8">
 
-                <core:SfTextInputLayout ContainerType="Outlined"
-                                        Hint="Altura (m)"
-                                        HeightRequest="80"
-                                        HasError="{Binding HasErrorHeight}"
-                                        ErrorText="Altura não informado"
-                                        IsHintAlwaysFloated="True"
-                                        OutlineCornerRadius="8">
+                <Entry BackgroundColor="#F4F4F4"
+                       TextColor="Black"
+                       Keyboard="Numeric"
+                       Text="{Binding Height, Mode=TwoWay}"
+                       PlaceholderColor="Black">
+                    <Entry.Behaviors>
+                        <toolkit:MaskedBehavior Mask="X,XX" />
+                    </Entry.Behaviors>
+                </Entry>
 
-                    <Entry BackgroundColor="#F4F4F4"
-                           TextColor="Black"
-                           Keyboard="Numeric"
-                           Text="{Binding Height, Mode=TwoWay}"
-                           PlaceholderColor="Black">
-                        <Entry.Behaviors>
-                            <toolkit:MaskedBehavior Mask="X,XX" />
-                        </Entry.Behaviors>
-                    </Entry>
+            </core:SfTextInputLayout>
+        </StackLayout>
 
-                </core:SfTextInputLayout>
-            </StackLayout>
+        <StackLayout 
+            VerticalOptions="EndAndExpand">
 
-            <StackLayout HorizontalOptions="EndAndExpand"
-                         IsVisible="{Binding CanDisplay}">
-
-                <resultLine:ResultLineView Margin="0,40,0,0"
-                                           ResultType="FIRST"
-                                           TextTitle="Peso Ideal:"
-                                           UnityMeasureType="KILOS"
-                                           BodyText="{Binding IdealWeight}" />
-
-            </StackLayout>
-
-            <button:ButtonView Margin="0,-3,0,0"
-                               Command="{Binding CalculateCommand}"
-                               VerticalOptions="CenterAndExpand"
-                               BackgroundColor="#283555"
-                               TextColor="White"
-                               Text="Calcular" />
+            <resultLine:ResultLineView
+                IsVisible="{Binding CanDisplay}"
+                Margin="0,40,0,0"
+                ResultType="FIRST"
+                TextTitle="Peso Ideal:"
+                UnityMeasureType="KILOS"
+                BodyText="{Binding IdealWeight}" />
+            
+            <button:ButtonView
+                Margin="0,-3,0,0"
+                Command="{Binding CalculateCommand}"
+                VerticalOptions="CenterAndExpand"
+                BackgroundColor="#283555"
+                TextColor="White"
+                Text="Calcular" />
 
         </StackLayout>
 
-
     </StackLayout>
+
 </contentPageCustomer:BaseContentPage>

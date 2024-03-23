@@ -1,6 +1,8 @@
+using NutriApp.Components.ContentPageCustomer;
+
 namespace NutriApp.Views.Evaluation.EstimatedHeight;
 
-public partial class EstimatedHeightPage : ContentPage
+public partial class EstimatedHeightPage : BaseContentPage
 {
     public EstimatedHeightPage()
     {

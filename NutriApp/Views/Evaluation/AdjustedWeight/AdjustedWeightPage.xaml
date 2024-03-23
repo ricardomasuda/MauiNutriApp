@@ -1,38 +1,39 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
-             xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:adjustedWeight="clr-namespace:NutriApp.Views.Evaluation.AdjustedWeight"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
-             x:DataType="adjustedWeight:AdjustedWeightPageViewModel"
-             BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
-             x:Class="NutriApp.Views.Evaluation.AdjustedWeight.AdjustedWeightPage">
-    <StackLayout VerticalOptions="FillAndExpand">
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="http://schemas.syncfusion.com/maui"
+    xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:adjustedWeight="clr-namespace:NutriApp.Views.Evaluation.AdjustedWeight"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    x:DataType="adjustedWeight:AdjustedWeightPageViewModel"
+    TypeTitle="None"
+    TextTitle="Peso Ajustado"
+    x:Class="NutriApp.Views.Evaluation.AdjustedWeight.AdjustedWeightPage">
+    <ScrollView>
+        <StackLayout 
+            Margin="20,20,20,10">
 
-        <titleView:NewTitleView TypeTitle="None"
-                           TextTitle="Peso Ajustado" />
+            <Label
+                Text="Categoria:"
+                TextColor="{StaticResource DarkBlue}"
+                VerticalOptions="Start"
+                HorizontalOptions="StartAndExpand" />
 
-        <StackLayout Margin="20,20,20,0">
+            <StackLayout
+                Orientation="Horizontal">
 
-            <Label Text="Categoria:"
-                   TextColor="{StaticResource DarkBlue}"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="StartAndExpand" />
+                <CheckBox
+                    IsChecked="{Binding Properties.CheckedObesity, Mode=TwoWay}"
+                    Color="{StaticResource DarkBlue}" />
 
-            <StackLayout Orientation="Horizontal">
-
-                <CheckBox IsChecked="{Binding Properties.CheckedObesity, Mode=TwoWay}"
-                          Color="{StaticResource DarkBlue}" />
-
-                <Label VerticalTextAlignment="Center"
-                       Text="Obesidade: IMC maior que 30 KG/M²"
-                       TextColor="Black">
+                <Label
+                    VerticalTextAlignment="Center"
+                    Text="Obesidade: IMC maior que 30 KG/M²"
+                    TextColor="Black">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ObesityCommand}" />
                     </Label.GestureRecognizers>
@@ -41,14 +42,17 @@
 
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <StackLayout
+                Orientation="Horizontal">
 
-                <CheckBox IsChecked="{Binding Properties.CheckedMalnutrition, Mode=TwoWay}"
-                          Color="{StaticResource DarkBlue}" />
+                <CheckBox
+                    IsChecked="{Binding Properties.CheckedMalnutrition, Mode=TwoWay}"
+                    Color="{StaticResource DarkBlue}" />
 
-                <Label VerticalTextAlignment="Center"
-                       Text="Desnutrição: IMC menor que 18 KG/M²"
-                       TextColor="Black">
+                <Label
+                    VerticalTextAlignment="Center"
+                    Text="Desnutrição: IMC menor que 18 KG/M²"
+                    TextColor="Black">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding MalnutritionCommand}" />
                     </Label.GestureRecognizers>
@@ -56,55 +60,64 @@
 
             </StackLayout>
 
-            <core:SfTextInputLayout ContainerType="Outlined"
-                                    Hint="Peso Atual (kg)"
-                                    IsHintAlwaysFloated="True"
-                                    HasError="{Binding Properties.HasErrorCurrencyWeight}"
-                                    ErrorText="Peso Atual não informada"
-                                    HeightRequest="80"
-                                    OutlineCornerRadius="8">
+            <core:SfTextInputLayout
+                ContainerType="Outlined"
+                Hint="Peso Atual (kg)"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding Properties.HasErrorCurrencyWeight}"
+                ErrorText="Peso Atual não informada"
+                HeightRequest="80"
+                OutlineCornerRadius="8">
 
-                <Entry BackgroundColor="#F4F4F4"
-                       TextColor="Black"
-                       Keyboard="Numeric"
-                       Text="{Binding Properties.CurrentWeight}"
-                       PlaceholderColor="Black" />
-
-            </core:SfTextInputLayout>
-
-            <core:SfTextInputLayout ContainerType="Outlined"
-                                    Hint="Peso Ideal (kg)"
-                                    IsHintAlwaysFloated="True"
-                                    HeightRequest="80"
-                                    HasError="{Binding Properties.HasErrorIdealWeight}"
-                                    ErrorText="Peso Ideal não informada"
-                                    OutlineCornerRadius="8">
-
-                <Entry BackgroundColor="#F4F4F4"
-                       TextColor="Black"
-                       Keyboard="Numeric"
-                       Text="{Binding Properties.IdealWeight}"
-                       PlaceholderColor="Black" />
+                <Entry
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    Text="{Binding Properties.CurrentWeight}"
+                    PlaceholderColor="Black" />
 
             </core:SfTextInputLayout>
 
-            <StackLayout HorizontalOptions="EndAndExpand"
-                         IsVisible="{Binding Properties.CanDisplayResult}">
+            <core:SfTextInputLayout
+                ContainerType="Outlined"
+                Hint="Peso Ideal (kg)"
+                IsHintAlwaysFloated="True"
+                HeightRequest="80"
+                HasError="{Binding Properties.HasErrorIdealWeight}"
+                ErrorText="Peso Ideal não informada"
+                OutlineCornerRadius="8">
 
-                <resultLine:ResultLineView Margin="0,40,0,0"
-                                           ResultType="FIRST"
-                                           TextTitle="Peso Ajustado:"
-                                           BodyText="{Binding Properties.Result}" />
+                <Entry
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    Text="{Binding Properties.IdealWeight}"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+
+            <StackLayout
+                VerticalOptions="EndAndExpand">
+
+                <resultLine:ResultLineView
+                    IsVisible="{Binding Properties.CanDisplayResult}"
+                    Margin="0,40,0,0"
+                    ResultType="FIRST"
+                    TextTitle="Peso Ajustado:"
+                    BodyText="{Binding Properties.Result}" />
+                
+                <button:ButtonView
+                    Margin="0,-3,0,0"
+                    Command="{Binding CalculateCommand}"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Text="Calcular" />
 
             </StackLayout>
-            <button:ButtonView Margin="0,-3,0,0"
-                               Command="{Binding CalculateCommand}"
-                               VerticalOptions="CenterAndExpand"
-                               TextColor="White"
-                               BackgroundColor="{StaticResource DarkBlue}"
-                               Text="Calcular" />
+
 
         </StackLayout>
+    </ScrollView>
 
-    </StackLayout>
-</ContentPage>
+</contentPageCustomer:BaseContentPage>

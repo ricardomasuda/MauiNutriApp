@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Views;
+using NutriApp.AppNutri.View.Evaluation.CircumferenceCalf.InfoPopup;
 using NutriApp.Components;
 using NutriApp.Services;
 
@@ -55,7 +57,7 @@ public class CircumferenceCalfViewModel : BaseViewModel
     public CircumferenceCalfViewModel()
     {
         CalculateCommand = new Command(Calculate);
-        //InfoCommand = new Command(async () => await Navigation.PushPopupAsync(new InfoCircumferenceCalfPopup()));
+        InfoCommand = new Command(() => Shell.Current.CurrentPage.ShowPopup(new InfoCircumferenceCalfPopup()));
     }
 
     private void Calculate()

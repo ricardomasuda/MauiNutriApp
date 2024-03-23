@@ -7,6 +7,6 @@ public partial class IdealWeightPage : BaseContentPage
     public IdealWeightPage()
     {
         InitializeComponent();
-        BindingContext = new IdealWeightViewModel(this);
+        BindingContext = new IdealWeightViewModel();
     }
 }

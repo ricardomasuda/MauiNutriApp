@@ -1,91 +1,109 @@
 using System.Globalization;
 using CommunityToolkit.Maui.Views;
-using NutriApp.AppNutri.View.Evaluation.AdequacyWeight.InfoPopup;
 using NutriApp.Utils;
+using NutriApp.Views.Evaluation.AdequacyWeight.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.AdequacyWeight;
 
-public class AdequacyWeightViewModel : BaseViewModel {
+public class AdequacyWeightViewModel : BaseViewModel
+{
     private string _pesoAtual;
 
-    public string PesoAtual {
+    public string PesoAtual
+    {
         get => _pesoAtual;
-        set {
+        set
+        {
             _pesoAtual = value;
-            OnPropertyChanged();
+            OnPropertyChanged("PesoAtual");
         }
     }
 
     private string _pesoIdeal;
 
-    public string PesoIdeal {
+    public string PesoIdeal
+    {
         get => _pesoIdeal;
-        set {
+        set
+        {
             _pesoIdeal = value;
-            OnPropertyChanged();
+            OnPropertyChanged("PesoIdeal");
         }
     }
 
     private bool _hasErrorPesoAtual;
 
-    public bool HasErrorPesoAtual {
+    public bool HasErrorPesoAtual
+    {
         get => _hasErrorPesoAtual;
-        set {
+        set
+        {
             _hasErrorPesoAtual = value;
-            OnPropertyChanged();
+            OnPropertyChanged("HasErrorPesoAtual");
         }
     }
 
     private bool _hasErrorPesoIdeal;
 
-    public bool HasErrorPesoIdeal {
+    public bool HasErrorPesoIdeal
+    {
         get => _hasErrorPesoIdeal;
-        set {
+        set
+        {
             _hasErrorPesoIdeal = value;
-            OnPropertyChanged();
+            OnPropertyChanged("HasErrorPesoIdeal");
         }
     }
 
     private string _result;
 
-    public string Result {
+    public string Result
+    {
         get => _result;
-        set {
+        set
+        {
             _result = value;
-            OnPropertyChanged();
+            OnPropertyChanged("Result");
         }
     }
 
     private string _classificacaoPesoAdequado;
 
-    public string ClassificacaoPesoAdequado {
+    public string ClassificacaoPesoAdequado
+    {
         get => _classificacaoPesoAdequado;
-        set {
+        set
+        {
             _classificacaoPesoAdequado = value;
-            OnPropertyChanged();
+            OnPropertyChanged("ClassificacaoPesoAdequado");
         }
     }
 
     private bool _canDisplayResult;
 
-    public bool CanDisplayResult {
+    public bool CanDisplayResult
+    {
         get => _canDisplayResult;
-        set {
+        set
+        {
             _canDisplayResult = value;
-            OnPropertyChanged();
+            OnPropertyChanged("CanDisplayResult");
         }
     }
 
     public Command CalculateCommand { get; set; }
     public Command InfoCommand { get; set; }
 
-    public AdequacyWeightViewModel(AdequacyWeightPage page) {
+    public AdequacyWeightViewModel()
+    {
         CalculateCommand = new Command(Calculate);
-        InfoCommand = new Command(() => page.ShowPopup(new AdequacyWeightInfoPopupPage()));
+        InfoCommand = new Command(() => Shell.Current.CurrentPage.ShowPopup(new AdequacyWeightInfoPopupPage()));
     }
 
-    private void Calculate() {
-        if (!ValidateData()) {
+    private void Calculate()
+    {
+        if (!ValidateData())
+        {
             CanDisplayResult = false;
             return;
         }
@@ -93,14 +111,16 @@ public class AdequacyWeightViewModel : BaseViewModel {
         Result = Math
             .Round(EvaluationCalculations.AdequacyWeight(Convert.ToDouble(PesoIdeal), Convert.ToDouble(PesoAtual)), 2)
             .ToString(CultureInfo.CurrentCulture);
-        if (!string.IsNullOrEmpty(Result)) {
+        if (!string.IsNullOrEmpty(Result))
+        {
             ClassificacaoPesoAdequado = WeightAdjustmentService.VerifyAdequacyWeight(Convert.ToDouble(Result));
             Result += "%";
             CanDisplayResult = true;
         }
     }
 
-    private bool ValidateData() {
+    private bool ValidateData()
+    {
         HasErrorPesoIdeal = string.IsNullOrWhiteSpace(PesoIdeal);
         HasErrorPesoAtual = string.IsNullOrWhiteSpace(PesoAtual);
 

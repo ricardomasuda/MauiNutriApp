@@ -1,6 +1,8 @@
+using NutriApp.Components.ContentPageCustomer;
+
 namespace NutriApp.Views.Evaluation.BodyComposition;
 
-public partial class BodyCompositionPage : ContentPage
+public partial class BodyCompositionPage : BaseContentPage
 {
     public BodyCompositionPage()
     {

@@ -1,131 +1,144 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
-             xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:bodyComposition="clr-namespace:NutriApp.Views.Evaluation.BodyComposition"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
-             x:DataType="bodyComposition:BodyCompositionPageViewModel"
-             BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
-             x:Class="NutriApp.Views.Evaluation.BodyComposition.BodyCompositionPage">
-    <StackLayout VerticalOptions="FillAndExpand">
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="http://schemas.syncfusion.com/maui"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:bodyComposition="clr-namespace:NutriApp.Views.Evaluation.BodyComposition"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    x:DataType="bodyComposition:BodyCompositionPageViewModel"
+    BackgroundColor="{StaticResource PageColor}"
+    TypeTitle="None"
+    TextTitle="Composição corporal"
+    x:Class="NutriApp.Views.Evaluation.BodyComposition.BodyCompositionPage">
 
-        <titleView:NewTitleView TypeTitle="None"
-                           TextTitle="Composição corporal" />
+    <StackLayout Margin="20,20,20,10">
 
-        <StackLayout Margin="20,20,20,0">
+        <core:SfTextInputLayout
+            HeightRequest="80"
+            ContainerType="Outlined"
+            Hint="Altura (m)"
+            IsHintAlwaysFloated="True"
+            HasError="{Binding HasErrorHeight}"
+            ErrorText="Altura não informada"
+            OutlineCornerRadius="8">
 
-            <core:SfTextInputLayout HeightRequest="80"
-                                    ContainerType="Outlined"
-                                    Hint="Altura (m)"
-                                    IsHintAlwaysFloated="True"
-                                    HasError="{Binding HasErrorHeight}"
-                                    ErrorText="Altura não informada"
-                                    OutlineCornerRadius="8">
+            <Entry
+                BackgroundColor="#F4F4F4"
+                TextColor="Black"
+                Keyboard="Numeric"
+                Text="{Binding Height}"
+                PlaceholderColor="Black">
+                <Entry.Behaviors>
+                    <toolkit:MaskedBehavior Mask="X,XX" />
+                </Entry.Behaviors>
+            </Entry>
 
-                <Entry BackgroundColor="#F4F4F4"
-                       TextColor="Black"
-                       Keyboard="Numeric"
-                       Text="{Binding Height}"
-                       PlaceholderColor="Black">
-                    <Entry.Behaviors>
-                        <toolkit:MaskedBehavior Mask="X,XX" />
-                    </Entry.Behaviors>
-                </Entry>
+        </core:SfTextInputLayout>
 
-            </core:SfTextInputLayout>
+        <core:SfTextInputLayout
+            HeightRequest="80"
+            ContainerType="Outlined"
+            Hint="Punho (cm)"
+            IsHintAlwaysFloated="True"
+            HasError="{Binding HasErrorWrist}"
+            ErrorText="Medição do punho não informada"
+            OutlineCornerRadius="8">
 
-            <core:SfTextInputLayout HeightRequest="80"
-                                    ContainerType="Outlined"
-                                    Hint="Punho (cm)"
-                                    IsHintAlwaysFloated="True"
-                                    HasError="{Binding HasErrorWrist}"
-                                    ErrorText="Medição do punho não informada"
-                                    OutlineCornerRadius="8">
+            <Entry
+                BackgroundColor="#F4F4F4"
+                TextColor="Black"
+                Keyboard="Numeric"
+                Text="{Binding Wrist}"
+                PlaceholderColor="Black" />
 
-                <Entry BackgroundColor="#F4F4F4"
-                       TextColor="Black"
-                       Keyboard="Numeric"
-                       Text="{Binding Wrist}"
-                       PlaceholderColor="Black" />
+        </core:SfTextInputLayout>
 
-            </core:SfTextInputLayout>
+        <core:SfTextInputLayout
+            HeightRequest="80"
+            ContainerType="Outlined"
+            Hint="Femur (cm)"
+            IsHintAlwaysFloated="True"
+            HasError="{Binding HasErrorFemur}"
+            ErrorText="Medição do femur não informada"
+            OutlineCornerRadius="8">
 
-            <core:SfTextInputLayout HeightRequest="80"
-                                    ContainerType="Outlined"
-                                    Hint="Femur (cm)"
-                                    IsHintAlwaysFloated="True"
-                                    HasError="{Binding HasErrorFemur}"
-                                    ErrorText="Medição do femur não informada"
-                                    OutlineCornerRadius="8">
+            <Entry
+                BackgroundColor="#F4F4F4"
+                TextColor="Black"
+                Keyboard="Numeric"
+                Text="{Binding Femur}"
+                PlaceholderColor="Black" />
 
-                <Entry BackgroundColor="#F4F4F4"
-                       TextColor="Black"
-                       Keyboard="Numeric"
-                       Text="{Binding Femur}"
-                       PlaceholderColor="Black" />
+        </core:SfTextInputLayout>
 
-            </core:SfTextInputLayout>
+        <core:SfTextInputLayout
+            HeightRequest="80"
+            ContainerType="Outlined"
+            Hint="Peso Atual (kg)"
+            IsHintAlwaysFloated="True"
+            HasError="{Binding HasErrorWeight}"
+            ErrorText="Peso Atual não informada"
+            OutlineCornerRadius="8">
 
-            <core:SfTextInputLayout HeightRequest="80"
-                                    ContainerType="Outlined"
-                                    Hint="Peso Atual (kg)"
-                                    IsHintAlwaysFloated="True"
-                                    HasError="{Binding HasErrorWeight}"
-                                    ErrorText="Peso Atual não informada"
-                                    OutlineCornerRadius="8">
+            <Entry
+                BackgroundColor="#F4F4F4"
+                TextColor="Black"
+                Keyboard="Numeric"
+                Text="{Binding Weight}"
+                PlaceholderColor="Black" />
 
-                <Entry BackgroundColor="#F4F4F4"
-                       TextColor="Black"
-                       Keyboard="Numeric"
-                       Text="{Binding Weight}"
-                       PlaceholderColor="Black" />
+        </core:SfTextInputLayout>
 
-            </core:SfTextInputLayout>
+        <core:SfTextInputLayout
+            HeightRequest="80"
+            ContainerType="Outlined"
+            Hint="Gênero"
+            IsHintAlwaysFloated="True"
+            HasError="{Binding HasErrorGender}"
+            ErrorText="Gênero não informado"
+            OutlineCornerRadius="8">
 
-            <core:SfTextInputLayout HeightRequest="80"
-                                    ContainerType="Outlined"
-                                    Hint="Gênero"
-                                    IsHintAlwaysFloated="True"
-                                    HasError="{Binding HasErrorGender}"
-                                    ErrorText="Gênero não informado"
-                                    OutlineCornerRadius="8">
+            <Picker
+                BackgroundColor="#F4F4F4"
+                TextColor="Black"
+                ItemsSource="{Binding ListGender}"
+                SelectedItem="{Binding GenderType}"
+                ItemDisplayBinding="{Binding Nome}" />
 
-                <Picker BackgroundColor="#F4F4F4"
-                        TextColor="Black"
-                        ItemsSource="{Binding ListGender}"
-                        SelectedItem="{Binding GenderType}"
-                        ItemDisplayBinding="{Binding Nome}" />
+        </core:SfTextInputLayout>
 
-            </core:SfTextInputLayout>
+        <StackLayout
+            VerticalOptions="EndAndExpand">
 
-            <StackLayout HorizontalOptions="EndAndExpand"
-                         IsVisible="{Binding CanDisplayResult}">
+            <StackLayout 
+                IsVisible="{Binding CanDisplayResult}">
+                <resultLine:ResultLineView
+                    Margin="0,40,0,0"
+                    ResultType="FIRST"
+                    TextTitle="Peso Ósseo:"
+                    BodyText="{Binding BoneMassResult}"
+                    UnityMeasureType="KILOS" />
 
-                <resultLine:ResultLineView Margin="0,40,0,0"
-                                           ResultType="FIRST"
-                                           TextTitle="Peso Ósseo:"
-                                           BodyText="{Binding BoneMassResult}"
-                                           UnityMeasureType="KILOS" />
-
-                <resultLine:ResultLineView TextTitle="Peso Residual:"
-                                           BodyText="{Binding ResidualWeightResult}"
-                                           UnityMeasureType="KILOS" />
-
+                <resultLine:ResultLineView
+                    TextTitle="Peso Residual:"
+                    BodyText="{Binding ResidualWeightResult}"
+                    UnityMeasureType="KILOS" />
             </StackLayout>
-            <button:ButtonView Margin="0,-3,0,0"
-                               Command="{Binding CalculateCommand}"
-                               VerticalOptions="CenterAndExpand"
-                               TextColor="White"
-                               BackgroundColor="#283555"
-                               Text="Calcular" />
+       
+            <button:ButtonView
+                Margin="0,-3,0,0"
+                Command="{Binding CalculateCommand}"
+                VerticalOptions="CenterAndExpand"
+                TextColor="White"
+                BackgroundColor="#283555"
+                Text="Calcular" />
+
         </StackLayout>
 
     </StackLayout>
-</ContentPage>
+</contentPageCustomer:BaseContentPage>
