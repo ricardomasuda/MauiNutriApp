@@ -1,7 +1,5 @@
-using System.ComponentModel;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace NutriApp.Components;
 
@@ -15,6 +13,7 @@ public partial class BaseViewModel : ObservableObject
 
     public bool IsNotBusy => !IsBusy;
 
+    //TODO - criar uma classe dentro da lib
     protected async void InfoToaster(string message, ToastDuration toastDuration)
     {
         CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();

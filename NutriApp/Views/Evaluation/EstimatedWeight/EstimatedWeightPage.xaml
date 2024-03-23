@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<contentPageCustomer:BaseContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="http://schemas.syncfusion.com/maui"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    xmlns:formulaRabito="clr-namespace:NutriApp.Views.Evaluation.EstimatedWeight.FormulaRabito"
+    xmlns:formulaChumlea="clr-namespace:NutriApp.Views.Evaluation.EstimatedWeight.FormulaChumlea"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:estimatedWeight="clr-namespace:NutriApp.Views.Evaluation.EstimatedWeight"
+    TextTitle="Peso Estimado"
+    x:DataType="estimatedWeight:EstimatedWeightPageViewModel"
+    x:Class="NutriApp.Views.Evaluation.EstimatedWeight.EstimatedWeightPage">
+    <StackLayout
+        Margin="20,20,20,20">
+        <StackLayout>
+
+            <core:SfTextInputLayout
+                ContainerType="Outlined"
+                Hint="Formula"
+                HeightRequest="80"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding HasErrorFormula}"
+                ErrorText="Formula não informada"
+                OutlineCornerRadius="8">
+
+                <Picker
+                    ItemsSource="{Binding ListFormula}"
+                    ItemDisplayBinding="{Binding Nome}"
+                    SelectedIndex="{Binding FormulaType.Id}"
+                    SelectedItem="{Binding FormulaType}">
+                </Picker>
+
+            </core:SfTextInputLayout>
+
+            <formulaRabito:FormulaRabitoView
+                IsVisible="{Binding DisplayRabitoFormula}" />
+            
+            <formulaChumlea:FormulaChumleaView
+                IsVisible="{Binding DisplayRabitoFormula, Converter={toolkit:InvertedBoolConverter}}" />
+
+        </StackLayout>
+
+        <StackLayout
+            VerticalOptions="EndAndExpand"
+            IsVisible="{Binding DisplayResult}">
+
+            <resultLine:ResultLineView
+                Margin="0,40,0,0"
+                ResultType="FIRST"
+                TextTitle="Peso Estimado:"
+                UnityMeasureType="KILOS"
+                BodyText="{Binding Result}" />
+
+        </StackLayout>
+
+        <button:ButtonView
+            Margin="0,-3,0,0"
+            Command="{Binding CalculateCommand}"
+            VerticalOptions="Start"
+            TextColor="White"
+            BackgroundColor="{StaticResource DarkBlue}"
+            Text="Calcular" />
+
+    </StackLayout>
+</contentPageCustomer:BaseContentPage>
