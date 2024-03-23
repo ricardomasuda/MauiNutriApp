@@ -1,6 +1,6 @@
 using System.Globalization;
 using CommunityToolkit.Maui.Views;
-using NutriApp.Utils;
+using NutriApp.AppUtilities;
 using NutriApp.Views.Evaluation.IdealWeight.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.IdealWeight;
@@ -48,7 +48,7 @@ public partial class IdealWeightViewModel : BaseViewModel
         }
 
         IdealWeight = EvaluationCalculations
-            .IdealWeight(Convert.ToDouble(ImcIdeal.Id), Utils.Utils.ConvertHeight(Height))
+            .IdealWeight(Convert.ToDouble(ImcIdeal.Id), Utils.ParseToDoubleWithCommaSeparator(Height))
             .ToString(CultureInfo.InvariantCulture);
         if (!string.IsNullOrEmpty(IdealWeight))
         {

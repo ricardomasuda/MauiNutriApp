@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace NutriApp.Utils;
+namespace NutriApp.AppUtilities;
 
 public static class CommonCalculations
 {

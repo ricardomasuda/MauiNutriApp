@@ -1,5 +1,5 @@
 using System.Globalization;
-using NutriApp.Utils;
+using NutriApp.AppUtilities;
 using NutriApp.Views.Evaluation.EstimatedWeight.FormulaChumlea;
 using NutriApp.Views.Evaluation.EstimatedWeight.FormulaRabito;
 
