@@ -2,29 +2,17 @@ using CommunityToolkit.Maui.Views;
 
 namespace NutriApp.Views.Evaluation.AdequacyWeight.InfoPopup;
 
-public class AdequacyWeightInfoViewModel : BaseViewModel
+public partial class AdequacyWeightInfoViewModel : BaseViewModel
 {
+    [ObservableProperty]
     private ObservableCollection<AdequacaoPeso> _adequacaoPesos;
-
-    public ObservableCollection<AdequacaoPeso> AdequacaoPesos
-    {
-        get => _adequacaoPesos;
-        set
-        {
-            _adequacaoPesos = value;
-            OnPropertyChanged("AdequacaoPesos");
-        }
-    }
-
-    public Command CloseCommand { get; set; }
-
     public AdequacyWeightInfoViewModel()
     {
         FillData();
-        CloseCommand = new Command<Popup>(ClosePage);
     }
-
-    private void ClosePage(Popup popup)
+    
+    [RelayCommand]
+    private void Close(Popup popup)
     {
         popup.Close();
     }
