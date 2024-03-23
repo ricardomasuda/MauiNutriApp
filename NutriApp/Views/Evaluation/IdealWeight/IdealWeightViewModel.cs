@@ -47,6 +47,11 @@ public class IdealWeightViewModel : BaseViewModel
                 new() {Id = 21, Nome = "Mulher 21 kg/m²"}
             };
         }
+        
+        private async void GotoInfo()
+        {
+            //await Navigation.PushPopupAsync(new InfoIdealWeightPopup());
+        }
 
         private void Calculate()
         {

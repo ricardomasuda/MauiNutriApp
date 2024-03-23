@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using CommunityToolkit.Maui.Views;
 using MvvmHelpers;
 using NutriApp.AppNutri.Model;
 

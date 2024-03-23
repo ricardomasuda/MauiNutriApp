@@ -1,8 +1,3 @@
-using System.Collections.ObjectModel;
-using MvvmHelpers;
-using NutriApp.Database;
-using NutriApp.Models;
-using NutriApp.Services;
 using NutriApp.Views.FoodPlan.MealList;
 
 namespace NutriApp.Views.FoodPlan.FoodDetail;
@@ -10,36 +5,36 @@ namespace NutriApp.Views.FoodPlan.FoodDetail;
 public class FoodDetailViewModel : BaseViewModel
     {
         private FoodModel _foodTotal;
-        public FoodModel FoodTotal { get => _foodTotal; set { _foodTotal = value; OnPropertyChanged("FoodTotal"); } }
+        public FoodModel FoodTotal { get => _foodTotal; set { _foodTotal = value; OnPropertyChanged(); } }
         
         private ObservableCollection<FoodModel> _listFood;
-        public ObservableCollection<FoodModel> ListFood { get => _listFood; set { _listFood = value; OnPropertyChanged("ListFood"); } }
+        public ObservableCollection<FoodModel> ListFood { get => _listFood; set { _listFood = value; OnPropertyChanged(); } }
 
         private Item _itemMeal;
-        public Item ItemMeal { get => _itemMeal; set {_itemMeal = value; OnPropertyChanged("ItemMeal"); } }
+        public Item ItemMeal { get => _itemMeal; set {_itemMeal = value; OnPropertyChanged(); } }
         
         private ObservableCollection<Item> _listItemMeal;
-        public ObservableCollection<Item> ListItemMeal { get => _listItemMeal; set { _listItemMeal = value; OnPropertyChanged("ListItemMeal"); } }
+        public ObservableCollection<Item> ListItemMeal { get => _listItemMeal; set { _listItemMeal = value; OnPropertyChanged(); } }
 
         private string _title;
-        public string Title { get => _title; set { _title = value; OnPropertyChanged("Title"); } }
+        public string Title { get => _title; set { _title = value; OnPropertyChanged(); } }
         
         private TypeTitleEnum _titleType;
-        public TypeTitleEnum TitleType { get => _titleType; set { _titleType = value; OnPropertyChanged("TitleType"); } }
+        public TypeTitleEnum TitleType { get => _titleType; set { _titleType = value; OnPropertyChanged(); } }
         
         private TimeSpan _hour;
-        public TimeSpan Hour { get => _hour; set { _hour = value; OnPropertyChanged("Hour"); } }
+        public TimeSpan Hour { get => _hour; set { _hour = value; OnPropertyChanged(); } }
         
         private bool _hasErrorHour;
-        public bool HasErrorHour { get => _hasErrorHour; set { _hasErrorHour = value; OnPropertyChanged("HasErrorHour"); } }
+        public bool HasErrorHour { get => _hasErrorHour; set { _hasErrorHour = value; OnPropertyChanged(); } }
         private bool _canSeeReport;
-        public bool CanSeeReport { get => _canSeeReport; set { _canSeeReport = value; OnPropertyChanged("CanSeeReport"); } }
+        public bool CanSeeReport { get => _canSeeReport; set { _canSeeReport = value; OnPropertyChanged(); } }
         
         private bool _hasErrorItemMeal;
-        public bool HasErrorItemMeal { get => _hasErrorItemMeal;  set { _hasErrorItemMeal = value; OnPropertyChanged("HasErrorItemMeal"); } }
+        public bool HasErrorItemMeal { get => _hasErrorItemMeal;  set { _hasErrorItemMeal = value; OnPropertyChanged(); } }
         
         private bool _haveList;
-        public bool HaveList { get => _haveList; set { _haveList = value; OnPropertyChanged("HaveList"); } }
+        public bool HaveList { get => _haveList; set { _haveList = value; OnPropertyChanged(); } }
 
         public Command AddOrEditFoodCommand { get; set; }
         public Command EditListFoodCommand { get; set; }
@@ -67,7 +62,7 @@ public class FoodDetailViewModel : BaseViewModel
 
         private async void DeleteMeal()
         {
-            if (!await Shell.Current.DisplayAlert($"Apagar Refeição", $"Você deseja apagar refeição", "Sim", "Não"))
+            if (!await Shell.Current.DisplayAlert("Apagar Refeição", "Você deseja apagar refeição", "Sim", "Não"))
                 return;
             await new MealDB().ExcluirTotalAsync(_meal.Id);
             
