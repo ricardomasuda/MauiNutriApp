@@ -17,10 +17,8 @@ public partial class AdequacyWeightInfoViewModel : BaseViewModel
         popup.Close();
     }
 
-    private void FillData()
-    {
-        AdequacaoPesos = new ObservableCollection<AdequacaoPeso>
-        {
+    private void FillData() {
+        AdequacaoPesos = new ObservableCollection<AdequacaoPeso> {
             new() { ValorEncontrado = "> 120.0", Classificacao = "Obesidade" },
             new() { ValorEncontrado = "110.1 a 120.0", Classificacao = "Sobrepeso" },
             new() { ValorEncontrado = "90.1 a 110.0", Classificacao = "Eutrofia" },

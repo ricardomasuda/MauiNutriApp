@@ -34,16 +34,14 @@ public partial class AdequacyWeightViewModel : BaseViewModel
         Result = Math
             .Round(EvaluationCalculations.AdequacyWeight(Convert.ToDouble(PesoIdeal), Convert.ToDouble(PesoAtual)), 2)
             .ToString(CultureInfo.CurrentCulture);
-        if (!string.IsNullOrEmpty(Result))
-        {
+        if (!string.IsNullOrEmpty(Result)) {
             ClassificacaoPesoAdequado = WeightAdjustmentService.VerifyAdequacyWeight(Convert.ToDouble(Result));
             Result += "%";
             CanDisplayResult = true;
         }
     }
 
-    private bool ValidateData()
-    {
+    private bool ValidateData() {
         HasErrorPesoIdeal = string.IsNullOrWhiteSpace(PesoIdeal);
         HasErrorPesoAtual = string.IsNullOrWhiteSpace(PesoAtual);
 

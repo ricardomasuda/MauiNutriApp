@@ -8,12 +8,11 @@ public partial class BaseViewModel : ObservableObject
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotBusy))]
     private bool _isBusy;
+    
+    public bool IsNotBusy => !IsBusy;
 
     [ObservableProperty] private string _title;
 
-    public bool IsNotBusy => !IsBusy;
-
-    //TODO - criar uma classe dentro da lib
     protected async void InfoToaster(string message, ToastDuration toastDuration)
     {
         CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
@@ -23,7 +22,7 @@ public partial class BaseViewModel : ObservableObject
 
         await toast.Show(cancellationTokenSource.Token);
     }
-
+    
     public event PropertyChangedEventHandler PropertyChanged;
     public void OnPropertyChanged(string nameProperty)
     {
