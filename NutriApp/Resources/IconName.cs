@@ -676,4 +676,5 @@ public class IconName
         public static string Superpowers = "\uf2dd";
         public static string Wpexplorer = "\uf2de";
         public static string Meetup = "\uf2e0";
+        
 }
