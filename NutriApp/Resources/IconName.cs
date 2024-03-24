@@ -2,7 +2,7 @@ namespace NutriApp.Resources;
 
 public class IconName
 {
-      public static string Glass = "\uf000";
+        public static string Glass = "\uf000";
         public static string Music = "\uf001";
         public static string Search = "\uf002";
         public static string EnvelopeO = "\uf003";
