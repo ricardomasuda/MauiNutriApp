@@ -1,5 +1,4 @@
 using System.Globalization;
-using CommunityToolkit.Maui.Views;
 using NutriApp.AppUtilities;
 using NutriApp.Views.Evaluation.IdealWeight.InfoPopup;
 
@@ -24,7 +23,7 @@ public partial class IdealWeightViewModel : BaseViewModel
 
     public IdealWeightViewModel()
     {
-        InfoCommand = new Command(() => Shell.Current.CurrentPage.ShowPopup(new InfoIdealWeightPopup()));
+        InfoCommand = new Command(() => App.NavPage.ShowPopup(new InfoIdealWeightPopup()));
         CanDisplay = false;
         Fill();
     }
