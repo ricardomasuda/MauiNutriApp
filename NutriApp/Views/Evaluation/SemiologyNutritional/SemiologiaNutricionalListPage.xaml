@@ -7,12 +7,15 @@
     xmlns:models="clr-namespace:NutriApp.Models"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:semiologyNutritional="clr-namespace:NutriApp.Views.Evaluation.SemiologyNutritional"
+    xmlns:icon="clr-namespace:NutriApp.Components.Icon"
     TextTitle="Semiologia Nutricional"
     x:DataType="semiologyNutritional:SemiologyNutritionalListViewModel"
     x:Class="NutriApp.Views.Evaluation.SemiologyNutritional.SemiologiaNutricionalListPage">
+
     <ContentPage.BindingContext>
         <semiologyNutritional:SemiologyNutritionalListViewModel />
     </ContentPage.BindingContext>
+
     <ScrollView>
         <StackLayout
             Margin="20,0,20,0"
@@ -22,7 +25,9 @@
                 <DataTemplate x:DataType="models:SemiologyNutritionalModel">
                     <toolkit:Expander>
                         <toolkit:Expander.Header>
-                            <StackLayout Orientation="Horizontal">
+                            <StackLayout 
+                                Orientation="Horizontal"
+                                HorizontalOptions="Fill">
 
                                 <Label
                                     FontSize="16"
@@ -31,22 +36,22 @@
                                     TextColor="{StaticResource DarkBlue}"
                                     FontAttributes="Bold">
                                 </Label>
-
-                                <Image Source="expand_more.png"
-                                       WidthRequest="25"
-                                       HeightRequest="25"
-                                       Margin="0,0,10,0"
-                                       HorizontalOptions="EndAndExpand"
-                                       VerticalOptions="Center">
-                                    <Image.Triggers>
-                                        <DataTrigger TargetType="Image"
-                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}"
-                                                     Value="True">
-                                            <Setter Property="Source"
-                                                    Value="expand_less.png" />
-                                        </DataTrigger>
-                                    </Image.Triggers>
-                                </Image>
+                                
+                                <StackLayout
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="EndAndExpand">
+                                    <icon:IconView
+                                        TextColor="Black"
+                                        FontSize="20"
+                                        IsVisible="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}"
+                                        IconType="ChevronUp" />
+                                
+                                    <icon:IconView
+                                        TextColor="Black"
+                                        FontSize="20"
+                                        IsVisible="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Converter={toolkit:InvertedBoolConverter} ,Path=IsExpanded}"
+                                        IconType="ChevronDown" />
+                                </StackLayout>
 
                             </StackLayout>
                         </toolkit:Expander.Header>
