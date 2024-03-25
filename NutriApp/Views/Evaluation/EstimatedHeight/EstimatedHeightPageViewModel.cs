@@ -1,11 +1,11 @@
 using System.Globalization;
-using NutriApp.Components;
-using NutriApp.Models;
+using System.Windows.Input;
+using CommunityToolkit.Maui.Core;
 using NutriApp.Utils;
 
 namespace NutriApp.Views.Evaluation.EstimatedHeight;
 
-public class EstimatedHeightPageViewModel : BaseViewModel
+public partial class EstimatedHeightPageViewModel : BaseViewModel
 {
     private bool _checkedWoman;
     public bool CheckedWoman
@@ -30,84 +30,29 @@ public class EstimatedHeightPageViewModel : BaseViewModel
             if (CheckedMan) CheckedWoman = false;
         }
     }
-
+    [ObservableProperty]
     private string _kneeHeight;
-    public string KneeHeight
-    {
-        get => _kneeHeight;
-        set
-        {
-            _kneeHeight = value;
-            OnPropertyChanged("KneeHeight");
-        }
-    }
-
+    [ObservableProperty]
     private string _age;
-    public string Age
-    {
-        get => _age;
-        set
-        {
-            _age = value;
-            OnPropertyChanged("Age");
-        }
-    }
-
+    [ObservableProperty]
     private string _result;
-    public string Result
-    {
-        get => _result;
-        set
-        {
-            _result = value;
-            OnPropertyChanged("Result");
-        }
-    }
-
+    [ObservableProperty]
     private bool _canDisplayResult;
-    public bool CanDisplayResult
-    {
-        get => _canDisplayResult;
-        set
-        {
-            _canDisplayResult = value;
-            OnPropertyChanged("CanDisplayResult");
-        }
-    }
-
+    [ObservableProperty]
     private bool _hasErrorAge;
-    public bool HasErrorAge
-    {
-        get => _hasErrorAge;
-        set
-        {
-            _hasErrorAge = value;
-            OnPropertyChanged("HasErrorAge");
-        }
-    }
-
+    [ObservableProperty]
     private bool _hasErrorKneeHeight;
-    public bool HasErrorKneeHeight
-    {
-        get => _hasErrorKneeHeight;
-        set
-        {
-            _hasErrorKneeHeight = value;
-            OnPropertyChanged("HasErrorKneeHeight");
-        }
-    }
 
-    public Command CalculateCommand { get; set; }
-    public Command WomanCommand { get; set; }
-    public Command ManCommand { get; set; }
+    public ICommand WomanCommand { get; set; }
+    public ICommand ManCommand { get; set; }
 
     public EstimatedHeightPageViewModel()
     {
-        CalculateCommand = new Command(Calculate);
-        WomanCommand = new Command(() => CheckedWoman = !CheckedWoman);
-        ManCommand = new Command(() => CheckedMan = !CheckedMan);
+        WomanCommand = new RelayCommand(() => CheckedWoman = !CheckedWoman);
+        ManCommand = new RelayCommand(() => CheckedMan = !CheckedMan);
     }
-
+    
+    [RelayCommand]
     private void Calculate()
     {
         if (!Validate())
@@ -131,7 +76,7 @@ public class EstimatedHeightPageViewModel : BaseViewModel
         HasErrorKneeHeight = string.IsNullOrWhiteSpace(KneeHeight);
         if (!(CheckedWoman || CheckedMan))
         {
-            //App.NavPage.DisplayToastAsync( "Selecione um gênero");
+            InfoToaster( "Selecione um gênero", ToastDuration.Long);
             return false;
         }
 

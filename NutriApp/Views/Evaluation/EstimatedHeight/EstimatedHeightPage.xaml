@@ -71,7 +71,7 @@
                 OutlineCornerRadius="8">
 
                 <Entry
-                    BackgroundColor="#F4F4F4"
+                    BackgroundColor="{StaticResource EntryBackgroundColor}"
                     Keyboard="Numeric"
                     TextColor="Black"
                     Text="{Binding Age}"
@@ -88,7 +88,7 @@
                 ErrorText="Altura Joelho não informada"
                 OutlineCornerRadius="8">
                 <Entry
-                    BackgroundColor="#F4F4F4"
+                    BackgroundColor="{StaticResource EntryBackgroundColor}"
                     TextColor="Black"
                     Text="{Binding KneeHeight}"
                     Keyboard="Numeric"
@@ -111,7 +111,7 @@
                     Margin="0,-3,0,0"
                     Command="{Binding CalculateCommand}"
                     VerticalOptions="Start"
-                    TextColor="White"
+                    TextColor="{StaticResource EntryBackgroundColor}"
                     BackgroundColor="{StaticResource DarkBlue}"
                     Text="Calcular" />
 
