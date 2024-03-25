@@ -30,15 +30,12 @@
                     ErrorText="Circunferência da Panturrilha não informado"
                     OutlineCornerRadius="8">
 
-                    <Entry BackgroundColor="#F4F4F4"
+                    <Entry BackgroundColor="{StaticResource EntryBackgroundColor}"
                            Keyboard="Numeric"
                            Text="{Binding CircumferenceCalf}"
                            TextColor="Black"
-                           PlaceholderColor="Black">
-                        <!-- <Entry.Behaviors> -->
-                        <!--     <behaviors:MaskedBehavior Mask="XXX" /> -->
-                        <!-- </Entry.Behaviors> -->
-                    </Entry>
+                           MaxLength="3"
+                           PlaceholderColor="Black"/>
 
                 </core:SfTextInputLayout>
 

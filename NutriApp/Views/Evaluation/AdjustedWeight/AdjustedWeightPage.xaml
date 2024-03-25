@@ -27,7 +27,7 @@
                 Orientation="Horizontal">
 
                 <CheckBox
-                    IsChecked="{Binding Properties.CheckedObesity, Mode=TwoWay}"
+                    IsChecked="{Binding CheckedObesity, Mode=TwoWay}"
                     Color="{StaticResource DarkBlue}" />
 
                 <Label
@@ -46,7 +46,7 @@
                 Orientation="Horizontal">
 
                 <CheckBox
-                    IsChecked="{Binding Properties.CheckedMalnutrition, Mode=TwoWay}"
+                    IsChecked="{Binding CheckedMalnutrition, Mode=TwoWay}"
                     Color="{StaticResource DarkBlue}" />
 
                 <Label
@@ -64,16 +64,16 @@
                 ContainerType="Outlined"
                 Hint="Peso Atual (kg)"
                 IsHintAlwaysFloated="True"
-                HasError="{Binding Properties.HasErrorCurrencyWeight}"
+                HasError="{Binding HasErrorCurrencyWeight}"
                 ErrorText="Peso Atual não informada"
                 HeightRequest="80"
                 OutlineCornerRadius="8">
 
                 <Entry
-                    BackgroundColor="#F4F4F4"
+                    BackgroundColor="{StaticResource EntryBackgroundColor}"
                     TextColor="Black"
                     Keyboard="Numeric"
-                    Text="{Binding Properties.CurrentWeight}"
+                    Text="{Binding CurrentWeight}"
                     PlaceholderColor="Black" />
 
             </core:SfTextInputLayout>
@@ -83,15 +83,15 @@
                 Hint="Peso Ideal (kg)"
                 IsHintAlwaysFloated="True"
                 HeightRequest="80"
-                HasError="{Binding Properties.HasErrorIdealWeight}"
+                HasError="{Binding HasErrorIdealWeight}"
                 ErrorText="Peso Ideal não informada"
                 OutlineCornerRadius="8">
 
                 <Entry
-                    BackgroundColor="#F4F4F4"
+                    BackgroundColor="{StaticResource EntryBackgroundColor}"
                     TextColor="Black"
                     Keyboard="Numeric"
-                    Text="{Binding Properties.IdealWeight}"
+                    Text="{Binding IdealWeight}"
                     PlaceholderColor="Black" />
 
             </core:SfTextInputLayout>
@@ -100,11 +100,11 @@
                 VerticalOptions="EndAndExpand">
 
                 <resultLine:ResultLineView
-                    IsVisible="{Binding Properties.CanDisplayResult}"
+                    IsVisible="{Binding CanDisplayResult}"
                     Margin="0,40,0,0"
                     ResultType="FIRST"
                     TextTitle="Peso Ajustado:"
-                    BodyText="{Binding Properties.Result}" />
+                    BodyText="{Binding Result}" />
                 
                 <button:ButtonView
                     Margin="0,-3,0,0"
