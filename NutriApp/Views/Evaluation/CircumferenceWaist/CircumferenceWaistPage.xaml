@@ -5,7 +5,6 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:core="http://schemas.syncfusion.com/maui"
-    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
@@ -30,15 +29,12 @@
                     HasError="{Binding HasErrorCircumferenceAbdominal}"
                     ErrorText="Circunferência da cintura não informado"
                     OutlineCornerRadius="8">
-                    <Entry BackgroundColor="#F4F4F4"
+                    <Entry BackgroundColor="{StaticResource EntryBackgroundColor}"
                            Keyboard="Numeric"
                            Text="{Binding CircumferenceAbdominal}"
                            TextColor="Black"
-                           PlaceholderColor="Black">
-                        <Entry.Behaviors>
-                            <toolkit:MaskedBehavior Mask="XXX" />
-                        </Entry.Behaviors>
-                    </Entry>
+                           MaxLength="3"
+                           PlaceholderColor="Black"/>
                 </core:SfTextInputLayout>
 
                 <core:SfTextInputLayout
@@ -49,15 +45,12 @@
                     HasError="{Binding HasErrorCircumferenceHip}"
                     ErrorText="Circunferência do quadril não informado"
                     OutlineCornerRadius="8">
-                    <Entry BackgroundColor="#F4F4F4"
+                    <Entry BackgroundColor="{StaticResource EntryBackgroundColor}"
                            TextColor="Black"
                            Keyboard="Numeric"
+                           MaxLength="3"
                            Text="{Binding CircumferenceHip}"
-                           PlaceholderColor="Black">
-                        <Entry.Behaviors>
-                            <toolkit:MaskedBehavior Mask="XXX" />
-                        </Entry.Behaviors>
-                    </Entry>
+                           PlaceholderColor="Black"/>
                 </core:SfTextInputLayout>
 
                 <core:SfTextInputLayout
@@ -68,19 +61,16 @@
                     HasError="{Binding HasErrorAge}"
                     ErrorText="Idade não informado"
                     OutlineCornerRadius="8">
-                    <Entry BackgroundColor="#F4F4F4"
+                    <Entry BackgroundColor="{StaticResource EntryBackgroundColor}"
                            TextColor="Black"
                            Keyboard="Numeric"
+                           MaxLength="3"
                            Text="{Binding Age}"
-                           PlaceholderColor="Black">
-                        <Entry.Behaviors>
-                            <toolkit:MaskedBehavior Mask="XXX" />
-                        </Entry.Behaviors>
-                    </Entry>
+                           PlaceholderColor="Black"/>
                 </core:SfTextInputLayout>
 
                 <Label Text="Grupo:"
-                       TextColor="{StaticResource PageBackgroundColor}"
+                       TextColor="{StaticResource Gray950}"
                        VerticalOptions="CenterAndExpand"
                        HorizontalOptions="StartAndExpand" />
 
@@ -138,7 +128,7 @@
                     Margin="0,-3,0,0"
                     Command="{Binding CalculateCommand}"
                     VerticalOptions="CenterAndExpand"
-                    BackgroundColor="#283555"
+                    BackgroundColor="{StaticResource DarkBlue}"
                     TextColor="White"
                     Text="Calcular" />
                 
