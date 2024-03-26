@@ -1,4 +1,4 @@
-using NutriApp.Components;
+using NutriApp.AppUtilities;
 
 namespace NutriApp.Views.Suggestion;
 
@@ -51,8 +51,8 @@ public class SuggestionViewModel : BaseViewModel
             var toList = new List<string> { "mricardo1611@gmail.com" };
             const string title = "Sugestão para Guia Do Nutricionista";
 
-            if (await Utils.Utils.SendEmail(title, BodyText, toList)) return;
-            if (!await Utils.Utils.SendWebEmail(title, BodyText, toList[0]))
+            if (await Utils.SendEmail(title, BodyText, toList)) return;
+            if (!await Utils.SendWebEmail(title, BodyText, toList[0]))
             {
                 await Shell.Current.DisplayAlert("Erro", "Erro ao enviar email", "Ok");
             }

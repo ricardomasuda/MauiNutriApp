@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Windows.Input;
 using CommunityToolkit.Maui.Core;
-using NutriApp.Utils;
+using NutriApp.AppUtilities;
 
 namespace NutriApp.Views.Evaluation.EstimatedHeight;
 

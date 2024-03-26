@@ -1,19 +1,9 @@
-using System.Collections.ObjectModel;
-using NutriApp.Components;
-using NutriApp.Models;
-
 namespace NutriApp.Views.Evaluation.SemiologyNutritional;
 
-public class SemiologyNutritionalListViewModel : BaseViewModel
+public partial class SemiologyNutritionalListViewModel : BaseViewModel
 {
+    [ObservableProperty]
     private ObservableCollection<SemiologyNutritionalModel> _listSemiologyNutritional;
-    public ObservableCollection<SemiologyNutritionalModel> ListSemiologyNutritional { 
-        get => _listSemiologyNutritional;
-        set
-        {
-            _listSemiologyNutritional = value; OnPropertyChanged("ListSemiologyNutritional"); 
-        }
-    }
 
     public SemiologyNutritionalListViewModel()
     {

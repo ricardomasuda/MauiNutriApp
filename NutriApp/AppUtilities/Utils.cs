@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace NutriApp.Utils;
+namespace NutriApp.AppUtilities;
 
 public static class Utils
 {
@@ -89,7 +89,7 @@ public static class Utils
         });
     }
 
-    public static double ConvertHeight(string height)
+    public static double ParseToDoubleWithCommaSeparator(string height)
     {
         NumberFormatInfo format = new()
         {

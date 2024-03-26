@@ -2,10 +2,10 @@ using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
+using NutriApp.AppUtilities;
 using NutriApp.Components;
 using NutriApp.Models;
 using NutriApp.Services;
-using NutriApp.Utils;
 using NutriApp.Views.Evaluation.Imc.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.Imc;
@@ -60,7 +60,7 @@ public partial class ImcPageViewModel :  BaseViewModel
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);
-        InfoCommand = new Command(() => Shell.Current.CurrentPage.ShowPopup(new InfoImcPopup()));
+        InfoCommand = new Command(() => App.NavPage.ShowPopup(new InfoImcPopup()));
         CheckedAdultCommand = new Command(() => CheckedAdult = !CheckedAdult);
         CheckedElderCommand = new Command(() => CheckedElder = !CheckedElder);
     }

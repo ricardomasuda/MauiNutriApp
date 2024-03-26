@@ -28,7 +28,7 @@
             OutlineCornerRadius="8">
 
             <Entry
-                BackgroundColor="#F4F4F4"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding Height}"
@@ -50,7 +50,7 @@
             OutlineCornerRadius="8">
 
             <Entry
-                BackgroundColor="#F4F4F4"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding Wrist}"
@@ -68,7 +68,7 @@
             OutlineCornerRadius="8">
 
             <Entry
-                BackgroundColor="#F4F4F4"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding Femur}"
@@ -86,7 +86,7 @@
             OutlineCornerRadius="8">
 
             <Entry
-                BackgroundColor="#F4F4F4"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding Weight}"
@@ -104,7 +104,7 @@
             OutlineCornerRadius="8">
 
             <Picker
-                BackgroundColor="#F4F4F4"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 ItemsSource="{Binding ListGender}"
                 SelectedItem="{Binding GenderType}"
@@ -135,7 +135,7 @@
                 Command="{Binding CalculateCommand}"
                 VerticalOptions="CenterAndExpand"
                 TextColor="White"
-                BackgroundColor="#283555"
+                BackgroundColor="{StaticResource DarkBlue}"
                 Text="Calcular" />
 
         </StackLayout>

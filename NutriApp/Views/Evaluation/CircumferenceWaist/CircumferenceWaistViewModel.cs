@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Windows.Input;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
-using NutriApp.Utils;
+using NutriApp.AppUtilities;
 
 namespace NutriApp.Views.Evaluation.CircumferenceWaist;
 
@@ -57,7 +57,7 @@ public partial class CircumferenceWaistViewModel : BaseViewModel
 
     public CircumferenceWaistViewModel()
     {
-        InfoImcCommand = new RelayCommand(() => Shell.Current.CurrentPage.ShowPopup(new InfoPopup.InfoCircumferenceWaistPopup()));
+        InfoImcCommand = new RelayCommand(() => App.NavPage.ShowPopup(new InfoPopup.InfoCircumferenceWaistPopup()));
         WomanCommand = new RelayCommand(() => CheckedWoman = !CheckedWoman);
         ManCommand = new RelayCommand(() => CheckedMan = !CheckedMan);
     }
