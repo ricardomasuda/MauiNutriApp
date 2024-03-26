@@ -15,7 +15,7 @@ public partial class AdequacyWeightViewModel : BaseViewModel
     [ObservableProperty] private string _classificacaoPesoAdequado;
     [ObservableProperty] private bool _canDisplayResult;
     
-    public ICommand InfoCommand => new RelayCommand(() => Shell.Current.CurrentPage.ShowPopup(new AdequacyWeightInfoPopupPage()));
+    public ICommand InfoCommand => new RelayCommand(() => App.NavPage.ShowPopup(new AdequacyWeightInfoPopupPage()));
 
     public AdequacyWeightViewModel()
     {

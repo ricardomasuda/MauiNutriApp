@@ -18,7 +18,7 @@ public partial class CircumferenceCalfViewModel : BaseViewModel
 
     public CircumferenceCalfViewModel()
     {
-        InfoCommand = new RelayCommand(() => Shell.Current.CurrentPage.ShowPopup(new InfoCircumferenceCalfPopup()));
+        InfoCommand = new RelayCommand(() => App.NavPage.ShowPopup(new InfoCircumferenceCalfPopup()));
     }
     
     [RelayCommand]

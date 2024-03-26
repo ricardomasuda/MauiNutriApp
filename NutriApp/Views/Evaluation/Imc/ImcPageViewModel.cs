@@ -54,7 +54,7 @@ public partial class ImcPageViewModel :  BaseViewModel
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);
-        InfoCommand = new Command(() => Shell.Current.CurrentPage.ShowPopup(new InfoImcPopup()));
+        InfoCommand = new Command(() => App.NavPage.ShowPopup(new InfoImcPopup()));
         CheckedAdultCommand = new Command(() => CheckedAdult = !CheckedAdult);
         CheckedElderCommand = new Command(() => CheckedElder = !CheckedElder);
     }
