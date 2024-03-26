@@ -1,7 +1,6 @@
 using System.Globalization;
 using System.Windows.Input;
 using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Maui.Views;
 
 namespace NutriApp.Views.Evaluation.CircumferenceWaist;
 
