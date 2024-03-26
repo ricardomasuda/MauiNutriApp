@@ -1,8 +1,4 @@
-using System.Collections.ObjectModel;
 using System.Globalization;
-using NutriApp.AppUtilities;
-using NutriApp.Database;
-using NutriApp.Models;
 
 namespace NutriApp.Services;
 

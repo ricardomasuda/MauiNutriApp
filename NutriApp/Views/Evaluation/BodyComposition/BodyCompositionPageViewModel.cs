@@ -1,4 +1,3 @@
-using NutriApp.AppUtilities;
 using NutriApp.Services.AnthropometricEvaluation;
 
 namespace NutriApp.Views.Evaluation.BodyComposition;
@@ -31,17 +30,12 @@ public partial class BodyCompositionPageViewModel : BaseViewModel
     private Item _genderType;
     [ObservableProperty]
     private bool _canDisplayResult;
-    public ObservableCollection<Item> ListGender { get; set; }
-
-    public BodyCompositionPageViewModel()
+    public ObservableCollection<Item> ListGender { get; set; } = new()
     {
-        ListGender = new ObservableCollection<Item>
-        {
-            new() { Id = 0, Nome = "Homem" },
-            new() { Id = 1, Nome = "Mulher" }
-        };
-    }
-    
+        new() { Id = 0, Nome = "Homem" },
+        new() { Id = 1, Nome = "Mulher" }
+    };
+
     [RelayCommand]
     private void Calculate()
     {

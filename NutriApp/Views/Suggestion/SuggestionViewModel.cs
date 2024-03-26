@@ -1,5 +1,3 @@
-using NutriApp.AppUtilities;
-
 namespace NutriApp.Views.Suggestion;
 
 public class SuggestionViewModel : BaseViewModel

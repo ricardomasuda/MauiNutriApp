@@ -1,11 +1,5 @@
-using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
-using CommunityToolkit.Mvvm.ComponentModel;
-using NutriApp.AppUtilities;
-using NutriApp.Components;
-using NutriApp.Models;
-using NutriApp.Services;
 using NutriApp.Views.Evaluation.Imc.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.Imc;
