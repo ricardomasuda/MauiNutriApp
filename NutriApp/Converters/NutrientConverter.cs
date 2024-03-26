@@ -1,5 +1,4 @@
 using System.Globalization;
-using NutriApp.AppUtilities;
 
 namespace NutriApp.Converters;
 
