@@ -1,34 +1,31 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
-             xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:adequacyWeight1="clr-namespace:NutriApp.AppNutri.View.Evaluation.AdequacyWeight"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
-             x:DataType="adequacyWeight1:AdequacyWeightViewModel"
-             BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
-             x:Class="NutriApp.Views.Evaluation.AdequacyWeight.AdequacyWeightPage">
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="http://schemas.syncfusion.com/maui"
+    xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:adequacyWeight="clr-namespace:NutriApp.Views.Evaluation.AdequacyWeight"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    x:DataType="adequacyWeight:AdequacyWeightViewModel"
+    TypeTitle="InfoCircle"
+    Command="{Binding InfoCommand}"
+    TextTitle="Adequação ao Peso"
+    x:Class="NutriApp.Views.Evaluation.AdequacyWeight.AdequacyWeightPage">
 
-    <StackLayout VerticalOptions="FillAndExpand">
+    <ScrollView>
+        <StackLayout Margin="20,20,20,10">
 
-        <titleView:NewTitleView TypeTitle="InfoCircle"
-                           Command="{Binding InfoCommand}"
-                           TextTitle="Adequação ao Peso" />
+            <core:SfTextInputLayout
+                HeightRequest="80"
+                ContainerType="Outlined"
+                Hint="Peso Atual (kg)"
+                IsHintAlwaysFloated="True"
+                OutlineCornerRadius="8">
 
-        <StackLayout Margin="20,20,20,0">
-
-            <core:SfTextInputLayout HeightRequest="80"
-                                    ContainerType="Outlined"
-                                    Hint="Peso Atual (kg)"
-                                    IsHintAlwaysFloated="True"
-                                    OutlineCornerRadius="8">
-
-                <Entry BackgroundColor="#F4F4F4"
+                <Entry BackgroundColor="{StaticResource EntryBackgroundColor}"
                        TextColor="Black"
                        Keyboard="Numeric"
                        Text="{Binding PesoAtual}"
@@ -40,11 +37,12 @@
 
             </core:SfTextInputLayout>
 
-            <core:SfTextInputLayout HeightRequest="80"
-                                    ContainerType="Outlined"
-                                    Hint="Peso Ideal (kg)"
-                                    IsHintAlwaysFloated="True"
-                                    OutlineCornerRadius="8">
+            <core:SfTextInputLayout
+                HeightRequest="80"
+                ContainerType="Outlined"
+                Hint="Peso Ideal (kg)"
+                IsHintAlwaysFloated="True"
+                OutlineCornerRadius="8">
                 <Entry BackgroundColor="#F4F4F4"
                        TextColor="Black"
                        Keyboard="Numeric"
@@ -56,30 +54,35 @@
                 </Entry>
             </core:SfTextInputLayout>
 
-            <StackLayout Margin="0,30,0,0">
-                <StackLayout HorizontalOptions="EndAndExpand"
-                             IsVisible="{Binding CanDisplayResult}">
+            <StackLayout
+                VerticalOptions="EndAndExpand"
+                Margin="0,30,0,0">
+                
+                <StackLayout
+                    IsVisible="{Binding CanDisplayResult}">
 
-                    <resultLine:ResultLineView Margin="0,40,0,0"
-                                               ResultType="FIRST"
-                                               TextTitle="Adequação ao Peso:"
-                                               BodyText="{Binding Result}" />
+                    <resultLine:ResultLineView
+                        Margin="0,40,0,0"
+                        ResultType="FIRST"
+                        TextTitle="Adequação ao Peso:"
+                        BodyText="{Binding Result}" />
 
-                    <resultLine:ResultLineView TextTitle="Classificação:"
-                                               BodyText="{Binding ClassificacaoPesoAdequado}" />
+                    <resultLine:ResultLineView
+                        TextTitle="Classificação:"
+                        BodyText="{Binding ClassificacaoPesoAdequado}" />
 
                 </StackLayout>
 
-                <button:ButtonView Margin="0,-3,0,0"
-                                   Command="{Binding CalculateCommand}"
-                                   VerticalOptions="CenterAndExpand"
-                                   TextColor="White"
-                                   BackgroundColor="{StaticResource DarkBlue}"
-                                   Text="Calcular" />
+                <button:ButtonView
+                    Margin="0,-3,0,0"
+                    Command="{Binding CalculateCommand}"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Text="Calcular" />
 
             </StackLayout>
 
         </StackLayout>
-
-    </StackLayout>
-</ContentPage>
+    </ScrollView>
+</contentPageCustomer:BaseContentPage>

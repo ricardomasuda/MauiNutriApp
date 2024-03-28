@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="http://schemas.syncfusion.com/maui"
+             xmlns:estimatedWeight="clr-namespace:NutriApp.Views.Evaluation.EstimatedWeight"
+             x:Name="View"
+             x:DataType="estimatedWeight:EstimatedWeightPageViewModel"
+             x:Class="NutriApp.Views.Evaluation.EstimatedWeight.FormulaRabito.FormulaRabitoView">
+    <StackLayout>
+        
+        <Label Text="Gênero:"
+               TextColor="{StaticResource DarkBlue}"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="StartAndExpand" />
+
+        <StackLayout Orientation="Horizontal">
+            <CheckBox
+                IsChecked="{Binding FormulaRabitoViewModel.CheckedMan, Mode=TwoWay}"
+                Color="{StaticResource DarkBlue}" />
+            <Label
+                VerticalTextAlignment="Center"
+                Text="Homem"
+                TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FormulaRabitoViewModel.CheckManCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <CheckBox
+                IsChecked="{Binding FormulaRabitoViewModel.CheckedWoman}"
+                Color="{StaticResource DarkBlue}" />
+            <Label
+                VerticalTextAlignment="Center"
+                Text="Mulher"
+                TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FormulaRabitoViewModel.CheckWomanCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+        
+        <core:SfTextInputLayout
+            ContainerType="Outlined"
+            Hint="Circunferência do braço (cm)"
+            IsHintAlwaysFloated="True"
+            HeightRequest="80"
+            HasError="{Binding FormulaRabitoViewModel.HasErrorArmCircumference}"
+            ErrorText="Circunferência não informada"
+            OutlineCornerRadius="8">
+            <Entry
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                Keyboard="Numeric"
+                Text="{Binding FormulaRabitoViewModel.ArmCircumference}"
+                PlaceholderColor="Black" />
+        </core:SfTextInputLayout>
+        
+        <core:SfTextInputLayout
+            ContainerType="Outlined"
+            HeightRequest="80"
+            Hint="Circunferência da Cintura (cm)"
+            IsHintAlwaysFloated="True"
+            HasError="{Binding FormulaRabitoViewModel.HasErrorWaistCircumference}"
+            ErrorText="Circunferência não informada"
+            OutlineCornerRadius="8">
+            <Entry
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                Keyboard="Numeric"
+                Text="{Binding FormulaRabitoViewModel.WaistCircumference}"
+                PlaceholderColor="Black" />
+        </core:SfTextInputLayout>
+        
+        <core:SfTextInputLayout
+            ContainerType="Outlined"
+            Hint="Circunferência da Panturrillha (cm)"
+            IsHintAlwaysFloated="True"
+            HeightRequest="80"
+            HasError="{Binding FormulaRabitoViewModel.HasErrorCalfCircumference}"
+            ErrorText="Circunferência não informada"
+            OutlineCornerRadius="8">
+            <Entry
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                Keyboard="Numeric"
+                Text="{Binding FormulaRabitoViewModel.CalfCircumference}"
+                PlaceholderColor="Black" />
+        </core:SfTextInputLayout>
+        
+    </StackLayout>
+</ContentView>

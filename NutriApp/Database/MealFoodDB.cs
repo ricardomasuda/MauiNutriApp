@@ -1,5 +1,3 @@
-using NutriApp.Models;
-
 namespace NutriApp.Database;
 
 public class MealFoodDB
@@ -28,7 +26,7 @@ public class MealFoodDB
             var mealFoodModel = new MealFoodModel()
             {
                 Id = food.MealFoodId, FoodId = food.Id,
-                Medida = Convert.ToDouble(Utils.Utils.RemoveUnityMeasure(food.Medida)), MealId = mealId
+                Medida = Convert.ToDouble(Utils.RemoveUnityMeasure(food.Medida)), MealId = mealId
             };
             await SalvarAsync(mealFoodModel);
         }

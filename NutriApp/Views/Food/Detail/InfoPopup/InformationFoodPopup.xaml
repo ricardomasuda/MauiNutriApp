@@ -2,8 +2,8 @@
 
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-               xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
                x:Class="NutriApp.Views.Food.Detail.InfoPopup.InformationFoodPopup">
      <Frame CornerRadius="15"
            BackgroundColor="{StaticResource BackgroundColor}"
@@ -16,7 +16,7 @@
                 Padding="0"
                 Margin="10, 0">
 
-                <titleView:NewTitleView
+                <view:NewTitleView
                     VisibleBack="False"
                     TypeTitle="Close"
                     Command="{Binding CloseCommand}"

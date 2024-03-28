@@ -1,17 +1,11 @@
-using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
-using CommunityToolkit.Mvvm.ComponentModel;
-using NutriApp.Models;
-using NutriApp.Services;
-using NutriApp.Utils;
 using NutriApp.Views.Evaluation.Imc.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.Imc;
 
-public partial class ImcPageViewModel : ObservableObject
+public partial class ImcPageViewModel :  BaseViewModel
 {
-    
     private bool _checkedElder;
 
     public bool CheckedElder
@@ -60,7 +54,7 @@ public partial class ImcPageViewModel : ObservableObject
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);
-        InfoCommand = new Command(() => Shell.Current.CurrentPage.ShowPopup(new InfoImcPopup()));
+        InfoCommand = new Command(() => App.NavPage.ShowPopup(new InfoImcPopup()));
         CheckedAdultCommand = new Command(() => CheckedAdult = !CheckedAdult);
         CheckedElderCommand = new Command(() => CheckedElder = !CheckedElder);
     }
@@ -88,16 +82,7 @@ public partial class ImcPageViewModel : ObservableObject
         HasErrorWeight = string.IsNullOrWhiteSpace(_imc.Peso);
         if (!(CheckedElder || CheckedAdult))
         {
-            //App.NavPage.DisplayActionSheet("Selecione um tipo de grupo");
-            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-
-            string text = "Selecione um tipo de grupo";
-            ToastDuration duration = ToastDuration.Short;
-            double fontSize = 14;
-
-            var toast = Toast.Make(text, duration, fontSize);
-
-            await toast.Show(cancellationTokenSource.Token);
+            InfoToaster("Selecione um tipo de grupo", ToastDuration.Long);
             return false;
         }
 

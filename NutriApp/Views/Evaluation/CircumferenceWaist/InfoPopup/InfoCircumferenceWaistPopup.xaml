@@ -4,27 +4,29 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
     xmlns:models="clr-namespace:NutriApp.Models"
     xmlns:infoPopup="clr-namespace:NutriApp.Views.Evaluation.CircumferenceWaist.InfoPopup"
-    x:Name="Popup"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
     Color="{StaticResource BackgroundPopupPage}"
+    x:Name="InfoCircumferencePopup"
     x:DataType="infoPopup:InfoCircumferenceWaistPopupViewModel"
     x:Class="NutriApp.Views.Evaluation.CircumferenceWaist.InfoPopup.InfoCircumferenceWaistPopup">
 
     <ScrollView>
         <Border  
             VerticalOptions="Fill"
+            StrokeShape="RoundRectangle 10"
             Margin="20,20">
             <VerticalStackLayout
                  BackgroundColor="{StaticResource PageColor}">
 
-                <titleView:NewTitleView
+                <view:NewTitleView
                     VisibleBack="False"
                     TypeTitle="Close"
                     Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding Source={x:Reference InfoCircumferencePopup}}"
                     TextTitle="Circunferência da Cintura" />
 
                 <StackLayout
@@ -38,7 +40,7 @@
                     <ListView ItemsSource="{Binding ClassificationWoman}"
                               BackgroundColor="{StaticResource PageColor}"
                               VerticalOptions="FillAndExpand"
-                              HeightRequest="250"
+                              HeightRequest="280"
                               HasUnevenRows="True">
 
                         <ListView.Header>
@@ -251,7 +253,7 @@
 
                     <ListView ItemsSource="{Binding ClassificationMan}"
                               Margin="0"
-                              HeightRequest="250"
+                              HeightRequest="280"
                               BackgroundColor="{StaticResource PageColor}"
                               VerticalOptions="FillAndExpand"
                               HasUnevenRows="True">

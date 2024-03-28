@@ -1,8 +1,4 @@
-using System.Collections.ObjectModel;
 using System.Globalization;
-using NutriApp.Database;
-using NutriApp.Models;
-using NutriApp.Utils;
 
 namespace NutriApp.Services;
 
@@ -53,47 +49,47 @@ namespace NutriApp.Services;
 
         public static FoodModel RemoveUnitMeasurement(FoodModel food)
         {
-            food.Carboidratos = Utils.Utils.RemoveUnityMeasure(food.Carboidratos,
+            food.Carboidratos = Utils.RemoveUnityMeasure(food.Carboidratos,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.CARBOIDRATO));
-            food.Proteinas = Utils.Utils.RemoveUnityMeasure(food.Proteinas,
+            food.Proteinas = Utils.RemoveUnityMeasure(food.Proteinas,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.PROTEINA));
-            food.Lipidios = Utils.Utils.RemoveUnityMeasure(food.Lipidios,
+            food.Lipidios = Utils.RemoveUnityMeasure(food.Lipidios,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.LIPIDIO));
-            food.Sodio = Utils.Utils.RemoveUnityMeasure(food.Sodio,
+            food.Sodio = Utils.RemoveUnityMeasure(food.Sodio,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.SODIO));
-            food.FibraAlimentar = Utils.Utils.RemoveUnityMeasure(food.FibraAlimentar,
+            food.FibraAlimentar = Utils.RemoveUnityMeasure(food.FibraAlimentar,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.FIBRA_ALIMENTAR));
-            food.ValorCalorico = Utils.Utils.RemoveUnityMeasure(food.ValorCalorico,
+            food.ValorCalorico = Utils.RemoveUnityMeasure(food.ValorCalorico,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.VALOR_CALORICO));
-            food.Medida = Utils.Utils.RemoveUnityMeasure(food.Medida,
+            food.Medida = Utils.RemoveUnityMeasure(food.Medida,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.MEDIDA));
-            food.Calcio = Utils.Utils.RemoveUnityMeasure(food.Calcio,
+            food.Calcio = Utils.RemoveUnityMeasure(food.Calcio,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.CALCIO));
-            food.Magnesio = Utils.Utils.RemoveUnityMeasure(food.Magnesio,
+            food.Magnesio = Utils.RemoveUnityMeasure(food.Magnesio,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.MAGNESIO));
-            food.Manganes = Utils.Utils.RemoveUnityMeasure(food.Manganes,
+            food.Manganes = Utils.RemoveUnityMeasure(food.Manganes,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.MANGANES));
-            food.Ferro = Utils.Utils.RemoveUnityMeasure(food.Ferro,
+            food.Ferro = Utils.RemoveUnityMeasure(food.Ferro,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.FERRO));
-            food.Fosforo = Utils.Utils.RemoveUnityMeasure(food.Fosforo,
+            food.Fosforo = Utils.RemoveUnityMeasure(food.Fosforo,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.FOSFORO));
-            food.Potassio = Utils.Utils.RemoveUnityMeasure(food.Potassio,
+            food.Potassio = Utils.RemoveUnityMeasure(food.Potassio,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.POTASSIO));
-            food.Cobre = Utils.Utils.RemoveUnityMeasure(food.Cobre,
+            food.Cobre = Utils.RemoveUnityMeasure(food.Cobre,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.COBRE));
-            food.Zinco = Utils.Utils.RemoveUnityMeasure(food.Zinco,
+            food.Zinco = Utils.RemoveUnityMeasure(food.Zinco,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.ZINCO));
-            food.VitaminaA = Utils.Utils.RemoveUnityMeasure(food.VitaminaA,
+            food.VitaminaA = Utils.RemoveUnityMeasure(food.VitaminaA,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.VITAMINA_A));
-            food.VitaminaB1 = Utils.Utils.RemoveUnityMeasure(food.VitaminaB1,
+            food.VitaminaB1 = Utils.RemoveUnityMeasure(food.VitaminaB1,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.VITAMINA_B1));
-            food.VitaminaB2 = Utils.Utils.RemoveUnityMeasure(food.VitaminaB2,
+            food.VitaminaB2 = Utils.RemoveUnityMeasure(food.VitaminaB2,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.VITAMINA_B2));
-            food.VitaminaB6 = Utils.Utils.RemoveUnityMeasure(food.VitaminaB6,
+            food.VitaminaB6 = Utils.RemoveUnityMeasure(food.VitaminaB6,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.VITAMINA_B6));
-            food.VitaminaB3 = Utils.Utils.RemoveUnityMeasure(food.VitaminaB3,
+            food.VitaminaB3 = Utils.RemoveUnityMeasure(food.VitaminaB3,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.VITAMINA_B3));
-            food.VitaminaC = Utils.Utils.RemoveUnityMeasure(food.VitaminaC,
+            food.VitaminaC = Utils.RemoveUnityMeasure(food.VitaminaC,
                 NutrientsBuild.AddUnitMeasure(NutrientsTypes.VITAMINA_C));
             return food;
         }

@@ -1,50 +1,23 @@
-using System.Collections.ObjectModel;
 using CommunityToolkit.Maui.Views;
-using MvvmHelpers;
-using NutriApp.Models;
 
 namespace NutriApp.Views.Evaluation.CircumferenceWaist.InfoPopup;
 
-public class InfoCircumferenceWaistPopupViewModel : BaseViewModel
+public partial class InfoCircumferenceWaistPopupViewModel : BaseViewModel
 {
+    [ObservableProperty] 
     private ObservableCollection<CircunferenciaCintura> _classificationMan;
-    public ObservableCollection<CircunferenciaCintura> ClassificationMan
-    {
-        get => _classificationMan;
-        set { _classificationMan = value; OnPropertyChanged("ClassificationMan"); }
-    }
-
+    [ObservableProperty] 
     private ObservableCollection<CircunferenciaCintura> _classificationWoman;
-    public ObservableCollection<CircunferenciaCintura> ClassificationWoman
-    {
-        get => _classificationWoman;
-        set { _classificationWoman = value; OnPropertyChanged("ClassificationWoman"); }
-    }
-    
-    private Size _size;
-    public Size Size
-    {
-        get => _size;
-        set { _size = value; OnPropertyChanged("Size"); }
-    }
-    
-    public double Height { get; set; }
-    public double Width { get; set; }
-
-    private InfoCircumferenceWaistPopup _infoCircumferenceWaistPopup;
-    public Command CloseCommand { get; set; }
-    public Popup Popup { get; set; }
 
     public InfoCircumferenceWaistPopupViewModel(InfoCircumferenceWaistPopup infoCircumferenceWaistPopup)
     {
-        CloseCommand = new Command(ClosePage);
-        _infoCircumferenceWaistPopup = infoCircumferenceWaistPopup;
         FillData();
     }
     
-    private void ClosePage()
+    [RelayCommand]
+    private void Close(Popup popup)
     {
-        Popup.CloseAsync();
+        popup.Close();
     }
     
     private void FillData()

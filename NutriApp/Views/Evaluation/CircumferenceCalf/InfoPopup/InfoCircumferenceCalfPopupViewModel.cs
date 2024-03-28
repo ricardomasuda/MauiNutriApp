@@ -1,23 +1,22 @@
-using System.Collections.ObjectModel;
-using MvvmHelpers;
+using CommunityToolkit.Maui.Views;
 using NutriApp.AppNutri.Model;
 
 namespace NutriApp.Views.Evaluation.CircumferenceCalf.InfoPopup;
 
-public class InfoCircumferenceCalfPopupViewModel : BaseViewModel
+public partial class InfoCircumferenceCalfPopupViewModel : BaseViewModel
 {
+    [ObservableProperty]
     private ObservableCollection<CircunferenciaPanturrilhaModel> _classificationCalf;
-    public ObservableCollection<CircunferenciaPanturrilhaModel> ClassificationCalf
-    {
-        get => _classificationCalf;
-        set { _classificationCalf = value; OnPropertyChanged("ClassificationCalf"); }
-    }
-        
-    public Command CloseCommand { get; set; }
+    
     public InfoCircumferenceCalfPopupViewModel()
     {
-        //CloseCommand = new Command(() => App.NavPage.Navigation.PopPopupAsync());
         Fill();
+    }
+    
+    [RelayCommand]
+    private void Close(Popup popup)
+    {
+        popup.Close();
     }
 
     private void Fill()

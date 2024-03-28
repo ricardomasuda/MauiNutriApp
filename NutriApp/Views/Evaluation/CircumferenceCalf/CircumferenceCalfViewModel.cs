@@ -1,63 +1,27 @@
-using NutriApp.Components;
-using NutriApp.Services;
+using System.Windows.Input;
+using CommunityToolkit.Maui.Views;
+using NutriApp.AppNutri.View.Evaluation.CircumferenceCalf.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.CircumferenceCalf;
 
-public class CircumferenceCalfViewModel : BaseViewModel
+public partial class CircumferenceCalfViewModel : BaseViewModel
 {
+    [ObservableProperty]
     private string _result;
-    public string Result
-    {
-        get => _result;
-        set
-        {
-            _result = value;
-            OnPropertyChanged("Result");
-        }
-    }
-
+    [ObservableProperty]
     private bool _canDisplayResult;
-    public bool CanDisplayResult
-    {
-        get => _canDisplayResult;
-        set
-        {
-            _canDisplayResult = value;
-            OnPropertyChanged("CanDisplayResult");
-        }
-    }
-
+    [ObservableProperty]
     private string _circumferenceCalf;
-    public string CircumferenceCalf
-    {
-        get => _circumferenceCalf;
-        set
-        {
-            _circumferenceCalf = value;
-            OnPropertyChanged("CircumferenceCalf");
-        }
-    }
-
+    [ObservableProperty]
     private bool _hasErrorCircumferenceCalf;
-    public bool HasErrorCircumferenceCalf
-    {
-        get => _hasErrorCircumferenceCalf;
-        set
-        {
-            _hasErrorCircumferenceCalf = value;
-            OnPropertyChanged("HasErrorCircumferenceCalf");
-        }
-    }
-
-    public Command CalculateCommand { get; set; }
-    public Command InfoCommand { get; set; }
+    public ICommand InfoCommand { get; set; }
 
     public CircumferenceCalfViewModel()
     {
-        CalculateCommand = new Command(Calculate);
-        //InfoCommand = new Command(async () => await Navigation.PushPopupAsync(new InfoCircumferenceCalfPopup()));
+        InfoCommand = new RelayCommand(() => App.NavPage.ShowPopup(new InfoCircumferenceCalfPopup()));
     }
-
+    
+    [RelayCommand]
     private void Calculate()
     {
         if (!Validate())

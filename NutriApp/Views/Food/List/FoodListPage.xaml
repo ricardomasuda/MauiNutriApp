@@ -7,57 +7,67 @@
              xmlns:list="clr-namespace:NutriApp.Views.Food.List"
              xmlns:models="clr-namespace:NutriApp.Models"
              BackgroundColor="{StaticResource PageColor}"
-             NavigationPage.HasNavigationBar="False"
-             x:Name="FoodListRoot"
+             Shell.NavBarIsVisible="False"
              x:DataType="list:FoodListViewModel"
              x:Class="NutriApp.Views.Food.List.FoodListPage">
-    <StackLayout>
 
-        <view:SearchTitleView Command="{Binding GoAddFoodCommand}"
+    <VerticalStackLayout>
+
+        <view:SearchTitleView Command="{Binding AddFoodCommand}"
                               TypeTitle="None"
                               TextSearch="{Binding SearchBar}"
                               VisibleBack="True"
+                              SizeChanged="OnSizeChanged"
+                              Height="{Binding SearchTitleHeight}"
                               TextTitle="Lista de Alimentos" />
 
-        <StackLayout Margin="20,0,20,0">
+        <VerticalStackLayout>
 
-            <ListView x:Name="ListFood"
-                      Margin="10"
-                      ItemsSource="{Binding ListFood}"
-                      BackgroundColor="Transparent"
-                      HasUnevenRows="True">
-                <ListView.ItemTemplate>
+            <ActivityIndicator HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}" />
+
+            <CollectionView Margin="10,10,10,70"
+                            SelectionMode="None"
+                            HeightRequest="{Binding CollectionViewHeight}"
+                            ItemsSource="{Binding Foods}">
+
+                <CollectionView.ItemTemplate>
+
                     <DataTemplate x:DataType="models:FoodModel">
-                        <ViewCell>
 
-                            <StackLayout Margin="0,10"
-                                         HorizontalOptions="FillAndExpand">
+                        <VerticalStackLayout Padding="0,0,0,10"
+                                             Height="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=CellHeight}"
+                                             SizeChanged="OnSizeChanged">
 
-                                <Label FontSize="16"
-                                       Text="{Binding Nome}"
-                                       TextColor="{StaticResource DarkBlue}"
-                                       FontAttributes="Bold" />
+                            <Label FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource DarkBlue}"
+                                   Text="{Binding Nome}" />
 
-                                <Label Text="{Binding Fonte}"
-                                       FontSize="10"
-                                       TextColor="Gray" />
+                            <Label LineBreakMode="NoWrap"
+                                   FontSize="10"
+                                   TextColor="Gray"
+                                   Text="{Binding Fonte}" />
 
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer
-                                        Command="{Binding Source={x:Reference FoodListRoot}, Path=BindingContext.GoEditFoodCommand}"
-                                        CommandParameter="{Binding .}" />
-                                </StackLayout.GestureRecognizers>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=EditFoodCommand}"
+                                                      CommandParameter="{Binding .}" />
+                                
+                            </VerticalStackLayout.GestureRecognizers>
 
-                            </StackLayout>
-
-                        </ViewCell>
+                        </VerticalStackLayout>
 
                     </DataTemplate>
 
-                </ListView.ItemTemplate>
+                </CollectionView.ItemTemplate>
 
-            </ListView>
+            </CollectionView>
 
-        </StackLayout>
-    </StackLayout>
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+
 </ContentPage>

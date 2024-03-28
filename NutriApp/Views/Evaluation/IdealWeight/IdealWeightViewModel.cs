@@ -1,79 +1,66 @@
-using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Windows.Input;
 using CommunityToolkit.Maui.Views;
-using MvvmHelpers;
-using NutriApp.AppNutri.View.Evaluation.IdealWeight.InfoPopup;
-using NutriApp.Models;
-using NutriApp.Utils;
+using NutriApp.Views.Evaluation.IdealWeight.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.IdealWeight;
 
-public class IdealWeightViewModel : BaseViewModel
+public partial class IdealWeightViewModel : BaseViewModel
 {
-      private bool _canDisplay;
-        public bool CanDisplay { get => _canDisplay; set { _canDisplay = value; OnPropertyChanged("CanDisplay"); } }
-        
-        private Item _imcIdeal;
-        public Item ImcIdeal { get => _imcIdeal; set { _imcIdeal = value; OnPropertyChanged("ImcIdeal"); } }
-        
-        private string _height;
-        public string Height { get => _height; set { _height = value; OnPropertyChanged("Height"); } }
-        
-        private string _idealWeight;
-        public string IdealWeight { get => _idealWeight; set { _idealWeight = value; OnPropertyChanged("IdealWeight"); } }
-        
-        private bool _hasErrorHeight;
-        public bool HasErrorHeight { get => _hasErrorHeight; set { _hasErrorHeight = value; OnPropertyChanged("HasErrorHeight"); } }
-        
-        private bool _hasErrorImcIdeal;
-        public bool HasErrorImcIdeal { get => _hasErrorImcIdeal; set { _hasErrorImcIdeal = value; OnPropertyChanged("HasErrorImcIdeal"); } }
-        
-        public ObservableCollection<Item> ItemImcIdeal { get; set; } 
-        public Command CalculateCommand { get; set; }
-        public Command InfoCommand { get; set; }
-        public IdealWeightViewModel(IdealWeightPage page)
+    [ObservableProperty]
+    private bool _canDisplay;
+    [ObservableProperty]
+    private Item _imcIdeal;
+    [ObservableProperty]
+    private string _height;
+    [ObservableProperty]
+    private string _idealWeight;
+    [ObservableProperty]
+    private bool _hasErrorHeight;
+    [ObservableProperty]
+    private bool _hasErrorImcIdeal;
+    public ObservableCollection<Item> ItemImcIdeal { get; set; }
+    public ICommand InfoCommand { get; set; }
+
+    public IdealWeightViewModel()
+    {
+        InfoCommand = new RelayCommand(() => Shell.Current.CurrentPage.ShowPopup(new InfoIdealWeightPopup()));
+        CanDisplay = false;
+        Fill();
+    }
+
+    private void Fill()
+    {
+        ItemImcIdeal = new ObservableCollection<Item>
         {
-            CalculateCommand = new Command(Calculate);
-            InfoCommand = new Command(() => page.ShowPopup(new InfoIdealWeightPopup()));
+            new() { Id = 22, Nome = "Homem 22 kg/m²" },
+            new() { Id = 21, Nome = "Mulher 21 kg/m²" }
+        };
+    }
+    
+    [RelayCommand]
+    private void Calculate()
+    {
+        if (!Validate())
+        {
             CanDisplay = false;
-            Fill();
+            return;
         }
 
-        private void Fill()
+        IdealWeight = EvaluationCalculations
+            .IdealWeight(Convert.ToDouble(ImcIdeal.Id), Utils.ParseToDoubleWithCommaSeparator(Height))
+            .ToString(CultureInfo.InvariantCulture);
+        if (!string.IsNullOrEmpty(IdealWeight))
         {
-            ItemImcIdeal =  new ObservableCollection<Item>
-            {
-                new() {Id = 22, Nome = "Homem 22 kg/m²"},
-                new() {Id = 21, Nome = "Mulher 21 kg/m²"}
-            };
+            CanDisplay = true;
         }
-        
-        private async void GotoInfo()
-        {
-            //await Navigation.PushPopupAsync(new InfoIdealWeightPopup());
-        }
+    }
 
-        private void Calculate()
-        {
-            if (!Validate())
-            {
-                CanDisplay = false;
-                return;
-            }
+    private bool Validate()
+    {
+        HasErrorHeight = string.IsNullOrWhiteSpace(Height);
+        HasErrorImcIdeal = ImcIdeal == null;
 
-            var teste = Convert.ToDouble(ImcIdeal.Id);
-            var teste1 = Utils.Utils.ConvertHeight(Height);
-            IdealWeight = EvaluationCalculations.IdealWeight(Convert.ToDouble(ImcIdeal.Id), Utils.Utils.ConvertHeight(Height)).ToString(CultureInfo.InvariantCulture);
-            if (!string.IsNullOrEmpty(IdealWeight))
-            {
-                CanDisplay = true;
-            }
-        }
-        private bool Validate()
-        {
-            HasErrorHeight = string.IsNullOrWhiteSpace(Height);
-            HasErrorImcIdeal = ImcIdeal == null;
-
-            return (!HasErrorHeight && !HasErrorImcIdeal);
-        }
+        return (!HasErrorHeight && !HasErrorImcIdeal);
+    }
 }

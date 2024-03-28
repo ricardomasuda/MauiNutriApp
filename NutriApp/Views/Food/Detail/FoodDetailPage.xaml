@@ -6,8 +6,8 @@
              xmlns:components="clr-namespace:NutriApp.Components"
              xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
              xmlns:detail="clr-namespace:NutriApp.Views.Food.Detail"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              NavigationPage.HasNavigationBar="False"
              x:Name="FoodListRoot"
              x:DataType="detail:FoodDetailViewModel"
@@ -16,7 +16,7 @@
 
         <StackLayout>
 
-            <titleView:NewTitleView
+            <view:NewTitleView
                 TypeTitle="InfoCircle"
                 Command="{Binding InfoCommand}"
                 TextTitle="Alimento" />

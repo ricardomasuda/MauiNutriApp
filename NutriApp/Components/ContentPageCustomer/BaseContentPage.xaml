@@ -2,16 +2,18 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              BackgroundColor="{StaticResource PageColor}"
              Shell.NavBarIsVisible="False"
+             ios:Page.UseSafeArea="False"
              x:Name="PageBase"
              x:Class="NutriApp.Components.ContentPageCustomer.BaseContentPage">
     <ContentPage.ControlTemplate >
         <ControlTemplate>
             <Grid RowDefinitions="100,*"  >
                 
-                <titleView:NewTitleView
+                <view:NewTitleView
                     x:Name="ViewTeste"
                     Grid.Row="0"
                     HorizontalOptions="Fill"

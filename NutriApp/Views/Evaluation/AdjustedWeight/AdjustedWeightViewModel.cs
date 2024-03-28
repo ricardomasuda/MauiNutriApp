@@ -1,49 +1,78 @@
-using NutriApp.Components;
-using NutriApp.Models;
-using NutriApp.Utils;
+using System.Windows.Input;
+using CommunityToolkit.Maui.Core;
 
 namespace NutriApp.Views.Evaluation.AdjustedWeight;
 
-public class AdjustedWeightPageViewModel : BaseViewModel
+public partial class AdjustedWeightPageViewModel : BaseViewModel
 {
-    private ViewModelProperties _properties;
-    public ViewModelProperties Properties { get => _properties; set { _properties = value; OnPropertyChanged("Properties"); } }
+    [ObservableProperty]
+    private string _currentWeight;
+    [ObservableProperty]
+    private string _idealWeight;
+    [ObservableProperty]
+    private bool _hasErrorCurrencyWeight;
         
-    public Command CalculateCommand { get; set; }
-    public Command MalnutritionCommand { get; set; }
-    public Command ObesityCommand { get; set; }
+    [ObservableProperty]
+    private bool _hasErrorIdealWeight;
+
+    [ObservableProperty]
+    private bool _canDisplayResult;
+       
+    [ObservableProperty]
+    private string _result; 
+        
+    private bool _checkedObesity;
+    public bool CheckedObesity
+    {
+        get => _checkedObesity;
+        set
+        {
+            _checkedObesity = value; OnPropertyChanged("CheckedObesity");
+            if (CheckedObesity) CheckedMalnutrition = false;
+        }
+    }
+
+    private bool _checkedMalnutrition;
+    public bool CheckedMalnutrition
+    {
+        get => _checkedMalnutrition;
+        set
+        {
+            _checkedMalnutrition = value; OnPropertyChanged("CheckedMalnutrition");
+            if (CheckedMalnutrition) CheckedObesity = false;
+        }
+    }
+    public ICommand MalnutritionCommand => new RelayCommand(() => CheckedMalnutrition = !CheckedMalnutrition);
+    public ICommand ObesityCommand => new RelayCommand(() => CheckedObesity = !CheckedObesity);
         
     public AdjustedWeightPageViewModel()
     {
-        Properties = new ViewModelProperties();
-        CalculateCommand = new Command(Calculate);
-        MalnutritionCommand = new Command(() => Properties.CheckedMalnutrition = !Properties.CheckedMalnutrition);
-        ObesityCommand = new Command(() => Properties.CheckedObesity = !Properties.CheckedObesity);
     }
 
+    [RelayCommand]
     private void Calculate()
     {
         if (!Validate())
         {
-            Properties.CanDisplayResult = false;
+            CanDisplayResult = false;
             return;
         }
-        Properties.Result = EvaluationCalculations.AdjustedWeight(Convert.ToDouble(Properties.IdealWeight), Convert.ToDouble(Properties.CurrentWeight), Properties.CheckedObesity ? WeightTypes.OBESITY : WeightTypes.MALNUTRITION).ToString();
-        if (!string.IsNullOrEmpty(Properties.Result))
+        Result = EvaluationCalculations.AdjustedWeight(Convert.ToDouble(IdealWeight), Convert.ToDouble(CurrentWeight), CheckedObesity ? WeightTypes.OBESITY : WeightTypes.MALNUTRITION).ToString();
+        if (!string.IsNullOrEmpty(Result))
         {
-            Properties.CanDisplayResult = true;
+            CanDisplayResult = true;
         }
     }
 
     private bool Validate()
     {
-        Properties.HasErrorIdealWeight = string.IsNullOrWhiteSpace(Properties.IdealWeight);
-        Properties.HasErrorCurrencyWeight = string.IsNullOrWhiteSpace(Properties.CurrentWeight);
-        if (!(Properties.CheckedObesity || Properties.CheckedMalnutrition))
+        HasErrorIdealWeight = string.IsNullOrWhiteSpace(IdealWeight);
+        HasErrorCurrencyWeight = string.IsNullOrWhiteSpace(CurrentWeight);
+        if (!(CheckedObesity || CheckedMalnutrition))
         {
-            //App.NavPage.DisplayToastAsync("Selecione uma opção na categoria");
+            InfoToaster("Selecione uma opção na categoria", ToastDuration.Long);
             return false;
         }
-        return (!Properties.HasErrorIdealWeight && !Properties.HasErrorCurrencyWeight);
+        return (!HasErrorIdealWeight && !HasErrorCurrencyWeight);
     }
 }

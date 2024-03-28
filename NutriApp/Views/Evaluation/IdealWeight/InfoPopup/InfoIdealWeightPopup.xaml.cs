@@ -1,6 +1,6 @@
 using CommunityToolkit.Maui.Views;
 
-namespace NutriApp.AppNutri.View.Evaluation.IdealWeight.InfoPopup;
+namespace NutriApp.Views.Evaluation.IdealWeight.InfoPopup;
 
 public partial class InfoIdealWeightPopup : Popup
 {

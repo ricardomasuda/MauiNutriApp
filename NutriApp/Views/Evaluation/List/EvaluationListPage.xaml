@@ -5,8 +5,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:NutriApp.Models"
-    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    xmlns:list="clr-namespace:NutriApp.Views.Evaluation.List"
     x:Name="EvaluationListRoot"
+    x:DataType="list:EvaluationListPageViewModel"
     BackgroundColor="{StaticResource PageColor}"
     Shell.NavBarIsVisible="False"
     x:Class="NutriApp.Views.Evaluation.List.EvaluationListPage">
@@ -14,7 +16,7 @@
 
         <StackLayout>
 
-            <titleView:NewTitleView
+            <view:NewTitleView
                 TypeTitle="None"
                 TextTitle="Avaliação Nutricional" />
 

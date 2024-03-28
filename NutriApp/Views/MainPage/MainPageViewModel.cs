@@ -1,5 +1,4 @@
 using MauiLib1.Navigation;
-using MvvmHelpers;
 using NutriApp.Views.About;
 using NutriApp.Views.Evaluation.List;
 using NutriApp.Views.Food.List;
@@ -10,7 +9,7 @@ namespace NutriApp.Views.MainPage;
 public class MainPageViewModel : BaseViewModel
 {
     private string _version;
-    public string Version { get => _version; set { _version = value; OnPropertyChanged("Version"); } }
+    public string Version { get => _version; set { _version = value; OnPropertyChanged(); } }
     public Command EvaluationCommand { get; set; } =  new ( () =>  App.NavPage.GoToAsync(nameof(EvaluationListPage)));
     public Command AnthropometricEvaluationCommand { get; set; }
     public Command ListFoodCommand { get; set; } = new ( () => App.NavPage.GoToAsync(nameof(FoodListPage)));

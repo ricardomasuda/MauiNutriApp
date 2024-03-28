@@ -1,56 +1,67 @@
-using System.Collections.ObjectModel;
-using MvvmHelpers;
-using NutriApp.Models;
-using NutriApp.Services;
 using NutriApp.Views.Food.Detail;
 
 namespace NutriApp.Views.Food.List;
 
-public class FoodListViewModel : BaseViewModel
-{
-    private ObservableRangeCollection<FoodModel> _listFood;
-    public ObservableRangeCollection<FoodModel> ListFood { get => _listFood; set { _listFood = value; OnPropertyChanged("ListFood"); } }
-        
-    private ObservableCollection<FoodModel> _listFoodAux;
-        
+public partial class FoodListViewModel : BaseViewModel {
+    private const double COLLECTION_VIEW_BOTTOM_PADDING = 20;
+
+    [ObservableProperty] [NotifyCanExecuteChangedFor(nameof(SearchBarActionCommand))]
     private string _searchBar;
-    public string SearchBar { get => _searchBar; set { _searchBar = value; SearchBarAction(); OnPropertyChanged("SearchBar"); } }
-    public Command GoEditFoodCommand  { get; set; }
-    public Command GoAddFoodCommand { get; set; }
-    public Command GoBackCommand { get; set; }
-    public FoodListViewModel()
-    {
-        FetchList();
-        GoEditFoodCommand = new Command(EditFood);
-        GoAddFoodCommand = new Command(AddFood);
-        GoBackCommand = new Command(() => Shell.Current.Navigation.PopAsync() );
+
+    [ObservableProperty] private ObservableCollection<FoodModel> _foods = [];
+    [ObservableProperty] private double _collectionViewHeight;
+    [ObservableProperty] private double _searchTitleHeight;
+    [ObservableProperty] private double _collectionViewCellHeight;
+
+    private ObservableCollection<FoodModel> _listFoodAux;
+
+    public FoodListViewModel() {
+        MainThread.InvokeOnMainThreadAsync(FetchFoods);
     }
 
-    private async void FetchList()
-    {
-        ListFood = new ObservableRangeCollection<FoodModel>();
-        var listFoodItem = await DataBaseService.GetFoods();
-        ListFood.AddRange(listFoodItem);
-        _listFoodAux = ListFood;
+    private async Task FetchFoods() {
+        if (IsBusy) return;
+        IsBusy = true;
+
+        ObservableCollection<FoodModel> foodsResult = await DataBaseService.ListFoods();
+
+        if (Foods.Count is not 0) Foods.Clear();
+        Foods = foodsResult;
+        _listFoodAux = Foods;
+
+        IsBusy = false;
     }
 
-    private void SearchBarAction()
-    {
-        var list = string.IsNullOrEmpty(SearchBar) ? _listFoodAux : _listFoodAux.Where(x => x.Nome.ToUpper().Contains(SearchBar.ToUpper()));
-        ListFood = new ObservableRangeCollection<FoodModel>(list.ToList());
+    [RelayCommand]
+    private void SearchBarAction() {
+        IEnumerable<FoodModel> list = string.IsNullOrEmpty(SearchBar)
+            ? _listFoodAux
+            : _listFoodAux.Where(food => food.Nome.ToUpper().Contains(SearchBar.ToUpper()));
+        Foods = [..list.ToList()];
     }
 
-    private static async void EditFood(object sender)
-    {
-        var navigationParameter = new ShellNavigationQueryParameters
-        {
+    [RelayCommand]
+    private async Task EditFood(object sender) {
+        ShellNavigationQueryParameters navigationParameter = new() {
             { "food", (FoodModel)sender }
         };
+
         await Shell.Current.GoToAsync(nameof(FoodDetailPage), navigationParameter);
     }
 
-    private async void AddFood(object sender)
-    {
+    [RelayCommand]
+    private async Task AddFood(object sender) =>
         await Shell.Current.DisplayAlert("Em contrução", "Pagina em construção", "OK");
+
+    [RelayCommand]
+    private static void GoBack() => Shell.Current.Navigation.PopAsync();
+
+    protected override void OnPropertyChanged(PropertyChangedEventArgs e) {
+        base.OnPropertyChanged(e);
+
+        if (e.PropertyName is nameof(SearchTitleHeight) or nameof(CollectionViewCellHeight)) {
+            CollectionViewHeight = DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density -
+                                   SearchTitleHeight - CollectionViewCellHeight - COLLECTION_VIEW_BOTTOM_PADDING;
+        }
     }
 }

@@ -4,27 +4,35 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    xmlns:infoPopup="clr-namespace:NutriApp.Views.Evaluation.IdealWeight.InfoPopup"
     Color="{StaticResource BackgroundPopupPage}"
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
-    x:Class="NutriApp.AppNutri.View.Evaluation.IdealWeight.InfoPopup.InfoIdealWeightPopup">
+    x:DataType="infoPopup:InfoIdealWeightPopupViewModel"
+    x:Name="PopupIdealWeight"
+    x:Class="NutriApp.Views.Evaluation.IdealWeight.InfoPopup.InfoIdealWeightPopup">
 
     <ScrollView>
         <Border
+            HorizontalOptions="Fill"
             VerticalOptions="Fill"
-            Margin="20,20">
+            StrokeShape="RoundRectangle 10"
+            BackgroundColor="{StaticResource PageColor}"
+            Margin="20,100">
 
             <StackLayout
                 VerticalOptions="FillAndExpand">
 
-                <titleView:NewTitleView
+                <view:NewTitleView
                     VisibleBack="False"
                     TypeTitle="Close"
+                    CommandParameter="{Binding Source={x:Reference PopupIdealWeight}}"
                     Command="{Binding CloseCommand}"
                     TextTitle="IMC Médio" />
 
-                <StackLayout Margin="10,0">
+                <StackLayout
+                    Margin="10,10">
 
                     <Frame BorderColor="{StaticResource DarkGreyText}"
                            CornerRadius="5"
@@ -38,22 +46,24 @@
                                 Text="IMC Médio"
                                 FontSize="Medium"
                                 FontAttributes="Bold"
-                                HorizontalTextAlignment="Center"
+                                HorizontalOptions="Center"
                                 TextColor="Black" />
 
                             <BoxView Color="{StaticResource DarkGreyText}"
                                      HeightRequest="2"
                                      HorizontalOptions="Fill" />
 
-                            <Label Text="Homens: 22.0(kg/m²)" HorizontalTextAlignment="Center" TextColor="Black" />
-                            <Label Text="Mulheres: 21.0(kg/m²)" HorizontalTextAlignment="Center" TextColor="Black" />
+                            <Label Text="Homens: 22.0(kg/m²)" HorizontalOptions="Center" TextColor="Black" />
+                            <Label Text="Mulheres: 21.0(kg/m²)" HorizontalOptions="Center" TextColor="Black" />
 
                         </StackLayout>
 
                     </Frame>
 
-                    <Label Text="Fonte: Apostila Hospital das Clínicas de Goiás - HC/UFG,2010" TextColor="Black"
-                           FontSize="12" />
+                    <Label
+                        Margin="0,5"
+                        Text="Fonte: Apostila Hospital das Clínicas de Goiás - HC/UFG,2010" TextColor="Black"
+                        FontSize="12" />
                 </StackLayout>
 
             </StackLayout>

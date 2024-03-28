@@ -1,16 +1,12 @@
-namespace NutriApp.AppNutri.View.Evaluation.IdealWeight.InfoPopup;
+using CommunityToolkit.Maui.Views;
 
-public class InfoIdealWeightPopupViewModel
+namespace NutriApp.Views.Evaluation.IdealWeight.InfoPopup;
+
+public partial class InfoIdealWeightPopupViewModel
 {
-    public Command CloseCommand { get; set; }
-        
-    public InfoIdealWeightPopupViewModel()
+    [RelayCommand]
+    private void Close(Popup popup)
     {
-        CloseCommand = new Command(ClosePage);
-    }
-        
-    private static void ClosePage()
-    {
-        //App.NavPage.Navigation.PopPopupAsync();
+        popup.Close();
     }
 }

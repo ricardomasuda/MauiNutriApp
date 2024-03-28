@@ -5,130 +5,138 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:model="clr-namespace:NutriApp.AppNutri.Model"
-    xmlns:titleView="clr-namespace:NutriApp.AppNutri.Componente.TitleView"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    xmlns:infoPopup="clr-namespace:NutriApp.Views.Evaluation.CircumferenceCalf.InfoPopup"
     Color="{StaticResource BackgroundPopupPage}"
+    x:DataType="infoPopup:InfoCircumferenceCalfPopupViewModel"
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
+    x:Name="PopupCircumferenceCalf"
     x:Class="NutriApp.AppNutri.View.Evaluation.CircumferenceCalf.InfoPopup.InfoCircumferenceCalfPopup">
-    
-    <Frame
-        CornerRadius="15"
-        Padding="0"
-        BackgroundColor="{StaticResource PageColor}"
-        Margin="10,50">
 
-        <StackLayout
-            VerticalOptions="FillAndExpand">
+    <ScrollView>
+        <Border
+            Padding="0"
+            StrokeShape="RoundRectangle 10"
+            BackgroundColor="{StaticResource PageColor}"
+            Margin="20,150">
 
-            <titleView:NewTitleView
-                VisibleBack="False"
-                TypeTitle="Close"
-                Command="{Binding CloseCommand}"
-                TextTitle="Circunferência da Panturrilha" />
+            <StackLayout
+                VerticalOptions="FillAndExpand">
 
-            <ListView
-                Margin="20,20,20,0"
-                BackgroundColor="{StaticResource PageColor}"
-                ItemsSource="{Binding ClassificationCalf}"
-                HasUnevenRows="True">
+                <view:NewTitleView
+                    VisibleBack="False"
+                    TypeTitle="Close"
+                    Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding Source={x:Reference PopupCircumferenceCalf}}"
+                    TextTitle="Circunferência da Panturrilha" />
 
-                <ListView.Header>
-                    <Grid RowSpacing="0" ColumnSpacing="0">
+                <ListView
+                    Margin="20,20,20,0"
+                    VerticalOptions="Start"
+                    BackgroundColor="{StaticResource PageColor}"
+                    ItemsSource="{Binding ClassificationCalf}"
+                    HeightRequest="150"
+                    HasUnevenRows="True">
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                    <ListView.Header>
+                        <Grid RowSpacing="0" ColumnSpacing="0">
 
-                        <Frame BorderColor="{StaticResource DarkGreyText}"
-                               HorizontalOptions="Fill"
-                               CornerRadius="0"
-                               BackgroundColor="{StaticResource DarkBlue}"
-                               Padding="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                            <Label Text="Classificação"
-                                   FontSize="Medium"
-                                   HorizontalOptions="Center"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource WhiteText}" />
-                        </Frame>
+                            <Frame BorderColor="{StaticResource DarkGreyText}"
+                                   HorizontalOptions="Fill"
+                                   CornerRadius="0"
+                                   BackgroundColor="{StaticResource DarkBlue}"
+                                   Padding="5">
 
-                        <Frame Grid.Column="1"
-                               BorderColor="{StaticResource DarkGreyText}"
-                               CornerRadius="0"
-                               BackgroundColor="{StaticResource DarkBlue}"
-                               HorizontalOptions="Fill"
-                               Padding="5">
+                                <Label Text="Classificação"
+                                       FontSize="Medium"
+                                       HorizontalOptions="Center"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource WhiteText}" />
+                            </Frame>
 
-                            <Label Text="Valor"
-                                   FontSize="Medium"
-                                   HorizontalOptions="Center"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource WhiteText}" />
-                        </Frame>
+                            <Frame Grid.Column="1"
+                                   BorderColor="{StaticResource DarkGreyText}"
+                                   CornerRadius="0"
+                                   BackgroundColor="{StaticResource DarkBlue}"
+                                   HorizontalOptions="Fill"
+                                   Padding="5">
 
-                    </Grid>
-                </ListView.Header>
+                                <Label Text="Valor"
+                                       FontSize="Medium"
+                                       HorizontalOptions="Center"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource WhiteText}" />
+                            </Frame>
 
-                <ListView.ItemTemplate>
+                        </Grid>
+                    </ListView.Header>
 
-                    <DataTemplate x:DataType="model:CircunferenciaPanturrilhaModel">
+                    <ListView.ItemTemplate>
 
-                        <ViewCell>
+                        <DataTemplate x:DataType="model:CircunferenciaPanturrilhaModel">
 
-                            <Grid RowSpacing="0"
-                                  ColumnSpacing="0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
+                            <ViewCell>
 
-                                <Frame Grid.Column="0"
-                                       Margin="0"
-                                       BackgroundColor="{StaticResource PageColor}"
-                                       BorderColor="{StaticResource DarkGreyText}"
-                                       CornerRadius="0"
-                                       HorizontalOptions="Fill"
-                                       Padding="4">
+                                <Grid RowSpacing="0"
+                                      ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
 
-                                    <Label Grid.Column="0"
-                                           Text="{Binding Classificacao}"
+                                    <Frame Grid.Column="0"
                                            Margin="0"
-                                           TextColor="Black"
-                                           HorizontalOptions="Center" />
-                                </Frame>
+                                           BackgroundColor="{StaticResource PageColor}"
+                                           BorderColor="{StaticResource DarkGreyText}"
+                                           CornerRadius="0"
+                                           HorizontalOptions="Fill"
+                                           Padding="4">
 
-                                <Frame Grid.Column="1"
-                                       BorderColor="{StaticResource DarkGreyText}"
-                                       Margin="0"
-                                       CornerRadius="0"
-                                       BackgroundColor="{StaticResource PageColor}"
-                                       HorizontalOptions="Fill"
-                                       Padding="4">
+                                        <Label Grid.Column="0"
+                                               Text="{Binding Classificacao}"
+                                               Margin="0"
+                                               TextColor="Black"
+                                               HorizontalOptions="Center" />
+                                    </Frame>
 
-                                    <Label Text="{Binding Valor}"
+                                    <Frame Grid.Column="1"
+                                           BorderColor="{StaticResource DarkGreyText}"
                                            Margin="0"
-                                           TextColor="Black"
-                                           HorizontalOptions="Center" />
-                                </Frame>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                                           CornerRadius="0"
+                                           BackgroundColor="{StaticResource PageColor}"
+                                           HorizontalOptions="Fill"
+                                           Padding="4">
 
-                <ListView.Footer>
-                    <Label Text="Fonte: Organização Mundial de Saúde (1995)"
-                           TextColor="{StaticResource DarkGreyText}"
-                           FontAttributes="Bold"
-                           FontSize="12"
-                           Margin="0" />
+                                        <Label Text="{Binding Valor}"
+                                               Margin="0"
+                                               TextColor="Black"
+                                               HorizontalOptions="Center" />
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
 
-                </ListView.Footer>
+                    <ListView.Footer>
+                        <Label Text="Fonte: Organização Mundial de Saúde (1995)"
+                               TextColor="{StaticResource DarkGreyText}"
+                               FontAttributes="Bold"
+                               FontSize="12"
+                               Margin="0" />
 
-            </ListView>
-        </StackLayout>
-    </Frame>
+                    </ListView.Footer>
+
+                </ListView>
+            </StackLayout>
+        </Border>
+    </ScrollView>
 </toolkit:Popup>
