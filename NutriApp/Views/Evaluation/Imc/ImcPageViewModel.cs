@@ -21,17 +21,15 @@ public partial class ImcPageViewModel :  BaseViewModel
     private string _imcType;
     [ObservableProperty]
     private ImcModel _imc;
-
-    public Command CalculateCommand { get; set; }
     public Command InfoCommand { get; set; }
 
     public ImcPageViewModel()
     {
         Imc = new ImcModel();
-        CalculateCommand = new Command(Calculate);
         InfoCommand = new Command(() => App.NavPage.ShowPopup(new InfoImcPopup()));
     }
-
+    
+    [RelayCommand]
     private async void Calculate()
     {
         if (!await Validate())
@@ -49,17 +47,17 @@ public partial class ImcPageViewModel :  BaseViewModel
         }
     }
 
-    private async Task<bool> Validate()
+    private Task<bool> Validate()
     {
         HasErrorHeight = string.IsNullOrWhiteSpace(Imc.Altura);
         HasErrorWeight = string.IsNullOrWhiteSpace(Imc.Peso);
         if (!(CheckedElder || CheckedAdult))
         {
             InfoToaster("Selecione um tipo de grupo", ToastDuration.Long);
-            return false;
+            return Task.FromResult(false);
         }
 
-        return !(HasErrorHeight && HasErrorWeight);
+        return Task.FromResult(!(HasErrorHeight && HasErrorWeight));
     }
     
 }
