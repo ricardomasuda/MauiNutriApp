@@ -6,6 +6,7 @@
     xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:estimatedWeight="clr-namespace:NutriApp.Views.Evaluation.EstimatedWeight"
+    xmlns:components="clr-namespace:MauiLib1.Components;assembly=BaseMauiLib"
     x:DataType="estimatedWeight:EstimatedWeightPageViewModel"
     x:Class="NutriApp.Views.Evaluation.EstimatedWeight.FormulaChumlea.FormulaChumleaView">
     <StackLayout>
@@ -14,36 +15,12 @@
                TextColor="{StaticResource DarkBlue}"
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="StartAndExpand" />
-
-        <StackLayout Orientation="Horizontal">
-            <CheckBox
-                IsChecked="{Binding FormulaChumleaViewModel.CheckedMan}"
-                Color="{StaticResource DarkBlue}" />
-
-            <Label
-                VerticalTextAlignment="Center"
-                Text="Homem"
-                TextColor="Black">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding FormulaChumleaViewModel.CheckManCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
-
-        <StackLayout Orientation="Horizontal">
-
-            <CheckBox
-                IsChecked="{Binding FormulaChumleaViewModel.CheckedWoman}"
-                Color="{StaticResource DarkBlue}" />
-            <Label
-                VerticalTextAlignment="Center"
-                Text="Mulher"
-                TextColor="Black">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding FormulaChumleaViewModel.CheckWomanCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
+        
+        <components:DuoCheckBoxView
+            TitleOne="Homem"
+            CheckedItemOne="{Binding FormulaChumleaViewModel.CheckedMan}"
+            TitleTwo="Mulher"
+            CheckedItemTwo="{Binding FormulaChumleaViewModel.CheckedWoman}"/>
 
         <core:SfTextInputLayout
             ContainerType="Outlined"
