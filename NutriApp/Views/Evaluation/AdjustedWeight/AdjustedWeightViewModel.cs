@@ -12,43 +12,16 @@ public partial class AdjustedWeightPageViewModel : BaseViewModel
     private string _idealWeight;
     [ObservableProperty]
     private bool _hasErrorCurrencyWeight;
-        
     [ObservableProperty]
     private bool _hasErrorIdealWeight;
-
     [ObservableProperty]
     private bool _canDisplayResult;
-       
     [ObservableProperty]
     private string _result; 
-        
+    [ObservableProperty]
     private bool _checkedObesity;
-    public bool CheckedObesity
-    {
-        get => _checkedObesity;
-        set
-        {
-            _checkedObesity = value; OnPropertyChanged("CheckedObesity");
-            if (CheckedObesity) CheckedMalnutrition = false;
-        }
-    }
-
+    [ObservableProperty]
     private bool _checkedMalnutrition;
-    public bool CheckedMalnutrition
-    {
-        get => _checkedMalnutrition;
-        set
-        {
-            _checkedMalnutrition = value; OnPropertyChanged("CheckedMalnutrition");
-            if (CheckedMalnutrition) CheckedObesity = false;
-        }
-    }
-    public ICommand MalnutritionCommand => new RelayCommand(() => CheckedMalnutrition = !CheckedMalnutrition);
-    public ICommand ObesityCommand => new RelayCommand(() => CheckedObesity = !CheckedObesity);
-        
-    public AdjustedWeightPageViewModel()
-    {
-    }
 
     [RelayCommand]
     private void Calculate()
