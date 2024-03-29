@@ -1,37 +1,16 @@
 using System.Globalization;
 using System.Windows.Input;
 using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Maui.Views;
 using NutriApp.AppUtilities;
 
 namespace NutriApp.Views.Evaluation.CircumferenceWaist;
 
 public partial class CircumferenceWaistViewModel : BaseViewModel
 {
+    [ObservableProperty] 
     private bool _checkedWoman;
-    public bool CheckedWoman
-    {
-        get => _checkedWoman;
-        set
-        {
-            _checkedWoman = value;
-            OnPropertyChanged("CheckedWoman");
-            if (CheckedWoman) CheckedMan = false;
-        }
-    }
-
+    [ObservableProperty] 
     private bool _checkedMan;
-    public bool CheckedMan
-    {
-        get => _checkedMan;
-        set
-        {
-            _checkedMan = value;
-            OnPropertyChanged("CheckedMan");
-            if (CheckedMan) CheckedWoman = false;
-        }
-    }
-
     [ObservableProperty] 
     private bool _hasErrorCircumferenceAbdominal;
     [ObservableProperty] 
@@ -58,8 +37,6 @@ public partial class CircumferenceWaistViewModel : BaseViewModel
     public CircumferenceWaistViewModel()
     {
         InfoImcCommand = new RelayCommand(() => App.NavPage.ShowPopup(new InfoPopup.InfoCircumferenceWaistPopup()));
-        WomanCommand = new RelayCommand(() => CheckedWoman = !CheckedWoman);
-        ManCommand = new RelayCommand(() => CheckedMan = !CheckedMan);
     }
     
     [RelayCommand]
