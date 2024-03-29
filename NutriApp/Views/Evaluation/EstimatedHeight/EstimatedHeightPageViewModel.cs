@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.Windows.Input;
 using CommunityToolkit.Maui.Core;
 using NutriApp.AppUtilities;
 
@@ -7,29 +6,10 @@ namespace NutriApp.Views.Evaluation.EstimatedHeight;
 
 public partial class EstimatedHeightPageViewModel : BaseViewModel
 {
+    [ObservableProperty]
     private bool _checkedWoman;
-    public bool CheckedWoman
-    {
-        get => _checkedWoman;
-        set
-        {
-            _checkedWoman = value;
-            OnPropertyChanged("CheckedWoman");
-            if (CheckedWoman) CheckedMan = false;
-        }
-    }
-
+    [ObservableProperty]
     private bool _checkedMan;
-    public bool CheckedMan
-    {
-        get => _checkedMan;
-        set
-        {
-            _checkedMan = value;
-            OnPropertyChanged("CheckedMan");
-            if (CheckedMan) CheckedWoman = false;
-        }
-    }
     [ObservableProperty]
     private string _kneeHeight;
     [ObservableProperty]
@@ -43,13 +23,31 @@ public partial class EstimatedHeightPageViewModel : BaseViewModel
     [ObservableProperty]
     private bool _hasErrorKneeHeight;
 
-    public ICommand WomanCommand { get; set; }
-    public ICommand ManCommand { get; set; }
-
-    public EstimatedHeightPageViewModel()
+    [RelayCommand]
+    private void HandleCheckedChange(object checkGener)
     {
-        WomanCommand = new RelayCommand(() => CheckedWoman = !CheckedWoman);
-        ManCommand = new RelayCommand(() => CheckedMan = !CheckedMan);
+        if ((Genders)checkGener == Genders.Male)
+        {
+            if(CheckedMan) CheckedWoman = false;
+        }
+
+        if ((Genders)checkGener == Genders.Female)
+        {
+            if(CheckedWoman) CheckedMan = false;
+        }
+    }
+    [RelayCommand]
+    private void TapCheckChange(object checkGener)
+    {
+        if ((Genders)checkGener == Genders.Male)
+        {
+            CheckedMan = true;
+        }
+
+        if ((Genders)checkGener == Genders.Female)
+        {
+            CheckedWoman = true;
+        }
     }
     
     [RelayCommand]
