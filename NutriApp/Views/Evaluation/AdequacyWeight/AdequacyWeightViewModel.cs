@@ -17,10 +17,6 @@ public partial class AdequacyWeightViewModel : BaseViewModel
     
     public ICommand InfoCommand => new RelayCommand(() => App.NavPage.ShowPopup(new AdequacyWeightInfoPopupPage()));
 
-    public AdequacyWeightViewModel()
-    {
-    }
-    
     [RelayCommand]
     private void Calculate()
     {
