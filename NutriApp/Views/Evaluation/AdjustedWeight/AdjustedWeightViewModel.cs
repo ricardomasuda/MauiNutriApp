@@ -1,4 +1,3 @@
-using System.Windows.Input;
 using CommunityToolkit.Maui.Core;
 
 namespace NutriApp.Views.Evaluation.AdjustedWeight;
