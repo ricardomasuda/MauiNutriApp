@@ -3,7 +3,7 @@
 <toolkit:Popup
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Color="{StaticResource BackgroundPopupPage}"
+    Color="Transparent"
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -39,6 +39,7 @@
                         <ListView
                             ItemsSource="{Binding ImcAdultClassification}"
                             Margin="0"
+                            BackgroundColor="{StaticResource PageColor}"
                             HeightRequest="350"
                             VerticalOptions="FillAndExpand"
                             HasUnevenRows="True">
@@ -132,6 +133,7 @@
                             <ListView.Footer>
                                 <Label Text="Fonte: Organização Mundial da Saúde (OMS) , 1995 e 1997"
                                        TextColor="{StaticResource DarkGreyText}"
+                                       BackgroundColor="{StaticResource PageColor}"
                                        FontAttributes="Bold" FontSize="12" Margin="0" />
                             </ListView.Footer>
 
