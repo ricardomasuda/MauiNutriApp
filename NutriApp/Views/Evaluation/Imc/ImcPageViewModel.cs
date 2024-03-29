@@ -24,16 +24,12 @@ public partial class ImcPageViewModel :  BaseViewModel
 
     public Command CalculateCommand { get; set; }
     public Command InfoCommand { get; set; }
-    public Command CheckedAdultCommand { get; set; }
-    public Command CheckedElderCommand { get; set; }
 
     public ImcPageViewModel()
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);
         InfoCommand = new Command(() => App.NavPage.ShowPopup(new InfoImcPopup()));
-        CheckedAdultCommand = new Command(() => CheckedAdult = !CheckedAdult);
-        CheckedElderCommand = new Command(() => CheckedElder = !CheckedElder);
     }
 
     private async void Calculate()
@@ -44,7 +40,7 @@ public partial class ImcPageViewModel :  BaseViewModel
             return;
         }
 
-        Result = EvaluationCalculations.Imc(Convert.ToDouble(Imc.Altura), Convert.ToDouble(Imc.Peso)).ToString();
+        Result = EvaluationCalculations.Imc(Utils.ParseToDoubleWithCommaSeparator(Imc.Altura), Convert.ToDouble(Imc.Peso)).ToString();
         if (!string.IsNullOrEmpty(Result))
         {
             var pessoa = CheckedAdult ? PersonAgeType.Adulto : PersonAgeType.Idoso;
@@ -55,8 +51,8 @@ public partial class ImcPageViewModel :  BaseViewModel
 
     private async Task<bool> Validate()
     {
-        HasErrorHeight = string.IsNullOrWhiteSpace(_imc.Altura);
-        HasErrorWeight = string.IsNullOrWhiteSpace(_imc.Peso);
+        HasErrorHeight = string.IsNullOrWhiteSpace(Imc.Altura);
+        HasErrorWeight = string.IsNullOrWhiteSpace(Imc.Peso);
         if (!(CheckedElder || CheckedAdult))
         {
             InfoToaster("Selecione um tipo de grupo", ToastDuration.Long);
