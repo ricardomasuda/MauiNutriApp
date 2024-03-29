@@ -1,5 +1,6 @@
 using System.Globalization;
-using NutriApp.AppUtilities;
+using System.Windows.Input;
+using CommunityToolkit.Maui.Views;
 using NutriApp.Views.Evaluation.IdealWeight.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.IdealWeight;
@@ -19,11 +20,11 @@ public partial class IdealWeightViewModel : BaseViewModel
     [ObservableProperty]
     private bool _hasErrorImcIdeal;
     public ObservableCollection<Item> ItemImcIdeal { get; set; }
-    public Command InfoCommand { get; set; }
+    public ICommand InfoCommand { get; set; }
 
     public IdealWeightViewModel()
     {
-        InfoCommand = new Command(() => App.NavPage.ShowPopup(new InfoIdealWeightPopup()));
+        InfoCommand = new RelayCommand(() => Shell.Current.CurrentPage.ShowPopup(new InfoIdealWeightPopup()));
         CanDisplay = false;
         Fill();
     }

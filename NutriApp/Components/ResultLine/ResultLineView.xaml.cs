@@ -1,6 +1,4 @@
 using Microsoft.Maui.Controls.Shapes;
-using NutriApp.AppUtilities;
-using NutriApp.Models;
 
 namespace NutriApp.Components.ResultLine;
 

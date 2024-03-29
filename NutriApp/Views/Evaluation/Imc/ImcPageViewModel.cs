@@ -6,10 +6,32 @@ namespace NutriApp.Views.Evaluation.Imc;
 
 public partial class ImcPageViewModel :  BaseViewModel
 {
-    [ObservableProperty]
     private bool _checkedElder;
-    [ObservableProperty]
+
+    public bool CheckedElder
+    {
+        get => _checkedElder;
+        set
+        {
+            _checkedElder = value;
+            OnPropertyChanged("CheckedElder");
+            if (CheckedElder) CheckedAdult = false;
+        }
+    }
+    
     private bool _checkedAdult;
+
+    public bool CheckedAdult
+    {
+        get => _checkedAdult;
+        set
+        {
+            _checkedAdult = value;
+            OnPropertyChanged("CheckedAdult");
+            if (CheckedAdult) CheckedElder = false;
+        }
+    }
+    
     [ObservableProperty]
     private bool _hasErrorWeight;
     [ObservableProperty]
@@ -28,7 +50,7 @@ public partial class ImcPageViewModel :  BaseViewModel
     public Command CheckedAdultCommand { get; set; }
     public Command CheckedElderCommand { get; set; }
 
-    public ImcPageViewModel()
+    public ImcPageViewModel(ImcPage page)
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);
@@ -49,15 +71,15 @@ public partial class ImcPageViewModel :  BaseViewModel
         if (!string.IsNullOrEmpty(Result))
         {
             var pessoa = CheckedAdult ? PersonAgeType.Adulto : PersonAgeType.Idoso;
-            ImcType = ImcService.CheckImc(Convert.ToDouble(Result), pessoa);
+            ImcType = ImcService.CheckImc(Convert.ToDouble((string)Result), pessoa);
             CanDisplayResult = true;
         }
     }
 
     private async Task<bool> Validate()
     {
-        HasErrorHeight = string.IsNullOrWhiteSpace(Imc.Altura);
-        HasErrorWeight = string.IsNullOrWhiteSpace(Imc.Peso);
+        HasErrorHeight = string.IsNullOrWhiteSpace(_imc.Altura);
+        HasErrorWeight = string.IsNullOrWhiteSpace(_imc.Peso);
         if (!(CheckedElder || CheckedAdult))
         {
             InfoToaster("Selecione um tipo de grupo", ToastDuration.Long);

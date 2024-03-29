@@ -7,6 +7,7 @@ global using NutriApp.Components;
 global using NutriApp.Services;
 global using System.Collections.ObjectModel;
 global using System.ComponentModel;
+global using NutriApp.AppUtilities;
 global using System.Diagnostics;
 global using System.Runtime.CompilerServices;
 global using System.Text.Json;
