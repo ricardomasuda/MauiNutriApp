@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using SQLite;
 
 namespace NutriApp.Models;
@@ -14,7 +13,7 @@ public class MealModel
     public string Proteinas { get; set; }
     public string Lipidios { get; set; } 
     public string ValorTotal { get; set; }
-    //[OneToMany]
+    [Ignore]
     public List<FoodModel> ListFood { get; set; }
 
     public ObservableCollection<Item> MealType()
