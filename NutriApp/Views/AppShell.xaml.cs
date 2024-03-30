@@ -12,6 +12,7 @@ using NutriApp.Views.Evaluation.List;
 using NutriApp.Views.Evaluation.SemiologyNutritional;
 using NutriApp.Views.Food.Detail;
 using NutriApp.Views.Food.List;
+using NutriApp.Views.FoodPlan.FoodPlanList;
 using NutriApp.Views.Suggestion;
 
 namespace NutriApp.Views;
@@ -41,6 +42,8 @@ public partial class AppShell : Shell
         
         Routing.RegisterRoute(nameof(FoodListPage), typeof(FoodListPage));
         Routing.RegisterRoute(nameof(FoodDetailPage), typeof(FoodDetailPage));
+        
+        Routing.RegisterRoute(nameof(FoodPlanListPage), typeof(FoodPlanListPage));
         
     }
     
