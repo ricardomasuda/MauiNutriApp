@@ -54,9 +54,8 @@
                 FontSize="18"
                 FontAttributes="Bold"
                 FontFamily=""
-                HorizontalTextAlignment="Center"
+                VerticalOptions="Center"
                 HorizontalOptions="CenterAndExpand"
-                VerticalTextAlignment="Center"
                 TextColor="{StaticResource PageColor}" />
 
             <Frame

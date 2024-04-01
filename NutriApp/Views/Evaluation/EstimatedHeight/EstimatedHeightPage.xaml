@@ -9,6 +9,7 @@
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     xmlns:estimatedHeight="clr-namespace:NutriApp.Views.Evaluation.EstimatedHeight"
+    xmlns:components="clr-namespace:MauiLib1.Components;assembly=BaseMauiLib"
     TypeTitle="None"
     TextTitle="Altura Estimada"
     x:DataType="estimatedHeight:EstimatedHeightPageViewModel"
@@ -26,38 +27,12 @@
                     TextColor="{StaticResource DarkBlue}"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="StartAndExpand" />
-
-                <StackLayout Orientation="Horizontal">
-
-                    <CheckBox
-                        IsChecked="{Binding CheckedMan}"
-                        Color="{StaticResource DarkBlue}" />
-
-                    <Label VerticalTextAlignment="Center"
-                           Text="Homem"
-                           TextColor="Black">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ManCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal">
-
-                    <CheckBox
-                        IsChecked="{Binding CheckedWoman}"
-                        Color="{StaticResource DarkBlue}" />
-
-                    <Label
-                        VerticalTextAlignment="Center"
-                        Text="Mulher"
-                        TextColor="Black">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding WomanCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
-
-                </StackLayout>
+                
+                <components:DuoCheckBoxView
+                    TitleOne="Homem"
+                    CheckedItemOne="{Binding CheckedMan}"
+                    TitleTwo="Mulher"
+                    CheckedItemTwo="{Binding CheckedWoman}"/>
 
             </StackLayout>
 

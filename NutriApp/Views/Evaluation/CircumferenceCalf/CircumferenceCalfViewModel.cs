@@ -1,5 +1,4 @@
 using System.Windows.Input;
-using CommunityToolkit.Maui.Views;
 using NutriApp.AppNutri.View.Evaluation.CircumferenceCalf.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.CircumferenceCalf;

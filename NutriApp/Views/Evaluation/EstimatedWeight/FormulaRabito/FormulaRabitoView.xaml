@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:estimatedWeight="clr-namespace:NutriApp.Views.Evaluation.EstimatedWeight"
+             xmlns:components="clr-namespace:MauiLib1.Components;assembly=BaseMauiLib"
              x:Name="View"
              x:DataType="estimatedWeight:EstimatedWeightPageViewModel"
              x:Class="NutriApp.Views.Evaluation.EstimatedWeight.FormulaRabito.FormulaRabitoView">
@@ -14,33 +15,11 @@
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="StartAndExpand" />
 
-        <StackLayout Orientation="Horizontal">
-            <CheckBox
-                IsChecked="{Binding FormulaRabitoViewModel.CheckedMan, Mode=TwoWay}"
-                Color="{StaticResource DarkBlue}" />
-            <Label
-                VerticalTextAlignment="Center"
-                Text="Homem"
-                TextColor="Black">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding FormulaRabitoViewModel.CheckManCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
-
-        <StackLayout Orientation="Horizontal">
-            <CheckBox
-                IsChecked="{Binding FormulaRabitoViewModel.CheckedWoman}"
-                Color="{StaticResource DarkBlue}" />
-            <Label
-                VerticalTextAlignment="Center"
-                Text="Mulher"
-                TextColor="Black">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding FormulaRabitoViewModel.CheckWomanCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
+        <components:DuoCheckBoxView
+            TitleOne="Homem"
+            CheckedItemOne="{Binding FormulaRabitoViewModel.CheckedMan}"
+            TitleTwo="Mulher"
+            CheckedItemTwo="{Binding FormulaRabitoViewModel.CheckedWoman}"/>
         
         <core:SfTextInputLayout
             ContainerType="Outlined"

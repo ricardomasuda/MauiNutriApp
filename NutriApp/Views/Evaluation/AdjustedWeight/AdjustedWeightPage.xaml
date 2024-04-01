@@ -9,6 +9,7 @@
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:adjustedWeight="clr-namespace:NutriApp.Views.Evaluation.AdjustedWeight"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    xmlns:components="clr-namespace:MauiLib1.Components;assembly=BaseMauiLib"
     x:DataType="adjustedWeight:AdjustedWeightPageViewModel"
     TypeTitle="None"
     TextTitle="Peso Ajustado"
@@ -22,43 +23,12 @@
                 TextColor="{StaticResource DarkBlue}"
                 VerticalOptions="Start"
                 HorizontalOptions="StartAndExpand" />
-
-            <StackLayout
-                Orientation="Horizontal">
-
-                <CheckBox
-                    IsChecked="{Binding CheckedObesity, Mode=TwoWay}"
-                    Color="{StaticResource DarkBlue}" />
-
-                <Label
-                    VerticalTextAlignment="Center"
-                    Text="Obesidade: IMC maior que 30 KG/M²"
-                    TextColor="Black">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ObesityCommand}" />
-                    </Label.GestureRecognizers>
-
-                </Label>
-
-            </StackLayout>
-
-            <StackLayout
-                Orientation="Horizontal">
-
-                <CheckBox
-                    IsChecked="{Binding CheckedMalnutrition, Mode=TwoWay}"
-                    Color="{StaticResource DarkBlue}" />
-
-                <Label
-                    VerticalTextAlignment="Center"
-                    Text="Desnutrição: IMC menor que 18 KG/M²"
-                    TextColor="Black">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MalnutritionCommand}" />
-                    </Label.GestureRecognizers>
-                </Label>
-
-            </StackLayout>
+            
+            <components:DuoCheckBoxView
+                TitleOne="Obesidade: IMC maior que 30 KG/M²"
+                CheckedItemOne="{Binding CheckedObesity}"
+                TitleTwo="Desnutrição: IMC menor que 18 KG/M²"
+                CheckedItemTwo="{Binding CheckedMalnutrition}"/>
 
             <core:SfTextInputLayout
                 ContainerType="Outlined"

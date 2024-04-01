@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="DuoCheckBoxViewViewRoot"
+             x:Class="MauiLib1.Components.DuoCheckBoxView">
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding CheckedItemOne, Source={x:Reference DuoCheckBoxViewViewRoot}}"
+                      CheckedChanged="CheckBoxItemOneOnCheckedChanged"
+                      Color="{StaticResource DarkBlue}">
+            </CheckBox>
+
+            <Label VerticalTextAlignment="Center" 
+                   Text="{Binding TitleOne, Source={x:Reference DuoCheckBoxViewViewRoot}}"
+                   TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapItemOneTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <CheckBox
+                IsChecked="{Binding CheckedItemTwo, Source={x:Reference DuoCheckBoxViewViewRoot}}"
+                CheckedChanged="CheckBoxItemTwoOnCheckedChanged"
+                Color="{StaticResource DarkBlue}">
+
+            </CheckBox>
+
+            <Label VerticalTextAlignment="Center" 
+                   Text="{Binding TitleTwo, Source={x:Reference DuoCheckBoxViewViewRoot}}"
+                   TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapItemTwoTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </StackLayout>
+
+</ContentView>

@@ -5,8 +5,13 @@ namespace MauiLib1.Navigation;
 
 public class NavigationService : INavigationService
 {
+    private bool _isNavigationInProgress;
+    private bool _isPopupDisplayed;
     public async Task GoToAsync(ShellNavigationState state)
     {
+        if (_isNavigationInProgress) return; 
+        _isNavigationInProgress = true; 
+        
         try
         { 
             var loadingPage = new LoadPage();
@@ -18,22 +23,32 @@ public class NavigationService : INavigationService
         {
             Console.WriteLine(e);
         }
+        finally
+        {
+            _isNavigationInProgress = false; 
+        }
     }
     
     public async Task ShowPopup(Popup popup)
     {
+        if (_isPopupDisplayed) return; 
+        _isPopupDisplayed = true; 
+        
         try
         {
             var loadingPage = new LoadPage();
             Shell.Current.CurrentPage.ShowPopup(loadingPage);
-            Shell.Current.CurrentPage.ShowPopup(popup);
+            await Shell.Current.CurrentPage.ShowPopupAsync(popup);
             loadingPage.HidePopupPage();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
         }
-        
+        finally
+        {
+            _isPopupDisplayed = false; 
+        }
     }
     public Task GoToAsync(ShellNavigationState state, bool animate) => Shell.Current.GoToAsync(state, animate);
     public Task GoToAsync(ShellNavigationState state, IDictionary<string, object> parameters) => Shell.Current.GoToAsync(state, parameters);

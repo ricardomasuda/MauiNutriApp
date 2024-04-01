@@ -1,6 +1,5 @@
 using System.Globalization;
 using System.Windows.Input;
-using CommunityToolkit.Maui.Views;
 using NutriApp.Views.Evaluation.AdequacyWeight.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.AdequacyWeight;
@@ -17,10 +16,6 @@ public partial class AdequacyWeightViewModel : BaseViewModel
     
     public ICommand InfoCommand => new RelayCommand(() => App.NavPage.ShowPopup(new AdequacyWeightInfoPopupPage()));
 
-    public AdequacyWeightViewModel()
-    {
-    }
-    
     [RelayCommand]
     private void Calculate()
     {

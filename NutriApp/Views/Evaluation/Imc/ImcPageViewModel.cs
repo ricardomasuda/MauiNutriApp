@@ -1,37 +1,14 @@
 using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Maui.Views;
 using NutriApp.Views.Evaluation.Imc.InfoPopup;
 
 namespace NutriApp.Views.Evaluation.Imc;
 
 public partial class ImcPageViewModel :  BaseViewModel
 {
+    [ObservableProperty]
     private bool _checkedElder;
-
-    public bool CheckedElder
-    {
-        get => _checkedElder;
-        set
-        {
-            _checkedElder = value;
-            OnPropertyChanged("CheckedElder");
-            if (CheckedElder) CheckedAdult = false;
-        }
-    }
-    
+    [ObservableProperty]
     private bool _checkedAdult;
-
-    public bool CheckedAdult
-    {
-        get => _checkedAdult;
-        set
-        {
-            _checkedAdult = value;
-            OnPropertyChanged("CheckedAdult");
-            if (CheckedAdult) CheckedElder = false;
-        }
-    }
-    
     [ObservableProperty]
     private bool _hasErrorWeight;
     [ObservableProperty]
@@ -50,7 +27,7 @@ public partial class ImcPageViewModel :  BaseViewModel
     public Command CheckedAdultCommand { get; set; }
     public Command CheckedElderCommand { get; set; }
 
-    public ImcPageViewModel(ImcPage page)
+    public ImcPageViewModel()
     {
         Imc = new ImcModel();
         CalculateCommand = new Command(Calculate);

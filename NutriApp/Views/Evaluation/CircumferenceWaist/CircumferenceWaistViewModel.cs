@@ -6,30 +6,10 @@ namespace NutriApp.Views.Evaluation.CircumferenceWaist;
 
 public partial class CircumferenceWaistViewModel : BaseViewModel
 {
+    [ObservableProperty]
     private bool _checkedWoman;
-    public bool CheckedWoman
-    {
-        get => _checkedWoman;
-        set
-        {
-            _checkedWoman = value;
-            OnPropertyChanged("CheckedWoman");
-            if (CheckedWoman) CheckedMan = false;
-        }
-    }
-
+    [ObservableProperty]
     private bool _checkedMan;
-    public bool CheckedMan
-    {
-        get => _checkedMan;
-        set
-        {
-            _checkedMan = value;
-            OnPropertyChanged("CheckedMan");
-            if (CheckedMan) CheckedWoman = false;
-        }
-    }
-
     [ObservableProperty] 
     private bool _hasErrorCircumferenceAbdominal;
     [ObservableProperty] 

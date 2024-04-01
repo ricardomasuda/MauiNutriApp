@@ -7,6 +7,6 @@ public partial class ImcPage : BaseContentPage
     public ImcPage()
     {
         InitializeComponent();
-        BindingContext = new Views.Evaluation.Imc.ImcPageViewModel(this);
+        BindingContext = new ImcPageViewModel();
     }
 }
