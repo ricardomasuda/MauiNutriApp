@@ -5,12 +5,12 @@ namespace NutriApp.Views.FoodPlan.FoodPlanList.NewFoodPlan;
 public partial class FoodPlanPopupViewModel : BaseViewModel
 {
     [ObservableProperty] private string _foodPlanName;
-    [ObservableProperty] private bool _hasErrorFoodPlanName;
-    [ObservableProperty] private bool _hasErrorPeso;
-    [ObservableProperty] private bool _hasErrorEnergia;
+    [ObservableProperty] private bool _hasFoodPlanNameError;
+    [ObservableProperty] private bool _hasWeightError;
+    [ObservableProperty] private bool _hasEnergyError;
     [ObservableProperty] private bool _haveValueReference;
-    [ObservableProperty] private double _energia;
-    [ObservableProperty] private double _peso;
+    [ObservableProperty] private double _energy;
+    [ObservableProperty] private double _weight;
     [ObservableProperty] private int _lipidio;
     [ObservableProperty] private int _proteina;
     [ObservableProperty] private int _carboidratos;
@@ -23,13 +23,13 @@ public partial class FoodPlanPopupViewModel : BaseViewModel
     {
         _foodPlan = foodPlan;
         _foodPlanListViewModel = foodPlanListViewModel;
-        Fech();
+        Fetch();
     }
 
-    private void Fech()
+    private void Fetch()
     {
         CanDelete = false;
-        if (_foodPlan == null)
+        if (_foodPlan is null)
         {
             Proteina = 34;
             Carboidratos = 33;
@@ -65,7 +65,7 @@ public partial class FoodPlanPopupViewModel : BaseViewModel
             Data = DateTime.Now
         };
 
-        if (_foodPlan != null)
+        if (_foodPlan is not null)
         {
             foodPlan.Id = _foodPlan.Id;
             await new FoodPlanDB().AtualizarAsync(foodPlan);
@@ -75,7 +75,7 @@ public partial class FoodPlanPopupViewModel : BaseViewModel
             foodPlan.Id = await new FoodPlanDB().CadastrarAsync(foodPlan);
         }
 
-        if (HaveValueReference) SaveValueReference(foodPlan.Id);
+        if (HaveValueReference) SaveReferenceValue(foodPlan.Id);
         else await new ValueReferenceDB().ExcluirWhereAsync(foodPlan.Id);
 
         _foodPlanListViewModel.Fetch();
@@ -88,12 +88,12 @@ public partial class FoodPlanPopupViewModel : BaseViewModel
        await FoodPlanPopup.CloseAsync();
     }
 
-    private async void SaveValueReference(int foodPlanId)
+    private async void SaveReferenceValue(int foodPlanId)
     {
         var valueReferenceModel = new ValueReferenceModel();
         valueReferenceModel.FoodPlanId = foodPlanId;
-        valueReferenceModel.Peso = Peso;
-        valueReferenceModel.Energia = Energia;
+        valueReferenceModel.Peso = Weight;
+        valueReferenceModel.Energia = Energy;
         valueReferenceModel.Proteinas = Proteina;
         valueReferenceModel.Carboidratos = Carboidratos;
         valueReferenceModel.Lipidios = Lipidio;
@@ -106,8 +106,8 @@ public partial class FoodPlanPopupViewModel : BaseViewModel
         if (valueReferenceModel != null)
         {
             HaveValueReference = true;
-            Peso = valueReferenceModel.Peso;
-            Energia = valueReferenceModel.Energia;
+            Weight = valueReferenceModel.Peso;
+            Energy = valueReferenceModel.Energia;
             Proteina = valueReferenceModel.Proteinas;
             Lipidio = valueReferenceModel.Lipidios;
             Carboidratos = valueReferenceModel.Carboidratos;
@@ -122,14 +122,14 @@ public partial class FoodPlanPopupViewModel : BaseViewModel
 
     private bool Validate()
     {
-        HasErrorFoodPlanName = string.IsNullOrWhiteSpace(FoodPlanName);
+        HasFoodPlanNameError = string.IsNullOrWhiteSpace(FoodPlanName);
         if (HaveValueReference)
         {
-            HasErrorPeso = Peso == 0;
-            HasErrorEnergia = Energia == 0;
-            return (!HasErrorFoodPlanName && !HasErrorPeso && !HasErrorEnergia);
+            HasWeightError = Weight == 0;
+            HasEnergyError = Energy == 0;
+            return (!HasFoodPlanNameError && !HasWeightError && !HasEnergyError);
         }
 
-        return !HasErrorFoodPlanName;
+        return !HasFoodPlanNameError;
     }
 }

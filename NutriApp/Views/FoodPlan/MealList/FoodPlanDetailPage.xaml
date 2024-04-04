@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:NutriApp.Models"
+             x:DataType="mealList:FoodPlanDetailPageViewModel"
+             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+             xmlns:mealList="clr-namespace:NutriApp.Views.FoodPlan.MealList"
+             x:Class="NutriApp.Views.FoodPlan.MealList.FoodPlanDetailPage">
+    <StackLayout>
+        <view:NewTitleView
+            Command="{Binding AddFoodCommand}"
+            TypeTitle="Plus"
+            TextTitle="Refeições" />
+        <StackLayout 
+            Margin="15,0,15,0">
+            
+            <StackLayout
+                IsVisible="{Binding EmptyList}"
+                Margin="0,180,0,0">
+                
+                <Label
+                    Opacity="0.3"
+                    TextColor="{StaticResource DarkOrange}"
+                    HorizontalOptions="Center"
+                    Text="Adicione uma Refeição" />
+
+                <Image
+                    Opacity="0.3"
+                    WidthRequest="130"
+                    HeightRequest="130"
+                    Source="orangeIcon.png" />
+                
+                <Image
+                    Opacity="0.3"
+                    WidthRequest="80"
+                    HeightRequest="50"
+                    Source="TitleGuiaNutricionista.png" />
+
+            </StackLayout>
+
+            <ListView
+                ItemsSource="{Binding ListMeal}"
+                HasUnevenRows="True"
+                BackgroundColor="{StaticResource PageColor}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+
+                    <DataTemplate x:DataType="models:MealModel">
+
+                        <ViewCell>
+
+                            <Frame
+                                Margin="20,5"
+                                Padding="2"
+                                CornerRadius="10"
+                                BorderColor="{StaticResource LightBlueInput}"
+                                HasShadow="True"
+                                BackgroundColor="{StaticResource PageColor}">
+
+                                <StackLayout
+                                    Margin="10"
+                                    HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout>
+                                        <Label
+                                            FontSize="16"
+                                            HorizontalOptions="Center"
+                                            TextColor="{StaticResource DarkBlue}"
+                                            FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Nome}" />
+                                                    <Span Text=" - " />
+                                                    <Span Text="{Binding Horario}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                    </StackLayout>
+
+                                    <BoxView Color="{StaticResource LightBlueInput}"
+                                             HeightRequest="1"
+                                             HorizontalOptions="Fill" />
+
+                                    <StackLayout Orientation="Horizontal">
+
+                                        <StackLayout
+                                            HorizontalOptions="StartAndExpand">
+                                            <Label
+                                                FontSize="11"
+                                                Text="Proteínas: "
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="CenterAndExpand"
+                                                TextColor="DimGray" />
+                                            <Label
+                                                x:Name="ProteinaLabel"
+                                                Margin="0,-5,0,0"
+                                                HorizontalOptions="Center"
+                                                TextColor="DimGray"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Proteinas}"
+                                                FontSize="11" />
+                                        </StackLayout>
+
+                                        <StackLayout
+                                            HorizontalOptions="StartAndExpand">
+                                            <Label
+                                                FontSize="11"
+                                                Text="Lípidios: "
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="StartAndExpand"
+                                                TextColor="DimGray" />
+                                            <Label
+                                                Margin="0,-5,0,0"
+                                                HorizontalOptions="Center"
+                                                TextColor="DimGray"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Lipidios}"
+                                                FontSize="11" />
+                                        </StackLayout>
+
+                                        <StackLayout
+                                            HorizontalOptions="End">
+                                            <Label
+                                                FontSize="11"
+                                                Text="Carboidratos: "
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="End"
+                                                TextColor="DimGray" />
+                                            <Label
+                                                Margin="0,-5,0,0"
+                                                HorizontalOptions="Center"
+                                                TextColor="DimGray"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Carboidratos}"
+                                                FontSize="11" />
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                    <BoxView Color="{StaticResource LightBlueInput}"
+                                             HeightRequest="1"
+                                             HorizontalOptions="Fill" />
+
+                                    <Frame
+                                        Padding="5,2"
+                                        BackgroundColor="{StaticResource DarkOrange}"
+                                        CornerRadius="9"
+                                        HasShadow="False"
+                                        HorizontalOptions="EndAndExpand"
+                                        Margin="0">
+                                        <Label
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="White">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Valor Calorico:     " FontAttributes="Bold"
+                                                          FontSize="11" />
+                                                    <Span Text="{Binding ValorTotal}"
+                                                          FontSize="12" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+
+                                        </Label>
+                                    </Frame>
+
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={x:Reference FoodPlanDetailRoot}, Path=BindingContext.GoFoodDetailCommand}"
+                                        CommandParameter="{Binding .}" />
+
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </ViewCell>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

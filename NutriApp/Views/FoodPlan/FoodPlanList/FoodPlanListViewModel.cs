@@ -5,16 +5,14 @@ namespace NutriApp.Views.FoodPlan.FoodPlanList;
 
 public partial class FoodPlanListViewModel : BaseViewModel
 {
-    [ObservableProperty]
-    private ObservableCollection<FoodPlanModel> _listFoodPlan;
-    [ObservableProperty]
-    private bool _hasEmptyList;
+    [ObservableProperty] private ObservableCollection<FoodPlanModel> _listFoodPlan;
+    [ObservableProperty] private bool _hasEmptyList;
 
     public FoodPlanListViewModel()
     {
         Fetch();
     }
-    
+
     public async void Fetch()
     {
         var listFoodPlanAux = await DataBaseService.GetPlanFoods();
@@ -29,7 +27,8 @@ public partial class FoodPlanListViewModel : BaseViewModel
             foodPlanModel.ValorTotal = superFood.ValorCalorico;
             if (superFood.Carboidratos != "0g" || superFood.Proteinas != "0g" || superFood.Lipidios != "0g")
             {
-                MacronutrientModel macronutrientModel = FoodPlanService.CalculateMacronutrientPercentage(FoodPlanService.BuildMacronutrient(superFood));
+                MacronutrientModel macronutrientModel =
+                    FoodPlanService.CalculateMacronutrientPercentage(FoodPlanService.BuildMacronutrient(superFood));
                 foodPlanModel.CarboidratosPorcentagem = $"({macronutrientModel.Carb}%)";
                 foodPlanModel.ProteinasPorcentagem = $"({macronutrientModel.Protein}%)";
                 foodPlanModel.LipidiosPorcentagem = $"({macronutrientModel.Lipid}%)";
@@ -39,7 +38,7 @@ public partial class FoodPlanListViewModel : BaseViewModel
         ListFoodPlan = listFoodPlanAux;
         HasEmptyList = listFoodPlanAux.Count == 0;
     }
-    
+
     [RelayCommand]
     private async Task EditFoodPlan(object obj)
     {
@@ -65,8 +64,11 @@ public partial class FoodPlanListViewModel : BaseViewModel
     private void GoToFoodPlanDetail(object obj)
     {
         FoodPlanModel foodPlan = (FoodPlanModel)obj;
-        // TODO - PASSAR POR PARAMETRO
-        App.NavPage.GoToAsync(nameof(FoodPlanDetail));
+        ShellNavigationQueryParameters navigationParameter = new()
+        {
+            { nameof(FoodPlanModel), foodPlan }
+        };
+        App.NavPage.GoToAsync(nameof(FoodPlanDetailPage), navigationParameter);
     }
 
     [RelayCommand]

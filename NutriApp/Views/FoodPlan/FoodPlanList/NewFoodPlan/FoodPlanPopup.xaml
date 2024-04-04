@@ -6,145 +6,152 @@
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    Color="Transparent"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill"
     x:DataType="newFoodPlan:FoodPlanPopupViewModel"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:newFoodPlan="clr-namespace:NutriApp.Views.FoodPlan.FoodPlanList.NewFoodPlan"
     x:Class="NutriApp.Views.FoodPlan.FoodPlanList.NewFoodPlan.FoodPlanPopup">
-    <Border
-        StrokeShape="RoundRectangle 10"
-        Padding="0"
-        BackgroundColor="{StaticResource PageColor}"
-        VerticalOptions="Center"
-        Margin="10,30">
+    <ScrollView>
+        <Border
+            StrokeShape="RoundRectangle 10"
+            Padding="0"
+            BackgroundColor="{StaticResource PageColor}"
+            VerticalOptions="Center"
+            Margin="20,30">
 
-        <ScrollView>
-            <StackLayout>
+            <ScrollView>
+                <StackLayout>
 
-                <view:NewTitleView
-                    VisibleBack="False"
-                    TypeTitle="Close"
-                    Command="{Binding CloseCommand}"
-                    TextTitle="Plano Alimentar" />
-
-                <StackLayout
-                    Margin="10,0">
-
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
-                        Hint="Nome do plano alimentar"
-                        IsHintAlwaysFloated="True"
-                        HasError="{Binding HasErrorFoodPlanName}"
-                        ErrorText="Nome do plano alimentar não informado"
-                        OutlineCornerRadius="8">
-
-                        <Entry
-                            BackgroundColor="#F4F4F4"
-                            Text="{Binding FoodPlanName}"
-                            TextColor="Black"
-                            MaxLength="50"
-                            PlaceholderColor="Black" />
-
-                    </core:SfTextInputLayout>
-
-                    <BoxView Color="{StaticResource LightBlueInput}"
-                             HeightRequest="1"
-                             HorizontalOptions="Fill" />
+                    <view:NewTitleView
+                        VisibleBack="False"
+                        TypeTitle="Close"
+                        Command="{Binding CloseCommand}"
+                        TextTitle="Plano Alimentar" />
 
                     <StackLayout
-                        Margin="10,5"
-                        Orientation="Horizontal">
-
-                        <Label
-                            VerticalTextAlignment="Center"
-                            TextColor="Black"
-                            FontSize="14"
-                            Text="Configurar &#x0a;Valores de Referência" />
-
-                        <Switch
-                            IsToggled="{Binding HaveValueReference}"
-                            OnColor="{StaticResource LightBlue}"
-                            ThumbColor="{StaticResource DarkOrange}"
-                            VerticalOptions="CenterAndExpand"
-                            HorizontalOptions="EndAndExpand" />
-
-                    </StackLayout>
-
-                    <BoxView Color="{StaticResource LightBlueInput}"
-                             HeightRequest="1"
-                             HorizontalOptions="Fill" />
-
-                    <StackLayout
-                        IsVisible="{Binding HaveValueReference}">
+                        Margin="10,0">
 
                         <core:SfTextInputLayout
                             ContainerType="Outlined"
-                            Hint="Peso (kg)"
+                            Hint="Nome do plano alimentar"
                             IsHintAlwaysFloated="True"
-                            HasError="{Binding HasErrorPeso}"
-                            ErrorText="Peso não informado"
-                            OutlineCornerRadius="8">
-                            <Entry
-                                BackgroundColor="#F4F4F4"
-                                Text="{Binding Peso}"
-                                TextColor="Black"
-                                Keyboard="Numeric"
-                                MaxLength="50"
-                                PlaceholderColor="Black">
-                            </Entry>
-                        </core:SfTextInputLayout>
-
-                        <core:SfTextInputLayout
-                            ContainerType="Outlined"
-                            Hint="Energia (kcal)"
-                            IsHintAlwaysFloated="True"
-                            HasError="{Binding HasErrorEnergia}"
-                            ErrorText="Energia não informada"
+                            HeightRequest="80"
+                            HasError="{Binding HasFoodPlanNameError}"
+                            ErrorText="Nome do plano alimentar não informado"
                             OutlineCornerRadius="8">
 
                             <Entry
                                 BackgroundColor="#F4F4F4"
-                                Text="{Binding Energia}"
+                                Text="{Binding FoodPlanName}"
                                 TextColor="Black"
-                                Keyboard="Numeric"
                                 MaxLength="50"
-                                PlaceholderColor="Black">
-                            </Entry>
+                                PlaceholderColor="Black" />
 
                         </core:SfTextInputLayout>
 
-                        <!-- <slideCustomer:SlideView -->
-                        <!--     ProteinaPercentage="{Binding Proteina}" -->
-                        <!--     CarboidratoPercentage="{Binding Carboidratos}" -->
-                        <!--     LipidioPercentage="{Binding Lipidio}" /> -->
+                        <BoxView Color="{StaticResource LightBlueInput}"
+                                 HeightRequest="1"
+                                 HorizontalOptions="Fill" />
+
+                        <StackLayout
+                            Margin="10,5"
+                            Orientation="Horizontal">
+
+                            <Label
+                                VerticalTextAlignment="Center"
+                                TextColor="Black"
+                                FontSize="14"
+                                Text="Configurar &#x0a;Valores de Referência" />
+
+                            <Switch
+                                IsToggled="{Binding HaveValueReference}"
+                                OnColor="{StaticResource LightBlue}"
+                                ThumbColor="{StaticResource DarkOrange}"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="EndAndExpand" />
+
+                        </StackLayout>
+
+                        <BoxView Color="{StaticResource LightBlueInput}"
+                                 HeightRequest="1"
+                                 HorizontalOptions="Fill" />
+
+                        <StackLayout
+                            IsVisible="{Binding HaveValueReference}">
+
+                            <core:SfTextInputLayout
+                                ContainerType="Outlined"
+                                Hint="Peso (kg)"
+                                IsHintAlwaysFloated="True"
+                                HasError="{Binding HasWeightError}"
+                                ErrorText="Peso não informado"
+                                OutlineCornerRadius="8">
+                                <Entry
+                                    BackgroundColor="#F4F4F4"
+                                    Text="{Binding Weight}"
+                                    TextColor="Black"
+                                    Keyboard="Numeric"
+                                    MaxLength="50"
+                                    PlaceholderColor="Black">
+                                </Entry>
+                            </core:SfTextInputLayout>
+
+                            <core:SfTextInputLayout
+                                ContainerType="Outlined"
+                                Hint="Energia (kcal)"
+                                IsHintAlwaysFloated="True"
+                                HasError="{Binding HasEnergyError}"
+                                ErrorText="Energia não informada"
+                                OutlineCornerRadius="8">
+
+                                <Entry
+                                    BackgroundColor="#F4F4F4"
+                                    Text="{Binding Energy}"
+                                    TextColor="Black"
+                                    Keyboard="Numeric"
+                                    MaxLength="50"
+                                    PlaceholderColor="Black">
+                                </Entry>
+
+                            </core:SfTextInputLayout>
+
+                            <!-- <slideCustomer:SlideView -->
+                            <!--     ProteinaPercentage="{Binding Proteina}" -->
+                            <!--     CarboidratoPercentage="{Binding Carboidratos}" -->
+                            <!--     LipidioPercentage="{Binding Lipidio}" /> -->
+
+                        </StackLayout>
+
+                        <StackLayout
+                            Margin="0,10"
+                            Orientation="Horizontal">
+
+                            <button:ButtonView
+                                IsVisible="{Binding CanDelete}"
+                                Command="{Binding DeleteFoodPlanCommand}"
+                                TextColor="White"
+                                BackgroundColor="{StaticResource DarkOrange}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="FillAndExpand"
+                                Text="Apagar" />
+
+                            <button:ButtonView
+                                Command="{Binding AddFoodPlanCommand}"
+                                TextColor="White"
+                                VerticalOptions="Center"
+                                HorizontalOptions="FillAndExpand"
+                                BackgroundColor="{StaticResource DarkBlue}"
+                                Text="Salvar" />
+                        </StackLayout>
 
                     </StackLayout>
-
-                    <StackLayout
-                        Margin="0,10"
-                        Orientation="Horizontal">
-
-                        <button:ButtonView
-                            IsVisible="{Binding CanDelete}"
-                            Command="{Binding DeleteFoodPlanCommand}"
-                            TextColor="White"
-                            BackgroundColor="{StaticResource DarkOrange}"
-                            VerticalOptions="Center"
-                            HorizontalOptions="FillAndExpand"
-                            Text="Apagar" />
-
-                        <button:ButtonView
-                            Command="{Binding AddFoodPlanCommand}"
-                            TextColor="White"
-                            VerticalOptions="Center"
-                            HorizontalOptions="FillAndExpand"
-                            BackgroundColor="{StaticResource DarkBlue}"
-                            Text="Salvar" />
-                    </StackLayout>
-
                 </StackLayout>
-            </StackLayout>
 
-        </ScrollView>
+            </ScrollView>
 
-    </Border>
+        </Border>
+    </ScrollView>
+
 </toolkit:Popup>

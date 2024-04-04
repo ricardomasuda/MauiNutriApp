@@ -45,11 +45,11 @@ public class FoodDetailViewModel : BaseViewModel
 
         private readonly MealModel _meal;
         
-        private readonly FoodPlanDetailViewModel _foodPlanDetailViewModel;
+        private readonly FoodPlanDetailPageViewModel _foodPlanDetailPageViewModel;
 
-        public FoodDetailViewModel(FoodPlanDetailViewModel foodPlanDetailViewModel, MealModel meal = null)
+        public FoodDetailViewModel(FoodPlanDetailPageViewModel foodPlanDetailPageViewModel, MealModel meal = null)
         {
-            _foodPlanDetailViewModel = foodPlanDetailViewModel;
+            _foodPlanDetailPageViewModel = foodPlanDetailPageViewModel;
             _meal = meal;
             AddOrEditFoodCommand = new Command(AddOrEditFood);
             SaveCommand = new Command(SaveFood);
