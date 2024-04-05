@@ -43,7 +43,7 @@
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
     
     <Color x:Key="PageColor">#F1F1F1</Color>
-    <Color x:Key="BackgroundPopupPage">#80000000</Color>
+    <Color x:Key="BackgroundPopupPage">#5b5b5b5b</Color>
     <Color x:Key="TextColor">#FF8473</Color>
     <Color x:Key="EntryBackgroundColor">#F4F4F4</Color>
     <Color x:Key="TextColorBrown">#330600</Color>

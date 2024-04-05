@@ -3,6 +3,8 @@ namespace NutriApp.Models;
 public class FoodModel
 {
     public int Id { get; set; }
+    public int MealFoodId { get; set; }
+    public int MealId { get; set; }
     public string Nome { get; set; }
     public decimal Quantidade { get; set; }
     public string Medida { get; set; }
@@ -34,8 +36,6 @@ public class FoodModel
     public string VitaminaE { get; set; }
     public string VitaminaD { get; set; }
     public string ValorCalorico { get; set; }
-    public int MealId { get; set; }
-    public int MealFoodId { get; set; }
     public FoodReferences Fonte { get; set; }
 
 

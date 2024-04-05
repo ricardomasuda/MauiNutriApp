@@ -18,6 +18,8 @@ public class NavigationService : INavigationService
             Shell.Current.CurrentPage.ShowPopup(loadingPage);
             await Shell.Current.GoToAsync(state);
             loadingPage.HidePopupPage();
+            if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
+                loadingPage.HidePopupPage();
         }
         catch (Exception e)
         {
@@ -36,10 +38,7 @@ public class NavigationService : INavigationService
         
         try
         {
-            var loadingPage = new LoadPage();
-            Shell.Current.CurrentPage.ShowPopup(loadingPage);
             await Shell.Current.CurrentPage.ShowPopupAsync(popup);
-            loadingPage.HidePopupPage();
         }
         catch (Exception e)
         {

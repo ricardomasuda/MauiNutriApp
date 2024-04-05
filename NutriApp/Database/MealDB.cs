@@ -1,6 +1,3 @@
-using System.Collections.ObjectModel;
-using NutriApp.Models;
-
 namespace NutriApp.Database;
 
 public class MealDB
