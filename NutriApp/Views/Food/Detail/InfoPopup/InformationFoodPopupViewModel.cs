@@ -1,17 +1,12 @@
+using CommunityToolkit.Maui.Views;
+
 namespace NutriApp.Views.Food.Detail.InfoPopup;
 
-public class InformationFoodPopupViewModel
+public partial class InformationFoodPopupViewModel
 {
-    public Command CloseCommand { get; set; }
-    private InformationFoodPopup _informationFoodPopup;
-    public InformationFoodPopupViewModel(InformationFoodPopup informationFoodPopup)
+    [RelayCommand]
+    private void Close(Popup popup)
     {
-        _informationFoodPopup = informationFoodPopup;
-        CloseCommand = new Command(ClosePage);
-    }
-
-    private void ClosePage()
-    {
-        _informationFoodPopup.CloseAsync();
+        popup.Close();
     }
 }
