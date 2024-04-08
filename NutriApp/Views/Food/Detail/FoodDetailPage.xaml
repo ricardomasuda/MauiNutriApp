@@ -1,37 +1,38 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:components="clr-namespace:NutriApp.Components"
-             xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
-             xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:detail="clr-namespace:NutriApp.Views.Food.Detail"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             NavigationPage.HasNavigationBar="False"
-             x:Name="FoodListRoot"
-             x:DataType="detail:FoodDetailViewModel"
-             x:Class="NutriApp.Views.Food.Detail.FoodDetailPage">
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:NutriApp.Components"
+    xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:detail="clr-namespace:NutriApp.Views.Food.Detail"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    NavigationPage.HasNavigationBar="False"
+    TypeTitle="InfoCircle"
+    Command="{Binding InfoCommand}"
+    TextTitle="Alimento"
+    x:Name="FoodListRoot"
+    x:DataType="detail:FoodDetailPageViewModel"
+    x:Class="NutriApp.Views.Food.Detail.FoodDetailPage">
     <ScrollView>
 
         <StackLayout>
 
-            <view:NewTitleView
-                TypeTitle="InfoCircle"
-                Command="{Binding InfoCommand}"
-                TextTitle="Alimento" />
+            <Frame
+                CornerRadius="10"
+                Margin="30,10,30,0"
+                HasShadow="False"
+                BackgroundColor="{StaticResource LightBlue}">
 
-            <Frame CornerRadius="10"
-                   Margin="30,10,30,0"
-                   HasShadow="False"
-                   BackgroundColor="{StaticResource LightBlue}">
-
-                <Label Text="{Binding Food.Nome}"
-                       FontAttributes="Bold"
-                       FontSize="Title"
-                       VerticalOptions="Center"
-                       HorizontalOptions="CenterAndExpand"
-                       TextColor="{StaticResource DarkBlue}" />
+                <Label
+                    Text="{Binding Food.Nome}"
+                    FontAttributes="Bold"
+                    FontSize="Title"
+                    VerticalOptions="Center"
+                    HorizontalOptions="CenterAndExpand"
+                    TextColor="{StaticResource DarkBlue}" />
             </Frame>
 
             <Grid Margin="30,30,30,0">
@@ -56,11 +57,10 @@
                         HorizontalTextAlignment="Center"
                         FontAttributes="Bold"
                         FontSize="14"
+                        TextChanged="InputView_OnTextChanged"
                         BackgroundColor="{StaticResource LightBlueGrey}"
-
                         Text="{Binding Measure}"
                         HeightRequest="40" />
-                    <!-- TextChanged="InputView_OnTextChanged" -->
                 </Border>
 
                 <Border Grid.Column="1"
@@ -81,35 +81,40 @@
             </Grid>
 
             <Label Margin="0,0"
-                   TextColor="#797979"
+                   TextColor="{StaticResource SubtitleGray}"
                    FontSize="12"
                    FontAttributes="Italic"
                    HorizontalTextAlignment="Center"
                    Text="*Valor de referência igual a 100g" />
 
-            <cardLine:CardLineView Margin="0,20,0,0"
-                                   BodyText="Carboidratos"
-                                   ValueText="{Binding .Carbohydrates}" />
+            <cardLine:CardLineView
+                Margin="0,20,0,0"
+                BodyText="Carboidratos"
+                ValueText="{Binding Carbohydrates}" />
 
-            <cardLine:CardLineView Margin="0,8,0,0"
-                                   BodyText="Proteínas"
-                                   ValueText="{Binding  Proteins}" />
+            <cardLine:CardLineView
+                Margin="0,8,0,0"
+                BodyText="Proteínas"
+                ValueText="{Binding  Proteins}" />
 
-            <cardLine:CardLineView Margin="0,8,0,0"
-                                   BodyText="Lipídios"
-                                   ValueText="{Binding Lipids}" />
+            <cardLine:CardLineView
+                Margin="0,8,0,0"
+                BodyText="Lipídios"
+                ValueText="{Binding Lipids}" />
 
-            <cardLine:CardLineView Margin="0,8,0,0"
-                                   BodyText="Sódios"
-                                   ValueText="{Binding Sodium}" />
+            <cardLine:CardLineView
+                Margin="0,8,0,0"
+                BodyText="Sódios"
+                ValueText="{Binding Sodium}" />
 
-            <cardLine:CardLineView Margin="0,8,0,0"
-                                   BodyText="Fibras Alimentares"
-                                   ValueText="{Binding DietaryFiber}" />
+            <cardLine:CardLineView
+                Margin="0,8,0,0"
+                BodyText="Fibras Alimentares"
+                ValueText="{Binding DietaryFiber}" />
 
             <StackLayout Margin="0,24,0,0">
 
-                <Border Margin="0,0,0,0"
+                <Border Margin="0"
                         HorizontalOptions="Center"
                         Padding="0"
                         WidthRequest="150"
@@ -144,13 +149,14 @@
                 </Border>
             </StackLayout>
 
-            <button:ButtonView Margin="30,10"
-                               Command="{ Binding GoReportCommand}"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="EndAndExpand"
-                               BackgroundColor="{StaticResource DarkBlue}"
-                               TextColor="White"
-                               Text=" Relatório " />
+            <button:ButtonView
+                Margin="30,10"
+                Command="{ Binding GoReportCommand}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand"
+                BackgroundColor="{StaticResource DarkBlue}"
+                TextColor="White"
+                Text=" Relatório " />
 
             <Label HorizontalOptions="CenterAndExpand"
                    FontSize="12"
@@ -165,4 +171,4 @@
 
         </StackLayout>
     </ScrollView>
-</ContentPage>
+</contentPageCustomer:BaseContentPage>
