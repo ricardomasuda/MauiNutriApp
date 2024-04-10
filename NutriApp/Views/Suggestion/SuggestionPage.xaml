@@ -1,54 +1,46 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-             xmlns:suggestion="clr-namespace:NutriApp.Views.Suggestion"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:button="clr-namespace:NutriApp.Components.Button"
-             NavigationPage.HasNavigationBar="False"
-             ios:Page.UseSafeArea="true"
-             BackgroundColor="{StaticResource PageColor}"
-             x:DataType="suggestion:SuggestionViewModel"
-             x:Class="NutriApp.Views.Suggestion.SuggestionPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <view:NewTitleView TextTitle="Sugestão" />
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="http://schemas.syncfusion.com/maui"
+    xmlns:suggestion="clr-namespace:NutriApp.Views.Suggestion"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    TextTitle="Sugestão"
+    x:DataType="suggestion:SuggestionViewModel"
+    x:Class="NutriApp.Views.Suggestion.SuggestionPage">
+    <StackLayout Margin="20,15">
 
-            <StackLayout Margin="20,15">
+        <ScrollView VerticalOptions="FillAndExpand">
 
-                <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <core:SfTextInputLayout
+                    ContainerType="Outlined"
+                    Hint="Adicione uma sugestão"
+                    EnableHintAnimation="True"
+                    Margin="0,20,0,0"
+                    HasError="{Binding HasErrorBodyText}"
+                    ErrorText="Sugestão não informada"
+                    IsHintAlwaysFloated="True"
+                    OutlineCornerRadius="8">
 
-                    <StackLayout>
-                        <core:SfTextInputLayout
-                            ContainerType="Outlined"
-                            Hint="Adicione uma sugestão"
-                            EnableHintAnimation="True"
-                            Margin="0,20,0,0"
-                            HasError="{Binding HasErrorBodyText}"
-                            ErrorText="Sugestão não informada"
-                            IsHintAlwaysFloated="True"
-                            OutlineCornerRadius="8">
+                    <Editor HeightRequest="350"
+                            Text="{Binding BodyText}"
+                            BackgroundColor="{StaticResource FrameColor}" />
 
-                            <Editor HeightRequest="350"
-                                    Text="{Binding BodyText}"
-                                    BackgroundColor="{StaticResource FrameColor}" />
-
-                        </core:SfTextInputLayout>
-                    </StackLayout>
-
-                </ScrollView>
-
-                <button:ButtonView
-                    Command="{Binding SendEmailCommand}"
-                    VerticalOptions="End"
-                    TextColor="White"
-                    BackgroundColor="{StaticResource DarkBlue}"
-                    Text="Enviar por Email" />
-
+                </core:SfTextInputLayout>
             </StackLayout>
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+
+        </ScrollView>
+
+        <button:ButtonView
+            Command="{Binding SendEmailCommand}"
+            VerticalOptions="End"
+            TextColor="White"
+            BackgroundColor="{StaticResource DarkBlue}"
+            Text="Enviar por Email" />
+
+    </StackLayout>
+</contentPageCustomer:BaseContentPage>
