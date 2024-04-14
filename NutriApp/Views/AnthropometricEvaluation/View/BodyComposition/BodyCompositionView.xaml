@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="http://schemas.syncfusion.com/maui"
+             xmlns:bodyComposition="clr-namespace:NutriApp.Views.AnthropometricEvaluation.View.BodyComposition"
+             xmlns:anthropometricEvaluation="clr-namespace:NutriApp.Views.AnthropometricEvaluation"
+             x:DataType="anthropometricEvaluation:AnthropometricEvaluationViewModel"
+             x:Class="NutriApp.Views.AnthropometricEvaluation.View.BodyComposition.BodyCompositionView">
+    <StackLayout>
+
+        <Grid Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <core:SfTextInputLayout
+                ContainerType="Outlined"
+                Hint="Abdominal (mm)"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding BodyCompositionViewModel.HasErrorAbdominal}"
+                ErrorText="Abdominal não informada"
+                HeightRequest="80"
+                IsEnabled="{Binding BodyCompositionViewModel.DisplayAbdominal}"
+                OutlineCornerRadius="8">
+
+                <Entry
+                    Text="{Binding BodyCompositionViewModel.Abdominal, Mode=TwoWay}"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout
+                Grid.Column="1"
+                Grid.Row="0"
+                ContainerType="Outlined"
+                Hint="Biceps (mm)"
+                IsHintAlwaysFloated="True"
+                HeightRequest="80"
+                HasError="{Binding BodyCompositionViewModel.HasErrorBiceps}"
+                ErrorText="Abdominal não informada"
+                IsEnabled="{Binding BodyCompositionViewModel.DisplayBiceps}"
+                OutlineCornerRadius="8">
+
+                <Entry
+                    Text="{Binding BodyCompositionViewModel.Biceps, Mode=TwoWay}"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout
+                Grid.Column="0"
+                Grid.Row="1"
+                ContainerType="Outlined"
+                Hint="Tríceps (mm)"
+                IsHintAlwaysFloated="True"
+                HeightRequest="80"
+                HasError="{Binding BodyCompositionViewModel.HasErrorTriceps}"
+                ErrorText="Tríceps não informada"
+                IsEnabled="{Binding BodyCompositionViewModel.DisplayTriceps}"
+                OutlineCornerRadius="8">
+
+                <Entry
+                    Text="{Binding BodyCompositionViewModel.Triceps, Mode=TwoWay}"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout
+                Grid.Column="1"
+                Grid.Row="1"
+                ContainerType="Outlined"
+                Hint="Suprailíaca (mm)"
+                HeightRequest="80"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding BodyCompositionViewModel.HasErrorSuprailiac}"
+                ErrorText="Suprailíaca não informada"
+                IsEnabled="{Binding BodyCompositionViewModel.DisplaySuprailiac}"
+                OutlineCornerRadius="8">
+
+                <Entry
+                    Text="{Binding BodyCompositionViewModel.Suprailiac, Mode=TwoWay}"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout
+                Grid.Column="0"
+                Grid.Row="2"
+                ContainerType="Outlined"
+                HeightRequest="80"
+                Hint="Axilar Média (mm)"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding BodyCompositionViewModel.HasErrorMiddleAxillary}"
+                ErrorText="Axilar Média não informada"
+                IsEnabled="{Binding BodyCompositionViewModel.DisplayMiddleAxillary}"
+                OutlineCornerRadius="8">
+
+                <Entry
+                    Text="{Binding BodyCompositionViewModel.MiddleAxillary, Mode=TwoWay}"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout
+                Grid.Column="1"
+                Grid.Row="2"
+                ContainerType="Outlined"
+                HeightRequest="80"
+                Hint="Subescapular (mm)"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding BodyCompositionViewModel.HasErrorSubScapular}"
+                ErrorText="Subescapular não informada"
+                IsEnabled="{Binding BodyCompositionViewModel.DisplaySubScapular}"
+                OutlineCornerRadius="8">
+
+                <Entry
+                    Text="{Binding BodyCompositionViewModel.SubScapular, Mode=TwoWay}"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout
+                Grid.Column="0"
+                Grid.Row="3"
+                ContainerType="Outlined"
+                HeightRequest="80"
+                Hint="Tórax (mm)"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding BodyCompositionViewModel.HasErrorChest}"
+                ErrorText="Tórax não informada"
+                IsEnabled="{Binding BodyCompositionViewModel.DisplayChest}"
+                OutlineCornerRadius="8">
+
+                <Entry
+                    Text="{Binding BodyCompositionViewModel.Chest, Mode=TwoWay}"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout
+                Grid.Column="1"
+                Grid.Row="3"
+                ContainerType="Outlined"
+                HeightRequest="80"
+                Hint="Coxa (mm)"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding BodyCompositionViewModel.HasErrorThigh}"
+                ErrorText="Coxa não informada"
+                IsEnabled="{Binding BodyCompositionViewModel.DisplayThigh}"
+                OutlineCornerRadius="8">
+
+                <Entry
+                    Text="{Binding BodyCompositionViewModel.Thigh, Mode=TwoWay}"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout
+                Grid.Column="0"
+                Grid.Row="4"
+                ContainerType="Outlined"
+                HeightRequest="80"
+                Hint="Panturrilha Medial (mm)"
+                IsHintAlwaysFloated="True"
+                HasError="{Binding BodyCompositionViewModel.HasErrorMedialCalf}"
+                ErrorText="Coxa não informada"
+                IsEnabled="{Binding BodyCompositionViewModel.DisplayMedialCalf}"
+                OutlineCornerRadius="8">
+
+                <Entry
+                    Text="{Binding BodyCompositionViewModel.MedialCalf, Mode=TwoWay}"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Keyboard="Numeric"
+                    PlaceholderColor="Black" />
+
+            </core:SfTextInputLayout>
+        </Grid>
+
+    </StackLayout>
+</ContentView>
