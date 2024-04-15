@@ -8,9 +8,12 @@
     xmlns:frame="clr-namespace:NutriApp.Components.Titles.Frame"
     xmlns:components="clr-namespace:NutriApp.Components"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    xmlns:entry="clr-namespace:NutriApp.Components.Entry"
     Title="Sobre o Aplicativo"
     BackgroundColor="{StaticResource PageColor}"
-    x:Class="NutriApp.Views.About.AboutPage">
+    x:Class="NutriApp.Views.About.AboutPage"
+    NavigationPage.HasNavigationBar="False"
+    NavigationPage.HasBackButton="False">
 
     <StackLayout>
 
@@ -19,8 +22,11 @@
             TextTitle="Sobre" />
 
         <ScrollView>
-
-            <StackLayout>
+            
+            <StackLayout Margin="20">
+                
+                <entry:OutlinedMaterialEntry
+                    Placeholder="Teste" />
 
                 <StackLayout Margin="10,20">
 
