@@ -1,15 +1,11 @@
-using System.Collections.ObjectModel;
-using NutriApp.Components;
-using NutriApp.Models;
-using NutriApp.Services;
 using NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup;
 
 namespace NutriApp.Views.FoodPlan.SelectFood;
 
-public class ChangeFoodViewModel : BaseViewModel
+public partial class ChangeFoodViewModel : BaseViewModel
 {
+    [ObservableProperty]
     private ObservableCollection<FoodModel> _listFood;
-    public ObservableCollection<FoodModel> ListFood { get { return _listFood; } set { _listFood = value; OnPropertyChanged("ListFood"); } }
         
     private ObservableCollection<FoodModel> _listFoodAux;
         
@@ -23,7 +19,6 @@ public class ChangeFoodViewModel : BaseViewModel
         
     public Command GoBackCommand { get; set; }
     public Command CloseCommand { get; set; }
-    public Command SelectFoodCommand { get; set; }
     public SelectFoodPopupViewModel FoodDetailViewModel { get; set; }
     public ChangeFoodViewModel(SelectFoodPopupViewModel foodDetailViewModel)
     {
@@ -31,7 +26,6 @@ public class ChangeFoodViewModel : BaseViewModel
         FoodDetailViewModel = foodDetailViewModel;
         //CloseCommand = new Command(async() => await App.NavPage.Navigation.PopPopupAsync());
         GoBackCommand = new Command(() => Shell.Current.Navigation.PopAsync());
-        SelectFoodCommand = new Command(SelectFood);
     }
 
     private async void FetchList()
@@ -40,6 +34,7 @@ public class ChangeFoodViewModel : BaseViewModel
         _listFoodAux = ListFood;
     }
 
+    [RelayCommand]
     private async void SelectFood(object sender)
     {
         var food = (FoodModel)sender;
