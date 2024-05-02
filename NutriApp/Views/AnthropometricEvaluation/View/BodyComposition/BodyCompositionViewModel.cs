@@ -4,66 +4,36 @@ namespace NutriApp.Views.AnthropometricEvaluation.View.BodyComposition;
 
 public partial class BodyCompositionViewModel : BaseViewModel
 {
-    [ObservableProperty]
-    private AnthropometricEvaluationModel _anthropometricEvaluationModel;
-    [ObservableProperty]
-    private string _genderType;
-    [ObservableProperty]
-    private string _anthropometricEvaluationTypeString;
-    [ObservableProperty]
-    private string _abdominal;
-    [ObservableProperty]
-    private string _biceps;
-    [ObservableProperty]
-    private string _triceps;
-    [ObservableProperty]
-    private string _suprailiac;
-    [ObservableProperty]
-    private string _middleAxillary;
-    [ObservableProperty]
-    private string _subScapular;
-    [ObservableProperty]
-    private string _chest;
-    [ObservableProperty]
-    private string _thigh;
-    [ObservableProperty]
-    private string _medialCalf;
-    [ObservableProperty]
-    private bool _displayAbdominal;
-    [ObservableProperty]
-    private bool _displayBiceps;
-    [ObservableProperty]
-    private bool _displayTriceps;
-    [ObservableProperty]
-    private bool _displaySubScapular;
-    [ObservableProperty]
-    private bool _displaySuprailiac;
-    [ObservableProperty]
-    private bool _displayMiddleAxillary;
-    [ObservableProperty]
-    private bool _displayThigh;
-    [ObservableProperty]
-    private bool _displayChest;
-    [ObservableProperty]
-    private bool _displayMedialCalf;
-    [ObservableProperty]
-    private bool _hasErrorBiceps;
-    [ObservableProperty]
-    private bool _hasErrorTriceps;
-    [ObservableProperty]
-    private bool _hasErrorSubScapular;
-    [ObservableProperty]
-    private bool _hasErrorSuprailiac;
-    [ObservableProperty]
-    private bool _hasErrorMiddleAxillary;
-    [ObservableProperty]
-    private bool _hasErrorAbdominal;
-    [ObservableProperty]
-    private bool _hasErrorThigh;
-    [ObservableProperty]
-    private bool _hasErrorChest;
-    [ObservableProperty]
-    private bool _hasErrorMedialCalf;
+    [ObservableProperty] private AnthropometricEvaluationModel _anthropometricEvaluationModel;
+    [ObservableProperty] private string _genderType;
+    [ObservableProperty] private string _anthropometricEvaluationTypeString;
+    [ObservableProperty] private string _abdominal;
+    [ObservableProperty] private string _biceps;
+    [ObservableProperty] private string _triceps;
+    [ObservableProperty] private string _suprailiac;
+    [ObservableProperty] private string _middleAxillary;
+    [ObservableProperty] private string _subScapular;
+    [ObservableProperty] private string _chest;
+    [ObservableProperty] private string _thigh;
+    [ObservableProperty] private string _medialCalf;
+    [ObservableProperty] private bool _displayAbdominal;
+    [ObservableProperty] private bool _displayBiceps;
+    [ObservableProperty] private bool _displayTriceps;
+    [ObservableProperty] private bool _displaySubScapular;
+    [ObservableProperty] private bool _displaySuprailiac;
+    [ObservableProperty] private bool _displayMiddleAxillary;
+    [ObservableProperty] private bool _displayThigh;
+    [ObservableProperty] private bool _displayChest;
+    [ObservableProperty] private bool _displayMedialCalf;
+    [ObservableProperty] private bool _hasErrorBiceps;
+    [ObservableProperty] private bool _hasErrorTriceps;
+    [ObservableProperty] private bool _hasErrorSubScapular;
+    [ObservableProperty] private bool _hasErrorSuprailiac;
+    [ObservableProperty] private bool _hasErrorMiddleAxillary;
+    [ObservableProperty] private bool _hasErrorAbdominal;
+    [ObservableProperty] private bool _hasErrorThigh;
+    [ObservableProperty] private bool _hasErrorChest;
+    [ObservableProperty] private bool _hasErrorMedialCalf;
 
 
     public BodyCompositionViewModel()
