@@ -91,7 +91,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="nutridb.db3" />
+        <None Remove="nutridb.db3"/>
+        <EmbeddedResource Include="nutridb.db3"/>
+        <EmbeddedResource Update="Resources\Strings\AnthropometricEvaluationStrings.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>AnthropometricEvaluationStrings.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+
     </ItemGroup>
 
     <ItemGroup>
