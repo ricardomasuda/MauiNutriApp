@@ -1,46 +1,15 @@
+
 namespace NutriApp.Views.Suggestion;
 
-public class SuggestionViewModel : BaseViewModel
+public partial class SuggestionViewModel : BaseViewModel
 {
+    [ObservableProperty]
     private string _bodyText;
-
-    public string BodyText
-    {
-        get => _bodyText;
-        set
-        {
-            _bodyText = value;
-            OnPropertyChanged("BodyText");
-        }
-    }
-
+    [ObservableProperty]
     private bool _hasErrorBodyText;
-
-    public bool HasErrorBodyText
-    {
-        get => _hasErrorBodyText;
-        set
-        {
-            _hasErrorBodyText = value;
-            OnPropertyChanged("HasErrorBodyText");
-        }
-    }
-
-    public Command SendEmailCommand { get; set; }
-
-    public SuggestionViewModel()
-    {
-        SendEmailCommand = new Command(EmailSugestao);
-    }
-
-    private bool Validate()
-    {
-        HasErrorBodyText = string.IsNullOrWhiteSpace(BodyText);
-
-        return !HasErrorBodyText;
-    }
-
-    private async void EmailSugestao()
+    
+    [RelayCommand]
+    private async Task SendEmail()
     {
         if (!Validate()) return;
 
@@ -58,7 +27,13 @@ public class SuggestionViewModel : BaseViewModel
         catch (Exception e)
         {
             await Shell.Current.DisplayAlert("Erro", "Erro ao enviar sugestão", "ok");
-            throw;
         }
+    }
+    
+    private bool Validate()
+    {
+        HasErrorBodyText = string.IsNullOrWhiteSpace(BodyText);
+
+        return !HasErrorBodyText;
     }
 }
