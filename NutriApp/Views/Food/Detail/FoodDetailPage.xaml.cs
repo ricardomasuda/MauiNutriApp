@@ -1,24 +1,21 @@
-using NutriApp.Models;
+using NutriApp.Components.ContentPageCustomer;
 
 namespace NutriApp.Views.Food.Detail;
 
-public partial class FoodDetailPage : ContentPage
+public partial class FoodDetailPage : BaseContentPage
 {
-    private FoodDetailViewModel FoodDetailViewModel { get; set; }
-    public FoodDetailPage(FoodModel food)
+    private FoodDetailPageViewModel FoodDetailPageViewModel { get; set; }
+    public FoodDetailPage()
     {
         InitializeComponent();
-        //BindingContext = new FoodDetailViewModel(this);
+        FoodDetailPageViewModel= new FoodDetailPageViewModel();
+        BindingContext = FoodDetailPageViewModel;
     }
-    protected override void OnAppearing()
+    
+    //TODO - Em um proximo PR alterar essa logica 
+    private void InputView_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        base.OnAppearing();
-      
+        bool isNull = string.IsNullOrEmpty(e.NewTextValue);
+        FoodDetailPageViewModel.ChangeMeasure(isNull);
     }
-
-    // private void InputView_OnTextChanged(object sender, TextChangedEventArgs e)
-    // {
-    //     bool isNull = string.IsNullOrEmpty(e.NewTextValue);
-    //     FoodDetailViewModel.ChangeMeasure(isNull);
-    // }
 }

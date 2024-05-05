@@ -7,5 +7,6 @@ public partial class InformationFoodPopup : Popup
     public InformationFoodPopup()
     {
         InitializeComponent();
+        BindingContext = new InformationFoodPopupViewModel();
     }
 }
