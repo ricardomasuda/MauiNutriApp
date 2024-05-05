@@ -1,6 +1,8 @@
+using NutriApp.Components.ContentPageCustomer;
+
 namespace NutriApp.Views.Suggestion;
 
-public partial class SuggestionPage : ContentPage
+public partial class SuggestionPage : BaseContentPage
 {
     public SuggestionPage()
     {
