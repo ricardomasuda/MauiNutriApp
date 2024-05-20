@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+             x:Name="AnthropometricEvaluationResult"
+             x:Class="NutriApp.Views.AnthropometricEvaluation.View.ResultView.AnthropometricEvaluationResultView">
+    <StackLayout>
+
+        <resultLine:ResultLineView
+            ResultType="FIRST"
+            TextTitle="% Massa Gorda:"
+            BodyText="{Binding AnthropometricEvaluationResultModel.BodyFatPercentage, Source={x:Reference AnthropometricEvaluationResult}}"
+            UnityMeasureType="PERCENTAGE" />
+
+        <resultLine:ResultLineView
+            TextTitle="% Massa Magra:"
+            BodyText="{Binding AnthropometricEvaluationResultModel.BodyLeanPercentage, Source={x:Reference AnthropometricEvaluationResult}}"
+            UnityMeasureType="PERCENTAGE" />
+
+        <resultLine:ResultLineView
+            TextTitle="Massa Gorda:"
+            BodyText="{Binding AnthropometricEvaluationResultModel.BodyFat, Source={x:Reference AnthropometricEvaluationResult}}"
+            UnityMeasureType="KILOS" />
+
+        <resultLine:ResultLineView
+            TextTitle="Massa Magra:"
+            BodyText="{Binding AnthropometricEvaluationResultModel.BodyLean, Source={x:Reference AnthropometricEvaluationResult}}"
+            UnityMeasureType="KILOS" />
+
+        <resultLine:ResultLineView
+            TextTitle="Densidade corporal:"
+            BodyText="{Binding AnthropometricEvaluationResultModel.BodyDensity, Source={x:Reference AnthropometricEvaluationResult}}"
+            UnityMeasureType="NONE" />
+
+        <resultLine:ResultLineView
+            TextTitle="Soma das dobras"
+            BodyText="{Binding AnthropometricEvaluationResultModel.SumPleats, Source={x:Reference AnthropometricEvaluationResult}}"
+            UnityMeasureType="MILLIMETER" />
+
+        <resultLine:ResultLineView
+            TextTitle="Peso Muscular"
+            IsVisible="{Binding BoneDiameterModel, Converter={StaticResource IsNotNullConverter}, Source={x:Reference AnthropometricEvaluationResult}}"
+            BodyText="{Binding BoneDiameterModel.MuscleWeight, Source={x:Reference AnthropometricEvaluationResult}}"
+            UnityMeasureType="KILOS" />
+
+        <resultLine:ResultLineView
+            TextTitle="Peso Ósseo"
+            IsVisible="{Binding BoneDiameterModel, Converter={StaticResource IsNotNullConverter}, Source={x:Reference AnthropometricEvaluationResult}}"
+            BodyText="{Binding BoneDiameterModel.BoneWeight, Source={x:Reference AnthropometricEvaluationResult}}"
+            UnityMeasureType="KILOS" />
+
+        <resultLine:ResultLineView
+            IsVisible="{Binding BoneDiameterModel, Converter={StaticResource IsNotNullConverter}, Source={x:Reference AnthropometricEvaluationResult}}"
+            TextTitle="Peso Residual"
+            BodyText="{Binding BoneDiameterModel.ResidualWeight, Source={x:Reference AnthropometricEvaluationResult}}"
+            UnityMeasureType="KILOS" />
+
+    </StackLayout>
+</ContentView>

@@ -1,4 +1,5 @@
 using NutriApp.Views.About;
+using NutriApp.Views.AnthropometricEvaluation;
 using NutriApp.Views.Evaluation.AdequacyWeight;
 using NutriApp.Views.Evaluation.AdjustedWeight;
 using NutriApp.Views.Evaluation.BodyComposition;
@@ -39,6 +40,8 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(CircumferenceCalfPage), typeof(CircumferenceCalfPage));
         Routing.RegisterRoute(nameof(SemiologiaNutricionalListPage), typeof(SemiologiaNutricionalListPage));
         Routing.RegisterRoute(nameof(EstimatedWeightPage), typeof(EstimatedWeightPage));
+        
+        Routing.RegisterRoute(nameof(AnthropometricEvaluationPage), typeof(AnthropometricEvaluationPage));
         
         Routing.RegisterRoute(nameof(FoodListPage), typeof(FoodListPage));
         Routing.RegisterRoute(nameof(FoodDetailPage), typeof(FoodDetailPage));
