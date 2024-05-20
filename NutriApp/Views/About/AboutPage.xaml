@@ -10,9 +10,7 @@
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     Title="Sobre o Aplicativo"
     BackgroundColor="{StaticResource PageColor}"
-    x:Class="NutriApp.Views.About.AboutPage"
-    NavigationPage.HasNavigationBar="False"
-    NavigationPage.HasBackButton="False">
+    x:Class="NutriApp.Views.About.AboutPage">
 
     <StackLayout>
 
