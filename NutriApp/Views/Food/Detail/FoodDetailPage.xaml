@@ -4,16 +4,15 @@
 <contentPageCustomer:BaseContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:components="clr-namespace:NutriApp.Components"
     xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:detail="clr-namespace:NutriApp.Views.Food.Detail"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    xmlns:entries="using:MauiLib1.Components.Entries"
     NavigationPage.HasNavigationBar="False"
     TypeTitle="InfoCircle"
     Command="{Binding InfoCommand}"
     TextTitle="Alimento"
-    x:Name="FoodListRoot"
     x:DataType="detail:FoodDetailPageViewModel"
     x:Class="NutriApp.Views.Food.Detail.FoodDetailPage">
     <ScrollView>
@@ -51,7 +50,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20,0,20,0" />
                     </Border.StrokeShape>
-                    <components:MyEntry
+                    <entries:BorderlessEntry
                         Margin="0,0,0,0"
                         VerticalTextAlignment="Center"
                         HorizontalTextAlignment="Center"
