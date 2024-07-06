@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    xmlns:table="clr-namespace:NutriApp.Components.Table"
+    xmlns:page="clr-namespace:NutriApp.Views.ReportPage.Page"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:DataType="page:ReportViewModel"
+    x:Name="ReportPopupRoot"
+    x:Class="NutriApp.Views.ReportPage.Popup.ReportPopup">
+    <Border
+        StrokeShape="RoundRectangle 10"
+        Padding="0"
+        BackgroundColor="{StaticResource PageColor}"
+        Margin="10,50">
+
+        <StackLayout Padding="0">
+
+            <view:NewTitleView
+                Command="{Binding CloseCommand}"
+                CommandParameter="{Binding Source={x:Reference ReportPopupRoot}}"
+                VisibleBack="False"
+                TypeTitle="Close"
+                TextTitle="Relatório Nutricional" />
+
+            <ScrollView>
+
+                <table:NewReportTableView
+                    NutrientsModel="{Binding NutrientsModel}" />
+
+            </ScrollView>
+
+        </StackLayout>
+
+    </Border>
+</toolkit:Popup>

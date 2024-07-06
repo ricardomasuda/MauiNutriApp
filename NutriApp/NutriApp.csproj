@@ -120,6 +120,16 @@
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>EvaluationMenuStrings.Designer.cs</LastGenOutput>
         </EmbeddedResource>
+
+        <Compile Update="Views\ReportPage\Page\ReportPage.xaml.cs">
+          <DependentUpon>ReportPage.xaml</DependentUpon>
+          <SubType>Code</SubType>
+        </Compile>
+
+        <Compile Update="Components\Table\NewReportTableView.xaml.cs">
+          <DependentUpon>NewReportTableView.xaml</DependentUpon>
+          <SubType>Code</SubType>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>
@@ -129,5 +139,14 @@
     <ItemGroup>
         <Content Include="Resources\AppIcon\appicon.svg" />
         <Content Include="Resources\AppIcon\appiconfg.svg" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiXaml Update="Views\ReportPage\Page\ReportPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Components\Table\NewReportTableView.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
     </ItemGroup>
 </Project>

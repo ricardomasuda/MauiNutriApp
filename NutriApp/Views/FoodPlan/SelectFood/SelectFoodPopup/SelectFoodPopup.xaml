@@ -1,9 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup.SelectFoodPopup">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
-</ContentPage>
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    xmlns:core="http://schemas.syncfusion.com/maui"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:selectFoodPopup="clr-namespace:NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Color="{StaticResource BackgroundPopupPage}"
+    x:Name="SelectFoodPopupRoot"
+    x:DataType="selectFoodPopup:SelectFoodPopupViewModel"
+    x:Class="NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup.SelectFoodPopup">
+    
+    <Border
+        StrokeShape="RoundRectangle 20"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand"
+        StrokeThickness="2"
+        BackgroundColor="{StaticResource PageColor}"
+        Margin="20,30">
+        <ScrollView>
+            <StackLayout>
+
+                <view:NewTitleView
+                    Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding Source={x:Reference SelectFoodPopupRoot}}"
+                    TypeTitle="Close"
+                    VisibleBack="False"
+                    TextTitle="{Binding Title}" />
+
+                <StackLayout
+                    Margin="20,5,20,0">
+
+                    <core:SfTextInputLayout
+                        ContainerType="Outlined"
+                        Hint="Alimento"
+                        HeightRequest="80"
+                        IsHintAlwaysFloated="True"
+                        HasError="{Binding HasErrorFood}"
+                        ErrorText="Alimento não informado"
+                        OutlineCornerRadius="8">
+
+                        <Label
+                            BackgroundColor="Transparent"
+                            TextColor="Black"
+                            VerticalTextAlignment="Center"
+                            VerticalOptions="CenterAndExpand"
+                            Text="{Binding Food.Nome}">
+
+                            <Label.HeightRequest>
+                                <OnPlatform x:TypeArguments="system:Double">
+                                    <On Platform="iOS">25</On>
+                                    <On Platform="Android">55</On>
+                                </OnPlatform>
+                            </Label.HeightRequest>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoPopupFoodCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <core:SfTextInputLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                CommandParameter="{Binding .}"
+                                Command="{Binding GoPopupFoodCommand}" />
+                        </core:SfTextInputLayout.GestureRecognizers>
+
+                    </core:SfTextInputLayout>
+
+                    <core:SfTextInputLayout
+                        ContainerType="Outlined"
+                        Hint="Medida (g)"
+                        HeightRequest="80"
+                        HasError="{Binding HasErrorMeasure}"
+                        ErrorText="Medida não informada"
+                        IsHintAlwaysFloated="True"
+                        OutlineCornerRadius="8">
+
+                        <Entry
+                            BackgroundColor="{StaticResource EntryBackgroundColor}"
+                            TextColor="Black"
+                            MaxLength="4"
+                            HeightRequest="55"
+                            Keyboard="Numeric"
+                            Text="{Binding Measure}">
+                            <Label.HeightRequest>
+                                <OnPlatform x:TypeArguments="system:Double">
+                                    <On Platform="iOS">25</On>
+                                    <On Platform="Android">55</On>
+                                </OnPlatform>
+                            </Label.HeightRequest>
+                        </Entry>
+
+                    </core:SfTextInputLayout>
+
+                    <cardLine:CardLineView
+                        Margin="0,20,0,0"
+                        BodyText="Carboidratos"
+                        ValueText="{Binding Food.Carboidratos}" />
+
+                    <cardLine:CardLineView
+                        Margin="0,8,0,0"
+                        BodyText="Proteínas"
+                        ValueText="{Binding  Food.Proteinas}" />
+
+                    <cardLine:CardLineView
+                        Margin="0,8,0,0"
+                        BodyText="Lipídios"
+                        ValueText="{Binding Food.Lipidios}" />
+
+                    <cardLine:CardLineView
+                        Margin="0,8,0,0"
+                        BodyText="Valor Calórico"
+                        ValueText="{Binding Food.ValorCalorico}" />
+
+                </StackLayout>
+                <StackLayout
+                    Margin="20,20"
+                    VerticalOptions="EndAndExpand">
+
+                    <button:ButtonView
+                        IsVisible="True"
+                        Margin="0,20,0,0"
+                        Command="{Binding ReportCommand}"
+                        TextColor="{StaticResource DarkBlue}"
+                        BackgroundColor="{StaticResource LightBlueInput}"
+                        Text="Relatório Completo" />
+
+                    <StackLayout
+                        Orientation="Horizontal">
+
+                        <button:ButtonView
+                            IsVisible="{Binding CanDelete}"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="0,10,0,0"
+                            Command="{Binding RemoveFoodCommand }"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource DarkOrange}"
+                            Text="Retirar" />
+
+                        <button:ButtonView
+                            Margin="0,10,0,0"
+                            HorizontalOptions="FillAndExpand"
+                            Command="{Binding AddFoodCommand }"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource DarkBlue}"
+                            Text="Salvar" />
+
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+
+    </Border>
+</toolkit:Popup>

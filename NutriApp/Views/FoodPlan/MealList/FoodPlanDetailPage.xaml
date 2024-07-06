@@ -6,6 +6,8 @@
              x:DataType="mealList:FoodPlanDetailPageViewModel"
              xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:mealList="clr-namespace:NutriApp.Views.FoodPlan.MealList"
+             BackgroundColor="{StaticResource PageColor}"
+             Shell.NavBarIsVisible="False"
              x:Class="NutriApp.Views.FoodPlan.MealList.FoodPlanDetailPage">
     <StackLayout>
         <view:NewTitleView

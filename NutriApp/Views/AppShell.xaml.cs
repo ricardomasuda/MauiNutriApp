@@ -13,7 +13,10 @@ using NutriApp.Views.Evaluation.List;
 using NutriApp.Views.Evaluation.SemiologyNutritional;
 using NutriApp.Views.Food.Detail;
 using NutriApp.Views.Food.List;
+using NutriApp.Views.FoodPlan.FoodDetail;
 using NutriApp.Views.FoodPlan.FoodPlanList;
+using NutriApp.Views.FoodPlan.MealList;
+using NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup;
 using NutriApp.Views.Suggestion;
 
 namespace NutriApp.Views;
@@ -47,7 +50,12 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(FoodDetailPage), typeof(FoodDetailPage));
         
         Routing.RegisterRoute(nameof(FoodPlanListPage), typeof(FoodPlanListPage));
+        Routing.RegisterRoute(nameof(FoodPlanDetailPage), typeof(FoodPlanDetailPage));
+        Routing.RegisterRoute(nameof(MealFoodDetailPage), typeof(MealFoodDetailPage));
+        Routing.RegisterRoute(nameof(SelectFoodPopup),typeof(SelectFoodPopup));
         
+        
+        Routing.RegisterRoute(nameof(ReportPage), typeof(ReportPage.Page.ReportPage));
     }
     
     protected override async void OnNavigating(ShellNavigatingEventArgs args)

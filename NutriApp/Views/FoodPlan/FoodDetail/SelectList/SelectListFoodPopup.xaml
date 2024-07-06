@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NutriApp.Views.FoodPlan.FoodDetail.SelectList.SelectListFoodPopup">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
-</ContentPage>
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:NutriApp.Models"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:selectList="clr-namespace:NutriApp.Views.FoodPlan.FoodDetail.SelectList"
+    Color="{StaticResource BackgroundPopupPage}"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill"
+    x:Name="SelectListFoodPopupRoot"
+    x:DataType="selectList:SelectListFoodPopupViewModel"
+    x:Class="NutriApp.Views.FoodPlan.FoodDetail.SelectList.SelectListFoodPopup">
+    <Border
+        StrokeShape="RoundRectangle 10"
+        Padding="0"
+        BackgroundColor="{StaticResource PageColor}"
+        VerticalOptions="Center"
+        Margin="20,30">
+        <StackLayout>
+
+            <view:NewTitleView
+                Command="{Binding CloseCommand}"
+                CommandParameter="{Binding Source={x:Reference SelectListFoodPopupRoot}}"
+                TypeTitle="Close"
+                VisibleBack="False"
+                TextTitle="Selecione o Alimento" />
+
+            <ListView
+                ItemsSource="{Binding ListFood}"
+                VerticalOptions="Start"
+                BackgroundColor="Transparent"
+                SeparatorVisibility="None"
+                HasUnevenRows="True"
+                Margin="10,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:FoodModel">
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout>
+
+                                    <Label
+                                        FontSize="12"
+                                        Margin="10"
+                                        Text="{Binding Nome}"
+                                        MaxLines="1"
+                                        LineBreakMode="TailTruncation"
+                                        HorizontalOptions="Start"
+                                        TextColor="{StaticResource TextColor}"
+                                        FontAttributes="Bold" />
+
+                                    <BoxView
+                                        Color="{StaticResource LightBlueInput}"
+                                        HeightRequest="1"
+                                        HorizontalOptions="Fill" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding Source={x:Reference SelectListFoodPopupRoot} ,Path=BindingContext.EditFoodCommand}"
+                                            CommandParameter="{Binding .}" />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Border>
+</toolkit:Popup>

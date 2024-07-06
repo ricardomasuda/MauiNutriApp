@@ -1,4 +1,5 @@
 using NutriApp.Views.Food.Detail;
+using NutriApp.Views.FoodPlan.FoodDetail;
 
 namespace NutriApp.Views.FoodPlan.MealList;
 
@@ -39,14 +40,14 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
     private void GoFoodDetail(object obj)
     {
         MealModel mealModel = (MealModel)obj;
-        App.NavPage.GoToAsync( nameof(FoodDetailPage));
+        App.NavPage.GoToAsync( nameof(MealFoodDetailPage));
         //App.NavPage.GoToAsync( FoodDetailPage(this,mealModel));
     }
     
     [RelayCommand]
     private void AddFood()
     {
-        App.NavPage.GoToAsync( nameof(FoodDetailPage));
+        App.NavPage.GoToAsync(nameof(MealFoodDetailPage));
         //App.NavPage.PushAsync(new FoodDetailPage(this));
     }
     

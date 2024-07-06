@@ -1,106 +1,30 @@
-using NutriApp.Components;
-using NutriApp.Models;
-using NutriApp.Services;
+using CommunityToolkit.Maui.Views;
 using NutriApp.Views.FoodPlan.FoodDetail;
+using NutriApp.Views.ReportPage.Popup;
 
 namespace NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup;
 
-public class SelectFoodPopupViewModel : BaseViewModel
+public partial class SelectFoodPopupViewModel : BaseViewModel
 {
-    private FoodModel _food;
-
-    public FoodModel Food
-    {
-        get => _food;
-        set
-        {
-            _food = value;
-            OnPropertyChanged("Food");
-        }
-    }
-
-    private double _measure;
-
-    public double Measure
-    {
-        get => _measure;
-        set
-        {
-            _measure = value;
-            ChangeMeasure();
-            OnPropertyChanged("Measure");
-        }
-    }
-
-    private bool _hasErrorFood;
-
-    public bool HasErrorFood
-    {
-        get => _hasErrorFood;
-        set
-        {
-            _hasErrorFood = value;
-            OnPropertyChanged("HasErrorFood");
-        }
-    }
-
-    private bool _hasErrorMeasure;
-
-    public bool HasErrorMeasure
-    {
-        get => _hasErrorMeasure;
-        set
-        {
-            _hasErrorMeasure = value;
-            OnPropertyChanged("HasErrorMeasure");
-        }
-    }
-
-    private string _title;
-
-    public string Title
-    {
-        get => _title;
-        set
-        {
-            _title = value;
-            OnPropertyChanged("Title");
-        }
-    }
-
-    private bool _canDelete;
-
-    public bool CanDelete
-    {
-        get => _canDelete;
-        set
-        {
-            _canDelete = value;
-            OnPropertyChanged("CanDelete");
-        }
-    }
-
-    public Command GoPopupFoodCommand { get; set; }
-    public Command AddFoodCommand { get; set; }
-    public Command RemoveFoodCommand { get; set; }
-    public Command CloseCommand { get; set; }
-    public Command ReportCommand { get; set; }
+    [ObservableProperty] private FoodModel _food;
+    [ObservableProperty] private double _measure;
+    [ObservableProperty] private bool _hasErrorFood;
+    [ObservableProperty] private bool _hasErrorMeasure;
+    [ObservableProperty] private string _title;
+    [ObservableProperty] private bool _canDelete;
 
     private readonly FoodModel _foodAssistant;
-    private readonly FoodDetailViewModel _foodDetailViewModel;
-    private ChangeFoodView _changeFoodView;
+    private readonly MealFoodDetailViewModel _mealFoodDetailViewModel;
+    private SelectFoodPopup _selectFoodPopup;
+    private ChangeFoodPopup _changeFoodPopup;
 
-    public SelectFoodPopupViewModel(FoodDetailViewModel foodDetailViewModel, FoodModel food = null)
+    public SelectFoodPopupViewModel(MealFoodDetailViewModel mealFoodDetailViewModel, SelectFoodPopup selectFoodPopup, FoodModel food = null)
     {
         Food = new FoodModel();
+        _selectFoodPopup = selectFoodPopup;
         _foodAssistant = food;
         CanDelete = false;
-        _foodDetailViewModel = foodDetailViewModel;
-        GoPopupFoodCommand = new Command(GoSelectFood);
-        RemoveFoodCommand = new Command(RemoveFood);
-        AddFoodCommand = new Command(AddFood);
-        ReportCommand = new Command(GoReport);
-        //CloseCommand = new Command(() => App.NavPage.Navigation.PopPopupAsync());
+        _mealFoodDetailViewModel = mealFoodDetailViewModel;
         Fetch();
     }
 
@@ -118,33 +42,32 @@ public class SelectFoodPopupViewModel : BaseViewModel
         }
     }
 
-    private async void RemoveFood()
+    [RelayCommand]
+    private async Task RemoveFood()
     {
         if (await Shell.Current.DisplayAlert("Retirar Alimento", "Deseja retirar o alimento da refeição?", "Sim", "Não"))
         {
-            _foodDetailViewModel.RemoveFoodList(_foodAssistant);
-            //await App.NavPage.Navigation.PopPopupAsync();
+            await _mealFoodDetailViewModel.RemoveFood(_foodAssistant);
+            _selectFoodPopup.Close();
         }
     }
 
-    private void UpdateFood()
-    {
-        _foodDetailViewModel.UpdateFoodList(Food, _foodAssistant);
-    }
-
-    private void GoReport()
+    [RelayCommand]
+    private void Report()
     {
         if (!ValidateFood()) return;
         List<FoodModel> listFood = new List<FoodModel> { Food };
-        //App.NavPage.Navigation.PushPopupAsync(new ReportPopup(listFood));
+        App.NavPage.ShowPopup(new ReportPopup(listFood));
     }
 
-    private async void GoSelectFood()
+    [RelayCommand]
+    private async Task GoPopupFood()
     {
-        _changeFoodView = new ChangeFoodView(this);
-        //await App.NavPage.Navigation.PushPopupAsync(_changeFoodView);
+        _changeFoodPopup = new ChangeFoodPopup(this);
+        await App.NavPage.ShowPopup( new ChangeFoodPopup(this));
     }
 
+    [RelayCommand]
     private void AddFood()
     {
         if (!ValidateFood()) return;
@@ -157,10 +80,21 @@ public class SelectFoodPopupViewModel : BaseViewModel
         }
         else
         {
-            _foodDetailViewModel.SaveFoodList(Food);
+            _mealFoodDetailViewModel.SaveFoodList(Food);
         }
 
-        //App.NavPage.Navigation.PopPopupAsync();
+        _selectFoodPopup.Close();
+    }
+    
+    [RelayCommand]
+    private static void Close(Popup popup)
+    {
+        popup.Close();
+    }
+    
+    private void UpdateFood()
+    {
+        _mealFoodDetailViewModel.UpdateFoodList(Food, _foodAssistant);
     }
 
     private async void ChangeMeasure()

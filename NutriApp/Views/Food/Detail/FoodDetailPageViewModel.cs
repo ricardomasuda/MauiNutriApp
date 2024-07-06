@@ -4,7 +4,7 @@ using NutriApp.Views.Food.Detail.InfoPopup;
 
 namespace NutriApp.Views.Food.Detail;
 
-[QueryProperty(nameof(Food), "food")]
+[QueryProperty(nameof(Food), nameof(Food))]
 public partial class FoodDetailPageViewModel : BaseViewModel, IQueryAttributable
 {
     [ObservableProperty]
@@ -58,14 +58,28 @@ public partial class FoodDetailPageViewModel : BaseViewModel, IQueryAttributable
     [RelayCommand]
     private async void GoReport()
     {
-        // var foodReport = await FoodService.ChangeUnitMeasure(Food.Id, Measure);
-        // List<FoodModel> listFood = new List<FoodModel> { foodReport };
-        // await App.NavPage.PushAsync(new ReportPage(listFood));
+        var foodReport = await FoodService.ChangeUnitMeasure(Food.Id, Measure);
+        List<FoodModel> listFood = new List<FoodModel> { foodReport };
+        ShellNavigationQueryParameters navigationParameter = new() {
+            { "listFood", listFood },
+        };
+        await App.NavPage.GoToAsync(nameof(ReportPage), navigationParameter);
+        //await App.NavPage.PushAsync(new ReportPage(listFood));
     }
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        Food = query["food"] as FoodModel;
-        ChangeMeasure(false);
+        try
+        {
+            if (query.Any())
+            {
+                Food = query[nameof(Food)] as FoodModel ?? new FoodModel();
+            }
+            ChangeMeasure(false);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
     }
     
 }

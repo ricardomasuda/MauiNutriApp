@@ -33,8 +33,8 @@ public class NavigationService : INavigationService
     
     public async Task ShowPopup(Popup popup)
     {
-        if (_isPopupDisplayed) return; 
-        _isPopupDisplayed = true; 
+        // if (_isPopupDisplayed) return; 
+        // _isPopupDisplayed = true; 
         
         try
         {
@@ -46,7 +46,7 @@ public class NavigationService : INavigationService
         }
         finally
         {
-            _isPopupDisplayed = false; 
+           // _isPopupDisplayed = false; 
         }
     }
     public Task GoToAsync(ShellNavigationState state, bool animate) => Shell.Current.GoToAsync(state, animate);

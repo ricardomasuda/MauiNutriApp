@@ -1,8 +1,9 @@
-using NutriApp.Views.Food.Detail;
+using NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup;
 
-namespace NutriApp.Views.Food.List;
+namespace NutriApp.Views.FoodPlan.SelectFood;
 
-public partial class FoodListViewModel : BaseViewModel {
+public partial class ChangeFoodPopupViewModel : BaseViewModel
+{
     private const double COLLECTION_VIEW_BOTTOM_PADDING = 20;
 
     [ObservableProperty] [NotifyCanExecuteChangedFor(nameof(SearchBarActionCommand))]
@@ -12,10 +13,16 @@ public partial class FoodListViewModel : BaseViewModel {
     [ObservableProperty] private double _collectionViewHeight;
     [ObservableProperty] private double _searchTitleHeight;
     [ObservableProperty] private double _collectionViewCellHeight;
-
     private ObservableCollection<FoodModel> _listFoodAux;
+    public Command GoBackCommand { get; set; }
+    public SelectFoodPopupViewModel FoodDetailViewModel { get; set; }
+    private ChangeFoodPopup _changeFoodPopup;
 
-    public FoodListViewModel() {
+    public ChangeFoodPopupViewModel(SelectFoodPopupViewModel foodDetailViewModel, ChangeFoodPopup changeFoodPopup)
+    {
+        FoodDetailViewModel = foodDetailViewModel;
+        _changeFoodPopup = changeFoodPopup;
+        GoBackCommand = new Command(() => Shell.Current.Navigation.PopAsync());
         MainThread.InvokeOnMainThreadAsync(FetchFoods);
     }
 
@@ -33,29 +40,22 @@ public partial class FoodListViewModel : BaseViewModel {
     }
 
     [RelayCommand]
+    private async void SelectFood(object sender)
+    {
+        var food = (FoodModel)sender;
+        FoodDetailViewModel.Food = food;
+        FoodDetailViewModel.Measure = Convert.ToDouble(food.Medida);
+        _changeFoodPopup.Close();
+        //await App.NavPage.Navigation.PopPopupAsync();
+    }
+    
+    [RelayCommand]
     private void SearchBarAction() {
         IEnumerable<FoodModel> list = string.IsNullOrEmpty(SearchBar)
             ? _listFoodAux
             : _listFoodAux.Where(food => food.Nome.ToUpper().Contains(SearchBar.ToUpper()));
         Foods = [..list.ToList()];
     }
-
-    [RelayCommand]
-    private async Task EditFood(object sender) {
-        ShellNavigationQueryParameters navigationParameter = new() {
-            { "Food", (FoodModel)sender }
-        };
-
-        await Shell.Current.GoToAsync(nameof(FoodDetailPage), navigationParameter);
-    }
-
-    [RelayCommand]
-    private async Task AddFood(object sender) =>
-        await Shell.Current.DisplayAlert("Em contrução", "Pagina em construção", "OK");
-
-    [RelayCommand]
-    private static void GoBack() => Shell.Current.Navigation.PopAsync();
-
     protected override void OnPropertyChanged(PropertyChangedEventArgs e) {
         base.OnPropertyChanged(e);
 

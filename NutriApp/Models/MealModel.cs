@@ -13,7 +13,6 @@ public class MealModel
     public string Proteinas { get; set; }
     public string Lipidios { get; set; } 
     public string ValorTotal { get; set; }
-    [Ignore]
     public List<FoodModel> ListFood { get; set; }
 
     public ObservableCollection<Item> MealType()

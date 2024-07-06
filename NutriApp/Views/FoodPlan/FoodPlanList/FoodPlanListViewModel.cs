@@ -84,9 +84,16 @@ public partial class FoodPlanListViewModel : BaseViewModel
                 "Adicione um alimento para poder gerar relatório", "Ok");
             return;
         }
-
+        // [QueryProperty("listFood", "listFood")]
+        // [QueryProperty("foodPlanId", "foodPlanId")]
+        // [QueryProperty("title", "title")]
         List<FoodModel> listFood = new() { superFood };
-        // TODO - FAZER RESPORT PAGE
+        ShellNavigationQueryParameters navigationParameter = new() {
+            { "listFood", listFood },
+            { "foodPlanId", foodPlan.Id},
+            { "Title", foodPlan.Nome}
+        };
+        await App.NavPage.GoToAsync(nameof(ReportPage), navigationParameter);
         //await App.NavPage.GoToAsync(new ReportPage(listFood, foodPlan.Nome, foodPlan.Id));
     }
 }

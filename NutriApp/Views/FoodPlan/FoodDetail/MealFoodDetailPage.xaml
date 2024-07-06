@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:converters="clr-namespace:NutriApp.Converters"
+    xmlns:models="clr-namespace:NutriApp.Models"
+    xmlns:core="http://schemas.syncfusion.com/maui"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:foodDetail="clr-namespace:NutriApp.Views.FoodPlan.FoodDetail"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    BackgroundColor="{StaticResource PageColor}"
+    x:Name="FoodDetailRoot"
+    Shell.NavBarIsVisible="False"
+    ios:Page.UseSafeArea="False"
+    x:DataType="foodDetail:MealFoodDetailViewModel"
+    x:Class="NutriApp.Views.FoodPlan.FoodDetail.MealFoodDetailPage">
+
+    <StackLayout>
+        <view:NewTitleView
+            TypeTitle="{Binding TitleType}"
+            Command="{Binding DeleteMealCommand}"
+            TextTitle="{Binding Title}" />
+        <StackLayout Margin="20,10,20,0">
+
+            <core:SfTextInputLayout
+                ContainerType="Outlined"
+                Hint="Refeição"
+                HeightRequest="80"
+                HasError="{Binding HasErrorItemMeal}"
+                ErrorText="Refeição não informada"
+                IsHintAlwaysFloated="True"
+                OutlineCornerRadius="8">
+
+                <Picker
+                    x:Name="PIckerRefeicao"
+                    x:DataType="foodDetail:MealFoodDetailViewModel"
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    SelectedItem="{Binding ItemMeal}"
+                    ItemsSource="{Binding ListItemMeal}"
+                    ItemDisplayBinding="{Binding Nome}">
+                </Picker>
+
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout
+                ContainerType="Outlined"
+                Hint="Hora"
+                HeightRequest="80"
+                HasError="{Binding HasErrorHour}"
+                ErrorText="Hora não informada"
+                IsHintAlwaysFloated="True"
+                OutlineCornerRadius="8">
+
+                <TimePicker
+                    BackgroundColor="#F4F4F4"
+                    TextColor="Black"
+                    Time="{Binding Hour}">
+                    <TimePicker.HeightRequest>
+                        <OnPlatform x:TypeArguments="system:Double">
+                            <On Platform="iOS">25</On>
+                            <On Platform="Android">55</On>
+                        </OnPlatform>
+                    </TimePicker.HeightRequest>
+                    <TimePicker.Format>HH:mm</TimePicker.Format>
+                </TimePicker>
+
+            </core:SfTextInputLayout>
+
+            <button:ButtonView
+                Text="Adicionar Alimento"
+                TextColor="{StaticResource WhiteText}"
+                BackgroundColor="{StaticResource DarkOrange}"
+                Command="{Binding AddOrEditFoodCommand}" />
+
+            <ListView
+                Margin="10"
+                IsVisible="{Binding HaveList}"
+                ItemsSource="{Binding ListFood}"
+                VerticalOptions="Start"
+                BackgroundColor="Transparent"
+                SeparatorVisibility="None"
+                HasUnevenRows="True">
+
+                <ListView.Header>
+                    <Grid
+                        RowSpacing="0" ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+
+                        <Frame
+                            HorizontalOptions="Fill"
+                            CornerRadius="0"
+                            HasShadow="False"
+                            BackgroundColor="Transparent"
+                            Padding="5">
+                            <Label Text="Nome"
+                                   FontSize="12"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextColor}" />
+                        </Frame>
+
+                        <Frame Grid.Row="0" Grid.Column="1"
+                               CornerRadius="0"
+                               HasShadow="False"
+                               BackgroundColor="Transparent"
+                               HorizontalOptions="Fill"
+                               Padding="5">
+                            <Label
+                                Text="Proteínas"
+                                FontSize="12"
+                                HorizontalOptions="Center"
+                                FontAttributes="Bold"
+                                TextColor="{StaticResource TextColor}" />
+                        </Frame>
+
+                        <Frame Grid.Row="0" Grid.Column="2"
+                               CornerRadius="0"
+                               HasShadow="False"
+                               BackgroundColor="Transparent"
+                               HorizontalOptions="Fill"
+                               Padding="5">
+                            <Label Text="Lípidios"
+                                   FontSize="12"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextColor}" />
+                        </Frame>
+
+                        <Frame Grid.Row="0" Grid.Column="3"
+                               CornerRadius="0"
+                               HasShadow="False"
+                               BackgroundColor="Transparent"
+                               HorizontalOptions="Fill"
+                               Padding="5">
+                            <Label Text="Carboidrato"
+                                   FontSize="12"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource TextColor}" />
+                        </Frame>
+
+                        <BoxView
+                            Grid.Row="1"
+                            Grid.ColumnSpan="4"
+                            Grid.Column="0"
+                            Color="{StaticResource LightBlueInput}"
+                            HeightRequest="1"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:FoodModel">
+                        <ViewCell>
+                            <Frame
+                                Margin="2"
+                                BackgroundColor="{StaticResource PageColor}"
+                                HasShadow="False"
+                                Padding="0">
+                                <Grid RowSpacing="0" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        FontSize="12"
+                                        Margin="10"
+                                        Text="{Binding Nome}"
+                                        MaxLines="1"
+                                        LineBreakMode="TailTruncation"
+                                        HorizontalOptions="Start"
+                                        TextColor="{StaticResource TextColor}"
+                                        FontAttributes="Bold" />
+
+                                    <Label
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        FontSize="12"
+                                        Margin="10"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding Proteinas, Converter={converters:NutrientConverter}}"
+                                        TextColor="{StaticResource TextColor}"
+                                        FontAttributes="Bold" />
+
+                                    <Label
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        FontSize="12"
+                                        Margin="10"
+                                        HorizontalOptions="Center"
+                                        TextColor="{StaticResource TextColor}"
+                                        Text="{Binding Lipidios, Converter={converters:NutrientConverter}}"
+                                        FontAttributes="Bold" />
+
+                                    <Label
+                                        Grid.Column="3"
+                                        Grid.Row="1"
+                                        FontSize="12"
+                                        Margin="10"
+                                        HorizontalOptions="Center"
+                                        TextColor="{StaticResource TextColor}"
+                                        Text="{Binding Carboidratos, Converter={converters:NutrientConverter}}"
+                                        FontAttributes="Bold" />
+
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding Source={x:Reference FoodDetailRoot} ,Path=BindingContext.AddOrEditFoodCommand}"
+                                            CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <StackLayout>
+                        <Frame
+                            Margin="2,2,2,0"
+                            BackgroundColor="{StaticResource PageColor}"
+                            HasShadow="False"
+                            Padding="0">
+
+                            <Grid RowSpacing="0" ColumnSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <BoxView
+                                    Color="{StaticResource LightBlueInput}"
+                                    HeightRequest="1"
+                                    Grid.ColumnSpan="4"
+                                    HorizontalOptions="Fill" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="12"
+                                    Margin="10"
+                                    Text="{Binding FoodTotal.Nome}"
+                                    MaxLines="1"
+                                    LineBreakMode="TailTruncation"
+                                    HorizontalOptions="Start"
+                                    TextColor="{StaticResource TextColor}"
+                                    FontAttributes="Bold" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    FontSize="12"
+                                    Margin="10"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding FoodTotal.Proteinas, Converter={converters:NutrientConverter}}"
+                                    TextColor="{StaticResource TextColor}"
+                                    FontAttributes="Bold" />
+
+                                <Label
+                                    Grid.Column="2"
+                                    Grid.Row="1"
+                                    FontSize="12"
+                                    Margin="10"
+                                    HorizontalOptions="Center"
+                                    TextColor="{StaticResource TextColor}"
+                                    Text="{Binding FoodTotal.Lipidios, Converter={converters:NutrientConverter}}"
+                                    FontAttributes="Bold" />
+
+                                <Label
+                                    Grid.Column="3"
+                                    Grid.Row="1"
+                                    FontSize="12"
+                                    Margin="10"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding FoodTotal.Carboidratos, Converter={converters:NutrientConverter}}"
+                                    TextColor="{StaticResource TextColor}"
+                                    FontAttributes="Bold">
+                                </Label>
+
+                            </Grid>
+                        </Frame>
+
+                        <Frame
+                            Margin="0,-5,0,0"
+                            BackgroundColor="{StaticResource DarkOrange}"
+                            HasShadow="False"
+                            CornerRadius="8"
+                            HorizontalOptions="End"
+                            Padding="5,2">
+
+                            <Label
+                                FontSize="12"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="White"
+                                FontAttributes="Bold">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Vl Calorico: " />
+                                        <Span
+                                            Text="{Binding FoodTotal.ValorCalorico, Converter={converters:NutrientConverter}}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Frame>
+
+                        <Frame
+                            Margin="0,0,0,0"
+                            BackgroundColor="{StaticResource DarkBlue}"
+                            HasShadow="False"
+                            CornerRadius="15"
+                            HorizontalOptions="End"
+                            Padding="22,8">
+                            <Label
+                                FontSize="12"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="White"
+                                Text="Editar Alimentos"
+                                FontAttributes="Bold" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditListFoodCommand}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
+
+                </ListView.Footer>
+            </ListView>
+
+            <StackLayout
+                Margin="0,0,0,10"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+
+                <button:ButtonView
+                    Text="Ver Nutrientes"
+                    TextColor="{StaticResource WhiteText}"
+                    IsVisible="{Binding CanSeeReport}"
+                    BackgroundColor="{StaticResource DarkOrange}"
+                    Command="{Binding GoReportCommand}" />
+
+                <button:ButtonView
+                    Text="Salvar"
+                    TextColor="{StaticResource WhiteText}"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Command="{Binding SaveCommand}" />
+
+            </StackLayout>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

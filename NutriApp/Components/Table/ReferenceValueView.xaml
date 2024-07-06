@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:table="clr-namespace:NutriApp.Components.Table"
+             x:Class="NutriApp.Components.Table.ReferenceValueView">
+    <StackLayout Margin="0,10">
+            
+        <table:ReportTableLineView
+            TextFont="18"
+            TextColor="White"
+            ColorLine="{StaticResource DarkBlue}"
+            Title="Valor de Referência" />
+
+        <table:ReportTableLineView
+            x:Name="ProteinaLabel"
+            Title="Proteína" />
+
+        <table:ReportTableLineView
+            x:Name="ProteinaVrLabel"
+            Title="VR Proteína" />
+
+        <table:ReportTableLineView
+            x:Name="CarboidratoLabel"
+            Title="Carboidrato"
+            Nutrient="{Binding Carboidratos}" />
+
+        <table:ReportTableLineView
+            x:Name="CarboidratoVrLabel"
+            Title="VR Carboidrato" />
+
+        <table:ReportTableLineView
+            x:Name="LipidioLabel"
+            Title="Lipídio"
+            Nutrient="{Binding Lipidio}" />
+
+        <table:ReportTableLineView
+            x:Name="LipídioVrLabel"
+            ColorLine="White"
+            Title="VR Lipídio" />
+
+        <table:ReportTableLineView
+            Title="Vl Calorico"
+            x:Name="ValorCaloricaLabel" />
+
+        <table:ReportTableLineView
+            x:Name="VlCaloricoVrLabel"
+            Title="VR Vl Calorico" />
+
+        <Label
+            Margin="0,0,0,10"
+            FontSize="10"
+            TextColor="Black">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="*VR = Valor de Referência&#x0a;" />
+                    <Span Text="*Vl = Valor Calórico" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+    </StackLayout>
+</ContentView>
