@@ -34,8 +34,7 @@
 
                     <ContentPresenter
                         x:Name="ContentPresenter"
-                        BackgroundColor="Transparent"
-                        HeightRequest="50"/>
+                        BackgroundColor="Transparent"/>
 
                 </Border>
                 
