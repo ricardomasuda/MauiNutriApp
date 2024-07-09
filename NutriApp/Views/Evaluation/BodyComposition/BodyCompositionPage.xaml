@@ -4,12 +4,12 @@
 <contentPageCustomer:BaseContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:bodyComposition="clr-namespace:NutriApp.Views.Evaluation.BodyComposition"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
     x:DataType="bodyComposition:BodyCompositionPageViewModel"
     BackgroundColor="{StaticResource PageColor}"
     TypeTitle="None"
@@ -18,15 +18,12 @@
 
     <StackLayout Margin="20,20,20,10">
 
-        <core:SfTextInputLayout
-            HeightRequest="80"
-            ContainerType="Outlined"
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Altura (m)"
-            IsHintAlwaysFloated="True"
             HasError="{Binding HasErrorHeight}"
             ErrorText="Altura não informada"
-            OutlineCornerRadius="8">
-
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
@@ -37,85 +34,70 @@
                     <toolkit:MaskedBehavior Mask="X,XX" />
                 </Entry.Behaviors>
             </Entry>
+        </inputLayout:InputLayoutView>
 
-        </core:SfTextInputLayout>
-
-        <core:SfTextInputLayout
-            HeightRequest="80"
-            ContainerType="Outlined"
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Punho (cm)"
-            IsHintAlwaysFloated="True"
             HasError="{Binding HasErrorWrist}"
             ErrorText="Medição do punho não informada"
-            OutlineCornerRadius="8">
-
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding Wrist}"
                 PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-        </core:SfTextInputLayout>
-
-        <core:SfTextInputLayout
-            HeightRequest="80"
-            ContainerType="Outlined"
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Femur (cm)"
-            IsHintAlwaysFloated="True"
             HasError="{Binding HasErrorFemur}"
             ErrorText="Medição do femur não informada"
-            OutlineCornerRadius="8">
-
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding Femur}"
                 PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-        </core:SfTextInputLayout>
-
-        <core:SfTextInputLayout
-            HeightRequest="80"
-            ContainerType="Outlined"
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Peso Atual (kg)"
-            IsHintAlwaysFloated="True"
             HasError="{Binding HasErrorWeight}"
             ErrorText="Peso Atual não informada"
-            OutlineCornerRadius="8">
-
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding Weight}"
                 PlaceholderColor="Black" />
-
-        </core:SfTextInputLayout>
-
-        <core:SfTextInputLayout
-            HeightRequest="80"
-            ContainerType="Outlined"
+        </inputLayout:InputLayoutView>
+        
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Gênero"
-            IsHintAlwaysFloated="True"
             HasError="{Binding HasErrorGender}"
             ErrorText="Gênero não informado"
-            OutlineCornerRadius="8">
-
+            BorderColor="{StaticResource DarkBlue}">
+            
             <Picker
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 ItemsSource="{Binding ListGender}"
                 SelectedItem="{Binding GenderType}"
                 ItemDisplayBinding="{Binding Nome}" />
-
-        </core:SfTextInputLayout>
+            
+        </inputLayout:InputLayoutView>
 
         <StackLayout
             VerticalOptions="EndAndExpand">
 
-            <StackLayout 
+            <StackLayout
                 IsVisible="{Binding CanDisplayResult}">
                 <resultLine:ResultLineView
                     Margin="0,40,0,0"
@@ -129,7 +111,7 @@
                     BodyText="{Binding ResidualWeightResult}"
                     UnityMeasureType="KILOS" />
             </StackLayout>
-       
+
             <button:ButtonView
                 Margin="0,-3,0,0"
                 Command="{Binding CalculateCommand}"
