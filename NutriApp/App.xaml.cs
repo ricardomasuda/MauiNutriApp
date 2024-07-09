@@ -11,8 +11,7 @@ public partial class App : Application
     public static SQLiteAsyncConnection Database;
     public App()
     {
-        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF5cWWdCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXxedXVURWZdVUFxWUI=");
-        InitializeComponent();
+       InitializeComponent();
 
         
         MainPage = new AppShell();
