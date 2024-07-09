@@ -8,7 +8,6 @@
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:detail="clr-namespace:NutriApp.Views.Food.Detail"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
-    xmlns:entries="using:MauiLib1.Components.Entries"
     NavigationPage.HasNavigationBar="False"
     TypeTitle="InfoCircle"
     Command="{Binding InfoCommand}"
