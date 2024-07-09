@@ -3,12 +3,12 @@
 <contentPageCustomer:BaseContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     xmlns:idealWeight="clr-namespace:NutriApp.Views.Evaluation.IdealWeight"
+    xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
     TypeTitle="InfoCircle"
     Command="{Binding InfoCommand}"
     TextTitle="Peso Ideal"
@@ -17,35 +17,28 @@
 
     <StackLayout Margin="20,20,20,10">
         <StackLayout>
-
-            <core:SfTextInputLayout
-                ContainerType="Outlined"
-                Hint="IMC Ideal (kg/m²)"
-                IsHintAlwaysFloated="True"
-                HeightRequest="80"
-                HasError="{Binding HasErrorImcIdeal}"
-                ErrorText="IMC Ideal não informado"
-                OutlineCornerRadius="8">
-
+            
+            <inputLayout:InputLayoutView
+                CornerRadius="8"
+                BorderColor="{StaticResource DarkBlue}"
+                Hint="IMC Ideal (kg/m²)">
+                
                 <Picker
                     BackgroundColor="{StaticResource EntryBackgroundColor}"
                     TextColor="Black"
                     ItemsSource="{Binding ItemImcIdeal}"
                     ItemDisplayBinding="{Binding Nome}"
                     SelectedItem="{Binding ImcIdeal}" />
-
-            </core:SfTextInputLayout>
-
-            <core:SfTextInputLayout
-                ContainerType="Outlined"
-                Hint="Altura (m)"
-                HeightRequest="80"
-                HasError="{Binding HasErrorHeight}"
-                ErrorText="Altura não informado"
-                IsHintAlwaysFloated="True"
-                OutlineCornerRadius="8">
-
-                <Entry BackgroundColor="{StaticResource EntryBackgroundColor}"
+                
+            </inputLayout:InputLayoutView>
+            
+            <inputLayout:InputLayoutView
+                CornerRadius="8"
+                BorderColor="{StaticResource DarkBlue}"
+                Hint="Altura (m)">
+                
+                <Entry 
+                    BackgroundColor="{StaticResource EntryBackgroundColor}"
                        TextColor="Black"
                        Keyboard="Numeric"
                        Text="{Binding Height, Mode=TwoWay}"
@@ -54,8 +47,9 @@
                         <toolkit:MaskedBehavior Mask="X,XX" />
                     </Entry.Behaviors>
                 </Entry>
-
-            </core:SfTextInputLayout>
+                
+            </inputLayout:InputLayoutView>
+            
         </StackLayout>
 
         <StackLayout 
