@@ -2,70 +2,59 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:anthropometricEvaluation="clr-namespace:NutriApp.Views.AnthropometricEvaluation"
+             xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
              x:DataType="anthropometricEvaluation:AnthropometricEvaluationViewModel"
              x:Class="NutriApp.Views.AnthropometricEvaluation.View.BoneDiameter.BoneDiameterView">
      <StackLayout>
         
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
-            Hint="Altura (m)"
-            HeightRequest="80"
-            IsHintAlwaysFloated="True"
-            HasError="{Binding BoneDiameterViewModel.HasErrorHeight}"
-            ErrorText="Altura não informada"
-            OutlineCornerRadius="8">
-
-            <Entry
-                Text="{Binding BoneDiameterViewModel.Height}"
-                BackgroundColor="{StaticResource EntryBackgroundColor}"
-                TextColor="Black"
-                Keyboard="Numeric"
-                PlaceholderColor="Black">
-                <Entry.Behaviors>
-                    <toolkit:MaskedBehavior Mask="X,XX" />
-                </Entry.Behaviors>
-            </Entry>
-
-        </core:SfTextInputLayout>
-
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
+         <inputLayout:InputLayoutView
+             CornerRadius="8"
+             Hint="Altura (m)"
+             HasError="{Binding BoneDiameterViewModel.HasErrorHeight}"
+             ErrorText="Altura não informada"
+             BorderColor="{StaticResource DarkBlue}">
+             <Entry
+                 Text="{Binding BoneDiameterViewModel.Height}"
+                 BackgroundColor="{StaticResource EntryBackgroundColor}"
+                 TextColor="Black"
+                 Keyboard="Numeric"
+                 PlaceholderColor="Black">
+                 <Entry.Behaviors>
+                     <toolkit:MaskedBehavior Mask="X,XX" />
+                 </Entry.Behaviors>
+             </Entry>
+         </inputLayout:InputLayoutView>
+         
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Punho (cm)"
-            HeightRequest="80"
-            IsHintAlwaysFloated="True"
             HasError="{Binding BoneDiameterViewModel.HasErrorWrist}"
             ErrorText="Medição do punho não informada"
-            OutlineCornerRadius="8">
-
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding BoneDiameterViewModel.Wrist, Mode=TwoWay}"
                 PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-        </core:SfTextInputLayout>
-
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Femur (cm)"
             HeightRequest="80"
-            IsHintAlwaysFloated="True"
             HasError="{Binding BoneDiameterViewModel.HasErrorFemur}"
             ErrorText="Medição do femur não informada"
-            OutlineCornerRadius="8">
-
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding BoneDiameterViewModel.Femur, Mode=TwoWay}"
                 PlaceholderColor="Black" />
-
-        </core:SfTextInputLayout>
+        </inputLayout:InputLayoutView>
         
     </StackLayout>
 </ContentView>
