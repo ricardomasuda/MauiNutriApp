@@ -2,9 +2,9 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:estimatedWeight="clr-namespace:NutriApp.Views.Evaluation.EstimatedWeight"
              xmlns:components="clr-namespace:MauiLib1.Components;assembly=BaseMauiLib"
+             xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
              x:Name="View"
              x:DataType="estimatedWeight:EstimatedWeightPageViewModel"
              x:Class="NutriApp.Views.Evaluation.EstimatedWeight.FormulaRabito.FormulaRabitoView">
@@ -21,53 +21,47 @@
             TitleTwo="Mulher"
             CheckedItemTwo="{Binding FormulaRabitoViewModel.CheckedWoman}"/>
         
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Circunferência do braço (cm)"
-            IsHintAlwaysFloated="True"
-            HeightRequest="80"
             HasError="{Binding FormulaRabitoViewModel.HasErrorArmCircumference}"
             ErrorText="Circunferência não informada"
-            OutlineCornerRadius="8">
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding FormulaRabitoViewModel.ArmCircumference}"
                 PlaceholderColor="Black" />
-        </core:SfTextInputLayout>
+        </inputLayout:InputLayoutView>
         
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
-            HeightRequest="80"
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Circunferência da Cintura (cm)"
-            IsHintAlwaysFloated="True"
             HasError="{Binding FormulaRabitoViewModel.HasErrorWaistCircumference}"
             ErrorText="Circunferência não informada"
-            OutlineCornerRadius="8">
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding FormulaRabitoViewModel.WaistCircumference}"
                 PlaceholderColor="Black" />
-        </core:SfTextInputLayout>
+        </inputLayout:InputLayoutView>
         
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Circunferência da Panturrillha (cm)"
-            IsHintAlwaysFloated="True"
-            HeightRequest="80"
             HasError="{Binding FormulaRabitoViewModel.HasErrorCalfCircumference}"
             ErrorText="Circunferência não informada"
-            OutlineCornerRadius="8">
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding FormulaRabitoViewModel.CalfCircumference}"
                 PlaceholderColor="Black" />
-        </core:SfTextInputLayout>
+        </inputLayout:InputLayoutView>
         
     </StackLayout>
 </ContentView>
