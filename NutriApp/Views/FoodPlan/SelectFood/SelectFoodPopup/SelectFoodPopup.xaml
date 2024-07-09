@@ -4,12 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-    xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:cardLine="clr-namespace:NutriApp.Components.CardLine"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:selectFoodPopup="clr-namespace:NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
     Color="{StaticResource BackgroundPopupPage}"
     x:Name="SelectFoodPopupRoot"
     x:DataType="selectFoodPopup:SelectFoodPopupViewModel"
@@ -35,15 +35,12 @@
                 <StackLayout
                     Margin="20,5,20,0">
 
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
+                    <inputLayout:InputLayoutView
+                        CornerRadius="8"
                         Hint="Alimento"
-                        HeightRequest="80"
-                        IsHintAlwaysFloated="True"
                         HasError="{Binding HasErrorFood}"
                         ErrorText="Alimento não informado"
-                        OutlineCornerRadius="8">
-
+                        BorderColor="{StaticResource DarkBlue}">
                         <Label
                             BackgroundColor="Transparent"
                             TextColor="Black"
@@ -61,24 +58,14 @@
                                 <TapGestureRecognizer Command="{Binding GoPopupFoodCommand}" />
                             </Label.GestureRecognizers>
                         </Label>
-
-                        <core:SfTextInputLayout.GestureRecognizers>
-                            <TapGestureRecognizer
-                                CommandParameter="{Binding .}"
-                                Command="{Binding GoPopupFoodCommand}" />
-                        </core:SfTextInputLayout.GestureRecognizers>
-
-                    </core:SfTextInputLayout>
-
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
+                    </inputLayout:InputLayoutView>
+       
+                    <inputLayout:InputLayoutView
+                        CornerRadius="8"
                         Hint="Medida (g)"
-                        HeightRequest="80"
                         HasError="{Binding HasErrorMeasure}"
                         ErrorText="Medida não informada"
-                        IsHintAlwaysFloated="True"
-                        OutlineCornerRadius="8">
-
+                        BorderColor="{StaticResource DarkBlue}">
                         <Entry
                             BackgroundColor="{StaticResource EntryBackgroundColor}"
                             TextColor="Black"
@@ -94,8 +81,8 @@
                             </Label.HeightRequest>
                         </Entry>
 
-                    </core:SfTextInputLayout>
-
+                    </inputLayout:InputLayoutView>
+     
                     <cardLine:CardLineView
                         Margin="0,20,0,0"
                         BodyText="Carboidratos"
