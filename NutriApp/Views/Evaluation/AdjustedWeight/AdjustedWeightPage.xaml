@@ -4,18 +4,18 @@
 <contentPageCustomer:BaseContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:adjustedWeight="clr-namespace:NutriApp.Views.Evaluation.AdjustedWeight"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     xmlns:components="clr-namespace:MauiLib1.Components;assembly=BaseMauiLib"
+    xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
     x:DataType="adjustedWeight:AdjustedWeightPageViewModel"
     TypeTitle="None"
     TextTitle="Peso Ajustado"
     x:Class="NutriApp.Views.Evaluation.AdjustedWeight.AdjustedWeightPage">
     <ScrollView>
-        <StackLayout 
+        <StackLayout
             Margin="20,20,20,10">
 
             <Label
@@ -23,48 +23,40 @@
                 TextColor="{StaticResource DarkBlue}"
                 VerticalOptions="Start"
                 HorizontalOptions="StartAndExpand" />
-            
+
             <components:DuoCheckBoxView
                 TitleOne="Obesidade: IMC maior que 30 KG/M²"
                 CheckedItemOne="{Binding CheckedObesity}"
                 TitleTwo="Desnutrição: IMC menor que 18 KG/M²"
-                CheckedItemTwo="{Binding CheckedMalnutrition}"/>
+                CheckedItemTwo="{Binding CheckedMalnutrition}" />
 
-            <core:SfTextInputLayout
-                ContainerType="Outlined"
+            <inputLayout:InputLayoutView
+                CornerRadius="8"
                 Hint="Peso Atual (kg)"
-                IsHintAlwaysFloated="True"
                 HasError="{Binding HasErrorCurrencyWeight}"
-                ErrorText="Peso Atual não informada"
-                HeightRequest="80"
-                OutlineCornerRadius="8">
-
+                ErrorText="Peso Atual não informado"
+                BorderColor="{StaticResource DarkBlue}">
                 <Entry
                     BackgroundColor="{StaticResource EntryBackgroundColor}"
                     TextColor="Black"
                     Keyboard="Numeric"
                     Text="{Binding CurrentWeight}"
                     PlaceholderColor="Black" />
+            </inputLayout:InputLayoutView>
 
-            </core:SfTextInputLayout>
-
-            <core:SfTextInputLayout
-                ContainerType="Outlined"
+            <inputLayout:InputLayoutView
+                CornerRadius="8"
                 Hint="Peso Ideal (kg)"
-                IsHintAlwaysFloated="True"
-                HeightRequest="80"
                 HasError="{Binding HasErrorIdealWeight}"
-                ErrorText="Peso Ideal não informada"
-                OutlineCornerRadius="8">
-
+                ErrorText="Peso Ideal não informado"
+                BorderColor="{StaticResource DarkBlue}">
                 <Entry
                     BackgroundColor="{StaticResource EntryBackgroundColor}"
                     TextColor="Black"
                     Keyboard="Numeric"
                     Text="{Binding IdealWeight}"
                     PlaceholderColor="Black" />
-
-            </core:SfTextInputLayout>
+            </inputLayout:InputLayoutView>
 
             <StackLayout
                 VerticalOptions="EndAndExpand">
@@ -75,7 +67,7 @@
                     ResultType="FIRST"
                     TextTitle="Peso Ajustado:"
                     BodyText="{Binding Result}" />
-                
+
                 <button:ButtonView
                     Margin="0,-3,0,0"
                     Command="{Binding CalculateCommand}"
