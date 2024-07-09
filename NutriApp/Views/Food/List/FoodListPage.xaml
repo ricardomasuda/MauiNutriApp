@@ -13,38 +13,43 @@
 
     <VerticalStackLayout>
 
-        <view:SearchTitleView Command="{Binding AddFoodCommand}"
-                              TypeTitle="None"
-                              TextSearch="{Binding SearchBar}"
-                              VisibleBack="True"
-                              SizeChanged="OnSizeChanged"
-                              Height="{Binding SearchTitleHeight}"
-                              TextTitle="Lista de Alimentos" />
+        <view:SearchTitleView
+            Command="{Binding AddFoodCommand}"
+            TypeTitle="None"
+            TextSearch="{Binding SearchBar}"
+            VisibleBack="True"
+            SizeChanged="OnSizeChanged"
+            Height="{Binding SearchTitleHeight}"
+            TextTitle="Lista de Alimentos" />
 
         <VerticalStackLayout>
 
-            <ActivityIndicator HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               IsRunning="{Binding IsBusy}"
-                               IsVisible="{Binding IsBusy}" />
+            <ActivityIndicator
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}" />
 
-            <CollectionView Margin="10,10,10,70"
-                            SelectionMode="None"
-                            HeightRequest="{Binding CollectionViewHeight}"
-                            ItemsSource="{Binding Foods}">
+            <CollectionView
+                Margin="10,10,10,70"
+                SelectionMode="None"
+                HeightRequest="{Binding CollectionViewHeight}"
+                ItemsSource="{Binding Foods}">
 
                 <CollectionView.ItemTemplate>
 
                     <DataTemplate x:DataType="models:FoodModel">
 
-                        <VerticalStackLayout Padding="0,0,0,10"
-                                             Height="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=CellHeight}"
-                                             SizeChanged="OnSizeChanged">
+                        <VerticalStackLayout
+                            Padding="0,0,0,10"
+                            Height="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=CellHeight}"
+                            SizeChanged="OnSizeChanged">
 
-                            <Label FontSize="16"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource DarkBlue}"
-                                   Text="{Binding Nome}" />
+                            <Label
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="{StaticResource DarkBlue}"
+                                Text="{Binding Nome}" />
 
                             <Label LineBreakMode="NoWrap"
                                    FontSize="10"
@@ -52,9 +57,10 @@
                                    Text="{Binding Fonte}" />
 
                             <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1"
-                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=EditFoodCommand}"
-                                                      CommandParameter="{Binding .}" />
+                                <TapGestureRecognizer
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=EditFoodCommand}"
+                                    CommandParameter="{Binding .}" />
 
                             </VerticalStackLayout.GestureRecognizers>
 
