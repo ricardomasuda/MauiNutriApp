@@ -3,7 +3,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:core="http://schemas.syncfusion.com/maui"
              xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              BackgroundColor="{StaticResource PageColor}"
@@ -13,6 +12,7 @@
              xmlns:boneDiameter="clr-namespace:NutriApp.Views.AnthropometricEvaluation.View.BoneDiameter"
              xmlns:resultView="clr-namespace:NutriApp.Views.AnthropometricEvaluation.View.ResultView"
              xmlns:anthropometricEvaluation="clr-namespace:NutriApp.Views.AnthropometricEvaluation"
+             xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
              x:Class="NutriApp.Views.AnthropometricEvaluation.AnthropometricEvaluationPage">
     <ScrollView>
         <VerticalStackLayout>
@@ -27,75 +27,59 @@
                 Margin="20,0,20,20">
 
                 <StackLayout>
-
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
+                    
+                    <inputLayout:InputLayoutView
+                        CornerRadius="8"
                         Hint="Protocolo"
-                        HeightRequest="80"
-                        IsHintAlwaysFloated="True"
                         HasError="{Binding HasErrorAnthropometricEvaluation}"
                         ErrorText="Protocolo não informada"
-                        OutlineCornerRadius="8">
-
+                        BorderColor="{StaticResource DarkBlue}">
                         <Picker
                             ItemsSource="{Binding AnthropometricEvaluationTypeList}"
                             SelectedItem="{Binding AnthropometricEvaluationType}" />
+                        </inputLayout:InputLayoutView>
 
-                    </core:SfTextInputLayout>
-
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
+                    <inputLayout:InputLayoutView
+                        CornerRadius="8"
                         Hint="Idade (Anual)"
-                        HeightRequest="80"
-                        IsHintAlwaysFloated="True"
                         HasError="{Binding HasErrorAge}"
                         ErrorText="Idade não informada"
-                        OutlineCornerRadius="8">
-
+                        BorderColor="{StaticResource DarkBlue}">
                         <Entry
                             BackgroundColor="{StaticResource EntryBackgroundColor}"
                             TextColor="Black"
                             Keyboard="Numeric"
                             Text="{Binding Age}"
                             PlaceholderColor="Black" />
-
-                    </core:SfTextInputLayout>
-
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
+                    </inputLayout:InputLayoutView>
+                    
+                    <inputLayout:InputLayoutView
+                        CornerRadius="8"
                         Hint="Peso (kg)"
-                        HeightRequest="80"
-                        IsHintAlwaysFloated="True"
                         HasError="{Binding HasErrorWeigh}"
                         ErrorText="Idade não informada"
-                        OutlineCornerRadius="8">
-
+                        BorderColor="{StaticResource DarkBlue}">
                         <Entry
                             BackgroundColor="{StaticResource EntryBackgroundColor}"
                             TextColor="Black"
                             Keyboard="Numeric"
                             Text="{Binding Weight}"
                             PlaceholderColor="Black" />
-
-                    </core:SfTextInputLayout>
-
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
+                    </inputLayout:InputLayoutView>
+                    
+                    <inputLayout:InputLayoutView
+                        CornerRadius="8"
                         Hint="Gênero"
-                        HeightRequest="80"
-                        IsHintAlwaysFloated="True"
                         HasError="{Binding HasErrorGender}"
                         ErrorText="Gênero não informado"
-                        OutlineCornerRadius="8">
-
+                        BorderColor="{StaticResource DarkBlue}">
                         <Picker
                             BackgroundColor="{StaticResource EntryBackgroundColor}"
                             TextColor="Black"
                             ItemsSource="{Binding ListGender}"
                             SelectedItem="{Binding GenderType}"
                             ItemDisplayBinding="{Binding Nome}" />
-
-                    </core:SfTextInputLayout>
+                    </inputLayout:InputLayoutView>
 
                     <toolkit:Expander
                         IsVisible="True">
