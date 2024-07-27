@@ -25,25 +25,27 @@
                     Opacity="0.3"
                     TextColor="{StaticResource DarkOrange}"
                     HorizontalOptions="Center"
-                    Text="Adicione uma Refeição" />
+                    Text="Adicione um Plano Alimentar" />
 
                 <Image
+                    Margin="0,4,0,0"
                     Opacity="0.3"
                     WidthRequest="130"
                     HeightRequest="130"
-                    Source="orangeIcon.png" />
-                
+                    Source="orange.png" />
+
                 <Image
                     Opacity="0.3"
-                    WidthRequest="80"
+                    WidthRequest="120"
                     HeightRequest="50"
-                    Source="TitleGuiaNutricionista.png" />
+                    Source="titleguianutricionista.png" />
 
             </StackLayout>
 
             <ListView
                 ItemsSource="{Binding ListMeal}"
                 HasUnevenRows="True"
+                VerticalOptions="FillAndExpand"
                 BackgroundColor="{StaticResource PageColor}"
                 SeparatorVisibility="None">
                 <ListView.ItemTemplate>
@@ -53,7 +55,7 @@
                         <ViewCell>
 
                             <Frame
-                                Margin="20,5"
+                                Margin="20,8"
                                 Padding="2"
                                 CornerRadius="10"
                                 BorderColor="{StaticResource LightBlueInput}"
