@@ -1,79 +1,66 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<toolkit:Popup
+<modalFlyout:FlyoutPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
     xmlns:selectFood="clr-namespace:NutriApp.Views.FoodPlan.SelectFood"
     xmlns:models="clr-namespace:NutriApp.Models"
-    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:modalFlyout="clr-namespace:MauiLib1.Components.ModalFlyout;assembly=BaseMauiLib"
     x:Name="SelectFoodRoot"
+    TextSearch="{Binding SearchBar}"
+    Title="Lista de Alimentos"
+    IsSearch="True"
     x:DataType="selectFood:ChangeFoodPopupViewModel"
     x:Class="NutriApp.Views.FoodPlan.SelectFood.ChangeFoodPopup">
+    
+    <StackLayout 
+        BackgroundColor="{StaticResource PageColor}">
 
-    <Border
-        StrokeShape="RoundRectangle 20"
-        HorizontalOptions="CenterAndExpand"
-        VerticalOptions="CenterAndExpand"
-        StrokeThickness="2"
-        Margin="0,30">
+        <ActivityIndicator
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
+        
+        <CollectionView
+            Margin="10,5"
+            SelectionMode="None"
+            HeightRequest="{Binding CollectionViewHeight}"
+            ItemsSource="{Binding Foods}">
 
-        <VerticalStackLayout>
+            <CollectionView.ItemTemplate>
 
-            <view:SearchTitleView
-                TypeTitle="None"
-                TextSearch="{Binding SearchBar}"
-                VisibleBack="True"
-                SizeChanged="OnSizeChanged"
-                Height="{Binding SearchTitleHeight}"
-                TextTitle="Lista de Alimentos" />
+                <DataTemplate x:DataType="models:FoodModel">
 
-            <ActivityIndicator
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                IsRunning="{Binding IsBusy}"
-                IsVisible="{Binding IsBusy}" />
+                    <VerticalStackLayout
+                        Padding="0,0,0,10"
+                        Height="{Binding Source={RelativeSource AncestorType={x:Type selectFood:ChangeFoodPopupViewModel}}, Path=CellHeight}">
 
-            <CollectionView
-                Margin="10,10,10,70"
-                SelectionMode="None"
-                HeightRequest="{Binding CollectionViewHeight}"
-                ItemsSource="{Binding Foods}">
+                        <Label FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource DarkBlue}"
+                               Text="{Binding Nome}" />
 
-                <CollectionView.ItemTemplate>
+                        <Label LineBreakMode="NoWrap"
+                               FontSize="10"
+                               TextColor="Gray"
+                               Text="{Binding Fonte}" />
 
-                    <DataTemplate x:DataType="models:FoodModel">
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={x:Reference SelectFoodRoot}, Path=BindingContext.SelectFoodCommand}"
+                                CommandParameter="{Binding .}" />
+                        </VerticalStackLayout.GestureRecognizers>
 
-                        <VerticalStackLayout
-                            Padding="0,0,0,10"
-                            Height="{Binding Source={RelativeSource AncestorType={x:Type selectFood:ChangeFoodPopupViewModel}}, Path=CellHeight}"
-                            SizeChanged="OnSizeChanged">
+                    </VerticalStackLayout>
 
-                            <Label FontSize="16"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource DarkBlue}"
-                                   Text="{Binding Nome}" />
+                </DataTemplate>
 
-                            <Label LineBreakMode="NoWrap"
-                                   FontSize="10"
-                                   TextColor="Gray"
-                                   Text="{Binding Fonte}" />
+            </CollectionView.ItemTemplate>
 
-                            <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer
-                                    Command="{Binding Source={x:Reference SelectFoodRoot}, Path=BindingContext.SelectFoodCommand}"
-                                    CommandParameter="{Binding .}" />
-                            </VerticalStackLayout.GestureRecognizers>
+        </CollectionView>
 
-                        </VerticalStackLayout>
+    </StackLayout>
 
-                    </DataTemplate>
-
-                </CollectionView.ItemTemplate>
-
-            </CollectionView>
-
-        </VerticalStackLayout>
-    </Border>
-</toolkit:Popup>
+</modalFlyout:FlyoutPage>
