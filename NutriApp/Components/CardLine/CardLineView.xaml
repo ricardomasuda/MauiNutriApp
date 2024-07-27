@@ -17,7 +17,7 @@
             WidthRequest="180"
             Padding="0"
             HeightRequest="30"
-            Margin="-40,0,0,0"
+            Margin="-20,0,0,0"
             BackgroundColor="{StaticResource DarkOrange}">
             <Frame.CornerRadius>
                 <OnPlatform x:TypeArguments="system:Single">
@@ -28,13 +28,18 @@
             <Label
                 TextColor="White"
                 Margin="40,0,0,0"
-                VerticalTextAlignment="Center"
-                FontAttributes="Bold"
-                Text="{Binding BodyText ,Source={x:Reference CardLineViewRoot}}" />
+                VerticalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding BodyText ,Source={x:Reference CardLineViewRoot}}"
+                              FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </Frame>
         <Frame
             Grid.Column="0"
-            WidthRequest="150"
+            WidthRequest="100"
             HasShadow="False"
             CornerRadius="30"
             Padding="5"
