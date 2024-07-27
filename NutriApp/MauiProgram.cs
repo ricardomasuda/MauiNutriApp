@@ -27,6 +27,7 @@ public static class MauiProgram
             {
 #if IOS
                 handlers.AddHandler(typeof(BorderlessEntry), typeof(BorderlessEntryHandler));
+                handlers.AddHandler(typeof(CustomSearchBar), typeof(CustomSearchBarHandler));
 #endif
             });
             

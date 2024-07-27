@@ -5,6 +5,7 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:icon="clr-namespace:MauiLib1.Components.Title"
              BackgroundColor="#E77717"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              x:Name="SearchTitleViewRoot"
              x:Class="MauiLib1.Components.Title.View.SearchTitleView">
      <StackLayout
@@ -62,21 +63,23 @@
             <Frame
                 Padding="0"
                 VerticalOptions="Center"
-                CornerRadius="30"
+                HeightRequest="40"
                 HasShadow="False"
+                BackgroundColor="#e0e0e3"
                 BorderColor="Transparent"
                 Grid.Column="1">
                 
                 <Frame.CornerRadius>
                     <OnPlatform x:TypeArguments="system:Single">
-                        <On Platform="iOS">20</On>
+                        <On Platform="iOS">10</On>
                         <On Platform="Android">30</On>
                     </OnPlatform>
                 </Frame.CornerRadius>
                 
                 <SearchBar
                     Text="{Binding TextSearch ,Source={x:Reference SearchTitleViewRoot}, Mode=TwoWay}"
-                    Margin="-5,0"
+                    Margin="-8,-4"
+                    ios:SearchBar.SearchBarStyle="Minimal"
                     HeightRequest="40"
                     FontSize="15"
                     Placeholder="Buscar Alimento"

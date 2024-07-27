@@ -1,3 +1,4 @@
+using MauiLib1.Components.Title.View;
 using NutriApp.Components.Titles.View;
 
 namespace NutriApp.Views.Food.List;

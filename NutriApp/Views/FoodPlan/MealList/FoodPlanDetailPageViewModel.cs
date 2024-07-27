@@ -20,7 +20,8 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
 
     private async Task Fetch()
     {
-        var listMeal = await new MealDB().ListarMealWhere(FoodPlanModel.Id);
+        ObservableCollection<MealModel> listMeal = new ();
+        if(FoodPlanModel is not null) listMeal = await new MealDB().ListarMealWhere(FoodPlanModel.Id);
         foreach (var mealModel in listMeal)
         {
             var foodModel = await MealService.GetFoodModelForMeal(mealModel);

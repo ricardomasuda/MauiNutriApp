@@ -12,12 +12,12 @@
             <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
         <Frame
+            x:Name="FrameView"
             Grid.Column="1"
             HasShadow="False"
             WidthRequest="180"
             Padding="0"
             HeightRequest="30"
-            Margin="-20,0,0,0"
             BackgroundColor="{StaticResource DarkOrange}">
             <Frame.CornerRadius>
                 <OnPlatform x:TypeArguments="system:Single">

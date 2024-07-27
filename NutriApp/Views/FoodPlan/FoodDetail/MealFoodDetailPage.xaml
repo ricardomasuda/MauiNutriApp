@@ -11,14 +11,13 @@
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
     xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
-    BackgroundColor="{StaticResource PageColor}"
     x:Name="FoodDetailRoot"
     Shell.NavBarIsVisible="False"
     ios:Page.UseSafeArea="False"
     x:DataType="foodDetail:MealFoodDetailViewModel"
     x:Class="NutriApp.Views.FoodPlan.FoodDetail.MealFoodDetailPage">
 
-    <StackLayout>
+    <StackLayout BackgroundColor="{StaticResource PageColor}">
         <view:NewTitleView
             TypeTitle="{Binding TitleType}"
             Command="{Binding DeleteMealCommand}"

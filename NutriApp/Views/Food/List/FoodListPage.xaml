@@ -1,26 +1,35 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:list="clr-namespace:NutriApp.Views.Food.List"
-             xmlns:models="clr-namespace:NutriApp.Models"
-             BackgroundColor="{StaticResource PageColor}"
-             Shell.NavBarIsVisible="False"
-             x:DataType="list:FoodListViewModel"
-             x:Class="NutriApp.Views.Food.List.FoodListPage">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:list="clr-namespace:NutriApp.Views.Food.List"
+    xmlns:models="clr-namespace:NutriApp.Models"
+    xmlns:view1="clr-namespace:MauiLib1.Components.Title.View;assembly=BaseMauiLib"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Name="FoodListPageRoot"
+    BackgroundColor="{StaticResource PageColor}"
+    Shell.NavBarIsVisible="False"
+    x:DataType="list:FoodListViewModel"
+    x:Class="NutriApp.Views.Food.List.FoodListPage">
 
     <VerticalStackLayout>
 
-        <view:SearchTitleView
+        <view1:SearchTitleView
             Command="{Binding AddFoodCommand}"
             TypeTitle="None"
             TextSearch="{Binding SearchBar}"
             VisibleBack="True"
             SizeChanged="OnSizeChanged"
             Height="{Binding SearchTitleHeight}"
-            TextTitle="Lista de Alimentos" />
+            TextTitle="Lista de Alimentos">
+            <view1:SearchTitleView.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="PropertyChanged"
+                    Command="{Binding Source={x:Reference FoodListPageRoot}, Path=BindingContext.SearchBarActionCommand}" />
+            </view1:SearchTitleView.Behaviors>
+        </view1:SearchTitleView>
 
         <VerticalStackLayout>
 

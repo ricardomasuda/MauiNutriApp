@@ -23,5 +23,19 @@ public partial class CardLineView : ContentView
     public CardLineView()
     {
         InitializeComponent();
+        Build();
+    }
+
+    private void Build()
+    {
+        if (DeviceInfo.Platform == DevicePlatform.iOS)
+        {
+            FrameView.Margin = new Thickness(-80,0,0,0);
+        }
+        else
+        {
+            FrameView.Margin = new Thickness(-100,0,0,0);
+        }
+        //FrameView.Margin
     }
 }

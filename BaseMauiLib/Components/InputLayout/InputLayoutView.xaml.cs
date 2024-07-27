@@ -52,10 +52,23 @@ public partial class InputLayoutView : ContentView
             true,
             propertyChanged: OnIsEnabledChanged);
     
+    public static readonly BindableProperty HeightRequestProperty =
+        BindableProperty.Create(
+            nameof(HeightRequest),
+            typeof(int),
+            typeof(InputLayoutView),
+            50);
+    
     public int CornerRadius
     {
         get => (int)GetValue(CornerRadiusProperty);
         set => SetValue(CornerRadiusProperty, value);
+    }
+    
+    public int HeightRequest
+    {
+        get => (int)GetValue(HeightRequestProperty);
+        set => SetValue(HeightRequestProperty, value);
     }
     
     public Brush BorderColor

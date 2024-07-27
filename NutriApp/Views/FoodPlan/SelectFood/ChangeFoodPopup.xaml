@@ -11,6 +11,7 @@
     TextSearch="{Binding SearchBar}"
     Title="Lista de Alimentos"
     IsSearch="True"
+    SearchCommand="{Binding SearchBarActionCommand}"
     x:DataType="selectFood:ChangeFoodPopupViewModel"
     x:Class="NutriApp.Views.FoodPlan.SelectFood.ChangeFoodPopup">
     

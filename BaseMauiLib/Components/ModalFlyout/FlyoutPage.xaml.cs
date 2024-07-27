@@ -15,6 +15,13 @@ public partial class FlyoutPage : ContentPage
             returnType: typeof(ICommand),
             declaringType: typeof(FlyoutPage),
             defaultValue: null);
+    
+    public static readonly BindableProperty SearchCommandProperty =
+        BindableProperty.Create(
+            propertyName: nameof(SearchCommand),
+            returnType: typeof(ICommand),
+            declaringType: typeof(FlyoutPage),
+            defaultValue: null);
 
     public new static readonly BindableProperty TitleProperty =
         BindableProperty.Create(
@@ -42,6 +49,12 @@ public partial class FlyoutPage : ContentPage
     {
         get => (ICommand)GetValue(CommandProperty);
         set => SetValue(CommandProperty, value);
+    }
+    
+    public ICommand SearchCommand
+    {
+        get => (ICommand)GetValue(SearchCommandProperty);
+        set => SetValue(SearchCommandProperty, value);
     }
 
     public new string Title
@@ -86,10 +99,13 @@ public partial class FlyoutPage : ContentPage
         }
     }
     
-    protected override void OnDisappearing()
+    private void SearchChangeCommand(object sender, EventArgs e)
     {
-        base.OnDisappearing();
-       
+        if (SearchCommand == null) return;
+        if (SearchCommand.CanExecute(null))
+        {
+            SearchCommand.Execute(null);
+        }
     }
 
     private void OnCloseModal(object? sender, TappedEventArgs e)

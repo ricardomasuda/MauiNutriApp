@@ -27,4 +27,39 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <MauiXaml Update="Components\View\NewTitleView.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Components\View\SearchTitleView.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Components\Title\View\SearchTitleView.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Components\View\NewTitleView.xaml.cs">
+        <DependentUpon>NewTitleView.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Components\View\SearchTitleView.xaml.cs">
+        <DependentUpon>SearchTitleView.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Components\View\NewTitleView.xaml.cs">
+        <DependentUpon>NewTitleView.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Components\View\SearchTitleView.xaml.cs">
+        <DependentUpon>SearchTitleView.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Components\Title\View\SearchTitleView.xaml.cs">
+        <DependentUpon>SearchTitleView.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

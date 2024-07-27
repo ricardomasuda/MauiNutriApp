@@ -22,6 +22,7 @@
                 <Border
                     Grid.Row="1"
                     x:Name="BorderContainer"
+                    HeightRequest="{Binding HeightRequest, Source={x:Reference ImputLayoutViewRoot}}"
                     BackgroundColor="{StaticResource EntryBackgroundColor}"
                     Stroke="{Binding BorderColor, Source={x:Reference ImputLayoutViewRoot}}"
                     Padding="3"

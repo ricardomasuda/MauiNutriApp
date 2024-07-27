@@ -119,7 +119,8 @@ public partial class MealFoodDetailViewModel : BaseViewModel
     private async Task AddOrEditFood(object obj)
     {
         FoodModel food = (FoodModel)obj;
-        await App.NavPage.ShowPopup(new SelectFoodPopup(this, food));
+        
+        await App.NavPage.GoToModalAsync(new SelectFoodPopup(this, food));
     }
 
     [RelayCommand]

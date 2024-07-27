@@ -66,6 +66,7 @@ public partial class FoodDetailPageViewModel : BaseViewModel, IQueryAttributable
         await App.NavPage.GoToAsync(nameof(ReportPage), navigationParameter);
         //await App.NavPage.PushAsync(new ReportPage(listFood));
     }
+    
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         try

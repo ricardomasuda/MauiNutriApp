@@ -48,14 +48,6 @@ public partial class ReportViewModel : BaseViewModel, IQueryAttributable
         DynamicList();
         HasFood();
     }
-    
-    public void ApplyQueryAttributes(IDictionary<string, object> query)
-    {
-        ListFood = query["listFood"] as List<FoodModel>;
-        FoodPlanId = query["foodPlanId"] is int ? (int)query["foodPlanId"] : 0;
-        Title = query[nameof(Title)] as string;
-        Fill();
-    }
 
     private void HasFood()
     {
@@ -100,6 +92,14 @@ public partial class ReportViewModel : BaseViewModel, IQueryAttributable
     private void DynamicList()
     {
         Height = ListFood.Count * 40;
+    }
+    
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        ListFood = query["listFood"] as List<FoodModel>;
+        FoodPlanId = query["foodPlanId"] is int ? (int)query["foodPlanId"] : 0;
+        Title = query[nameof(Title)] as string;
+        Fill();
     }
     
 }

@@ -38,6 +38,7 @@
                             Command="{Binding Command, Source={x:Reference ModalFlyoutPageRoot}}"
                             TextSearch="{Binding TextSearch, Source={x:Reference ModalFlyoutPageRoot}}"
                             VisibleBack="True"
+                            PropertyChanged="SearchChangeCommand"
                             TextTitle="{Binding Title, Source={x:Reference ModalFlyoutPageRoot}}" />
                     
                         <ContentPresenter />
