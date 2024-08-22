@@ -4,172 +4,182 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:anthropometricEvaluation="clr-namespace:NutriApp.Views.AnthropometricEvaluation"
              xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:DataType="anthropometricEvaluation:AnthropometricEvaluationViewModel"
              x:Class="NutriApp.Views.AnthropometricEvaluation.View.BodyComposition.BodyCompositionView">
-    <StackLayout>
 
-        <Grid Margin="0,10,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+    <Grid
+        ColumnSpacing="4"
+        Margin="0,10,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <inputLayout:InputLayoutView
-                CornerRadius="8"
-                Hint="Abdominal (mm)"
-                HasError="{Binding BodyCompositionViewModel.HasErrorAbdominal}"
-                ErrorText="Abdominal não informada"
-                IsEnabled="{Binding BodyCompositionViewModel.DisplayAbdominal}"
-                BorderColor="{StaticResource DarkBlue}">
-                <Entry
-                    Text="{Binding BodyCompositionViewModel.Abdominal, Mode=TwoWay}"
-                    BackgroundColor="{StaticResource EntryBackgroundColor}"
-                    TextColor="Black"
-                    Keyboard="Numeric"
-                    PlaceholderColor="Black" />
-            </inputLayout:InputLayoutView>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-            <inputLayout:InputLayoutView
-                Grid.Column="1"
-                Grid.Row="0"
-                CornerRadius="8"
-                Hint="Biceps (mm)"
-                HasError="{Binding BodyCompositionViewModel.HasErrorBiceps}"
-                ErrorText="Abdominal não informada"
-                IsEnabled="{Binding BodyCompositionViewModel.DisplayBiceps}"
-                BorderColor="{StaticResource DarkBlue}">
-                <Entry
-                    Text="{Binding BodyCompositionViewModel.Biceps, Mode=TwoWay}"
-                    BackgroundColor="{StaticResource EntryBackgroundColor}"
-                    TextColor="Black"
-                    Keyboard="Numeric"
-                    PlaceholderColor="Black" />
-            </inputLayout:InputLayoutView>
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
+            Hint="Abdominal (mm)"
+            HasError="{Binding BodyCompositionViewModel.HasErrorAbdominal}"
+            ErrorText="Abdominal não informada"
+            IsEnabled="{Binding BodyCompositionViewModel.DisplayAbdominal, Converter={toolkit:InvertedBoolConverter}}"
+            BorderColor="{StaticResource DarkBlue}">
+            <Entry
+                Text="{Binding BodyCompositionViewModel.Abdominal, Mode=TwoWay}"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                IsReadOnly="{Binding BodyCompositionViewModel.DisplayAbdominal}"
+                Keyboard="Numeric"
+                PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-            <inputLayout:InputLayoutView
-                Grid.Column="0"
-                Grid.Row="1"
-                CornerRadius="8"
-                Hint="Tríceps (mm)"
-                HasError="{Binding BodyCompositionViewModel.HasErrorTriceps}"
-                ErrorText="Tríceps não informada"
-                IsEnabled="{Binding BodyCompositionViewModel.DisplayTriceps}"
-                BorderColor="{StaticResource DarkBlue}">
-                <Entry
-                    Text="{Binding BodyCompositionViewModel.Triceps, Mode=TwoWay}"
-                    BackgroundColor="{StaticResource EntryBackgroundColor}"
-                    TextColor="Black"
-                    Keyboard="Numeric"
-                    PlaceholderColor="Black" />
-            </inputLayout:InputLayoutView>
+        <inputLayout:InputLayoutView
+            Grid.Column="1"
+            Grid.Row="0"
+            CornerRadius="8"
+            Hint="Biceps (mm)"
+            HasError="{Binding BodyCompositionViewModel.HasErrorBiceps}"
+            ErrorText="Abdominal não informada"
+            IsEnabled="{Binding BodyCompositionViewModel.DisplayBiceps}"
+            BorderColor="{StaticResource DarkBlue}">
+            <Entry
+                Text="{Binding BodyCompositionViewModel.Biceps, Mode=TwoWay}"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                IsReadOnly="{Binding BodyCompositionViewModel.DisplayBiceps, Converter={toolkit:InvertedBoolConverter} }"
+                Keyboard="Numeric"
+                PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-            <inputLayout:InputLayoutView
-                Grid.Column="0"
-                Grid.Row="1"
-                CornerRadius="8"
-                Hint="Suprailíaca (mm)"
-                HasError="{Binding BodyCompositionViewModel.HasErrorSuprailiac}"
-                ErrorText="Suprailíaca não informada"
-                IsEnabled="{Binding BodyCompositionViewModel.DisplaySuprailiac}"
-                BorderColor="{StaticResource DarkBlue}">
-                <Entry
-                    Text="{Binding BodyCompositionViewModel.Suprailiac, Mode=TwoWay}"
-                    BackgroundColor="{StaticResource EntryBackgroundColor}"
-                    TextColor="Black"
-                    Keyboard="Numeric"
-                    PlaceholderColor="Black" />
-            </inputLayout:InputLayoutView>
+        <inputLayout:InputLayoutView
+            Grid.Column="1"
+            Grid.Row="1"
+            CornerRadius="8"
+            Hint="Tríceps (mm)"
+            HasError="{Binding BodyCompositionViewModel.HasErrorTriceps}"
+            ErrorText="Tríceps não informada"
+            IsEnabled="{Binding BodyCompositionViewModel.DisplayTriceps, Converter={toolkit:InvertedBoolConverter}}"
+            BorderColor="{StaticResource DarkBlue}">
+            <Entry
+                Text="{Binding BodyCompositionViewModel.Triceps, Mode=TwoWay}"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                IsReadOnly="{Binding BodyCompositionViewModel.DisplayTriceps}"
+                TextColor="Black"
+                Keyboard="Numeric"
+                PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-            <inputLayout:InputLayoutView
-                Grid.Column="0"
-                Grid.Row="2"
-                CornerRadius="8"
-                Hint="Axilar Média (mm)"
-                HasError="{Binding BodyCompositionViewModel.HasErrorMiddleAxillary}"
-                ErrorText="Axilar Média não informada"
-                IsEnabled="{Binding BodyCompositionViewModel.DisplayMiddleAxillary}"
-                BorderColor="{StaticResource DarkBlue}">
-                <Entry
-                    Text="{Binding BodyCompositionViewModel.MiddleAxillary, Mode=TwoWay}"
-                    BackgroundColor="{StaticResource EntryBackgroundColor}"
-                    TextColor="Black"
-                    Keyboard="Numeric"
-                    PlaceholderColor="Black" />
-            </inputLayout:InputLayoutView>
+        <inputLayout:InputLayoutView
+            Grid.Column="0"
+            Grid.Row="1"
+            CornerRadius="8"
+            Hint="Suprailíaca (mm)"
+            HasError="{Binding BodyCompositionViewModel.HasErrorSuprailiac}"
+            ErrorText="Suprailíaca não informada"
+            IsEnabled="{Binding BodyCompositionViewModel.DisplaySuprailiac, Converter={toolkit:InvertedBoolConverter}}"
+            BorderColor="{StaticResource DarkBlue}">
+            <Entry
+                Text="{Binding BodyCompositionViewModel.Suprailiac, Mode=TwoWay}"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                IsReadOnly="{Binding BodyCompositionViewModel.DisplaySuprailiac}"
+                Keyboard="Numeric"
+                PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-            <inputLayout:InputLayoutView
-                Grid.Column="1"
-                Grid.Row="2"
-                CornerRadius="8"
-                Hint="Subescapular (mm)"
-                HasError="{Binding BodyCompositionViewModel.HasErrorSubScapular}"
-                ErrorText="Subescapular não informada"
-                IsEnabled="{Binding BodyCompositionViewModel.DisplaySubScapular}"
-                BorderColor="{StaticResource DarkBlue}">
-                <Entry
-                    Text="{Binding BodyCompositionViewModel.SubScapular, Mode=TwoWay}"
-                    BackgroundColor="{StaticResource EntryBackgroundColor}"
-                    TextColor="Black"
-                    Keyboard="Numeric"
-                    PlaceholderColor="Black" />
-            </inputLayout:InputLayoutView>
+        <inputLayout:InputLayoutView
+            Grid.Column="0"
+            Grid.Row="2"
+            CornerRadius="8"
+            Hint="Axilar Média (mm)"
+            HasError="{Binding BodyCompositionViewModel.HasErrorMiddleAxillary}"
+            ErrorText="Axilar Média não informada"
+            IsEnabled="{Binding BodyCompositionViewModel.DisplayMiddleAxillary, Converter={toolkit:InvertedBoolConverter}}"
+            BorderColor="{StaticResource DarkBlue}">
+            <Entry
+                Text="{Binding BodyCompositionViewModel.MiddleAxillary, Mode=TwoWay}"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                IsReadOnly="{Binding BodyCompositionViewModel.DisplayMiddleAxillary}"
+                Keyboard="Numeric"
+                PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-            <inputLayout:InputLayoutView
-                Grid.Column="0"
-                Grid.Row="3"
-                Hint="Tórax (mm)"
-                HasError="{Binding BodyCompositionViewModel.HasErrorChest}"
-                ErrorText="Tórax não informada"
-                IsEnabled="{Binding BodyCompositionViewModel.DisplayChest}"
-                BorderColor="{StaticResource DarkBlue}">
-                <Entry
-                    Text="{Binding BodyCompositionViewModel.Chest, Mode=TwoWay}"
-                    BackgroundColor="{StaticResource EntryBackgroundColor}"
-                    TextColor="Black"
-                    Keyboard="Numeric"
-                    PlaceholderColor="Black" />
-            </inputLayout:InputLayoutView>
-            
-            <inputLayout:InputLayoutView
-                Grid.Column="1"
-                Grid.Row="3"
-                Hint="Coxa (mm)"
-                HasError="{Binding BodyCompositionViewModel.HasErrorThigh}"
-                ErrorText="Coxa não informada"
-                IsEnabled="{Binding BodyCompositionViewModel.DisplayThigh}"
-                BorderColor="{StaticResource DarkBlue}">
-                <Entry
-                    Text="{Binding BodyCompositionViewModel.Thigh, Mode=TwoWay}"
-                    BackgroundColor="{StaticResource EntryBackgroundColor}"
-                    TextColor="Black"
-                    Keyboard="Numeric"
-                    PlaceholderColor="Black" />
-            </inputLayout:InputLayoutView>
+        <inputLayout:InputLayoutView
+            Grid.Column="1"
+            Grid.Row="2"
+            CornerRadius="8"
+            Hint="Subescapular (mm)"
+            HasError="{Binding BodyCompositionViewModel.HasErrorSubScapular}"
+            ErrorText="Subescapular não informada"
+            IsEnabled="{Binding BodyCompositionViewModel.DisplaySubScapular, Converter={toolkit:InvertedBoolConverter}}"
+            BorderColor="{StaticResource DarkBlue}">
+            <Entry
+                Text="{Binding BodyCompositionViewModel.SubScapular, Mode=TwoWay}"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                IsReadOnly="{Binding BodyCompositionViewModel.DisplaySubScapular}"
+                Keyboard="Numeric"
+                PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-            <inputLayout:InputLayoutView
-                Grid.Column="0"
-                Grid.Row="4"
-                Hint="Panturrilha Medial (mm)"
-                HasError="{Binding BodyCompositionViewModel.HasErrorMedialCalf}"
-                ErrorText="Coxa não informada"
-                IsEnabled="{Binding BodyCompositionViewModel.DisplayMedialCalf}"
-                BorderColor="{StaticResource DarkBlue}">
-                <Entry
-                    Text="{Binding BodyCompositionViewModel.MedialCalf, Mode=TwoWay}"
-                    BackgroundColor="{StaticResource EntryBackgroundColor}"
-                    TextColor="Black"
-                    Keyboard="Numeric"
-                    PlaceholderColor="Black" />
-            </inputLayout:InputLayoutView>
-        </Grid>
+        <inputLayout:InputLayoutView
+            Grid.Column="0"
+            Grid.Row="3"
+            Hint="Tórax (mm)"
+            HasError="{Binding BodyCompositionViewModel.HasErrorChest}"
+            ErrorText="Tórax não informada"
+            IsEnabled="{Binding BodyCompositionViewModel.DisplayChest, Converter={toolkit:InvertedBoolConverter}}"
+            BorderColor="{StaticResource DarkBlue}">
+            <Entry
+                Text="{Binding BodyCompositionViewModel.Chest, Mode=TwoWay}"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                IsReadOnly="{Binding BodyCompositionViewModel.DisplayChest}"
+                Keyboard="Numeric"
+                PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
 
-    </StackLayout>
+        <inputLayout:InputLayoutView
+            Grid.Column="1"
+            Grid.Row="3"
+            Hint="Coxa (mm)"
+            HasError="{Binding BodyCompositionViewModel.HasErrorThigh}"
+            ErrorText="Coxa não informada"
+            IsEnabled="{Binding BodyCompositionViewModel.DisplayThigh, Converter={toolkit:InvertedBoolConverter}}"
+            BorderColor="{StaticResource DarkBlue}">
+            <Entry
+                Text="{Binding BodyCompositionViewModel.Thigh, Mode=TwoWay}"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                IsReadOnly="{Binding BodyCompositionViewModel.DisplayThigh}"
+                Keyboard="Numeric"
+                PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
+
+        <inputLayout:InputLayoutView
+            Grid.Column="0"
+            Grid.Row="4"
+            Hint="Panturrilha Medial (mm)"
+            HasError="{Binding BodyCompositionViewModel.HasErrorMedialCalf}"
+            ErrorText="Coxa não informada"
+            IsEnabled="{Binding BodyCompositionViewModel.DisplayMedialCalf, Converter={toolkit:InvertedBoolConverter}}"
+            BorderColor="{StaticResource DarkBlue}">
+            <Entry
+                Text="{Binding BodyCompositionViewModel.MedialCalf, Mode=TwoWay}"
+                IsReadOnly="{Binding BodyCompositionViewModel.DisplayMedialCalf}"
+                BackgroundColor="{StaticResource EntryBackgroundColor}"
+                TextColor="Black"
+                Keyboard="Numeric"
+                PlaceholderColor="Black" />
+        </inputLayout:InputLayoutView>
+    </Grid>
 </ContentView>

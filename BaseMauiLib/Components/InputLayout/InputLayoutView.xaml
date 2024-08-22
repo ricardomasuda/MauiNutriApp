@@ -26,6 +26,7 @@
                     BackgroundColor="{StaticResource EntryBackgroundColor}"
                     Stroke="{Binding BorderColor, Source={x:Reference ImputLayoutViewRoot}}"
                     Padding="3"
+                    IsEnabled="False"
                     Margin="0,5,0,0">
 
                     <Border.StrokeShape>

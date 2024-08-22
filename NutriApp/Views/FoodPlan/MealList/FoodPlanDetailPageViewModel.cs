@@ -41,14 +41,23 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
     private void GoFoodDetail(object obj)
     {
         MealModel mealModel = (MealModel)obj;
-        App.NavPage.GoToAsync( nameof(MealFoodDetailPage));
+        ShellNavigationQueryParameters navigationParameter = new()
+        {
+            { nameof(MealModel), mealModel },
+            { nameof(FoodPlanDetailPageViewModel),this}
+        };
+        App.NavPage.GoToAsync( nameof(MealFoodDetailPage), navigationParameter);
         //App.NavPage.GoToAsync( FoodDetailPage(this,mealModel));
     }
     
     [RelayCommand]
     private void AddFood()
     {
-        App.NavPage.GoToAsync(nameof(MealFoodDetailPage));
+        ShellNavigationQueryParameters navigationParameter = new()
+        {
+            { nameof(FoodPlanDetailPageViewModel),this}
+        };
+        App.NavPage.GoToAsync(nameof(MealFoodDetailPage),navigationParameter);
         //App.NavPage.PushAsync(new FoodDetailPage(this));
     }
     

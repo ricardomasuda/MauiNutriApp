@@ -138,23 +138,7 @@ public partial class InputLayoutView : ContentView
     
     private void UpdateIsEnabled()
     {
-        var contentPresenter = this.FindByName<ContentPresenter>("ContentPresenter");
-        if (IsEnabled)
-        {
-            BorderColor = new SolidColorBrush(Colors.Gray);
-            if (contentPresenter != null)
-            {
-                contentPresenter.IsEnabled = false;
-            }
-        }
-        else
-        {
-            BorderColor = new SolidColorBrush(Colors.Black);
-            if (contentPresenter != null)
-            {
-                contentPresenter.IsEnabled = true;
-            }
-        }
+        BorderColor = IsEnabled ? new SolidColorBrush(Colors.Blue) : new SolidColorBrush(Colors.Red);
     }
     
     protected override void OnPropertyChanged(string? propertyName = null)

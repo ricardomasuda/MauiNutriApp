@@ -6,7 +6,7 @@ namespace NutriApp.Views.FoodPlan.FoodDetail;
 
 [QueryProperty(nameof(MealModel), nameof(MealModel))]
 [QueryProperty(nameof(FoodPlanDetailPageViewModel), nameof(FoodPlanDetailPageViewModel))]
-public partial class MealFoodDetailViewModel : BaseViewModel
+public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
 {
     [ObservableProperty] private FoodModel _foodTotal;
     [ObservableProperty] private ObservableCollection<FoodModel> _listFood;
@@ -19,6 +19,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel
     [ObservableProperty] private bool _canSeeReport;
     [ObservableProperty] private bool _hasErrorItemMeal;
     [ObservableProperty] private bool _haveList;
+    [ObservableProperty] private double _collectionViewHeight;
 
     private MealModel _meal;
     private FoodPlanDetailPageViewModel _foodPlanDetailPageViewModel;
@@ -27,16 +28,19 @@ public partial class MealFoodDetailViewModel : BaseViewModel
     {
         Fetch();
     }
-    
+
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         _foodPlanDetailPageViewModel = query[nameof(FoodPlanDetailPageViewModel)] as FoodPlanDetailPageViewModel;
-        _meal = query[nameof(MealModel)] as MealModel;
+        _meal = GetQueryValue<MealModel>(query, nameof(MealModel));
+        //_meal = query[nameof(MealModel)] as MealModel;
         Fetch();
     }
 
+
     private async void Fetch()
     {
+        FoodTotal = new FoodModel();
         ListItemMeal = new MealModel().MealType();
         ListFood = new ObservableCollection<FoodModel>();
         if (_meal != null)
@@ -47,6 +51,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel
             ListFood = await DataBaseService.GetFoodWhere(_meal.Id);
             HaveList = ListFood.Count != 0;
             CanSeeReport = HaveList;
+            CalculateHeightList();
         }
         else
         {
@@ -63,8 +68,9 @@ public partial class MealFoodDetailViewModel : BaseViewModel
     {
         ListFood.Add(FoodService.AddUnitMeasureToValues(food));
         TotalValue();
+        CalculateHeightList();
     }
-    
+
     public void UpdateFoodList(FoodModel newFood, FoodModel oldFood)
     {
         if (oldFood.Id != newFood.Id)
@@ -119,7 +125,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel
     private async Task AddOrEditFood(object obj)
     {
         FoodModel food = (FoodModel)obj;
-        
+
         await App.NavPage.GoToModalAsync(new SelectFoodPopup(this, food));
     }
 
@@ -134,7 +140,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel
             Id = _meal?.Id ?? 0,
             ListFood = new List<FoodModel>(ListFood),
             Nome = ItemMeal.Nome,
-            //FoodPLanId = _foodPlanDetailViewModel.FoodPlanModel.Id,
+            FoodPLanId = _foodPlanDetailPageViewModel.FoodPlanModel.Id,
             Horario = Hour.ToString()
         };
 
@@ -149,6 +155,11 @@ public partial class MealFoodDetailViewModel : BaseViewModel
     private async Task EditListFood()
     {
         await App.NavPage.ShowPopup(new SelectListFoodPopup(ListFood, this));
+    }
+
+    private void CalculateHeightList()
+    {
+        CollectionViewHeight = (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density) * 0.4;
     }
 
     private void RemoveFoodTotal()

@@ -16,6 +16,7 @@ public partial class BodyCompositionViewModel : BaseViewModel
     [ObservableProperty] private string _chest;
     [ObservableProperty] private string _thigh;
     [ObservableProperty] private string _medialCalf;
+    
     [ObservableProperty] private bool _displayAbdominal;
     [ObservableProperty] private bool _displayBiceps;
     [ObservableProperty] private bool _displayTriceps;
@@ -25,6 +26,7 @@ public partial class BodyCompositionViewModel : BaseViewModel
     [ObservableProperty] private bool _displayThigh;
     [ObservableProperty] private bool _displayChest;
     [ObservableProperty] private bool _displayMedialCalf;
+    
     [ObservableProperty] private bool _hasErrorBiceps;
     [ObservableProperty] private bool _hasErrorTriceps;
     [ObservableProperty] private bool _hasErrorSubScapular;

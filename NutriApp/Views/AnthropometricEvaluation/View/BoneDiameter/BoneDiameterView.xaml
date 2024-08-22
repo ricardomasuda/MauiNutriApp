@@ -44,7 +44,6 @@
         <inputLayout:InputLayoutView
             CornerRadius="8"
             Hint="Femur (cm)"
-            HeightRequest="80"
             HasError="{Binding BoneDiameterViewModel.HasErrorFemur}"
             ErrorText="Medição do femur não informada"
             BorderColor="{StaticResource DarkBlue}">

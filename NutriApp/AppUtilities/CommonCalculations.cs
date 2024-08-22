@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace NutriApp.AppUtilities;
 
@@ -14,6 +15,8 @@ public static class CommonCalculations
         try
         {
             if (value == "0") return 0;
+            
+            value = RemoveLetters(value);
             var replace = value.Replace(",", ".");
             var result = double.Parse(replace, CultureInfo.InvariantCulture);
             if (decimalPlaces != 0)
@@ -28,6 +31,14 @@ public static class CommonCalculations
             Console.WriteLine(e);
             return 0;
         }
+    }
+
+    private static string RemoveLetters(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+            return input;
+
+        return Regex.Replace(input, @"[a-zA-Z]", string.Empty);
     }
 
     public static string RoundNutrient(string macroNutrient, int decimalVigula)

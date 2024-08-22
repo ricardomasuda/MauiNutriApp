@@ -23,6 +23,16 @@ public partial class BaseViewModel : ObservableObject
         await toast.Show(cancellationTokenSource.Token);
     }
     
+    public T GetQueryValue<T>(IDictionary<string, object> query, string key) where T : class
+    {
+        if (query.TryGetValue(key, out var value))
+        {
+            return value as T;
+        }
+
+        return null;
+    }
+    
     public event PropertyChangedEventHandler PropertyChanged;
     public void OnPropertyChanged(string nameProperty)
     {
