@@ -11,5 +11,5 @@ public class AnthropometricEvaluationModel
     public double Triceps { get; set; }
     public double Thigh { get; set; }
     public double SubScapular { get; set; }
-    public double SupraIliac { get; set; }
+    public double Suprailiac { get; set; }
 }

@@ -1,43 +1,17 @@
+using NutriApp.Converters;
 using NutriApp.Resources.Strings;
 using NutriApp.Services.AnthropometricEvaluation;
-using Microsoft.Maui.Graphics;
-using NutriApp.Views.AnthropometricEvaluation.View.BodyComposition;
 using NutriApp.Views.AnthropometricEvaluation.View.BoneDiameter;
 
 namespace NutriApp.Views.AnthropometricEvaluation;
 
 public partial class AnthropometricEvaluationViewModel : BaseViewModel
 {
-    private string _anthropometricEvaluationType;
-    public string AnthropometricEvaluationType
-    {
-        get => _anthropometricEvaluationType;
-        set
-        {
-            _anthropometricEvaluationType = value;
-            BodyCompositionViewModel.AnthropometricEvaluationTypeString = value;
-            BodyCompositionViewModel.SelectAnthropometricEvaluationType();
-            OnPropertyChanged("AnthropometricEvaluationType");
-        }
-    }
-
-    private Item _genderType;
-
-    public Item GenderType
-    {
-        get => _genderType;
-        set
-        {
-            BodyCompositionViewModel.GenderType = value.Nome;
-            BodyCompositionViewModel.SelectAnthropometricEvaluationType();
-            _genderType = value;
-            OnPropertyChanged("GenderType");
-        }
-    }
-
+    [ObservableProperty] private string _anthropometricEvaluationType;
+    [ObservableProperty] private Item _genderType;
     [ObservableProperty] private List<string> _anthropometricEvaluationTypeList;
     [ObservableProperty] private BoneDiameterViewModel _boneDiameterViewModel;
-    [ObservableProperty] private BodyCompositionViewModel _bodyCompositionViewModel;
+    [ObservableProperty] private AnthropometricEvaluationPageModel _bodyCompositionPageModel;
     [ObservableProperty] private string _age;
     [ObservableProperty] private string _weight;
     [ObservableProperty] private bool _hasErrorGender;
@@ -57,16 +31,18 @@ public partial class AnthropometricEvaluationViewModel : BaseViewModel
     // }
     [ObservableProperty] private System.Drawing.Color _color;
     public ObservableCollection<Item> ListGender { get; set; }
+    private AnthropometricEvaluationPage _anthropometricEvaluationPage;
 
-    public AnthropometricEvaluationViewModel()
+    public AnthropometricEvaluationViewModel(AnthropometricEvaluationPage anthropometricEvaluationPage)
     {
+        _anthropometricEvaluationPage = anthropometricEvaluationPage;
         Fill();
     }
 
     private void Fill()
     {
         BoneDiameterViewModel = new BoneDiameterViewModel();
-        BodyCompositionViewModel = new BodyCompositionViewModel();
+        BodyCompositionPageModel = new AnthropometricEvaluationPageModel();
         Color = System.Drawing.Color.MediumSpringGreen;
         AnthropometricEvaluationTypeList = new List<string>();
         AnthropometricEvaluationTypeList.Add(AnthropometricEvaluationStrings.SevenPleatsJacksonPolloc);
@@ -86,15 +62,16 @@ public partial class AnthropometricEvaluationViewModel : BaseViewModel
     private void Calculate()
     {
         if (!ValidateData()) return;
-        if (!BodyCompositionViewModel.ValidateViewData()) return;
+        if (!_anthropometricEvaluationPage.ValidateViewData()) return;
 
         PatientModel patient = new();
+        var bodyCompositionModel = AnthropometricEvaluationConverter.ConvertModelForPage(BodyCompositionPageModel);
 
         if (AnthropometricEvaluationType == AnthropometricEvaluationStrings.SevenPleatsJacksonPolloc)
         {
             AnthropometricEvaluationResultModel = AnthropometricEvaluationService.Calculate(
                 AnthropometricEvaluationTypeEnum.JacksonAndPollockSevenPleats,
-                BodyCompositionViewModel.AnthropometricEvaluationModel, Convert.ToDouble(Weight), Convert.ToInt32(Age),
+                bodyCompositionModel, Convert.ToDouble(Weight), Convert.ToInt32(Age),
                 GenderUtils.ConverterGender(GenderType.Nome));
         }
 
@@ -102,7 +79,7 @@ public partial class AnthropometricEvaluationViewModel : BaseViewModel
         {
             AnthropometricEvaluationResultModel = AnthropometricEvaluationService.Calculate(
                 AnthropometricEvaluationTypeEnum.JacksonAndPollockThreePleats,
-                BodyCompositionViewModel.AnthropometricEvaluationModel, Convert.ToDouble(Weight), Convert.ToInt32(Age),
+                bodyCompositionModel, Convert.ToDouble(Weight), Convert.ToInt32(Age),
                 GenderUtils.ConverterGender(GenderType.Nome));
         }
 
@@ -110,14 +87,14 @@ public partial class AnthropometricEvaluationViewModel : BaseViewModel
         {
             AnthropometricEvaluationResultModel = AnthropometricEvaluationService.Calculate(
                 AnthropometricEvaluationTypeEnum.DurninAndWomersley,
-                BodyCompositionViewModel.AnthropometricEvaluationModel, Convert.ToDouble(Weight), Convert.ToInt32(Age),
+                bodyCompositionModel, Convert.ToDouble(Weight), Convert.ToInt32(Age),
                 GenderUtils.ConverterGender(GenderType.Nome));
         }
 
         if (AnthropometricEvaluationType == AnthropometricEvaluationStrings.FourPleatsPetroski)
         {
             AnthropometricEvaluationResultModel = AnthropometricEvaluationService.Calculate(
-                AnthropometricEvaluationTypeEnum.Petroski, BodyCompositionViewModel.AnthropometricEvaluationModel,
+                AnthropometricEvaluationTypeEnum.Petroski, bodyCompositionModel,
                 Convert.ToDouble(Weight), Convert.ToInt32(Age),
                 GenderUtils.ConverterGender(GenderType.Nome));
         }
@@ -125,7 +102,7 @@ public partial class AnthropometricEvaluationViewModel : BaseViewModel
         if (AnthropometricEvaluationType == AnthropometricEvaluationStrings.ThreePleatsGuedes)
         {
             AnthropometricEvaluationResultModel = AnthropometricEvaluationService.Calculate(
-                AnthropometricEvaluationTypeEnum.Guedes, BodyCompositionViewModel.AnthropometricEvaluationModel,
+                AnthropometricEvaluationTypeEnum.Guedes, bodyCompositionModel,
                 Convert.ToDouble(Weight), Convert.ToInt32(Age),
                 GenderUtils.ConverterGender(GenderType.Nome));
         }

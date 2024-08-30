@@ -2,14 +2,11 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:anthropometricEvaluation="clr-namespace:NutriApp.Views.AnthropometricEvaluation"
              xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:DataType="anthropometricEvaluation:AnthropometricEvaluationViewModel"
+             x:Name="View"
              x:Class="NutriApp.Views.AnthropometricEvaluation.View.BodyComposition.BodyCompositionView">
-
-
-    <Grid
+        <Grid
         ColumnSpacing="4"
         Margin="0,10,0,0">
         <Grid.RowDefinitions>
@@ -26,156 +23,147 @@
         </Grid.ColumnDefinitions>
 
         <inputLayout:InputLayoutView
+            x:Name="LayoutAbdominalView"
             CornerRadius="8"
             Hint="Abdominal (mm)"
-            HasError="{Binding BodyCompositionViewModel.HasErrorAbdominal}"
             ErrorText="Abdominal não informada"
-            IsEnabled="{Binding BodyCompositionViewModel.DisplayAbdominal, Converter={toolkit:InvertedBoolConverter}}"
-            BorderColor="{StaticResource DarkBlue}">
+            BorderColor="{StaticResource Gray250}">
             <Entry
-                Text="{Binding BodyCompositionViewModel.Abdominal, Mode=TwoWay}"
+                Text="{Binding AnthropometricEvaluationModel.Abdominal, Source={x:Reference View}, Mode=TwoWay}"
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
-                IsReadOnly="{Binding BodyCompositionViewModel.DisplayAbdominal}"
+                IsReadOnly="{Binding IsEnabled, Source={x:Reference LayoutAbdominalView}, Converter={toolkit:InvertedBoolConverter}}"
                 Keyboard="Numeric"
                 PlaceholderColor="Black" />
         </inputLayout:InputLayoutView>
 
         <inputLayout:InputLayoutView
+            x:Name="LayoutBicepsView"
             Grid.Column="1"
             Grid.Row="0"
             CornerRadius="8"
             Hint="Biceps (mm)"
-            HasError="{Binding BodyCompositionViewModel.HasErrorBiceps}"
-            ErrorText="Abdominal não informada"
-            IsEnabled="{Binding BodyCompositionViewModel.DisplayBiceps}"
-            BorderColor="{StaticResource DarkBlue}">
+            ErrorText="Biceps não informada"
+            BorderColor="{StaticResource Gray250}">
             <Entry
-                Text="{Binding BodyCompositionViewModel.Biceps, Mode=TwoWay}"
+                Text="{Binding AnthropometricEvaluationModel.Biceps, Source={x:Reference View}, Mode=TwoWay}"
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
-                IsReadOnly="{Binding BodyCompositionViewModel.DisplayBiceps, Converter={toolkit:InvertedBoolConverter} }"
+                IsReadOnly="{Binding IsEnabled, Source={x:Reference LayoutBicepsView}, Converter={toolkit:InvertedBoolConverter}}"
                 Keyboard="Numeric"
                 PlaceholderColor="Black" />
         </inputLayout:InputLayoutView>
 
         <inputLayout:InputLayoutView
+            x:Name="LayoutTricepsView"
             Grid.Column="1"
             Grid.Row="1"
             CornerRadius="8"
             Hint="Tríceps (mm)"
-            HasError="{Binding BodyCompositionViewModel.HasErrorTriceps}"
             ErrorText="Tríceps não informada"
-            IsEnabled="{Binding BodyCompositionViewModel.DisplayTriceps, Converter={toolkit:InvertedBoolConverter}}"
-            BorderColor="{StaticResource DarkBlue}">
+            BorderColor="{StaticResource Gray250}">
             <Entry
-                Text="{Binding BodyCompositionViewModel.Triceps, Mode=TwoWay}"
+                Text="{Binding AnthropometricEvaluationModel.Triceps, Source={x:Reference View}, Mode=TwoWay}"
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
-                IsReadOnly="{Binding BodyCompositionViewModel.DisplayTriceps}"
+                IsReadOnly="{Binding IsEnabled, Source={x:Reference LayoutTricepsView}, Converter={toolkit:InvertedBoolConverter}}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 PlaceholderColor="Black" />
         </inputLayout:InputLayoutView>
 
         <inputLayout:InputLayoutView
+            x:Name="LayoutSuprailiacView"
             Grid.Column="0"
             Grid.Row="1"
             CornerRadius="8"
             Hint="Suprailíaca (mm)"
-            HasError="{Binding BodyCompositionViewModel.HasErrorSuprailiac}"
             ErrorText="Suprailíaca não informada"
-            IsEnabled="{Binding BodyCompositionViewModel.DisplaySuprailiac, Converter={toolkit:InvertedBoolConverter}}"
-            BorderColor="{StaticResource DarkBlue}">
+            BorderColor="{StaticResource Gray250}">
             <Entry
-                Text="{Binding BodyCompositionViewModel.Suprailiac, Mode=TwoWay}"
+                Text="{Binding AnthropometricEvaluationModel.Suprailiac, Source={x:Reference View}, Mode=TwoWay}"
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
-                IsReadOnly="{Binding BodyCompositionViewModel.DisplaySuprailiac}"
+                IsReadOnly="{Binding IsEnabled, Source={x:Reference LayoutSuprailiacView}, Converter={toolkit:InvertedBoolConverter}}"
                 Keyboard="Numeric"
                 PlaceholderColor="Black" />
         </inputLayout:InputLayoutView>
 
         <inputLayout:InputLayoutView
+            x:Name="LayoutMiddleAxillarycView"
             Grid.Column="0"
             Grid.Row="2"
             CornerRadius="8"
             Hint="Axilar Média (mm)"
-            HasError="{Binding BodyCompositionViewModel.HasErrorMiddleAxillary}"
             ErrorText="Axilar Média não informada"
-            IsEnabled="{Binding BodyCompositionViewModel.DisplayMiddleAxillary, Converter={toolkit:InvertedBoolConverter}}"
-            BorderColor="{StaticResource DarkBlue}">
+            BorderColor="{StaticResource Gray250}">
             <Entry
-                Text="{Binding BodyCompositionViewModel.MiddleAxillary, Mode=TwoWay}"
+                Text="{Binding AnthropometricEvaluationModel.MiddleAxillary, Source={x:Reference View}, Mode=TwoWay}"
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
-                IsReadOnly="{Binding BodyCompositionViewModel.DisplayMiddleAxillary}"
+                IsReadOnly="{Binding IsEnabled, Source={x:Reference LayoutMiddleAxillarycView}, Converter={toolkit:InvertedBoolConverter}}"
                 Keyboard="Numeric"
                 PlaceholderColor="Black" />
         </inputLayout:InputLayoutView>
 
         <inputLayout:InputLayoutView
+            x:Name="LayoutSubScapularView"
             Grid.Column="1"
             Grid.Row="2"
             CornerRadius="8"
             Hint="Subescapular (mm)"
-            HasError="{Binding BodyCompositionViewModel.HasErrorSubScapular}"
             ErrorText="Subescapular não informada"
-            IsEnabled="{Binding BodyCompositionViewModel.DisplaySubScapular, Converter={toolkit:InvertedBoolConverter}}"
-            BorderColor="{StaticResource DarkBlue}">
+            BorderColor="{StaticResource Gray250}">
             <Entry
-                Text="{Binding BodyCompositionViewModel.SubScapular, Mode=TwoWay}"
+                Text="{Binding AnthropometricEvaluationModel.SubScapular, Source={x:Reference View}, Mode=TwoWay}"
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
-                IsReadOnly="{Binding BodyCompositionViewModel.DisplaySubScapular}"
+                IsReadOnly="{Binding IsEnabled, Source={x:Reference LayoutSubScapularView}, Converter={toolkit:InvertedBoolConverter}}"
                 Keyboard="Numeric"
                 PlaceholderColor="Black" />
         </inputLayout:InputLayoutView>
 
         <inputLayout:InputLayoutView
+            x:Name="LayoutChestView"
             Grid.Column="0"
             Grid.Row="3"
             Hint="Tórax (mm)"
-            HasError="{Binding BodyCompositionViewModel.HasErrorChest}"
             ErrorText="Tórax não informada"
-            IsEnabled="{Binding BodyCompositionViewModel.DisplayChest, Converter={toolkit:InvertedBoolConverter}}"
-            BorderColor="{StaticResource DarkBlue}">
+            BorderColor="{StaticResource Gray250}">
             <Entry
-                Text="{Binding BodyCompositionViewModel.Chest, Mode=TwoWay}"
+                Text="{Binding AnthropometricEvaluationModel.Chest, Source={x:Reference View}, Mode=TwoWay}"
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
-                IsReadOnly="{Binding BodyCompositionViewModel.DisplayChest}"
+                IsReadOnly="{Binding IsEnabled, Source={x:Reference LayoutChestView}, Converter={toolkit:InvertedBoolConverter}}"
                 Keyboard="Numeric"
                 PlaceholderColor="Black" />
         </inputLayout:InputLayoutView>
 
         <inputLayout:InputLayoutView
+            x:Name="LayoutThighView"
             Grid.Column="1"
             Grid.Row="3"
             Hint="Coxa (mm)"
-            HasError="{Binding BodyCompositionViewModel.HasErrorThigh}"
             ErrorText="Coxa não informada"
-            IsEnabled="{Binding BodyCompositionViewModel.DisplayThigh, Converter={toolkit:InvertedBoolConverter}}"
-            BorderColor="{StaticResource DarkBlue}">
+            BorderColor="{StaticResource Gray250}">
             <Entry
-                Text="{Binding BodyCompositionViewModel.Thigh, Mode=TwoWay}"
+                Text="{Binding AnthropometricEvaluationModel.Thigh, Source={x:Reference View}, Mode=TwoWay}"
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
-                IsReadOnly="{Binding BodyCompositionViewModel.DisplayThigh}"
+                IsReadOnly="{Binding IsEnabled, Source={x:Reference LayoutThighView}, Converter={toolkit:InvertedBoolConverter}}"
                 Keyboard="Numeric"
                 PlaceholderColor="Black" />
         </inputLayout:InputLayoutView>
 
         <inputLayout:InputLayoutView
+            x:Name="LayoutMedialCalfView"
             Grid.Column="0"
             Grid.Row="4"
             Hint="Panturrilha Medial (mm)"
-            HasError="{Binding BodyCompositionViewModel.HasErrorMedialCalf}"
-            ErrorText="Coxa não informada"
-            IsEnabled="{Binding BodyCompositionViewModel.DisplayMedialCalf, Converter={toolkit:InvertedBoolConverter}}"
-            BorderColor="{StaticResource DarkBlue}">
+            ErrorText="Panturrilha não informada"
+            BorderColor="{StaticResource Gray250}">
             <Entry
-                Text="{Binding BodyCompositionViewModel.MedialCalf, Mode=TwoWay}"
-                IsReadOnly="{Binding BodyCompositionViewModel.DisplayMedialCalf}"
+                Text="{Binding AnthropometricEvaluationModel.MedialCalf, Source={x:Reference View}, Mode=TwoWay}"
+                IsReadOnly="{Binding IsEnabled, Source={x:Reference LayoutMedialCalfView}, Converter={toolkit:InvertedBoolConverter}}"
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"

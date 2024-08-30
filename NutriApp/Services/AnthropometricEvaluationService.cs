@@ -76,7 +76,7 @@ public class AnthropometricEvaluationService
         {
             return anthropometricEvaluationModel.Triceps +
                    anthropometricEvaluationModel.SubScapular +
-                   anthropometricEvaluationModel.SupraIliac +
+                   anthropometricEvaluationModel.Suprailiac +
                    anthropometricEvaluationModel.Abdominal +
                    anthropometricEvaluationModel.Biceps +
                    anthropometricEvaluationModel.Thigh +

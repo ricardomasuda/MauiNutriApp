@@ -22,8 +22,8 @@ public partial class BaseViewModel : ObservableObject
 
         await toast.Show(cancellationTokenSource.Token);
     }
-    
-    public T GetQueryValue<T>(IDictionary<string, object> query, string key) where T : class
+
+    protected T GetQueryValue<T>(IDictionary<string, object> query, string key) where T : class
     {
         if (query.TryGetValue(key, out var value))
         {

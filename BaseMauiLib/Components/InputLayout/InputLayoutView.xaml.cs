@@ -44,7 +44,7 @@ public partial class InputLayoutView : ContentView
             typeof(InputLayoutView),
             string.Empty);
     
-    public static readonly BindableProperty IsEnabledProperty =
+    public new static readonly BindableProperty IsEnabledProperty =
         BindableProperty.Create(
             nameof(IsEnabled),
             typeof(bool),
@@ -104,7 +104,11 @@ public partial class InputLayoutView : ContentView
     public new bool IsEnabled
     {
         get => (bool)GetValue(IsEnabledProperty);
-        set => SetValue(IsEnabledProperty, value);
+        set
+        {
+            SetValue(IsEnabledProperty, value);
+            UpdateIsEnabled();
+        }
     }
     
     public InputLayoutView()
@@ -138,7 +142,7 @@ public partial class InputLayoutView : ContentView
     
     private void UpdateIsEnabled()
     {
-        BorderColor = IsEnabled ? new SolidColorBrush(Colors.Blue) : new SolidColorBrush(Colors.Red);
+        BorderColor = IsEnabled ? new SolidColorBrush(Color.Parse("#2f3545")) : new SolidColorBrush(Color.Parse("#c5c5c5"));
     }
     
     protected override void OnPropertyChanged(string? propertyName = null)
