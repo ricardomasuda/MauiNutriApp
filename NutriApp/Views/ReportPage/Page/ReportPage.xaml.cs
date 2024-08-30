@@ -1,6 +1,8 @@
+using NutriApp.Components.ContentPageCustomer;
+
 namespace NutriApp.Views.ReportPage.Page;
 
-public partial class ReportPage : ContentPage
+public partial class ReportPage : BaseContentPage
 {
     public ReportPage()
     {

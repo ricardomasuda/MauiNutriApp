@@ -4,19 +4,12 @@
 <contentPageCustomer:BaseContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
     xmlns:frame="clr-namespace:NutriApp.Components.Titles.Frame"
     xmlns:components="clr-namespace:NutriApp.Components"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     Title="Sobre o Aplicativo"
     BackgroundColor="{StaticResource PageColor}"
     x:Class="NutriApp.Views.About.AboutPage">
-
-    <StackLayout>
-
-        <view:NewTitleView
-            TypeTitle="None"
-            TextTitle="Sobre" />
 
         <ScrollView>
 
@@ -140,5 +133,4 @@
 
         </ScrollView>
 
-    </StackLayout>
 </contentPageCustomer:BaseContentPage>

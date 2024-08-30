@@ -31,6 +31,24 @@ public class NavigationService : INavigationService
         }
     }
     
+    public async Task GoToModalAsync(Page page)
+    {
+        try
+        {
+            await Shell.Current.CurrentPage.Navigation.PushModalAsync(page, false);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+    public async Task GoBackModal()
+    {
+        await Shell.Current.CurrentPage.Navigation.PopModalAsync(false);
+    }
+
+    
     public async Task ShowPopup(Popup popup)
     {
         // if (_isPopupDisplayed) return; 

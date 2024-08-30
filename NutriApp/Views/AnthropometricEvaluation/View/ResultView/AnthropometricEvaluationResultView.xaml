@@ -3,6 +3,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Name="AnthropometricEvaluationResult"
              x:Class="NutriApp.Views.AnthropometricEvaluation.View.ResultView.AnthropometricEvaluationResultView">
     <StackLayout>
@@ -40,18 +41,18 @@
 
         <resultLine:ResultLineView
             TextTitle="Peso Muscular"
-            IsVisible="{Binding BoneDiameterModel, Converter={StaticResource IsNotNullConverter}, Source={x:Reference AnthropometricEvaluationResult}}"
+            IsVisible="{Binding BoneDiameterModel, Converter={toolkit:IsNotNullConverter}, Source={x:Reference AnthropometricEvaluationResult}}"
             BodyText="{Binding BoneDiameterModel.MuscleWeight, Source={x:Reference AnthropometricEvaluationResult}}"
             UnityMeasureType="KILOS" />
 
         <resultLine:ResultLineView
             TextTitle="Peso Ósseo"
-            IsVisible="{Binding BoneDiameterModel, Converter={StaticResource IsNotNullConverter}, Source={x:Reference AnthropometricEvaluationResult}}"
+            IsVisible="{Binding BoneDiameterModel, Converter={toolkit:IsNotNullConverter}, Source={x:Reference AnthropometricEvaluationResult}}"
             BodyText="{Binding BoneDiameterModel.BoneWeight, Source={x:Reference AnthropometricEvaluationResult}}"
             UnityMeasureType="KILOS" />
 
         <resultLine:ResultLineView
-            IsVisible="{Binding BoneDiameterModel, Converter={StaticResource IsNotNullConverter}, Source={x:Reference AnthropometricEvaluationResult}}"
+            IsVisible="{Binding BoneDiameterModel, Converter={toolkit:IsNotNullConverter}, Source={x:Reference AnthropometricEvaluationResult}}"
             TextTitle="Peso Residual"
             BodyText="{Binding BoneDiameterModel.ResidualWeight, Source={x:Reference AnthropometricEvaluationResult}}"
             UnityMeasureType="KILOS" />

@@ -1,76 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:table="clr-namespace:NutriApp.Components.Table"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:models="clr-namespace:NutriApp.Models"
-             xmlns:page="clr-namespace:NutriApp.Views.ReportPage.Page"
-             x:DataType="page:ReportViewModel"
-             x:Class="NutriApp.Views.ReportPage.Page.ReportPage">
-    <StackLayout>
-        
-        <view:NewTitleView
-            TypeTitle="Share"
-            Command="{Binding ShareReportImageCommand}"
-            TextTitle="{Binding Title}" />
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:table="clr-namespace:NutriApp.Components.Table"
+    xmlns:models="clr-namespace:NutriApp.Models"
+    xmlns:page="clr-namespace:NutriApp.Views.ReportPage.Page"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    TypeTitle="Share"
+    Command="{Binding ShareReportImageCommand}"
+    TextTitle="{Binding Title}"
+    x:DataType="page:ReportViewModel"
+    x:Class="NutriApp.Views.ReportPage.Page.ReportPage">
 
-        <ScrollView>
+    <ScrollView>
+
+        <StackLayout
+            x:Name="ReportStackLayout"
+            BackgroundColor="{StaticResource PageColor}">
+
+            <table:NewReportTableView
+                NutrientsModel="{Binding NutrientsModel}" />
+
+            <table:ReferenceValueView
+                IsVisible="{Binding HasValueReference}"
+                FoodPlanId="{Binding FoodPlanId}"
+                Carboidrato="{Binding NutrientsModel.Carboidratos}"
+                Proteina="{Binding NutrientsModel.Proteina}"
+                Lipidio="{Binding NutrientsModel.Lipidio}"
+                ValorCalorico="{Binding NutrientsModel.ValorCalorico}" />
 
             <StackLayout
-                x:Name="ReportStackLayout"
-                BackgroundColor="{StaticResource PageColor}">
+                VerticalOptions="Start"
+                IsVisible="{Binding HasDisplayFood}"
+                Margin="20,10,20,0">
+                <Label
+                    FontSize="18"
+                    TextColor="{StaticResource DarkBlue}"
+                    Text="Alimentos" />
 
-                <table:NewReportTableView
-                    NutrientsModel="{Binding NutrientsModel}" />
+                <ListView
+                    BackgroundColor="Transparent"
+                    HasUnevenRows="True"
+                    HeightRequest="{Binding Height}"
+                    SeparatorVisibility="Default"
+                    ItemsSource="{Binding ListFood}">
 
-                <table:ReferenceValueView
-                    IsVisible="{Binding HasValueReference}"
-                    FoodPlanId="{Binding FoodPlanId}"
-                    Carboidrato="{Binding NutrientsModel.Carboidratos}"
-                    Proteina="{Binding NutrientsModel.Proteina}"
-                    Lipidio="{Binding NutrientsModel.Lipidio}"
-                    ValorCalorico="{Binding NutrientsModel.ValorCalorico}" />
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:FoodModel">
+                            <ViewCell>
+                                <StackLayout
+                                    Padding="10">
 
-                <StackLayout
-                    VerticalOptions="Start"
-                    IsVisible="{Binding HasDisplayFood}"
-                    Margin="20,10,20,0">
-                    <Label
-                        FontSize="18"
-                        TextColor="{StaticResource DarkBlue}"
-                        Text="Alimentos" />
+                                    <Label
+                                        Margin="0"
+                                        Padding="0"
+                                        TextColor="{StaticResource DarkBlue}"
+                                        Text="{Binding Nome}"
+                                        FontSize="12"
+                                        HorizontalOptions="EndAndExpand" />
 
-                    <ListView
-                        BackgroundColor="Transparent"
-                        HasUnevenRows="True"
-                        HeightRequest="{Binding Height}"
-                        SeparatorVisibility="Default"
-                        ItemsSource="{Binding ListFood}">
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="models:FoodModel">
-                                <ViewCell>
-                                    <StackLayout
-                                        Padding="10">
-
-                                        <Label
-                                            Margin="0"
-                                            Padding="0"
-                                            TextColor="{StaticResource DarkBlue}"
-                                            Text="{Binding Nome}"
-                                            FontSize="12"
-                                            HorizontalOptions="EndAndExpand" />
-
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-
-                </StackLayout>
             </StackLayout>
+        </StackLayout>
 
-        </ScrollView>
-    </StackLayout>
-</ContentPage>
+    </ScrollView>
+</contentPageCustomer:BaseContentPage>

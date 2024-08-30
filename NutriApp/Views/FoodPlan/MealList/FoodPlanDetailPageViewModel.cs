@@ -20,7 +20,8 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
 
     private async Task Fetch()
     {
-        var listMeal = await new MealDB().ListarMealWhere(FoodPlanModel.Id);
+        ObservableCollection<MealModel> listMeal = new ();
+        if(FoodPlanModel is not null) listMeal = await new MealDB().ListarMealWhere(FoodPlanModel.Id);
         foreach (var mealModel in listMeal)
         {
             var foodModel = await MealService.GetFoodModelForMeal(mealModel);
@@ -40,14 +41,23 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
     private void GoFoodDetail(object obj)
     {
         MealModel mealModel = (MealModel)obj;
-        App.NavPage.GoToAsync( nameof(MealFoodDetailPage));
+        ShellNavigationQueryParameters navigationParameter = new()
+        {
+            { nameof(MealModel), mealModel },
+            { nameof(FoodPlanDetailPageViewModel),this}
+        };
+        App.NavPage.GoToAsync( nameof(MealFoodDetailPage), navigationParameter);
         //App.NavPage.GoToAsync( FoodDetailPage(this,mealModel));
     }
     
     [RelayCommand]
     private void AddFood()
     {
-        App.NavPage.GoToAsync(nameof(MealFoodDetailPage));
+        ShellNavigationQueryParameters navigationParameter = new()
+        {
+            { nameof(FoodPlanDetailPageViewModel),this}
+        };
+        App.NavPage.GoToAsync(nameof(MealFoodDetailPage),navigationParameter);
         //App.NavPage.PushAsync(new FoodDetailPage(this));
     }
     

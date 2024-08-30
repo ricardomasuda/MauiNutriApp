@@ -3,13 +3,12 @@
 <contentPageCustomer:BaseContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:imc="clr-namespace:NutriApp.Views.Evaluation.Imc"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
-    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:components="clr-namespace:MauiLib1.Components;assembly=BaseMauiLib"
+    xmlns:entries="clr-namespace:MauiLib1.Components.Entries;assembly=BaseMauiLib"
     TypeTitle="InfoCircle"
     Command="{Binding InfoCommand}"
     TextTitle="IMC"
@@ -17,53 +16,32 @@
     x:Class="NutriApp.Views.Evaluation.Imc.ImcPage">
 
     <VerticalStackLayout
-        BackgroundColor="#F1F1F1"
+        BackgroundColor="{StaticResource PageBackgroundColor}"
         Margin="20,10,20,0"
         VerticalOptions="Fill">
 
         <StackLayout>
 
             <StackLayout>
-                <core:SfTextInputLayout
-                    ContainerType="Outlined"
-                    Hint="Peso (kg)"
+                <entries:CustomEntry
                     HeightRequest="80"
-                    IsHintAlwaysFloated="True"
+                    Hint="Peso (kg)"
+                    BorderColor="{StaticResource DarkBlue}"
+                    KeyboardType="Numeric"
                     HasError="{Binding HasErrorWeight}"
                     ErrorText="Peso não informado"
-                    OutlineCornerRadius="8">
-
-                    <Entry
-                        BackgroundColor="#F4F4F4"
-                        Keyboard="Numeric"
-                        Text="{Binding Imc.Peso}"
-                        TextColor="Black"
-                        PlaceholderColor="Black" />
-
-                </core:SfTextInputLayout>
-                <!-- Mjc1NTg1N0AzMjMzMmUzMDJlMzBjb2hraHRqMDl4R1hGUGlKSFhxRlcrZmhSMis3MXNPVklyNytxT1R3Sm1jPQ== -->
-                <core:SfTextInputLayout
-                    ContainerType="Outlined"
-                    Hint="Altura (m)"
-                    IsHintAlwaysFloated="True"
+                    Text="{Binding Imc.Peso}" />
+                
+                <entries:CustomEntry
                     HeightRequest="80"
+                    Hint="Altura (m)"
+                    BorderColor="{StaticResource DarkBlue}"
+                    KeyboardType="Numeric"
                     HasError="{Binding HasErrorHeight}"
                     ErrorText="Altura não informado"
-                    OutlineCornerRadius="8">
-
-                    <Entry BackgroundColor="#F4F4F4"
-                           TextColor="Black"
-                           Keyboard="Numeric"
-                           Text="{Binding Imc.Altura, Mode=TwoWay}"
-                           PlaceholderColor="Black">
-
-                        <Entry.Behaviors>
-                            <toolkit:MaskedBehavior Mask="X,XX" />
-                        </Entry.Behaviors>
-
-                    </Entry>
-
-                </core:SfTextInputLayout>
+                    Text="{Binding Imc.Altura, Mode=TwoWay}" />
+                
+                <!-- Mjc1NTg1N0AzMjMzMmUzMDJlMzBjb2hraHRqMDl4R1hGUGlKSFhxRlcrZmhSMis3MXNPVklyNytxT1R3Sm1jPQ== -->
 
                 <Label Text="Grupo:"
                        TextColor="{StaticResource BorderColor}"

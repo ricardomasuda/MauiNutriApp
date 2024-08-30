@@ -1,50 +1,64 @@
 <?xml version="1.0"
       encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:list="clr-namespace:NutriApp.Views.Food.List"
-             xmlns:models="clr-namespace:NutriApp.Models"
-             BackgroundColor="{StaticResource PageColor}"
-             Shell.NavBarIsVisible="False"
-             x:DataType="list:FoodListViewModel"
-             x:Class="NutriApp.Views.Food.List.FoodListPage">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:list="clr-namespace:NutriApp.Views.Food.List"
+    xmlns:models="clr-namespace:NutriApp.Models"
+    xmlns:view1="clr-namespace:MauiLib1.Components.Title.View;assembly=BaseMauiLib"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Name="FoodListPageRoot"
+    BackgroundColor="{StaticResource PageColor}"
+    Shell.NavBarIsVisible="False"
+    x:DataType="list:FoodListViewModel"
+    x:Class="NutriApp.Views.Food.List.FoodListPage">
 
     <VerticalStackLayout>
 
-        <view:SearchTitleView Command="{Binding AddFoodCommand}"
-                              TypeTitle="None"
-                              TextSearch="{Binding SearchBar}"
-                              VisibleBack="True"
-                              SizeChanged="OnSizeChanged"
-                              Height="{Binding SearchTitleHeight}"
-                              TextTitle="Lista de Alimentos" />
+        <view1:SearchTitleView
+            Command="{Binding AddFoodCommand}"
+            TypeTitle="None"
+            TextSearch="{Binding SearchBar}"
+            VisibleBack="True"
+            SizeChanged="OnSizeChanged"
+            Height="{Binding SearchTitleHeight}"
+            TextTitle="Lista de Alimentos">
+            <view1:SearchTitleView.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="PropertyChanged"
+                    Command="{Binding Source={x:Reference FoodListPageRoot}, Path=BindingContext.SearchBarActionCommand}" />
+            </view1:SearchTitleView.Behaviors>
+        </view1:SearchTitleView>
 
         <VerticalStackLayout>
 
-            <ActivityIndicator HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               IsRunning="{Binding IsBusy}"
-                               IsVisible="{Binding IsBusy}" />
+            <ActivityIndicator
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}" />
 
-            <CollectionView Margin="10,10,10,70"
-                            SelectionMode="None"
-                            HeightRequest="{Binding CollectionViewHeight}"
-                            ItemsSource="{Binding Foods}">
+            <CollectionView
+                Margin="10,10,10,70"
+                SelectionMode="None"
+                HeightRequest="{Binding CollectionViewHeight}"
+                ItemsSource="{Binding Foods}">
 
                 <CollectionView.ItemTemplate>
 
                     <DataTemplate x:DataType="models:FoodModel">
 
-                        <VerticalStackLayout Padding="0,0,0,10"
-                                             Height="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=CellHeight}"
-                                             SizeChanged="OnSizeChanged">
+                        <VerticalStackLayout
+                            Padding="0,0,0,10"
+                            Height="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=CellHeight}"
+                            SizeChanged="OnSizeChanged">
 
-                            <Label FontSize="16"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource DarkBlue}"
-                                   Text="{Binding Nome}" />
+                            <Label
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="{StaticResource DarkBlue}"
+                                Text="{Binding Nome}" />
 
                             <Label LineBreakMode="NoWrap"
                                    FontSize="10"
@@ -52,9 +66,10 @@
                                    Text="{Binding Fonte}" />
 
                             <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1"
-                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=EditFoodCommand}"
-                                                      CommandParameter="{Binding .}" />
+                                <TapGestureRecognizer
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type list:FoodListViewModel}}, Path=EditFoodCommand}"
+                                    CommandParameter="{Binding .}" />
 
                             </VerticalStackLayout.GestureRecognizers>
 

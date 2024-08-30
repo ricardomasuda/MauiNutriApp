@@ -4,12 +4,12 @@
 <contentPageCustomer:BaseContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     xmlns:estimatedHeight="clr-namespace:NutriApp.Views.Evaluation.EstimatedHeight"
     xmlns:components="clr-namespace:MauiLib1.Components;assembly=BaseMauiLib"
+    xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
     TypeTitle="None"
     TextTitle="Altura Estimada"
     x:DataType="estimatedHeight:EstimatedHeightPageViewModel"
@@ -36,40 +36,33 @@
 
             </StackLayout>
 
-            <core:SfTextInputLayout
-                HeightRequest="80"
-                ContainerType="Outlined"
+            <inputLayout:InputLayoutView
+                CornerRadius="8"
                 Hint="Idade"
-                IsHintAlwaysFloated="True"
                 HasError="{Binding HasErrorAge}"
                 ErrorText="Idade não informada"
-                OutlineCornerRadius="8">
-
+                BorderColor="{StaticResource DarkBlue}">
                 <Entry
                     BackgroundColor="{StaticResource EntryBackgroundColor}"
                     Keyboard="Numeric"
                     TextColor="Black"
                     Text="{Binding Age}"
                     PlaceholderColor="Black" />
+            </inputLayout:InputLayoutView>
 
-            </core:SfTextInputLayout>
-
-            <core:SfTextInputLayout
-                HeightRequest="80"
-                ContainerType="Outlined"
+            <inputLayout:InputLayoutView
+                CornerRadius="8"
                 Hint="Altura Joelho(cm)"
-                IsHintAlwaysFloated="True"
                 HasError="{Binding HasErrorKneeHeight}"
                 ErrorText="Altura Joelho não informada"
-                OutlineCornerRadius="8">
+                BorderColor="{StaticResource DarkBlue}">
                 <Entry
                     BackgroundColor="{StaticResource EntryBackgroundColor}"
                     TextColor="Black"
                     Text="{Binding KneeHeight}"
                     Keyboard="Numeric"
                     PlaceholderColor="Black" />
-
-            </core:SfTextInputLayout>
+            </inputLayout:InputLayoutView>
 
             <StackLayout
                 VerticalOptions="EndAndExpand">

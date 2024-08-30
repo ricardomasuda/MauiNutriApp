@@ -23,7 +23,8 @@ public partial class FoodDetailPageViewModel : BaseViewModel, IQueryAttributable
     private string _calorificValue;
     [ObservableProperty]
     private FoodModel _food;
-    public string Source { get; set; }
+    [ObservableProperty] 
+    private string _source;
     public ICommand InfoCommand { get; set; }
 
     public FoodDetailPageViewModel()
@@ -44,6 +45,7 @@ public partial class FoodDetailPageViewModel : BaseViewModel, IQueryAttributable
         Sodium = food.Sodio;
         DietaryFiber = food.FibraAlimentar;
         CalorificValue = food.ValorCalorico;
+        Source = food.Fonte.ToString();
     }
 
     private void Fill()
@@ -66,6 +68,7 @@ public partial class FoodDetailPageViewModel : BaseViewModel, IQueryAttributable
         await App.NavPage.GoToAsync(nameof(ReportPage), navigationParameter);
         //await App.NavPage.PushAsync(new ReportPage(listFood));
     }
+    
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         try

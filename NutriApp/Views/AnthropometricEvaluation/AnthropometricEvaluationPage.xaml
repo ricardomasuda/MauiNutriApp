@@ -1,196 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:button="clr-namespace:NutriApp.Components.Button"
-             xmlns:core="http://schemas.syncfusion.com/maui"
-             xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             BackgroundColor="{StaticResource PageColor}"
-             Shell.NavBarIsVisible="False"
-             x:DataType="anthropometricEvaluation:AnthropometricEvaluationViewModel"
-             xmlns:bodyComposition="clr-namespace:NutriApp.Views.AnthropometricEvaluation.View.BodyComposition"
-             xmlns:boneDiameter="clr-namespace:NutriApp.Views.AnthropometricEvaluation.View.BoneDiameter"
-             xmlns:resultView="clr-namespace:NutriApp.Views.AnthropometricEvaluation.View.ResultView"
-             xmlns:anthropometricEvaluation="clr-namespace:NutriApp.Views.AnthropometricEvaluation"
-             x:Class="NutriApp.Views.AnthropometricEvaluation.AnthropometricEvaluationPage">
+<contentPageCustomer:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:button="clr-namespace:NutriApp.Components.Button"
+    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="{StaticResource PageColor}"
+    Shell.NavBarIsVisible="False"
+    x:DataType="anthropometricEvaluation:AnthropometricEvaluationViewModel"
+    xmlns:bodyComposition="clr-namespace:NutriApp.Views.AnthropometricEvaluation.View.BodyComposition"
+    xmlns:boneDiameter="clr-namespace:NutriApp.Views.AnthropometricEvaluation.View.BoneDiameter"
+    xmlns:anthropometricEvaluation="clr-namespace:NutriApp.Views.AnthropometricEvaluation"
+    xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
+    xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+    xmlns:resultView="clr-namespace:NutriApp.Views.AnthropometricEvaluation.View.ResultView"
+    TypeTitle="None"
+    TextTitle="Avaliação Antropométrica"
+    x:Class="NutriApp.Views.AnthropometricEvaluation.AnthropometricEvaluationPage">
+
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout
+            VerticalOptions="FillAndExpand"
+            Margin="20,0,20,20">
 
-            <view:NewTitleView
-                TypeTitle="None"
-                TextTitle="Avaliação Antropométrica" />
+            <StackLayout>
 
+                <inputLayout:InputLayoutView
+                    CornerRadius="8"
+                    Hint="Protocolo"
+                    HasError="{Binding HasErrorAnthropometricEvaluation}"
+                    ErrorText="Protocolo não informada"
+                    BorderColor="{StaticResource DarkBlue}">
+                    <Picker
+                        ItemsSource="{Binding AnthropometricEvaluationTypeList}"
+                        SelectedItem="{Binding AnthropometricEvaluationType}" />
+                </inputLayout:InputLayoutView>
 
-            <VerticalStackLayout
-                VerticalOptions="FillAndExpand"
-                Margin="20,0,20,20">
+                <inputLayout:InputLayoutView
+                    CornerRadius="8"
+                    Hint="Idade (Anual)"
+                    HasError="{Binding HasErrorAge}"
+                    ErrorText="Idade não informada"
+                    BorderColor="{StaticResource DarkBlue}">
+                    <Entry
+                        BackgroundColor="{StaticResource EntryBackgroundColor}"
+                        TextColor="Black"
+                        Keyboard="Numeric"
+                        Text="{Binding Age}"
+                        PlaceholderColor="Black" />
+                </inputLayout:InputLayoutView>
 
-                <StackLayout>
+                <inputLayout:InputLayoutView
+                    CornerRadius="8"
+                    Hint="Peso (kg)"
+                    HasError="{Binding HasErrorWeigh}"
+                    ErrorText="Idade não informada"
+                    BorderColor="{StaticResource DarkBlue}">
+                    <Entry
+                        BackgroundColor="{StaticResource EntryBackgroundColor}"
+                        TextColor="Black"
+                        Keyboard="Numeric"
+                        Text="{Binding Weight}"
+                        PlaceholderColor="Black" />
+                </inputLayout:InputLayoutView>
 
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
-                        Hint="Protocolo"
-                        HeightRequest="80"
-                        IsHintAlwaysFloated="True"
-                        HasError="{Binding HasErrorAnthropometricEvaluation}"
-                        ErrorText="Protocolo não informada"
-                        OutlineCornerRadius="8">
+                <inputLayout:InputLayoutView
+                    CornerRadius="8"
+                    Hint="Gênero"
+                    HasError="{Binding HasErrorGender}"
+                    ErrorText="Gênero não informado"
+                    BorderColor="{StaticResource DarkBlue}">
+                    <Picker
+                        BackgroundColor="{StaticResource EntryBackgroundColor}"
+                        TextColor="Black"
+                        ItemsSource="{Binding ListGender}"
+                        SelectedItem="{Binding GenderType}"
+                        ItemDisplayBinding="{Binding Nome}" />
+                </inputLayout:InputLayoutView>
 
-                        <Picker
-                            ItemsSource="{Binding AnthropometricEvaluationTypeList}"
-                            SelectedItem="{Binding AnthropometricEvaluationType}" />
+                <toolkit:Expander
+                    IsVisible="True">
 
-                    </core:SfTextInputLayout>
+                    <toolkit:Expander.Header>
 
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
-                        Hint="Idade (Anual)"
-                        HeightRequest="80"
-                        IsHintAlwaysFloated="True"
-                        HasError="{Binding HasErrorAge}"
-                        ErrorText="Idade não informada"
-                        OutlineCornerRadius="8">
+                        <Frame
+                            Padding="6"
+                            HasShadow="False"
+                            BorderColor="{StaticResource DarkBlue}">
 
-                        <Entry
-                            BackgroundColor="{StaticResource EntryBackgroundColor}"
-                            TextColor="Black"
-                            Keyboard="Numeric"
-                            Text="{Binding Age}"
-                            PlaceholderColor="Black" />
+                            <Grid ColumnDefinitions="*,2*,*">
 
-                    </core:SfTextInputLayout>
+                                <Label
+                                    Grid.Column="1"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center"
 
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
-                        Hint="Peso (kg)"
-                        HeightRequest="80"
-                        IsHintAlwaysFloated="True"
-                        HasError="{Binding HasErrorWeigh}"
-                        ErrorText="Idade não informada"
-                        OutlineCornerRadius="8">
+                                    TextColor="{Binding Color}"
+                                    Text="Diâmetros Ósseos" />
 
-                        <Entry
-                            BackgroundColor="{StaticResource EntryBackgroundColor}"
-                            TextColor="Black"
-                            Keyboard="Numeric"
-                            Text="{Binding Weight}"
-                            PlaceholderColor="Black" />
+                                <Image
+                                    Grid.Column="2"
+                                    Source="expand_more.png"
+                                    WidthRequest="25"
+                                    HeightRequest="25"
+                                    Margin="0,0,10,0"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="Center">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image"
+                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}"
+                                                     Value="True">
+                                            <Setter Property="Source"
+                                                    Value="expand_less.png" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                            </Grid>
 
-                    </core:SfTextInputLayout>
+                        </Frame>
 
-                    <core:SfTextInputLayout
-                        ContainerType="Outlined"
-                        Hint="Gênero"
-                        HeightRequest="80"
-                        IsHintAlwaysFloated="True"
-                        HasError="{Binding HasErrorGender}"
-                        ErrorText="Gênero não informado"
-                        OutlineCornerRadius="8">
+                    </toolkit:Expander.Header>
 
-                        <Picker
-                            BackgroundColor="{StaticResource EntryBackgroundColor}"
-                            TextColor="Black"
-                            ItemsSource="{Binding ListGender}"
-                            SelectedItem="{Binding GenderType}"
-                            ItemDisplayBinding="{Binding Nome}" />
+                    <boneDiameter:BoneDiameterView
+                        Margin="0,10,0,0" />
 
-                    </core:SfTextInputLayout>
+                </toolkit:Expander>
 
-                    <toolkit:Expander
-                        IsVisible="True">
+                <toolkit:Expander Margin="0,0,0,10">
 
-                        <toolkit:Expander.Header>
+                    <toolkit:Expander.Header>
+                        <Frame
+                            Margin="0,10,0,0"
+                            Padding="9"
+                            HasShadow="False"
+                            BorderColor="{StaticResource DarkBlue}">
+                            <StackLayout HorizontalOptions="Center">
+                                <Label
+                                    TextColor="Black"
+                                    VerticalTextAlignment="Center"
+                                    Text="Composição corporal" />
+                            </StackLayout>
+                        </Frame>
+                    </toolkit:Expander.Header>
 
-                            <Frame
-                                Padding="6"
-                                HasShadow="False"
-                                BorderColor="{StaticResource DarkBlue}">
+                    <bodyComposition:BodyCompositionView
+                        x:Name="BodyCompositionViewTeste"
+                        GenderType="{Binding GenderType.Nome}"
+                        AnthropometricEvaluationTypeString="{Binding AnthropometricEvaluationType}"
+                        AnthropometricEvaluationModel="{Binding BodyCompositionPageModel, Mode=TwoWay}"
+                        Margin="0,0,0,0" />
+                    
+                </toolkit:Expander>
 
-                                <Grid ColumnDefinitions="*,2*,*">
+                <BoxView
+                    Margin="0,10,0,10"
+                    Color="{StaticResource DarkBlue}"
+                    HeightRequest="2"
+                    IsVisible="{Binding CanDisplayResult}"
+                    HorizontalOptions="Fill" />
 
-                                    <Label
-                                        Grid.Column="1"
-                                        HorizontalOptions="CenterAndExpand"
-                                        VerticalTextAlignment="Center"
+                <resultView:AnthropometricEvaluationResultView
+                    x:Name="AnthropometricEvaluationResultView"
+                    IsVisible="{Binding CanDisplayResult}"
+                    BoneDiameterModel="{Binding BoneDiameterModel}"
+                    AnthropometricEvaluationResultModel="{Binding AnthropometricEvaluationResultModel}" />
 
-                                        TextColor="{Binding Color}"
-                                        Text="Diâmetros Ósseos" />
+            </StackLayout>
 
-                                    <Image
-                                        Grid.Column="2"
-                                        Source="expand_more.png"
-                                        WidthRequest="25"
-                                        HeightRequest="25"
-                                        Margin="0,0,10,0"
-                                        HorizontalOptions="EndAndExpand"
-                                        VerticalOptions="Center">
-                                        <Image.Triggers>
-                                            <DataTrigger TargetType="Image"
-                                                         Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}"
-                                                         Value="True">
-                                                <Setter Property="Source"
-                                                        Value="expand_less.png" />
-                                            </DataTrigger>
-                                        </Image.Triggers>
-                                    </Image>
-                                </Grid>
-
-                            </Frame>
-
-                        </toolkit:Expander.Header>
-
-                        <boneDiameter:BoneDiameterView
-                            Margin="0,10,0,0" />
-
-                    </toolkit:Expander>
-
-                    <toolkit:Expander>
-
-                        <toolkit:Expander.Header>
-                            <Frame
-                                Margin="0,10,0,0"
-                                Padding="9"
-                                HasShadow="False"
-                                BorderColor="{StaticResource DarkBlue}">
-                                <StackLayout HorizontalOptions="Center">
-                                    <Label
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center"
-                                        Text="Composição corporal" />
-                                </StackLayout>
-                            </Frame>
-                        </toolkit:Expander.Header>
-
-                        <bodyComposition:BodyCompositionView
-                            Margin="0,0,0,0" />
-                    </toolkit:Expander>
-
-                    <BoxView
-                        Color="{StaticResource DarkBlue}"
-                        HeightRequest="2"
-                        IsVisible="{Binding CanDisplayResult}"
-                        HorizontalOptions="Fill" />
-
-                    <resultView:AnthropometricEvaluationResultView
-                        Margin="0,20,0,0"
-                        x:Name="AnthropometricEvaluationResultView"
-                        IsVisible="{Binding CanDisplayResult}"
-                        BoneDiameterModel="{Binding BoneDiameterModel}"
-                        AnthropometricEvaluationResultModel="{Binding AnthropometricEvaluationResultModel}" />
-
-                </StackLayout>
-                
-                <button:ButtonView
-                    Margin="0,10,0,0"
-                    VerticalOptions="CenterAndExpand"
-                    TextColor="White"
-                    BackgroundColor="{StaticResource DarkBlue}"
-                    Command="{Binding CalculateCommand}"
-                    Text="Calcular" />
-
-            </VerticalStackLayout>
+            <button:ButtonView
+                Margin="0,0,0,0"
+                VerticalOptions="CenterAndExpand"
+                TextColor="White"
+                BackgroundColor="{StaticResource DarkBlue}"
+                Command="{Binding CalculateCommand}"
+                Text="Calcular" />
 
         </VerticalStackLayout>
     </ScrollView>
-</ContentPage>
+</contentPageCustomer:BaseContentPage>

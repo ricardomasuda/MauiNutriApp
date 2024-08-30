@@ -2,68 +2,58 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:core="http://schemas.syncfusion.com/maui"
+             xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
+             x:Name="View"
              x:Class="NutriApp.Components.SlideCustomer.SlideView">
     <StackLayout>
         <Grid
             ColumnDefinitions="*,*,*">
 
-            <core:SfTextInputLayout
+            <inputLayout:InputLayoutView
                 Grid.Column="0"
-                ContainerType="Outlined"
+                CornerRadius="8"
                 Hint="Proteína"
-                IsHintAlwaysFloated="True"
-                HorizontalOptions="FillAndExpand"
-                OutlineCornerRadius="8">
-
+                BorderColor="{StaticResource DarkBlue}">
                 <Entry
-                    BackgroundColor="#F4F4F4"
+                    BackgroundColor="{StaticResource SearchButtonBorderColor}"
                     Text="{Binding ProteinaPercentage, Mode=TwoWay, Source={x:Reference View}}"
                     TextColor="Black"
                     Keyboard="Numeric"
                     MaxLength="3"
                     Unfocused="OnUnfocusedProtein"
                     PlaceholderColor="Black" />
-
-            </core:SfTextInputLayout>
-
-            <core:SfTextInputLayout
+            </inputLayout:InputLayoutView>
+            
+            <inputLayout:InputLayoutView
                 Grid.Column="1"
-                ContainerType="Outlined"
+                CornerRadius="8"
                 Hint="Carboidratos"
-                IsHintAlwaysFloated="True"
-                HorizontalOptions="FillAndExpand"
-                OutlineCornerRadius="8">
-
+                BorderColor="{StaticResource DarkBlue}">
                 <Entry
-                    BackgroundColor="#F4F4F4"
+                    BackgroundColor="{StaticResource SearchButtonBorderColor}"
                     Text="{Binding CarboidratoPercentage, Mode=TwoWay, Source={x:Reference View}}"
                     TextColor="Black"
                     Keyboard="Numeric"
                     Unfocused="OnUnfocusedCarb"
                     MaxLength="3"
                     PlaceholderColor="Black" />
-
-            </core:SfTextInputLayout>
-
-            <core:SfTextInputLayout
+            </inputLayout:InputLayoutView>
+            
+            <inputLayout:InputLayoutView
                 Grid.Column="2"
-                ContainerType="Outlined"
+                CornerRadius="8"
                 Hint="Lídios"
-                IsHintAlwaysFloated="True"
-                HorizontalOptions="FillAndExpand"
-                OutlineCornerRadius="8">
-
+                BorderColor="{StaticResource DarkBlue}">
                 <Entry
-                    BackgroundColor="#F4F4F4"
+                    BackgroundColor="{StaticResource SearchButtonBorderColor}"
                     Text="{Binding LipidioPercentage, Mode=TwoWay, Source={x:Reference View}}"
                     TextColor="Black"
                     Keyboard="Numeric"
                     Unfocused="OnUnfocusedLip"
                     MaxLength="3"
                     PlaceholderColor="Black" />
-
-            </core:SfTextInputLayout>
+            </inputLayout:InputLayoutView>
+            
         </Grid>
 
         <!-- <Slider -->

@@ -1,7 +1,6 @@
 using System.Windows.Input;
-using NutriApp.Models;
 
-namespace NutriApp.Components.Titles.View;
+namespace MauiLib1.Components.Title.View;
 
 public partial class SearchTitleView : ContentView
 {

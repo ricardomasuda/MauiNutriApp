@@ -11,6 +11,7 @@
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>
     <Color x:Key="Gray200">#C8C8C8</Color>
+    <Color x:Key="Gray250">#c5c5c5</Color>
     <Color x:Key="Gray300">#ACACAC</Color>
     <Color x:Key="Gray400">#919191</Color>
     <Color x:Key="Gray500">#6E6E6E</Color>
@@ -45,7 +46,7 @@
     <Color x:Key="PageColor">#F1F1F1</Color>
     <Color x:Key="BackgroundPopupPage">#5b5b5b5b</Color>
     <Color x:Key="TextColor">#FF8473</Color>
-    <Color x:Key="EntryBackgroundColor">#F4F4F4</Color>
+    <Color x:Key="EntryBackgroundColor">#e5e7f0</Color>
     <Color x:Key="TextColorBrown">#330600</Color>
     <Color x:Key="BackgroundColor">#FFF8EE</Color>
     <Color x:Key="TitleColor">#91C788</Color>

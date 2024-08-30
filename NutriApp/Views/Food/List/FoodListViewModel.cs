@@ -34,9 +34,8 @@ public partial class FoodListViewModel : BaseViewModel {
 
     [RelayCommand]
     private void SearchBarAction() {
-        IEnumerable<FoodModel> list = string.IsNullOrEmpty(SearchBar)
-            ? _listFoodAux
-            : _listFoodAux.Where(food => food.Nome.ToUpper().Contains(SearchBar.ToUpper()));
+        if (_listFoodAux is null) return;
+        IEnumerable<FoodModel> list = string.IsNullOrEmpty(SearchBar) ? _listFoodAux : _listFoodAux.Where(food => food.Nome.ToUpper().Contains(SearchBar.ToUpper()));
         Foods = [..list.ToList()];
     }
 

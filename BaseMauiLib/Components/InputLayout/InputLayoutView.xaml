@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="ImputLayoutViewRoot"
+             Margin="0,0,0,12"
+             x:Class="MauiLib1.Components.InputLayout.InputLayoutView">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Grid
+                RowDefinitions="Auto, Auto, Auto">
+
+                <Label
+                    x:Name="HintLabel"
+                    Grid.Row="0"
+                    Margin="0"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    FontSize="11"
+                    Text="{Binding Hint, Source={x:Reference ImputLayoutViewRoot}}" />
+
+                <Border
+                    Grid.Row="1"
+                    x:Name="BorderContainer"
+                    HeightRequest="{Binding HeightRequest, Source={x:Reference ImputLayoutViewRoot}}"
+                    BackgroundColor="{StaticResource EntryBackgroundColor}"
+                    Stroke="{Binding BorderColor, Source={x:Reference ImputLayoutViewRoot}}"
+                    Padding="3"
+                    IsEnabled="False"
+                    Margin="0,5,0,0">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle
+                            CornerRadius="{Binding CornerRadius, Source={x:Reference ImputLayoutViewRoot}}" />
+                    </Border.StrokeShape>
+
+                    <ContentPresenter
+                        x:Name="ContentPresenter"
+                        BackgroundColor="Transparent"/>
+
+                </Border>
+                
+                <Label
+                    Grid.Row="2"
+                    TextColor="Red"
+                    FontSize="10"
+                    IsVisible="{Binding HasError, Source={x:Reference ImputLayoutViewRoot}}"
+                    Text="{Binding ErrorText, Source={x:Reference ImputLayoutViewRoot}}" />
+            </Grid>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

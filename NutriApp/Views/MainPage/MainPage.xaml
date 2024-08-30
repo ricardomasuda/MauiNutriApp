@@ -7,8 +7,8 @@
     xmlns:newItemMenu="clr-namespace:NutriApp.Components.NewItemMenu"
     xmlns:mainPage="clr-namespace:NutriApp.Views.MainPage"
     Shell.NavBarIsVisible="False"
-    x:DataType="mainPage:MainPageViewModel"
     BackgroundColor="{StaticResource PageColor}"
+    x:DataType="mainPage:MainPageViewModel"
     x:Class="NutriApp.Views.MainPage.MainPage">
 
     <ScrollView>

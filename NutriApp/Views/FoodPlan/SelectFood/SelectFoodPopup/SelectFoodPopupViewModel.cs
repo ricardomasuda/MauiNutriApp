@@ -48,7 +48,7 @@ public partial class SelectFoodPopupViewModel : BaseViewModel
         if (await Shell.Current.DisplayAlert("Retirar Alimento", "Deseja retirar o alimento da refeição?", "Sim", "Não"))
         {
             await _mealFoodDetailViewModel.RemoveFood(_foodAssistant);
-            _selectFoodPopup.Close();
+            //_selectFoodPopup.Close();
         }
     }
 
@@ -64,7 +64,7 @@ public partial class SelectFoodPopupViewModel : BaseViewModel
     private async Task GoPopupFood()
     {
         _changeFoodPopup = new ChangeFoodPopup(this);
-        await App.NavPage.ShowPopup( new ChangeFoodPopup(this));
+        await App.NavPage.GoToModalAsync( new ChangeFoodPopup(this));
     }
 
     [RelayCommand]
@@ -83,24 +83,25 @@ public partial class SelectFoodPopupViewModel : BaseViewModel
             _mealFoodDetailViewModel.SaveFoodList(Food);
         }
 
-        _selectFoodPopup.Close();
+        App.NavPage.GoBackModal();
     }
     
     [RelayCommand]
-    private static void Close(Popup popup)
+    private void Close()
     {
-        popup.Close();
+         App.NavPage.GoBackModal();
+    }
+    
+    [RelayCommand]
+    private async Task ChangeMeasure()
+    {
+        if (Food.Id == 0) return;
+        Food = await FoodService.ChangeUnitMeasure(Food.Id, Measure);
     }
     
     private void UpdateFood()
     {
         _mealFoodDetailViewModel.UpdateFoodList(Food, _foodAssistant);
-    }
-
-    private async void ChangeMeasure()
-    {
-        if (Food.Id == 0) return;
-        Food = await FoodService.ChangeUnitMeasure(Food.Id, Measure);
     }
 
     private bool ValidateFood()

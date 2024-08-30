@@ -3,10 +3,10 @@
 <ContentView
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:estimatedWeight="clr-namespace:NutriApp.Views.Evaluation.EstimatedWeight"
     xmlns:components="clr-namespace:MauiLib1.Components;assembly=BaseMauiLib"
+    xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
     x:DataType="estimatedWeight:EstimatedWeightPageViewModel"
     x:Class="NutriApp.Views.Evaluation.EstimatedWeight.FormulaChumlea.FormulaChumleaView">
     <StackLayout>
@@ -21,15 +21,13 @@
             CheckedItemOne="{Binding FormulaChumleaViewModel.CheckedMan}"
             TitleTwo="Mulher"
             CheckedItemTwo="{Binding FormulaChumleaViewModel.CheckedWoman}"/>
-
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
+        
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Altura do Joelho(cm)"
-            IsHintAlwaysFloated="True"
             HasError="{Binding FormulaChumleaViewModel.HasErrorAlturaJoelho}"
             ErrorText="Altura do Joelho não informado"
-            HeightRequest="80"
-            OutlineCornerRadius="8">
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
@@ -40,55 +38,49 @@
                     <toolkit:MaskedBehavior Mask="XXX" />
                 </Entry.Behaviors>
             </Entry>
-        </core:SfTextInputLayout>
-
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
+        </inputLayout:InputLayoutView>
+        
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Circunferência da Perna (cm)"
-            IsHintAlwaysFloated="True"
-            HeightRequest="80"
             HasError="{Binding FormulaChumleaViewModel.HasErrorAlturaJoelho}"
             ErrorText="Circunferência não informada"
-            OutlineCornerRadius="8">
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding FormulaChumleaViewModel.CircunferenciaPerna}"
                 PlaceholderColor="Black" />
-        </core:SfTextInputLayout>
-
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
+        </inputLayout:InputLayoutView>
+        
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Circunferência Muscular Braquial (cm)"
-            IsHintAlwaysFloated="True"
-            HeightRequest="80"
             HasError="{Binding FormulaChumleaViewModel.HasErrorBrachialMuscleCircumference}"
             ErrorText="Circunferência Muscular Braquial não informada"
-            OutlineCornerRadius="8">
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding FormulaChumleaViewModel.BrachialMuscleCircumference}"
                 PlaceholderColor="Black" />
-        </core:SfTextInputLayout>
+        </inputLayout:InputLayoutView>
 
-        <core:SfTextInputLayout
-            ContainerType="Outlined"
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
             Hint="Dobra Cutânea SubEscapular (mm)"
-            IsHintAlwaysFloated="True"
-            HeightRequest="80"
             HasError="{Binding FormulaChumleaViewModel.HasErrorSubscapularSkinfold}"
             ErrorText="Dobra Cutânea SubEscapular não informada"
-            OutlineCornerRadius="8">
+            BorderColor="{StaticResource DarkBlue}">
             <Entry
                 BackgroundColor="{StaticResource EntryBackgroundColor}"
                 TextColor="Black"
                 Keyboard="Numeric"
                 Text="{Binding FormulaChumleaViewModel.SubscapularSkinfold}"
                 PlaceholderColor="Black" />
-        </core:SfTextInputLayout>
+        </inputLayout:InputLayoutView>
 
     </StackLayout>
 </ContentView>

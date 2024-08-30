@@ -4,7 +4,6 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:button="clr-namespace:NutriApp.Components.Button"
-    xmlns:core="http://schemas.syncfusion.com/maui"
     xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
     Color="Transparent"
     HorizontalOptions="Fill"
@@ -12,6 +11,7 @@
     x:DataType="newFoodPlan:FoodPlanPopupViewModel"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:newFoodPlan="clr-namespace:NutriApp.Views.FoodPlan.FoodPlanList.NewFoodPlan"
+    xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
     x:Class="NutriApp.Views.FoodPlan.FoodPlanList.NewFoodPlan.FoodPlanPopup">
     <ScrollView>
         <Border
@@ -33,23 +33,19 @@
                     <StackLayout
                         Margin="10,0">
 
-                        <core:SfTextInputLayout
-                            ContainerType="Outlined"
+                        <inputLayout:InputLayoutView
+                            CornerRadius="8"
                             Hint="Nome do plano alimentar"
-                            IsHintAlwaysFloated="True"
-                            HeightRequest="80"
                             HasError="{Binding HasFoodPlanNameError}"
                             ErrorText="Nome do plano alimentar não informado"
-                            OutlineCornerRadius="8">
-
+                            BorderColor="{StaticResource DarkBlue}">
                             <Entry
-                                BackgroundColor="#F4F4F4"
+                                BackgroundColor="{StaticResource SearchButtonBorderColor}"
                                 Text="{Binding FoodPlanName}"
                                 TextColor="Black"
                                 MaxLength="50"
                                 PlaceholderColor="Black" />
-
-                        </core:SfTextInputLayout>
+                        </inputLayout:InputLayoutView>
 
                         <BoxView Color="{StaticResource LightBlueInput}"
                                  HeightRequest="1"
@@ -81,47 +77,40 @@
                         <StackLayout
                             IsVisible="{Binding HaveValueReference}">
 
-                            <core:SfTextInputLayout
-                                ContainerType="Outlined"
+                            <inputLayout:InputLayoutView
+                                CornerRadius="8"
                                 Hint="Peso (kg)"
-                                IsHintAlwaysFloated="True"
                                 HasError="{Binding HasWeightError}"
                                 ErrorText="Peso não informado"
-                                OutlineCornerRadius="8">
+                                BorderColor="{StaticResource DarkBlue}">
                                 <Entry
-                                    BackgroundColor="#F4F4F4"
+                                    BackgroundColor="{StaticResource SearchButtonBorderColor}"
                                     Text="{Binding Weight}"
                                     TextColor="Black"
                                     Keyboard="Numeric"
                                     MaxLength="50"
-                                    PlaceholderColor="Black">
-                                </Entry>
-                            </core:SfTextInputLayout>
-
-                            <core:SfTextInputLayout
-                                ContainerType="Outlined"
+                                    PlaceholderColor="Black"/>
+                            </inputLayout:InputLayoutView>
+                            
+                            <inputLayout:InputLayoutView
+                                CornerRadius="8"
                                 Hint="Energia (kcal)"
-                                IsHintAlwaysFloated="True"
                                 HasError="{Binding HasEnergyError}"
                                 ErrorText="Energia não informada"
-                                OutlineCornerRadius="8">
-
+                                BorderColor="{StaticResource DarkBlue}">
                                 <Entry
                                     BackgroundColor="#F4F4F4"
                                     Text="{Binding Energy}"
                                     TextColor="Black"
                                     Keyboard="Numeric"
                                     MaxLength="50"
-                                    PlaceholderColor="Black">
-                                </Entry>
-
-                            </core:SfTextInputLayout>
-
+                                    PlaceholderColor="Black"/>
+                            </inputLayout:InputLayoutView>
+                            
                             <!-- <slideCustomer:SlideView -->
                             <!--     ProteinaPercentage="{Binding Proteina}" -->
                             <!--     CarboidratoPercentage="{Binding Carboidratos}" -->
                             <!--     LipidioPercentage="{Binding Lipidio}" /> -->
-
                         </StackLayout>
 
                         <StackLayout

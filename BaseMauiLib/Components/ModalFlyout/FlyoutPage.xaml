@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:MauiLib1.Components.Title.View;assembly=BaseMauiLib"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="ModalFlyoutPageRoot"
+             BackgroundColor="Transparent"
+             x:Class="MauiLib1.Components.ModalFlyout.FlyoutPage">
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <Grid>
+                <Border
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Margin="-4"
+                    BackgroundColor="Black"
+                    Opacity="0.4"
+                    />
+                <Border
+                    StrokeShape="RoundRectangle 20"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    StrokeThickness="2"
+                    Margin="20,30">
+                    <StackLayout>
+
+                        <view:NewTitleView
+                            IsVisible="{Binding IsSearch, Source={x:Reference ModalFlyoutPageRoot}, Converter={toolkit:InvertedBoolConverter}}"
+                            Command="{Binding Command, Source={x:Reference ModalFlyoutPageRoot}}"
+                            TypeTitle="Close"
+                            VisibleBack="False"
+                            TextTitle="{Binding Title, Source={x:Reference ModalFlyoutPageRoot}}" />
+                    
+                        <view:SearchTitleView
+                            IsVisible="{Binding IsSearch, Source={x:Reference ModalFlyoutPageRoot}}"
+                            TypeTitle="Close"
+                            Command="{Binding Command, Source={x:Reference ModalFlyoutPageRoot}}"
+                            TextSearch="{Binding TextSearch, Source={x:Reference ModalFlyoutPageRoot}}"
+                            VisibleBack="True"
+                            PropertyChanged="SearchChangeCommand"
+                            TextTitle="{Binding Title, Source={x:Reference ModalFlyoutPageRoot}}" />
+                    
+                        <ContentPresenter />
+                    </StackLayout>
+                </Border>
+            </Grid>
+           
+
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+</ContentPage>
