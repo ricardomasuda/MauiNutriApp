@@ -84,6 +84,7 @@ public partial class SelectFoodPopupViewModel : BaseViewModel
         }
 
         App.NavPage.GoBackModal();
+        App.NavPage.GoBackModal();
     }
     
     [RelayCommand]

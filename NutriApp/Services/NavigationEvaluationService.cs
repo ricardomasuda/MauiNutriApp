@@ -45,7 +45,7 @@ public class NavigationEvaluationService
             if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaPanturrilha) { await App.NavPage.GoToAsync(nameof(CircumferenceCalfPage)); return; }
             if (itemMenu.Titulo == EvaluationMenuStrings.SemiologiaNutricional) { await App.NavPage.GoToAsync(nameof(SemiologiaNutricionalListPage)); return; }
             if (itemMenu.Titulo == EvaluationMenuStrings.PesoEstimado)  { await App.NavPage.GoToAsync( nameof(EstimatedWeightPage)); return;}
-            //if (itemMenu.Titulo == EvaluationMenuStrings.ValorReference) { await Navigation.PushPageAsync(new ReferenceValuePage()); return;}
+            //if (itemMenu.Titulo == EvaluationMenuStrings.ValorReference) { await Navigation.PushPageAsync(new ReferenceValue()); return;}
             await Shell.Current.DisplayAlert("Em Construção", "Em construção", "OK");
         }
 }

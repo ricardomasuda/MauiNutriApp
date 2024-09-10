@@ -49,15 +49,15 @@ public partial class FoodPlanListViewModel : BaseViewModel
     [RelayCommand]
     private async Task AddFoodPlan()
     {
-        if (ListFoodPlan.Count >= 3)
-        {
-            await Shell.Current.DisplayAlert("Só é possível criar três Planos",
-                "Por enquanto só é possível criar três planos", "Ok");
-        }
-        else
-        {
+        // if (ListFoodPlan.Count >= 3)
+        // {
+        //     await Shell.Current.DisplayAlert("Só é possível criar três Planos",
+        //         "Por enquanto só é possível criar três planos", "Ok");
+        // }
+        // else
+        // {
             await App.NavPage.ShowPopup(new FoodPlanPopup(this));
-        }
+        //}
     }
 
     [RelayCommand]

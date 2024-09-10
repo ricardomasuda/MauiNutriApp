@@ -56,26 +56,39 @@ public class MealDB
 
     public async Task<bool> SalvarAsync(MealModel meal)
     {
-        int id;
-        if (meal.FoodPLanId == 0) throw new ArgumentException("Não se pode cadastrar uma refeição sem plano");
-
-        List<FoodModel> listFood = new List<FoodModel>(meal.ListFood);
-        meal.ListFood.Clear();
-
-        if (meal.Id == 0)
+        try
         {
-            id = await CadastrarAsync(meal);
+            int id;
+            if (meal.FoodPLanId == 0) throw new ArgumentException("Não se pode cadastrar uma refeição sem plano");
+
+            List<FoodModel> listFood = new List<FoodModel>(meal.ListFood);
+            meal.ListFood.Clear();
+
+            if (meal.Id == 0)
+            {
+                id = await CadastrarAsync(meal);
+            }
+            else
+            {
+                id = await AtualizarAsync(meal);
+            }
+
+            foreach (var foodModel in listFood)
+            {
+                foodModel.Id = id;
+            }
+            //listFood.ForEach(x => x.MealId = meal.Id);
+
+            await new MealFoodDB().SalvarList(listFood, meal.Id);
+
+            return id > 0;
         }
-        else
+        catch (Exception e)
         {
-            id = await AtualizarAsync(meal);
+            Console.WriteLine(e);
+            throw;
         }
 
-        listFood.ForEach(x => x.MealId = meal.Id);
-
-        await new MealFoodDB().SalvarList(listFood, meal.Id);
-
-        return id > 0;
     }
 
     public async Task<int> CadastrarAsync(MealModel meal)

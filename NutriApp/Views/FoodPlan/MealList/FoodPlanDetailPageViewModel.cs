@@ -61,8 +61,9 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
         //App.NavPage.PushAsync(new FoodDetailPage(this));
     }
     
-    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    public async void  ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        FoodPlanModel = query[nameof(FoodPlanModel)] as FoodPlanModel;
+        FoodPlanModel = GetQueryValue<FoodPlanModel>(query, nameof(FoodPlanModel));
+        await Fetch();
     }
 }
