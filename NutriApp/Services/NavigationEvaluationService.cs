@@ -8,6 +8,7 @@ using NutriApp.Views.Evaluation.EstimatedHeight;
 using NutriApp.Views.Evaluation.EstimatedWeight;
 using NutriApp.Views.Evaluation.IdealWeight;
 using NutriApp.Views.Evaluation.Imc;
+using NutriApp.Views.Evaluation.ReferenceValue;
 using NutriApp.Views.Evaluation.SemiologyNutritional;
 
 namespace NutriApp.Services;
@@ -45,7 +46,7 @@ public class NavigationEvaluationService
             if (itemMenu.Titulo == EvaluationMenuStrings.CircunferenciaPanturrilha) { await App.NavPage.GoToAsync(nameof(CircumferenceCalfPage)); return; }
             if (itemMenu.Titulo == EvaluationMenuStrings.SemiologiaNutricional) { await App.NavPage.GoToAsync(nameof(SemiologiaNutricionalListPage)); return; }
             if (itemMenu.Titulo == EvaluationMenuStrings.PesoEstimado)  { await App.NavPage.GoToAsync( nameof(EstimatedWeightPage)); return;}
-            //if (itemMenu.Titulo == EvaluationMenuStrings.ValorReference) { await Navigation.PushPageAsync(new ReferenceValue()); return;}
+            if (itemMenu.Titulo == EvaluationMenuStrings.ValorReference) { await App.NavPage.GoToAsync(nameof(ReferenceValuePage)); return;}
             await Shell.Current.DisplayAlert("Em Construção", "Em construção", "OK");
         }
 }

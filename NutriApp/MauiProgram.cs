@@ -3,6 +3,8 @@ using MauiLib1;
 using MauiLib1.Components.Entries;
 using MauiLib1.Navigation;
 using Microsoft.Extensions.Logging;
+using Syncfusion.Licensing;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace NutriApp;
 
@@ -17,6 +19,7 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
+            .ConfigureSyncfusionCore()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -31,7 +34,8 @@ public static class MauiProgram
 #endif
             });
             
-            ;
+        // Adicione a chave de licença da Syncfusion aqui
+        SyncfusionLicenseProvider.RegisterLicense("MzQ2NjY2N0AzMjM2MmUzMDJlMzBrN2Mwd2lnTVVNTmxsK2hEdEQ0bGtzMldMVjNVWG5rTllhMEZWYzdTQTlRPQ==");
 
 #if DEBUG
         builder.Logging.AddDebug();
