@@ -3,6 +3,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
              x:Name="View"
              x:Class="NutriApp.Components.SlideCustomer.SlideView">
     <StackLayout>
@@ -55,19 +56,28 @@
             </inputLayout:InputLayoutView>
             
         </Grid>
-
-        <!-- <Slider -->
-        <!--     x:Name="RangeSlider" -->
-        <!--     Maximum="100" -->
-        <!--     ThumbColor="Aqua" -->
-        <!--     ValueLabelStringFormat="" -->
-        <!--     ValueChanged="RangeSlider_OnValueChanged" -->
-        <!--     LowerThumbColor="{StaticResource DarkBlue}" -->
-        <!--     UpperThumbColor="{StaticResource DarkBlue}" -->
-        <!--     TrackColor="{StaticResource DarkOrange}" -->
-        <!--     TrackHighlightColor="{StaticResource DarkOrange}" -->
-        <!--     MinimumValue="0" -->
-        <!--     StepValue="1" /> -->
+        
+        <sf:SfRangeSlider 
+            Margin="0,8,0,0"
+            x:Name="RangeSlider"
+            Minimum="0"
+            Maximum="100" 
+            Interval="1"
+            MinorTicksPerInterval="1"
+            ValueChanged="RangeSlider_OnValueChanged">
+            <sf:SfRangeSlider.TrackStyle>
+                <sf:SliderTrackStyle 
+                    ActiveSize="5"
+                    InactiveSize="5"
+                    ActiveFill="{StaticResource DarkOrange}"
+                    InactiveFill="{StaticResource DarkOrange}" />
+            </sf:SfRangeSlider.TrackStyle>
+            <sf:SfRangeSlider.ThumbStyle>
+                <sf:SliderThumbStyle 
+                    Radius="14"
+                    Fill="{StaticResource DarkBlue}" />
+            </sf:SfRangeSlider.ThumbStyle>
+        </sf:SfRangeSlider>
 
     </StackLayout>
 </ContentView>

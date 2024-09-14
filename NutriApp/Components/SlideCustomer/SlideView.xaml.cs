@@ -59,8 +59,8 @@ public partial class SlideView : ContentView
 
     private void Fetch()
     {
-        // RangeSlider.UpperValue = 69;
-        // RangeSlider.LowerValue = 33;
+        RangeSlider.RangeEnd = 69;
+        RangeSlider.RangeStart = 33;
         _canChangeValue = true;
         ChangeValue();
     }
@@ -68,10 +68,10 @@ public partial class SlideView : ContentView
     private void ChangeValue()
     {
         if (!_canChangeValue) return;
-        // ProteinaPercentage = (int)RangeSlider.LowerValue;
-        // CarboidratoPercentage = (int)(RangeSlider.UpperValue - RangeSlider.LowerValue);
-        // LipidioPercentage = (int)(100 - RangeSlider.UpperValue);
-        // _canMacroChangeValue = true;
+        ProteinaPercentage = (int)RangeSlider.RangeStart;
+        CarboidratoPercentage = (int)(RangeSlider.RangeEnd - RangeSlider.RangeStart);
+        LipidioPercentage = (int)(100 - RangeSlider.RangeEnd);
+        _canMacroChangeValue = true;
     }
 
     private void RangeSlider_OnValueChanged(object sender, EventArgs e)
@@ -96,8 +96,8 @@ public partial class SlideView : ContentView
     private void ChangeValueMacro()
     {
         _canChangeValue = false;
-        // RangeSlider.UpperValue = ProteinaPercentage + CarboidratoPercentage;
-        // RangeSlider.LowerValue = ProteinaPercentage;
+        RangeSlider.RangeEnd = ProteinaPercentage + CarboidratoPercentage;
+        RangeSlider.RangeStart = ProteinaPercentage;
         _canChangeValue = true;
     }
 

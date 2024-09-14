@@ -31,71 +31,6 @@ public partial class BodyCompositionView : ContentView
             returnType: typeof(string),
             declaringType: typeof(BodyCompositionView),
             defaultValue: default(string));
-    //
-    // public static readonly BindableProperty AbdominalProperty =
-    //     BindableProperty.Create(
-    //         propertyName: nameof(Abdominal),
-    //         returnType: typeof(string),
-    //         declaringType: typeof(BodyCompositionView),
-    //         defaultValue: default(string));
-    //
-    // public static readonly BindableProperty BicepsProperty =
-    //     BindableProperty.Create(
-    //         propertyName: nameof(Biceps),
-    //         returnType: typeof(string),
-    //         declaringType: typeof(BodyCompositionView),
-    //         defaultValue: default(string));
-    //
-    // public static readonly BindableProperty TricepsProperty =
-    //     BindableProperty.Create(
-    //         propertyName: nameof(Triceps),
-    //         returnType: typeof(string),
-    //         declaringType: typeof(BodyCompositionView),
-    //         defaultValue: default(string));
-    //
-    // public static readonly BindableProperty SuprailiacProperty =
-    //     BindableProperty.Create(
-    //         propertyName: nameof(Suprailiac),
-    //         returnType: typeof(string),
-    //         declaringType: typeof(BodyCompositionView),
-    //         defaultValue: default(string));
-    //
-    // public static readonly BindableProperty MiddleAxillaryProperty =
-    //     BindableProperty.Create(
-    //         propertyName: nameof(MiddleAxillary),
-    //         returnType: typeof(string),
-    //         declaringType: typeof(BodyCompositionView),
-    //         defaultValue: default(string));
-    //
-    // public static readonly BindableProperty ChestProperty =
-    //     BindableProperty.Create(
-    //         propertyName: nameof(Chest),
-    //         returnType: typeof(string),
-    //         declaringType: typeof(BodyCompositionView),
-    //         defaultValue: default(string));
-    //
-    // public static readonly BindableProperty SubScapularProperty =
-    //     BindableProperty.Create(
-    //         propertyName: nameof(SubScapular),
-    //         returnType: typeof(string),
-    //         declaringType: typeof(BodyCompositionView),
-    //         defaultValue: default(string));
-    //
-    // public static readonly BindableProperty ThighProperty =
-    //     BindableProperty.Create(
-    //         propertyName: nameof(Thigh),
-    //         returnType: typeof(string),
-    //         declaringType: typeof(BodyCompositionView),
-    //         defaultValue: default(string));
-    //
-    //
-    // public static readonly BindableProperty MedialCalfProperty =
-    //     BindableProperty.Create(
-    //         propertyName: nameof(MedialCalf),
-    //         returnType: typeof(string),
-    //         declaringType: typeof(BodyCompositionView),
-    //         defaultValue: default(string));
-    //
     public string GenderType
     {
         get => (string)GetValue(GenderTypeProperty);
@@ -107,60 +42,6 @@ public partial class BodyCompositionView : ContentView
         get => (string)GetValue(AnthropometricEvaluationTypeStringProperty);
         set => SetValue(AnthropometricEvaluationTypeStringProperty, value);
     }
-    
-    // public string Abdominal
-    // {
-    //     get => (string)GetValue(AbdominalProperty);
-    //     set => SetValue(AbdominalProperty, value);
-    // }
-    //
-    // public string Biceps
-    // {
-    //     get => (string)GetValue(BicepsProperty);
-    //     set => SetValue(BicepsProperty, value);
-    // }
-    //
-    // public string Triceps
-    // {
-    //     get => (string)GetValue(TricepsProperty);
-    //     set => SetValue(TricepsProperty, value);
-    // }
-    //
-    // public string Suprailiac
-    // {
-    //     get => (string)GetValue(SuprailiacProperty);
-    //     set => SetValue(SuprailiacProperty, value);
-    // }
-    //
-    // public string MiddleAxillary
-    // {
-    //     get => (string)GetValue(MiddleAxillaryProperty);
-    //     set => SetValue(MiddleAxillaryProperty, value);
-    // }
-    //
-    // public string SubScapular
-    // {
-    //     get => (string)GetValue(SubScapularProperty);
-    //     set => SetValue(SubScapularProperty, value);
-    // }
-    //
-    // public string Chest
-    // {
-    //     get => (string)GetValue(ChestProperty);
-    //     set => SetValue(ChestProperty, value);
-    // }
-    //
-    // public string Thigh
-    // {
-    //     get => (string)GetValue(ThighProperty);
-    //     set => SetValue(ThighProperty, value);
-    // }
-    //
-    // public string MedialCalf
-    // {
-    //     get => (string)GetValue(MedialCalfProperty);
-    //     set => SetValue(MedialCalfProperty, value);
-    // }
 
     public BodyCompositionView()
     {

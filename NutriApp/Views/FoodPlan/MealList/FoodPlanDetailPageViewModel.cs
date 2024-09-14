@@ -6,13 +6,12 @@ namespace NutriApp.Views.FoodPlan.MealList;
 [QueryProperty(nameof(FoodPlanModel), nameof(FoodPlanModel))]
 public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttributable
 {
-    [ObservableProperty]
-    private bool _emptyList;
-    [ObservableProperty]
-    private ObservableCollection<MealModel> _listMeal;
-        
+    [ObservableProperty] private bool _emptyList;
+    [ObservableProperty] private ObservableCollection<MealModel> _listMeal;
+    [ObservableProperty] private ObservableCollection<MealModel> _listMealAux;
+
     public FoodPlanModel FoodPlanModel;
-        
+
     public FoodPlanDetailPageViewModel()
     {
         Fetch();
@@ -20,23 +19,27 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
 
     private async Task Fetch()
     {
-        ObservableCollection<MealModel> listMeal = new ();
-        if(FoodPlanModel is not null) listMeal = await new MealDB().ListarMealWhere(FoodPlanModel.Id);
-        foreach (var mealModel in listMeal)
+        ObservableCollection<MealModel> listMealAux = new ();
+        if (FoodPlanModel is not null)
         {
-            var foodModel = await MealService.GetFoodModelForMeal(mealModel);
-            FoodService.AddUnitMeasureToValues(FoodService.RoundMacro(foodModel));
-            mealModel.Carboidratos = foodModel.Carboidratos;
-            mealModel.Proteinas = foodModel.Proteinas;
-            mealModel.Lipidios = foodModel.Lipidios;
-            mealModel.ValorTotal = foodModel.ValorCalorico;
-            mealModel.Horario = Convert.ToDateTime(mealModel.Horario).ToString("HH:mm");
+            listMealAux = await new MealDB().ListarMealWhere(FoodPlanModel.Id);
+            foreach (var mealModel in listMealAux)
+            {
+                var foodModel = await MealService.GetFoodModelForMeal(mealModel);
+                FoodService.AddUnitMeasureToValues(FoodService.RoundMacro(foodModel));
+                mealModel.Carboidratos = foodModel.Carboidratos;
+                mealModel.Proteinas = foodModel.Proteinas;
+                mealModel.Lipidios = foodModel.Lipidios;
+                mealModel.ValorTotal = foodModel.ValorCalorico;
+                mealModel.Horario = Convert.ToDateTime(mealModel.Horario).ToString("HH:mm");
+            }
         }
-
-        ListMeal = listMeal;
-        EmptyList = listMeal.Count == 0;
+        if(listMealAux.Count == 0) return;
+        
+        ListMeal = new ObservableCollection<MealModel>(listMealAux);
+        EmptyList = listMealAux.Count == 0;
     }
-    
+
     [RelayCommand]
     private void GoFoodDetail(object obj)
     {
@@ -44,25 +47,26 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
         ShellNavigationQueryParameters navigationParameter = new()
         {
             { nameof(MealModel), mealModel },
-            { nameof(FoodPlanDetailPageViewModel),this}
+            { nameof(FoodPlanDetailPageViewModel), this }
         };
-        App.NavPage.GoToAsync( nameof(MealFoodDetailPage), navigationParameter);
+        App.NavPage.GoToAsync(nameof(MealFoodDetailPage), navigationParameter);
         //App.NavPage.GoToAsync( FoodDetailPage(this,mealModel));
     }
-    
+
     [RelayCommand]
     private void AddFood()
     {
         ShellNavigationQueryParameters navigationParameter = new()
         {
-            { nameof(FoodPlanDetailPageViewModel),this}
+            { nameof(FoodPlanDetailPageViewModel), this }
         };
-        App.NavPage.GoToAsync(nameof(MealFoodDetailPage),navigationParameter);
+        App.NavPage.GoToAsync(nameof(MealFoodDetailPage), navigationParameter);
         //App.NavPage.PushAsync(new FoodDetailPage(this));
     }
-    
-    public void ApplyQueryAttributes(IDictionary<string, object> query)
+
+    public async void ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        FoodPlanModel = query[nameof(FoodPlanModel)] as FoodPlanModel;
+        FoodPlanModel = GetQueryValue<FoodPlanModel>(query, nameof(FoodPlanModel));
+        await Fetch();
     }
 }

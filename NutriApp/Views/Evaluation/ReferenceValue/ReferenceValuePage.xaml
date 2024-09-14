@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<contentPageCustomer:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:sf="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+                 xmlns:inputLayout="clr-namespace:MauiLib1.Components.InputLayout;assembly=BaseMauiLib"
+                 xmlns:resultLine="clr-namespace:NutriApp.Components.ResultLine"
+                 xmlns:referenceValue="clr-namespace:NutriApp.Views.Evaluation.ReferenceValue"
+                 xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
+                 xmlns:slideCustomer="clr-namespace:NutriApp.Components.SlideCustomer"
+                 xmlns:button="clr-namespace:NutriApp.Components.Button"
+                 TextTitle="Valor de referencia"
+                 x:DataType="referenceValue:ReferenceValuePageViewModel"
+                 x:Class="NutriApp.Views.Evaluation.ReferenceValue.ReferenceValuePage">
+    <StackLayout Margin="20,20,20,0">
+
+        <inputLayout:InputLayoutView
+            CornerRadius="8"
+            BorderColor="{StaticResource DarkBlue}"
+            HasError="{Binding HasErrorEnergy}"
+            ErrorText="Energia não informada"
+            Hint="Energia (kcal)">
+            <Entry
+                BackgroundColor="#F4F4F4"
+                Text="{Binding Energy}"
+                TextColor="Black"
+                Keyboard="Numeric"
+                MaxLength="50"
+                PlaceholderColor="Black">
+            </Entry>
+        </inputLayout:InputLayoutView>
+        
+        <slideCustomer:SlideView
+            Margin="0,0,0,30"
+            ProteinaPercentage="{Binding ProteinPercent}"
+            CarboidratoPercentage="{Binding CarbohydratePercent}"
+            LipidioPercentage="{Binding LipidPercent}" />
+        
+        <StackLayout
+            VerticalOptions="End"
+            IsVisible="{Binding DisplayResult}">
+
+            <resultLine:ResultLineView
+                Margin="0,40,0,0"
+                ResultType="FIRST"
+                TextTitle="Proteína"
+                UnityMeasureType="GRAMS"
+                BodyText="{Binding Protein}" />
+
+            <resultLine:ResultLineView
+                TextTitle="Carboidrato"
+                UnityMeasureType="GRAMS"
+                BodyText="{Binding Carbohydrate}" />
+
+            <resultLine:ResultLineView
+                TextTitle="Lipídio"
+                UnityMeasureType="GRAMS"
+                BodyText="{Binding Lipid}" />
+
+        </StackLayout>
+
+        <button:ButtonView
+            Command="{Binding CalculateCommand}"
+            VerticalOptions="End"
+            Margin="0,0,0,40"
+            TextColor="White"
+            BackgroundColor="{StaticResource DarkBlue}"
+            Text="Calcular" />
+        
+    </StackLayout>
+
+</contentPageCustomer:BaseContentPage>
