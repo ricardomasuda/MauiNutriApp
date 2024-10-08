@@ -8,31 +8,42 @@
     xmlns:page="clr-namespace:NutriApp.Views.ReportPage.Page"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:DataType="page:ReportViewModel"
+    HorizontalOptions="Fill"
+    VerticalOptions="Center"
+    Color="Transparent"
     x:Name="ReportPopupRoot"
     x:Class="NutriApp.Views.ReportPage.Popup.ReportPopup">
-    <Border
-        StrokeShape="RoundRectangle 10"
-        Padding="0"
-        BackgroundColor="{StaticResource PageColor}"
-        Margin="10,50">
+    <VerticalStackLayout>
+        <Border
+            StrokeShape="RoundRectangle 10"
+            Padding="0"
+            HeightRequest="700"
+            HorizontalOptions="Fill"
+            BackgroundColor="{StaticResource PageColor}"
+            Margin="20,20">
 
-        <StackLayout Padding="0">
+            <VerticalStackLayout
+                HorizontalOptions="Fill"
+                VerticalOptions="FillAndExpand"
+                Margin="0"
+                Padding="0">
 
-            <view:NewTitleView
-                Command="{Binding CloseCommand}"
-                CommandParameter="{Binding Source={x:Reference ReportPopupRoot}}"
-                VisibleBack="False"
-                TypeTitle="Close"
-                TextTitle="Relatório Nutricional" />
+                <view:NewTitleView
+                    Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding Source={x:Reference ReportPopupRoot}}"
+                    VisibleBack="False"
+                    TypeTitle="Close"
+                    TextTitle="Relatório Nutricional" />
+                <ScrollView
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="Fill">
+                    <table:NewReportTableView
+                        NutrientsModel="{Binding NutrientsModel}" />
+                </ScrollView>
 
-            <ScrollView>
+            </VerticalStackLayout>
 
-                <table:NewReportTableView
-                    NutrientsModel="{Binding NutrientsModel}" />
+        </Border>
+    </VerticalStackLayout>
 
-            </ScrollView>
-
-        </StackLayout>
-
-    </Border>
 </toolkit:Popup>

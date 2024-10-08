@@ -6,18 +6,23 @@
              xmlns:converters="clr-namespace:NutriApp.Converters"
              x:Name="CardLineViewRoot"
              x:Class="NutriApp.Components.CardLine.CardLineView">
-    <Grid Margin="40,0">
+    <Grid 
+        HorizontalOptions="Center">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*" />
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20"  />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Frame
             x:Name="FrameView"
             Grid.Column="1"
+            Grid.ColumnSpan="2"
             HasShadow="False"
             WidthRequest="180"
             Padding="0"
             HeightRequest="30"
+            BorderColor="Transparent"
+            HorizontalOptions="Start"
             BackgroundColor="{StaticResource DarkOrange}">
             <Frame.CornerRadius>
                 <OnPlatform x:TypeArguments="system:Single">
@@ -27,7 +32,8 @@
             </Frame.CornerRadius>
             <Label
                 TextColor="White"
-                Margin="40,0,0,0"
+                Margin="30,0,0,0"
+                HorizontalOptions="Start"
                 VerticalTextAlignment="Center">
                 <Label.FormattedText>
                     <FormattedString>
@@ -39,11 +45,14 @@
         </Frame>
         <Frame
             Grid.Column="0"
+            Grid.ColumnSpan="2"
             WidthRequest="100"
+            BorderColor="Transparent"
             HasShadow="False"
             CornerRadius="30"
             Padding="5"
             HeightRequest="30"
+            HorizontalOptions="End"
             Margin="0,0,0,0"
             BackgroundColor="#FFE195">
             <Frame.CornerRadius>

@@ -1,3 +1,5 @@
+using Microsoft.Maui.Controls.Shapes;
+
 namespace NutriApp.Components.Table;
 
 public partial class NewReportTableView : ContentView
@@ -14,19 +16,28 @@ public partial class NewReportTableView : ContentView
         get => (NutrientsModel)GetValue(NutrientsModelProperty);
         set => SetValue(NutrientsModelProperty, value);
     }
+    
+    public static readonly BindableProperty IsFinishProperty =
+        BindableProperty.Create(
+            propertyName: nameof(IsFinish),
+            returnType: typeof(bool),
+            declaringType: typeof(NewReportTableView),
+            defaultValue: false);
+
+    public bool IsFinish
+    {
+        get => (bool)GetValue(IsFinishProperty);
+        set => SetValue(IsFinishProperty, value);
+    }
 
     public NewReportTableView()
     {
         InitializeComponent();
     }
 
-    protected override void OnPropertyChanged(string propertyName)
+    private void Fill()
     {
-        base.OnPropertyChanged(propertyName);
-
-        if (propertyName == NutrientsModelProperty.PropertyName)
-        {
-            ProteinaLabel.Nutrient = ValidateNutrient(NutrientsModel.Proteina, NutrientsTypes.PROTEINA);
+          ProteinaLabel.Nutrient = ValidateNutrient(NutrientsModel.Proteina, NutrientsTypes.PROTEINA);
             CarboidratoLabel.Nutrient = ValidateNutrient(NutrientsModel.Carboidratos, NutrientsTypes.CARBOIDRATO);
             LipidioLabel.Nutrient = ValidateNutrient(NutrientsModel.Lipidio, NutrientsTypes.LIPIDIO);
             ValorCaloricoLabel.Nutrient = ValidateNutrient(NutrientsModel.ValorCalorico, NutrientsTypes.VALOR_CALORICO);
@@ -48,6 +59,23 @@ public partial class NewReportTableView : ContentView
             VitaminaB6Label.Nutrient = ValidateNutrient(NutrientsModel.VitaminaB6, NutrientsTypes.VITAMINA_B6);
             VitaminaB3Label.Nutrient = ValidateNutrient(NutrientsModel.VitaminaB3, NutrientsTypes.VITAMINA_B3);
             VitaminaCLabel.Nutrient = ValidateNutrient(NutrientsModel.VitaminaC, NutrientsTypes.VITAMINA_C);
+    }
+
+    protected override void OnPropertyChanged(string propertyName)
+    {
+        base.OnPropertyChanged(propertyName);
+
+        if (propertyName == IsFinishProperty.PropertyName)
+        {
+            if (NutrientsModel is not null)
+            {
+                Fill();
+            }
+        }
+        
+        if (propertyName == NutrientsModelProperty.PropertyName)
+        {
+            Fill();
         }
     }
 

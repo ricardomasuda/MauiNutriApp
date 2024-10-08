@@ -7,6 +7,7 @@ public partial class ReportPage : BaseContentPage
     public ReportPage()
     {
         InitializeComponent();
+        BindingContext = new ReportViewModel();
     }
     
     // public async Task ShareReport()

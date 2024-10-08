@@ -22,17 +22,20 @@ public partial class BaseViewModel : ObservableObject
 
         await toast.Show(cancellationTokenSource.Token);
     }
-
-    protected T GetQueryValue<T>(IDictionary<string, object> query, string key) where T : class
+    
+    protected T GetQueryValue<T>(IDictionary<string, object> query, string key)
     {
         if (query.TryGetValue(key, out var value))
         {
-            return value as T;
+            if (value is T typedValue)
+            {
+                return typedValue;
+            }
         }
 
-        return null;
+        return default(T);
     }
-    
+
     public event PropertyChangedEventHandler PropertyChanged;
     public void OnPropertyChanged(string nameProperty)
     {

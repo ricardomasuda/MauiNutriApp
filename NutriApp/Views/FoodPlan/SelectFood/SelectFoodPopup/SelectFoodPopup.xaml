@@ -17,7 +17,8 @@
     Command="{Binding CloseCommand}"
     x:Class="NutriApp.Views.FoodPlan.SelectFood.SelectFoodPopup.SelectFoodPopup">
     
-    <StackLayout BackgroundColor="{StaticResource PageColor}">
+    <StackLayout
+        VerticalOptions="Fill">
         <StackLayout
             Margin="20,5,20,0">
 
