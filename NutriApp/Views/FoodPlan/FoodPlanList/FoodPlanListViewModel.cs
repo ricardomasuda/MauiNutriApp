@@ -3,14 +3,14 @@ using NutriApp.Views.FoodPlan.MealList;
 
 namespace NutriApp.Views.FoodPlan.FoodPlanList;
 
-public partial class FoodPlanListViewModel : BaseViewModel
+public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
 {
     [ObservableProperty] private ObservableCollection<FoodPlanModel> _listFoodPlan;
     [ObservableProperty] private bool _hasEmptyList;
 
     public FoodPlanListViewModel()
     {
-        Fetch();
+        //Fetch();
     }
 
     public async void Fetch()
@@ -89,11 +89,15 @@ public partial class FoodPlanListViewModel : BaseViewModel
         // [QueryProperty("title", "title")]
         List<FoodModel> listFood = new() { superFood };
         ShellNavigationQueryParameters navigationParameter = new() {
-            { "listFood", listFood },
-            { "foodPlanId", foodPlan.Id},
+            { "FoodList", listFood },
+            { "FoodPlanId", foodPlan.Id},
             { "Title", foodPlan.Nome}
         };
         await App.NavPage.GoToAsync(nameof(ReportPage), navigationParameter);
-        //await App.NavPage.GoToAsync(new ReportPage(listFood, foodPlan.Nome, foodPlan.Id));
+    }
+
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        Fetch();
     }
 }

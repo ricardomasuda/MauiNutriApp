@@ -1,26 +1,26 @@
 namespace NutriApp.Models;
 
-public class NutrientsModel
+public partial class NutrientsModel : ObservableObject
 {
-    public string Carboidratos { get; set; }
-    public string Proteina { get; set; }
-    public string Lipidio { get; set; }
-    public string ValorCalorico { get; set; }
-    public string Medida { get; set; }
-    public string Sodio { get; set; }
-    public string FibraAlimentar { get; set; }
-    public string Calcio { get; set; }
-    public string Magnesio { get; set; }
-    public string Manganes { get; set; }
-    public string Fosforo { get; set; }
-    public string Ferro { get; set; }
-    public string Potassio { get; set; }
-    public string Cobre { get; set; }
-    public string Zinco { get; set; }
-    public string VitaminaA { get; set; }
-    public string VitaminaB1 { get; set; }
-    public string VitaminaB2 { get; set; }
-    public string VitaminaB6 { get; set; }
-    public string VitaminaB3 { get; set; }
-    public string VitaminaC { get; set; }
+    [ObservableProperty] private string _carboidratos;
+    [ObservableProperty] private string _proteina;
+    [ObservableProperty] private string _lipidio;
+    [ObservableProperty] private string _valorCalorico;
+    [ObservableProperty] private string _medida;
+    [ObservableProperty] private string _sodio;
+    [ObservableProperty] private string _fibraAlimentar;
+    [ObservableProperty] private string _calcio;
+    [ObservableProperty] private string _magnesio;
+    [ObservableProperty] private string _manganes;
+    [ObservableProperty] private string _fosforo;
+    [ObservableProperty] private string _ferro;
+    [ObservableProperty] private string _potassio;
+    [ObservableProperty] private string _cobre;
+    [ObservableProperty] private string _zinco;
+    [ObservableProperty] private string _vitaminaA;
+    [ObservableProperty] private string _vitaminaB1;
+    [ObservableProperty] private string _vitaminaB2;
+    [ObservableProperty] private string _vitaminaB6;
+    [ObservableProperty] private string _vitaminaB3;
+    [ObservableProperty] private string _vitaminaC;
 }

@@ -15,7 +15,6 @@
     x:Class="NutriApp.Views.FoodPlan.FoodPlanList.FoodPlanListPage">
     <StackLayout Margin="15,0,15,0">
 
-
         <StackLayout
             IsVisible="{Binding HasEmptyList}"
             Margin="0,180,0,0">
@@ -109,7 +108,7 @@
                                                 TextColor="{StaticResource DarkBlue}" />
 
                                             <Label
-                                                Margin="0,-5,0,0"
+                                                Margin="0"
                                                 HorizontalOptions="Center"
                                                 TextColor="{StaticResource DarkBlue}">
                                                 <Label.FormattedText>
@@ -130,7 +129,7 @@
                                                 HorizontalOptions="StartAndExpand"
                                                 TextColor="DimGray" />
                                             <Label
-                                                Margin="0,-5,0,0"
+                                                Margin="0"
                                                 HorizontalOptions="Center"
                                                 TextColor="{StaticResource DarkBlue}">
                                                 <Label.FormattedText>
@@ -151,7 +150,7 @@
                                                 HorizontalOptions="End"
                                                 TextColor="{StaticResource DarkBlue}" />
                                             <Label
-                                                Margin="0,-5,0,0"
+                                                Margin="0"
                                                 HorizontalOptions="Center"
                                                 TextColor="{StaticResource DarkBlue}">
                                                 <Label.FormattedText>
@@ -174,6 +173,7 @@
                                         BackgroundColor="{StaticResource DarkOrange}"
                                         CornerRadius="9"
                                         HasShadow="False"
+                                        BorderColor="Transparent"
                                         HorizontalOptions="EndAndExpand"
                                         Margin="0,0,0,4">
                                         <Label

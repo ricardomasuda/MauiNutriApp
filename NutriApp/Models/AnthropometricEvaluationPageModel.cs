@@ -8,6 +8,7 @@ public partial class AnthropometricEvaluationPageModel : ObservableObject
     [ObservableProperty] private string _medialAxilla ;
     [ObservableProperty] private string _middleAxillary ;
     
+    
     [ObservableProperty] private string _lateralCalf ;
     [ObservableProperty] private string _triceps ;
     [ObservableProperty] private string _thigh ;

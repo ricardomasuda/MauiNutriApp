@@ -2,7 +2,7 @@ using NutriApp.Views.ReportPage.Page;
 
 namespace NutriApp.Views.ReportPage.Popup;
 
-public partial class ReportPopup : CommunityToolkit.Maui.Views.Popup
+public partial class ReportPopup
 {
     public ReportPopup(List<FoodModel> listFood)
     {

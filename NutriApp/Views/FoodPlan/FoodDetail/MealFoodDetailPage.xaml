@@ -17,7 +17,8 @@
     x:DataType="foodDetail:MealFoodDetailViewModel"
     x:Class="NutriApp.Views.FoodPlan.FoodDetail.MealFoodDetailPage">
 
-    <StackLayout BackgroundColor="{StaticResource PageColor}">
+    <StackLayout 
+        BackgroundColor="{StaticResource PageColor}">
         <view:NewTitleView
             TypeTitle="{Binding TitleType}"
             Command="{Binding DeleteMealCommand}"
@@ -35,8 +36,8 @@
                     x:DataType="foodDetail:MealFoodDetailViewModel"
                     BackgroundColor="#F4F4F4"
                     TextColor="Black"
-                    SelectedItem="{Binding ItemMeal}"
                     ItemsSource="{Binding ListItemMeal}"
+                    SelectedItem="{Binding SelectedItemMeal, Mode=TwoWay}"
                     ItemDisplayBinding="{Binding Nome}">
                 </Picker>
             </inputLayout:InputLayoutView>

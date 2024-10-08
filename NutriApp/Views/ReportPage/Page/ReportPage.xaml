@@ -20,7 +20,8 @@
             BackgroundColor="{StaticResource PageColor}">
 
             <table:NewReportTableView
-                NutrientsModel="{Binding NutrientsModel}" />
+                NutrientsModel="{Binding NutrientsModel}"
+                IsFinish="{Binding IsFinish}"/>
 
             <table:ReferenceValueView
                 IsVisible="{Binding HasValueReference}"
@@ -44,7 +45,7 @@
                     HasUnevenRows="True"
                     HeightRequest="{Binding Height}"
                     SeparatorVisibility="Default"
-                    ItemsSource="{Binding ListFood}">
+                    ItemsSource="{Binding FoodList}">
 
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="models:FoodModel">

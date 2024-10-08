@@ -1,24 +1,35 @@
 namespace NutriApp.Views.ReportPage.Page;
 
-[QueryProperty("listFood", "listFood")]
-[QueryProperty("foodPlanId", "foodPlanId")]
+[QueryProperty(nameof(FoodList), "listFood")]
+[QueryProperty("FoodPlanId", "foodPlanId")]
 [QueryProperty(nameof(Title), nameof(Title))]
 public partial class ReportViewModel : BaseViewModel, IQueryAttributable
 {
-    [ObservableProperty] private List<FoodModel> _listFood;
+    [ObservableProperty] private List<FoodModel> _foodList;
     [ObservableProperty] private int _height;
     [ObservableProperty] private int _foodPlanId;
     [ObservableProperty] private bool _hasDisplayFood;
     [ObservableProperty] private bool _hasValueReference;
+    [ObservableProperty] private NutrientsModel _nutrientsModel;
+    [ObservableProperty] private bool _isFinish;
     
     public ReportPage ReportPage { get; set; }
 
     public new string Title { get; set; }
-    public NutrientsModel NutrientsModel { get; set; }
+    
     public ValueReferenceModel ValueReferenceModel { get; set; }
 
     public ReportViewModel(List<FoodModel> listFood, string title = null, int foodPlanId = default)
     {
+        FoodList = listFood;
+        FoodPlanId = foodPlanId;
+        Title = title;
+        Fill();
+    }
+    
+    public ReportViewModel()
+    {
+      
     }
 
     private async Task FetchValueReference()
@@ -51,9 +62,9 @@ public partial class ReportViewModel : BaseViewModel, IQueryAttributable
 
     private void HasFood()
     {
-        if (ListFood.Count == 1)
+        if (FoodList.Count == 1)
         {
-            if (ListFood[0].Id == 0)
+            if (FoodList[0].Id == 0)
             {
                 HasDisplayFood = false;
                 return;
@@ -65,7 +76,7 @@ public partial class ReportViewModel : BaseViewModel, IQueryAttributable
 
     private void CalculateFood()
     {
-        var food = FoodService.SumFoodNutrients(ListFood);
+        var food = FoodService.SumFoodNutrients(FoodList);
         NutrientsModel.Carboidratos = food.Carboidratos;
         NutrientsModel.Proteina = food.Proteinas;
         NutrientsModel.Lipidio = food.Lipidios;
@@ -87,18 +98,19 @@ public partial class ReportViewModel : BaseViewModel, IQueryAttributable
         NutrientsModel.VitaminaB3 = food.VitaminaB3;
         NutrientsModel.VitaminaB6 = food.VitaminaB6;
         NutrientsModel.VitaminaC = food.VitaminaC;
+        IsFinish = true;
     }
 
     private void DynamicList()
     {
-        Height = ListFood.Count * 40;
+        Height = FoodList.Count * 40;
     }
     
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        ListFood = query["listFood"] as List<FoodModel>;
-        FoodPlanId = query["foodPlanId"] is int ? (int)query["foodPlanId"] : 0;
-        Title = query[nameof(Title)] as string;
+        FoodList = GetQueryValue<List<FoodModel>>(query, nameof(FoodList));
+        FoodPlanId = GetQueryValue<int>(query, nameof(FoodPlanId));
+        Title = GetQueryValue<string>(query, nameof(Title));
         Fill();
     }
     

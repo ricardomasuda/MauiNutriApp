@@ -10,7 +10,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
 {
     [ObservableProperty] private FoodModel _foodTotal;
     [ObservableProperty] private ObservableCollection<FoodModel> _listFood;
-    [ObservableProperty] private Item _itemMeal;
+    [ObservableProperty] private Item _selectedItemMeal;
     [ObservableProperty] private ObservableCollection<Item> _listItemMeal;
     [ObservableProperty] private string _title;
     [ObservableProperty] private TypeTitleEnum _titleType;
@@ -23,21 +23,21 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
 
     private MealModel _meal;
     private FoodPlanDetailPageViewModel _foodPlanDetailPageViewModel;
+    private MealFoodDetailPage _mealFoodDetailPage;
 
-    public MealFoodDetailViewModel()
+    public MealFoodDetailViewModel(MealFoodDetailPage mealFoodDetailPage)
     {
         Fetch();
+        _mealFoodDetailPage = mealFoodDetailPage;
     }
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         _foodPlanDetailPageViewModel = query[nameof(FoodPlanDetailPageViewModel)] as FoodPlanDetailPageViewModel;
         _meal = GetQueryValue<MealModel>(query, nameof(MealModel));
-        //_meal = query[nameof(MealModel)] as MealModel;
         Fetch();
     }
-
-
+    
     private async void Fetch()
     {
         FoodTotal = new FoodModel();
@@ -50,6 +50,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
             Hour = TimeSpan.Parse(_meal.Horario);
             ListFood = await DataBaseService.GetFoodWhere(_meal.Id);
             HaveList = ListFood.Count != 0;
+            _mealFoodDetailPage.OnItemSelected(_meal.Nome);
             CanSeeReport = HaveList;
             CalculateHeightList();
         }
@@ -99,9 +100,14 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
     }
 
     [RelayCommand]
-    private void GoReport()
+    private async void GoReport()
     {
         List<FoodModel> listFood = ListFood.Select(FoodService.RemoveUnitMeasurement).ToList();
+        ShellNavigationQueryParameters navigationParameter = new() {
+            { "FoodList", listFood },
+            { "Title", SelectedItemMeal.Nome}
+        };
+        await App.NavPage.GoToAsync(nameof(ReportPage), navigationParameter);
         //App.NavPage.PushAsync(new ReportPage(listFood, ItemMeal.Nome));
     }
 
@@ -139,7 +145,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
         {
             Id = _meal?.Id ?? 0,
             ListFood = new List<FoodModel>(ListFood),
-            Nome = ItemMeal.Nome,
+            Nome = SelectedItemMeal.Nome,
             FoodPLanId = _foodPlanDetailPageViewModel.FoodPlanModel.Id,
             Horario = Hour.ToString()
         };
@@ -171,7 +177,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
     private bool Validate()
     {
         HasErrorHour = string.IsNullOrWhiteSpace(Hour.ToString());
-        HasErrorItemMeal = ItemMeal == null;
+        HasErrorItemMeal = SelectedItemMeal == null;
 
         return (!HasErrorHour && !HasErrorItemMeal);
     }

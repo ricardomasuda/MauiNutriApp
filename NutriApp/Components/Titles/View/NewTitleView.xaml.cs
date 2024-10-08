@@ -158,7 +158,7 @@ public partial class NewTitleView : ContentView
                 LabelTitle.Text = TextTitle;
             }
 
-            if (propertyName == TextTitleProperty.PropertyName)
+            if (propertyName == TypeTitleProperty.PropertyName)
             {
                 TipoAcao();
             }

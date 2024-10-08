@@ -36,7 +36,7 @@ public partial class ChangeFoodPopupViewModel : BaseViewModel
         _listFoodAux = Foods;
 
         IsBusy = false;
-        CollectionViewHeight = (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density) * 0.6;
+        CollectionViewHeight = (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density) * 0.7;
     }
 
     [RelayCommand]
@@ -45,7 +45,6 @@ public partial class ChangeFoodPopupViewModel : BaseViewModel
         var food = (FoodModel)sender;
         FoodDetailViewModel.Food = food;
         FoodDetailViewModel.Measure = Convert.ToDouble(food.Medida);
-        //_changeFoodPopup.Close();
         await App.NavPage.GoBackModal();
     }
     

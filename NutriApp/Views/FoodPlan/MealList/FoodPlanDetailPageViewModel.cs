@@ -12,11 +12,6 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
 
     public FoodPlanModel FoodPlanModel;
 
-    public FoodPlanDetailPageViewModel()
-    {
-        Fetch();
-    }
-
     private async Task Fetch()
     {
         ObservableCollection<MealModel> listMealAux = new ();
@@ -34,10 +29,15 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
                 mealModel.Horario = Convert.ToDateTime(mealModel.Horario).ToString("HH:mm");
             }
         }
-        if(listMealAux.Count == 0) return;
+
+        if (listMealAux.Count == 0)
+        {
+            EmptyList = true;
+            return;
+        }
         
         ListMeal = new ObservableCollection<MealModel>(listMealAux);
-        EmptyList = listMealAux.Count == 0;
+        EmptyList = false;
     }
 
     [RelayCommand]
@@ -50,7 +50,6 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
             { nameof(FoodPlanDetailPageViewModel), this }
         };
         App.NavPage.GoToAsync(nameof(MealFoodDetailPage), navigationParameter);
-        //App.NavPage.GoToAsync( FoodDetailPage(this,mealModel));
     }
 
     [RelayCommand]
@@ -61,12 +60,12 @@ public partial class FoodPlanDetailPageViewModel : BaseViewModel, IQueryAttribut
             { nameof(FoodPlanDetailPageViewModel), this }
         };
         App.NavPage.GoToAsync(nameof(MealFoodDetailPage), navigationParameter);
-        //App.NavPage.PushAsync(new FoodDetailPage(this));
     }
 
     public async void ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        FoodPlanModel = GetQueryValue<FoodPlanModel>(query, nameof(FoodPlanModel));
+        if(query.Count !=0)
+            FoodPlanModel = GetQueryValue<FoodPlanModel>(query, nameof(FoodPlanModel));
         await Fetch();
     }
 }
