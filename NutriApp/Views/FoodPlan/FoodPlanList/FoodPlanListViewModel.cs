@@ -43,7 +43,7 @@ public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
     private async Task EditFoodPlan(object obj)
     {
         var foodPlan = (FoodPlanModel)obj;
-        await App.NavPage.ShowPopup(new FoodPlanPopup(this, foodPlan));
+        await App.NavPage.GoToModalAsync(new FoodPlanPopup(this, foodPlan));
     }
 
     [RelayCommand]
@@ -56,7 +56,7 @@ public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
         // }
         // else
         // {
-            await App.NavPage.ShowPopup(new FoodPlanPopup(this));
+            await App.NavPage.GoToModalAsync(new FoodPlanPopup(this));
         //}
     }
 

@@ -13,7 +13,7 @@
     Color="Transparent"
     x:Name="ReportPopupRoot"
     x:Class="NutriApp.Views.ReportPage.Popup.ReportPopup">
-    <VerticalStackLayout>
+    <VerticalStackLayout MinimumHeightRequest="700">
         <Border
             StrokeShape="RoundRectangle 10"
             Padding="0"
@@ -34,9 +34,8 @@
                     VisibleBack="False"
                     TypeTitle="Close"
                     TextTitle="Relatório Nutricional" />
-                <ScrollView
-                    VerticalOptions="FillAndExpand"
-                    HorizontalOptions="Fill">
+                <ScrollView>
+                    
                     <table:NewReportTableView
                         NutrientsModel="{Binding NutrientsModel}" />
                 </ScrollView>
