@@ -143,6 +143,8 @@ public partial class NewTitleView : ContentView
         private void TapGestureRecognizer_Command(object sender, EventArgs e)
         {
             if (Command == null) return;
+            
+            //if(CommandParameter)
             if (Command.CanExecute(CommandParameter))
             {
                 Command.Execute(CommandParameter);

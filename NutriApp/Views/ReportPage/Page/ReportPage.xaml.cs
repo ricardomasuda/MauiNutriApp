@@ -9,11 +9,5 @@ public partial class ReportPage : BaseContentPage
         InitializeComponent();
         BindingContext = new ReportViewModel();
     }
-    
-    // public async Task ShareReport()
-    // {
-    //     Stream image = await ReportStackLayout.CaptureImageAsync();
-    //         
-    //     await Utils.Utils.ShareFile(image);
-    // }
+
 }

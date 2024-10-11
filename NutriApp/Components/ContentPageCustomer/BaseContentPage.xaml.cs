@@ -32,6 +32,13 @@ public partial class BaseContentPage : ContentPage
             returnType: typeof(TypeTitleEnum),
             declaringType: typeof(BaseContentPage),
             defaultValue: TypeTitleEnum.None);
+    
+    public static readonly BindableProperty CommandParameterProperty =
+        BindableProperty.Create(
+            nameof(CommandParameter),
+            typeof(object),
+            typeof(BaseContentPage),
+            defaultValue: null);
 
     public ICommand Command
     {
@@ -55,6 +62,12 @@ public partial class BaseContentPage : ContentPage
     {
         get => (TypeTitleEnum)GetValue(TypeTitleProperty);
         set => SetValue(TypeTitleProperty, value);
+    }
+    
+    public object CommandParameter
+    {
+        get => GetValue(CommandParameterProperty);
+        set => SetValue(CommandParameterProperty, value);
     }
 
     public BaseContentPage()

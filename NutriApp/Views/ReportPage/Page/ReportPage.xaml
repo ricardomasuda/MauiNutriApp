@@ -9,6 +9,7 @@
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     TypeTitle="Share"
     Command="{Binding ShareReportImageCommand}"
+    CommandParameter="{x:Reference ReportStackLayout}"
     TextTitle="{Binding Title}"
     x:DataType="page:ReportViewModel"
     x:Class="NutriApp.Views.ReportPage.Page.ReportPage">
@@ -68,6 +69,12 @@
                 </ListView>
 
             </StackLayout>
+            
+            <Button Text="Test"
+                    Command="{Binding ShareReportImageCommand}"
+                    CommandParameter="{x:Reference ReportStackLayout}">
+                    
+            </Button>
         </StackLayout>
 
     </ScrollView>

@@ -1,48 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<toolkit:Popup
+<modalFlyout:FlyoutPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
     xmlns:table="clr-namespace:NutriApp.Components.Table"
     xmlns:page="clr-namespace:NutriApp.Views.ReportPage.Page"
-    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:modalFlyout="clr-namespace:MauiLib1.Components.ModalFlyout;assembly=BaseMauiLib"
+    Command="{Binding CloseCommand}"
+    Title="Relatório Nutricional"
     x:DataType="page:ReportViewModel"
-    HorizontalOptions="Fill"
-    VerticalOptions="Center"
-    Color="Transparent"
     x:Name="ReportPopupRoot"
     x:Class="NutriApp.Views.ReportPage.Popup.ReportPopup">
-    <VerticalStackLayout MinimumHeightRequest="700">
-        <Border
-            StrokeShape="RoundRectangle 10"
-            Padding="0"
-            HeightRequest="700"
-            HorizontalOptions="Fill"
-            BackgroundColor="{StaticResource PageColor}"
-            Margin="20,20">
+    <ScrollView>
+        <VerticalStackLayout>
+            <table:NewReportTableView
+                NutrientsModel="{Binding NutrientsModel}" />
+        </VerticalStackLayout>
 
-            <VerticalStackLayout
-                HorizontalOptions="Fill"
-                VerticalOptions="FillAndExpand"
-                Margin="0"
-                Padding="0">
+    </ScrollView>
 
-                <view:NewTitleView
-                    Command="{Binding CloseCommand}"
-                    CommandParameter="{Binding Source={x:Reference ReportPopupRoot}}"
-                    VisibleBack="False"
-                    TypeTitle="Close"
-                    TextTitle="Relatório Nutricional" />
-                <ScrollView>
-                    
-                    <table:NewReportTableView
-                        NutrientsModel="{Binding NutrientsModel}" />
-                </ScrollView>
-
-            </VerticalStackLayout>
-
-        </Border>
-    </VerticalStackLayout>
-
-</toolkit:Popup>
+</modalFlyout:FlyoutPage>

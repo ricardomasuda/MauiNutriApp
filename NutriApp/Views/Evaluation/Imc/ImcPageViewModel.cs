@@ -26,7 +26,7 @@ public partial class ImcPageViewModel :  BaseViewModel
     public ImcPageViewModel()
     {
         Imc = new ImcModel();
-        InfoCommand = new Command(() => App.NavPage.ShowPopup(new InfoImcPopup()));
+        InfoCommand = new Command(() => App.NavPage.GoToModalAsync(new InfoImcPopup()));
     }
     
     [RelayCommand]

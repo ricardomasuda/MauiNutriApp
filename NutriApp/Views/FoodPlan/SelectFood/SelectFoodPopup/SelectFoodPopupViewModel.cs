@@ -57,7 +57,7 @@ public partial class SelectFoodPopupViewModel : BaseViewModel
     {
         if (!ValidateFood()) return;
         List<FoodModel> listFood = new List<FoodModel> { Food };
-        App.NavPage.ShowPopup(new ReportPopup(listFood));
+        App.NavPage.GoToModalAsync(new ReportPopup(listFood));
     }
 
     [RelayCommand]
