@@ -7,7 +7,8 @@
     xmlns:frame="clr-namespace:NutriApp.Components.Titles.Frame"
     xmlns:components="clr-namespace:NutriApp.Components"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
-    Title="Sobre o Aplicativo"
+    TextTitle="Sobre o Aplicativo"
+    TypeTitle="None"
     BackgroundColor="{StaticResource PageColor}"
     x:Class="NutriApp.Views.About.AboutPage">
 

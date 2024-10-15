@@ -22,7 +22,7 @@
                     VerticalOptions="Center"
                     StrokeThickness="2"
                     BackgroundColor="{StaticResource PageColor}"
-                    Margin="20,30">
+                    Margin="10,30">
                     <StackLayout>
 
                         <view:NewTitleView

@@ -69,12 +69,6 @@
                 </ListView>
 
             </StackLayout>
-            
-            <Button Text="Test"
-                    Command="{Binding ShareReportImageCommand}"
-                    CommandParameter="{x:Reference ReportStackLayout}">
-                    
-            </Button>
         </StackLayout>
 
     </ScrollView>
