@@ -15,48 +15,45 @@
     x:Class="NutriApp.Views.FoodPlan.FoodPlanList.FoodPlanListPage">
     <StackLayout Margin="15,0,15,0">
 
-        <StackLayout
-            IsVisible="{Binding HasEmptyList}"
-            Margin="0,180,0,0">
-
-            <Label
-                Opacity="0.3"
-                TextColor="{StaticResource DarkOrange}"
-                HorizontalOptions="Center"
-                Text="Adicione um Plano Alimentar" />
-
-            <Image
-                Margin="0,4,0,0"
-                Opacity="0.3"
-                WidthRequest="130"
-                HeightRequest="130"
-                Source="orange.png" />
-
-            <Image
-                Opacity="0.3"
-                WidthRequest="120"
-                HeightRequest="50"
-                Source="titleguianutricionista.png" />
-
-        </StackLayout>
-
-        <ListView
+        <CollectionView
             ItemsSource="{Binding ListFoodPlan}"
-            HasUnevenRows="True"
             VerticalOptions="FillAndExpand"
-            BackgroundColor="{StaticResource PageColor}"
-            SeparatorVisibility="None">
+            BackgroundColor="{StaticResource PageColor}">
 
-            <ListView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <StackLayout
+                    Margin="0,180,0,0">
+
+                    <Label
+                        Opacity="0.3"
+                        TextColor="{StaticResource DarkOrange}"
+                        HorizontalOptions="Center"
+                        Text="Adicione um Plano Alimentar" />
+
+                    <Image
+                        Margin="0,4,0,0"
+                        Opacity="0.3"
+                        WidthRequest="130"
+                        HeightRequest="130"
+                        Source="orange.png" />
+
+                    <Image
+                        Opacity="0.3"
+                        WidthRequest="120"
+                        HeightRequest="50"
+                        Source="titleguianutricionista.png" />
+
+                </StackLayout>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:FoodPlanModel">
-                    <ViewCell>
-
-                        <Frame
-                            Margin="20,8"
+                    <VerticalStackLayout Margin="0,4">
+                        <Border
+                            Margin="20,0"
                             Padding="2"
-                            CornerRadius="12"
-                            HasShadow="False"
-                            BorderColor="{StaticResource LightBlueInput}"
+                            StrokeShape="RoundRectangle 12"
+                            Stroke="{StaticResource LightBlueInput}"
                             BackgroundColor="{StaticResource PageColor}">
 
                             <StackLayout
@@ -232,18 +229,18 @@
                                 </HorizontalStackLayout>
                             </StackLayout>
 
-                            <Frame.GestureRecognizers>
+                            <Border.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding Source={x:Reference FoodPLanRoot}, Path=BindingContext.GoToFoodPlanDetailCommand}"
                                     CommandParameter="{Binding .}" />
-                            </Frame.GestureRecognizers>
+                            </Border.GestureRecognizers>
 
-                        </Frame>
+                        </Border>
+                    </VerticalStackLayout>
 
-                    </ViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
     </StackLayout>
 </contentPageCustomer:BaseContentPage>
