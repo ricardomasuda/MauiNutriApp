@@ -6,7 +6,6 @@ namespace NutriApp.Views.FoodPlan.FoodPlanList;
 public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
 {
     [ObservableProperty] private ObservableCollection<FoodPlanModel> _listFoodPlan;
-    [ObservableProperty] private bool _hasEmptyList;
 
     public FoodPlanListViewModel()
     {
@@ -36,7 +35,6 @@ public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
         }
 
         ListFoodPlan = listFoodPlanAux;
-        HasEmptyList = listFoodPlanAux.Count == 0;
     }
 
     [RelayCommand]
