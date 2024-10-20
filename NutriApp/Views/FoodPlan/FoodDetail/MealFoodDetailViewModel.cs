@@ -20,6 +20,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
     [ObservableProperty] private bool _hasErrorItemMeal;
     [ObservableProperty] private bool _haveList;
     [ObservableProperty] private double _collectionViewHeight;
+    [ObservableProperty] private double _footerWidth;
 
     private MealModel _meal;
     private FoodPlanDetailPageViewModel _foodPlanDetailPageViewModel;
@@ -60,6 +61,8 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
             CanSeeReport = false;
             TitleType = TypeTitleEnum.None;
         }
+
+        FooterWidth = (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density) - 55;
 
         TotalValue();
         FoodService.AddUnitMeasureList(ListFood);

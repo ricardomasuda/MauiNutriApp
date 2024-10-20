@@ -27,6 +27,15 @@ public class MainApplication : MauiApplication
                 handler.PlatformView.SetHintTextColor(ColorStateList.ValueOf(Android.Graphics.Color.Red));
             }
         });
+        
+        Microsoft.Maui.Handlers.TimePickerHandler.Mapper.AppendToMapping(nameof(TimePicker), (handler, view) =>
+        {
+            if (view is TimePicker)
+            {
+                handler.PlatformView.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+                 handler.PlatformView.SetHintTextColor(ColorStateList.ValueOf(Android.Graphics.Color.Red));
+            }
+        });
     }
 
     protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
