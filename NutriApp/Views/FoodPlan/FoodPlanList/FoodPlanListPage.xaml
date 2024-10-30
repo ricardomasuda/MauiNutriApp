@@ -50,8 +50,9 @@
                 <DataTemplate x:DataType="models:FoodPlanModel">
                     <VerticalStackLayout Margin="0,4">
                         <Border
-                            Margin="20,0"
+                            Margin="0"
                             Padding="2"
+                            HorizontalOptions="Fill"
                             StrokeShape="RoundRectangle 12"
                             Stroke="{StaticResource LightBlueInput}"
                             BackgroundColor="{StaticResource PageColor}">
