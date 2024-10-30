@@ -62,7 +62,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
             TitleType = TypeTitleEnum.None;
         }
 
-        FooterWidth = (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density) - 55;
+        FooterWidth = (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density) - 52;
 
         TotalValue();
         FoodService.AddUnitMeasureList(ListFood);
@@ -163,7 +163,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
     [RelayCommand]
     private async Task EditListFood()
     {
-        await App.NavPage.ShowPopup(new SelectListFoodPopup(ListFood, this));
+        await App.NavPage.GoToModalAsync(new SelectListFoodPopup(this));
     }
 
     private void CalculateHeightList()

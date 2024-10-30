@@ -15,7 +15,7 @@ public partial class ReportViewModel : BaseViewModel, IQueryAttributable
     
     public ReportPage ReportPage { get; set; }
 
-    public new string Title { get; set; }
+    [ObservableProperty] private new string _title;
     
     public ValueReferenceModel ValueReferenceModel { get; set; }
 

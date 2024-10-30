@@ -202,18 +202,16 @@
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-           
+
                 <CollectionView.Footer>
-                    <StackLayout 
-                        Orientation="Vertical">
-                        <Frame
+                    <VerticalStackLayout
+                        WidthRequest="{Binding FooterWidth}">
+                        <Border
                             Margin="2,2,2,0"
-                            CornerRadius="10"
                             WidthRequest="{Binding FooterWidth}"
                             HorizontalOptions="Start"
                             BackgroundColor="{StaticResource PageColor}"
-                            BorderColor="Transparent"
-                            HasShadow="False"
+                            Stroke="Transparent"
                             Padding="0">
 
                             <Grid RowSpacing="0" ColumnSpacing="0">
@@ -237,12 +235,18 @@
                                     Grid.Column="0"
                                     FontSize="12"
                                     Margin="10"
-                                    Text="{Binding FoodTotal.Nome}"
                                     MaxLines="1"
                                     LineBreakMode="TailTruncation"
                                     HorizontalOptions="Start"
-                                    TextColor="{StaticResource TextColor}"
-                                    FontAttributes="Bold" />
+                                    TextColor="{StaticResource TextColor}">
+
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding FoodTotal.Nome}"
+                                                  FontAttributes="Bold" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
 
                                 <Label
                                     Grid.Column="1"
@@ -250,9 +254,15 @@
                                     FontSize="12"
                                     Margin="10"
                                     HorizontalOptions="Center"
-                                    Text="{Binding FoodTotal.Proteinas, Converter={converters:NutrientConverter}}"
-                                    TextColor="{StaticResource TextColor}"
-                                    FontAttributes="Bold" />
+                                    TextColor="{StaticResource TextColor}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                Text="{Binding FoodTotal.Proteinas, Converter={converters:NutrientConverter}}"
+                                                FontAttributes="Bold" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
 
                                 <Label
                                     Grid.Column="2"
@@ -261,11 +271,12 @@
                                     Margin="10"
                                     HorizontalOptions="Center"
                                     TextColor="{StaticResource TextColor}"
-                                    FontAttributes="Bold" >
+                                    FontAttributes="Bold">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="{Binding FoodTotal.Lipidios, Converter={converters:NutrientConverter}}"
-                                                  FontAttributes="Bold" />
+                                            <Span
+                                                Text="{Binding FoodTotal.Lipidios, Converter={converters:NutrientConverter}}"
+                                                FontAttributes="Bold" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
@@ -276,11 +287,17 @@
                                     FontSize="12"
                                     Margin="10"
                                     HorizontalOptions="Center"
-                                    Text="{Binding FoodTotal.Carboidratos, Converter={converters:NutrientConverter}}"
-                                    TextColor="{StaticResource TextColor}"
-                                    FontAttributes="Bold" />
+                                    TextColor="{StaticResource TextColor}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                Text="{Binding FoodTotal.Carboidratos, Converter={converters:NutrientConverter}}"
+                                                FontAttributes="Bold" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
                             </Grid>
-                        </Frame>
+                        </Border>
 
                         <Frame
                             Margin="0,0,0,0"
@@ -294,13 +311,12 @@
                             <Label
                                 FontSize="12"
                                 HorizontalOptions="EndAndExpand"
-                                TextColor="White"
-                                FontAttributes="Bold">
+                                TextColor="White">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Vl Calorico: " />
+                                        <Span Text="Vl Calorico: " FontAttributes="Bold"/>
                                         <Span
-                                            Text="{Binding FoodTotal.ValorCalorico, Converter={converters:NutrientConverter}}" />
+                                            Text="{Binding FoodTotal.ValorCalorico, Converter={converters:NutrientConverter}}" FontAttributes="Bold"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -313,18 +329,22 @@
                             CornerRadius="15"
                             BorderColor="Transparent"
                             HorizontalOptions="Start"
-                            Padding="22,8">
+                            Padding="16,8">
                             <Label
-                                FontSize="12"
                                 HorizontalOptions="EndAndExpand"
-                                TextColor="White"
-                                Text="Editar Alimentos"
-                                FontAttributes="Bold" />
+                                TextColor="White">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Editar Alimentos" FontSize="12"
+                                              FontAttributes="Bold" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding EditListFoodCommand}" />
                             </Frame.GestureRecognizers>
                         </Frame>
-                    </StackLayout>
+                    </VerticalStackLayout>
                 </CollectionView.Footer>
             </CollectionView>
 

@@ -13,7 +13,7 @@
     xmlns:foodPlanList="clr-namespace:NutriApp.Views.FoodPlan.FoodPlanList"
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     x:Class="NutriApp.Views.FoodPlan.FoodPlanList.FoodPlanListPage">
-    <StackLayout Margin="15,0,15,0">
+    <StackLayout Margin="15,4,15,0">
 
         <CollectionView
             ItemsSource="{Binding ListFoodPlan}"
