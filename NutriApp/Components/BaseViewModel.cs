@@ -22,6 +22,16 @@ public partial class BaseViewModel : ObservableObject
 
         await toast.Show(cancellationTokenSource.Token);
     }
+
+    protected double GetScreenWith()
+    {
+       return (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density);
+    }
+    
+    protected double GetScreenHeight()
+    {
+        return (DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density);
+    }
     
     protected T GetQueryValue<T>(IDictionary<string, object> query, string key)
     {

@@ -82,9 +82,6 @@ public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
                 "Adicione um alimento para poder gerar relatório", "Ok");
             return;
         }
-        // [QueryProperty("listFood", "listFood")]
-        // [QueryProperty("foodPlanId", "foodPlanId")]
-        // [QueryProperty("title", "title")]
         List<FoodModel> listFood = new() { superFood };
         ShellNavigationQueryParameters navigationParameter = new() {
             { "FoodList", listFood },
