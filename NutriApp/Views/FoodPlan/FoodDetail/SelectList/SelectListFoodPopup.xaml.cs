@@ -1,12 +1,10 @@
-using CommunityToolkit.Maui.Views;
-
 namespace NutriApp.Views.FoodPlan.FoodDetail.SelectList;
 
-public partial class SelectListFoodPopup : Popup
+public partial class SelectListFoodPopup 
 {
-    public SelectListFoodPopup(IEnumerable<FoodModel> listFood, MealFoodDetailViewModel mealFoodDetailViewModel)
+    public SelectListFoodPopup(MealFoodDetailViewModel mealFoodDetailViewModel)
     {
         InitializeComponent();
-        BindingContext = new SelectListFoodPopupViewModel(listFood, mealFoodDetailViewModel);
+        BindingContext = new SelectListFoodPopupViewModel(mealFoodDetailViewModel);
     }
 }

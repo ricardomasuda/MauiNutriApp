@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:NutriApp.Converters"
+             x:Name="FoodItemViewRoot"
+             x:Class="NutriApp.Components.FoodItem.FoodItemView">
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label
+            x:Name="NomeLabel"
+            Grid.Column="0"
+            Grid.Row="1"
+            FontSize="12"
+            Margin="10"
+            MaxLines="1"
+            LineBreakMode="TailTruncation"
+            HorizontalOptions="Center"
+            TextColor="{StaticResource TextColor}"
+            FontAttributes="Bold" />
+
+        <Label
+            x:Name="ProteinasLabel"
+            Grid.Column="1"
+            Grid.Row="1"
+            FontSize="12"
+            Margin="10"
+            HorizontalOptions="Center"
+            TextColor="{StaticResource TextColor}"
+            FontAttributes="Bold" />
+
+        <Label
+            x:Name="LipidiosLabel"
+            Grid.Column="2"
+            Grid.Row="1"
+            FontSize="12"
+            Margin="10"
+            HorizontalOptions="Center"
+            TextColor="{StaticResource TextColor}"
+            Text="{Binding Lipidios, Source={x:Reference FoodItemViewRoot}, Converter={converters:NutrientConverter}}"
+            FontAttributes="Bold" />
+
+        <Label
+            x:Name="CarboidratosLabel"
+            Grid.Column="3"
+            Grid.Row="1"
+            FontSize="12"
+            Margin="10"
+            HorizontalOptions="Center"
+            TextColor="{StaticResource TextColor}"
+            Text="{Binding Carboidratos, Source={x:Reference FoodItemViewRoot}, Converter={converters:NutrientConverter}}"
+            FontAttributes="Bold" />
+
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer
+                Tapped="TapGestureRecognizer_Command"/>
+        </Grid.GestureRecognizers>
+
+    </Grid>
+</ContentView>

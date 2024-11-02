@@ -15,7 +15,7 @@ public partial class ReportViewModel : BaseViewModel, IQueryAttributable
     
     public ReportPage ReportPage { get; set; }
 
-    public new string Title { get; set; }
+    [ObservableProperty] private new string _title;
     
     public ValueReferenceModel ValueReferenceModel { get; set; }
 
@@ -40,15 +40,15 @@ public partial class ReportViewModel : BaseViewModel, IQueryAttributable
     }
     
     [RelayCommand]
-    private async Task ShareReportImage()
+    private async Task ShareReportImage(View reportStackLayout)
     {
-        //await ReportPage.ShareReport();
+        await SharePdfUtil.CaptureAndShareViewAsPdf(reportStackLayout);
     }
     
     [RelayCommand]
     private static void Close(CommunityToolkit.Maui.Views.Popup popup)
     {
-        popup.Close();
+        App.NavPage.GoBackModal();
     }
 
     private void Fill()

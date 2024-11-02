@@ -23,5 +23,6 @@ public class MainPageViewModel : BaseViewModel
     public MainPageViewModel() 
     {
         App.NavPage = Application.Current.MainPage.Handler.MauiContext.Services.GetService<INavigationService>();
+        Version = "1.5.1";
     }
 }

@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:icon="clr-namespace:NutriApp.Resources"
              x:Name="NewTitleViewRoot"
-             BackgroundColor="#E77717"
+             BackgroundColor="{StaticResource DarkOrange}"
              x:Class="NutriApp.Components.Titles.View.NewTitleView">
      <StackLayout
         Margin="0,12,0,12">
@@ -50,13 +50,14 @@
 
             <Label
                 Grid.Column="1"
-                x:Name="LabelTitle"
-                FontSize="18"
-                FontAttributes="Bold"
-                FontFamily=""
                 VerticalOptions="Center"
-                HorizontalOptions="CenterAndExpand"
-                TextColor="{StaticResource PageColor}" />
+                HorizontalOptions="CenterAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span  x:Name="LabelTitle" FontAttributes="Bold" FontSize="20" TextColor="{StaticResource PageColor}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
             <Frame
                 x:Name="FrameLogo"

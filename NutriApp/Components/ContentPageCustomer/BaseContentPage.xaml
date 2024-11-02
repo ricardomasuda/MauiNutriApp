@@ -11,7 +11,7 @@
              x:Class="NutriApp.Components.ContentPageCustomer.BaseContentPage">
     <ContentPage.ControlTemplate >
         <ControlTemplate>
-            <Grid RowDefinitions="100,*"  >
+            <Grid RowDefinitions="85,*"  >
                 
                 <view:NewTitleView
                     x:Name="ViewTeste"
@@ -20,6 +20,7 @@
                     VisibleBack="{Binding VisibleBack, Source={x:Reference PageBase}}"
                     TypeTitle="{Binding TypeTitle, Source={x:Reference PageBase}}"
                     Command="{Binding Command, Source={x:Reference PageBase}}"
+                    CommandParameter="{Binding CommandParameter,Source={x:Reference PageBase}}"
                     TextTitle="{Binding TextTitle, Source={x:Reference PageBase}}" />
                 <ContentPresenter Grid.Row="1"/>
             </Grid>

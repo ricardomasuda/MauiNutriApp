@@ -39,7 +39,7 @@ public class InfoImcPopupViewModel : BaseViewModel
 
     private void ClosePage(Popup popup)
     {
-        popup.Close();
+        App.NavPage.GoBackModal();
     }
 
     private void FillData()

@@ -6,7 +6,6 @@ namespace NutriApp.Views.FoodPlan.FoodPlanList;
 public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
 {
     [ObservableProperty] private ObservableCollection<FoodPlanModel> _listFoodPlan;
-    [ObservableProperty] private bool _hasEmptyList;
 
     public FoodPlanListViewModel()
     {
@@ -36,14 +35,13 @@ public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
         }
 
         ListFoodPlan = listFoodPlanAux;
-        HasEmptyList = listFoodPlanAux.Count == 0;
     }
 
     [RelayCommand]
     private async Task EditFoodPlan(object obj)
     {
         var foodPlan = (FoodPlanModel)obj;
-        await App.NavPage.ShowPopup(new FoodPlanPopup(this, foodPlan));
+        await App.NavPage.GoToModalAsync(new FoodPlanPopup(this, foodPlan));
     }
 
     [RelayCommand]
@@ -56,7 +54,7 @@ public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
         // }
         // else
         // {
-            await App.NavPage.ShowPopup(new FoodPlanPopup(this));
+            await App.NavPage.GoToModalAsync(new FoodPlanPopup(this));
         //}
     }
 
@@ -84,9 +82,6 @@ public partial class FoodPlanListViewModel : BaseViewModel, IQueryAttributable
                 "Adicione um alimento para poder gerar relatório", "Ok");
             return;
         }
-        // [QueryProperty("listFood", "listFood")]
-        // [QueryProperty("foodPlanId", "foodPlanId")]
-        // [QueryProperty("title", "title")]
         List<FoodModel> listFood = new() { superFood };
         ShellNavigationQueryParameters navigationParameter = new() {
             { "FoodList", listFood },

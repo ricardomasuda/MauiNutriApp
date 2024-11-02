@@ -18,6 +18,7 @@
             <StackLayout>
                 <inputLayout:InputLayoutView
                     CornerRadius="8"
+                    HeightRequest="350"
                     Hint="Adicione uma sugestão"
                     Margin="0,20,0,0"
                     HasError="{Binding HasErrorBodyText}"
@@ -25,7 +26,7 @@
                     BorderColor="{StaticResource DarkBlue}">
                     <Editor HeightRequest="350"
                             Text="{Binding BodyText}"
-                            BackgroundColor="{StaticResource FrameColor}" />
+                            BackgroundColor="{StaticResource PageColor}" />
                 </inputLayout:InputLayoutView>
 
             </StackLayout>

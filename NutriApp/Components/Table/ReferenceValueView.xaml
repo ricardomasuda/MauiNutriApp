@@ -36,7 +36,6 @@
 
         <table:ReportTableLineView
             x:Name="LipídioVrLabel"
-            ColorLine="White"
             Title="VR Lipídio" />
 
         <table:ReportTableLineView

@@ -1,4 +1,3 @@
-using CommunityToolkit.Maui.Views;
 using NutriApp.Views.FoodPlan.FoodDetail;
 using NutriApp.Views.ReportPage.Popup;
 
@@ -48,7 +47,7 @@ public partial class SelectFoodPopupViewModel : BaseViewModel
         if (await Shell.Current.DisplayAlert("Retirar Alimento", "Deseja retirar o alimento da refeição?", "Sim", "Não"))
         {
             await _mealFoodDetailViewModel.RemoveFood(_foodAssistant);
-            //_selectFoodPopup.Close();
+            await App.NavPage.GoBackModal();
         }
     }
 
@@ -57,7 +56,7 @@ public partial class SelectFoodPopupViewModel : BaseViewModel
     {
         if (!ValidateFood()) return;
         List<FoodModel> listFood = new List<FoodModel> { Food };
-        App.NavPage.ShowPopup(new ReportPopup(listFood));
+        App.NavPage.GoToModalAsync(new ReportPopup(listFood));
     }
 
     [RelayCommand]
@@ -90,7 +89,7 @@ public partial class SelectFoodPopupViewModel : BaseViewModel
     [RelayCommand]
     private void Close()
     {
-         App.NavPage.GoBackModal();
+        App.NavPage.GoBackModal();
     }
     
     [RelayCommand]

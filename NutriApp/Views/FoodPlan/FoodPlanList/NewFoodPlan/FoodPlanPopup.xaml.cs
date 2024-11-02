@@ -2,7 +2,7 @@ using CommunityToolkit.Maui.Views;
 
 namespace NutriApp.Views.FoodPlan.FoodPlanList.NewFoodPlan;
 
-public partial class FoodPlanPopup : Popup
+public partial class FoodPlanPopup
 {
     private FoodPlanPopupViewModel FoodPlanPopupViewModel { get; set; }
     public FoodPlanPopup(FoodPlanListViewModel foodPlanListViewModel, FoodPlanModel foodPlanList = null)

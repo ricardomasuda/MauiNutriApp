@@ -50,7 +50,7 @@ public partial class FoodPlanPopupViewModel : BaseViewModel
             await new FoodPlanDB().ExcluirTotalAsync(_foodPlan.Id);
             _foodPlanListViewModel.ListFoodPlan.Clear();
             _foodPlanListViewModel.Fetch();
-            await FoodPlanPopup.CloseAsync();
+            await App.NavPage.GoBackModal();
         }
     }
     
@@ -79,13 +79,13 @@ public partial class FoodPlanPopupViewModel : BaseViewModel
         else await new ValueReferenceDB().ExcluirWhereAsync(foodPlan.Id);
 
         _foodPlanListViewModel.Fetch();
-        await FoodPlanPopup.CloseAsync();
+        await App.NavPage.GoBackModal();
     }
     
     [RelayCommand]
     private async void Close()
     {
-       await FoodPlanPopup.CloseAsync();
+       await App.NavPage.GoBackModal();
     }
 
     private async void SaveReferenceValue(int foodPlanId)

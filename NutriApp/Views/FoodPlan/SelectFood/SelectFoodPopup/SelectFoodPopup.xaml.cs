@@ -1,4 +1,3 @@
-using MauiLib1.Components.ModalFlyout;
 using NutriApp.Views.FoodPlan.FoodDetail;
 using FlyoutPage = MauiLib1.Components.ModalFlyout.FlyoutPage;
 
@@ -11,9 +10,5 @@ public partial class SelectFoodPopup : FlyoutPage
         InitializeComponent();
         BindingContext = new SelectFoodPopupViewModel(mealFoodDetailViewModel,this, food);
     }
-
-    private void BindableObject_OnPropertyChanged(object sender, PropertyChangedEventArgs e)
-    {
-        throw new NotImplementedException();
-    }
+    
 }
