@@ -16,11 +16,11 @@
         <ApplicationTitle>Guia do Nutricionista</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.Masuda.nutriapp</ApplicationId>
+        <ApplicationId>com.masuda.NutriApp</ApplicationId>
         <ApplicationIdGuid>419F8B8F-5B10-4917-9C12-B137A9766544</ApplicationIdGuid>
 
         <!-- Versions -->
-        <ApplicationDisplayVersion>3.0.0</ApplicationDisplayVersion>
+        <ApplicationDisplayVersion>2.0.0</ApplicationDisplayVersion>
         <ApplicationVersion>3</ApplicationVersion>
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
@@ -44,6 +44,11 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
         <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <CodesignKey>Apple Distribution: RICARDO MASUDA (356Q4W4TQZ)</CodesignKey>
+        <CodesignProvision>NutriAppMaui</CodesignProvision>
     </PropertyGroup>
     
     <ItemGroup>
