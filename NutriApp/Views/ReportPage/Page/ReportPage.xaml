@@ -11,6 +11,7 @@
     Command="{Binding ShareReportImageCommand}"
     CommandParameter="{x:Reference ReportStackLayout}"
     TextTitle="{Binding Title}"
+    x:Name="ReportPageRoot"
     x:DataType="page:ReportViewModel"
     x:Class="NutriApp.Views.ReportPage.Page.ReportPage">
 

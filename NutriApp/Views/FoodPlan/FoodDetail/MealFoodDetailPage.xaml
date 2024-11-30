@@ -245,14 +245,13 @@
                             </Grid>
                         </Border>
 
-                        <Frame
-                            Margin="0,0,0,0"
-                            BackgroundColor="{StaticResource DarkOrange}"
-                            HasShadow="False"
-                            CornerRadius="8"
-                            BorderColor="Transparent"
+                        <Border 
+                            StrokeThickness="0" 
+                            StrokeShape="RoundRectangle 8" 
+                            BackgroundColor="{StaticResource DarkOrange}" 
                             HorizontalOptions="Start"
-                            Padding="5,2">
+                            Padding="5,2"
+                            Margin="8,0,0,0">
 
                             <Label
                                 FontSize="12"
@@ -266,30 +265,33 @@
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
-                        </Frame>
+                        </Border>
 
-                        <Frame
-                            Margin="0,4,0,16"
+                        <Border
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 15"
                             BackgroundColor="{StaticResource DarkBlue}"
-                            HasShadow="False"
-                            CornerRadius="15"
-                            BorderColor="Transparent"
                             HorizontalOptions="Start"
-                            Padding="16,8">
+                            Padding="16,8"
+                            Margin="8,4,0,16">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditListFoodCommand}" />
+                            </Border.GestureRecognizers>
+
                             <Label
                                 HorizontalOptions="EndAndExpand"
                                 TextColor="White">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Editar Alimentos" FontSize="12"
-                                              FontAttributes="Bold" />
+                                        <Span 
+                                            Text="Editar Alimentos" 
+                                            FontSize="12"
+                                            FontAttributes="Bold" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding EditListFoodCommand}" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
+                        </Border>
                     </VerticalStackLayout>
                 </CollectionView.Footer>
             </CollectionView>
@@ -307,6 +309,7 @@
                     Command="{Binding GoReportCommand}" />
 
                 <button:ButtonView
+                    Margin="0,8"
                     Text="Salvar"
                     TextColor="{StaticResource WhiteText}"
                     BackgroundColor="{StaticResource DarkBlue}"

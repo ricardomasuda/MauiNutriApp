@@ -1,68 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<toolkit:Popup
+<modalFlyout:FlyoutPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:view="clr-namespace:NutriApp.Components.Titles.View"
     xmlns:infoPopup="clr-namespace:NutriApp.Views.Food.Detail.InfoPopup"
-    Color="Transparent"
-    HorizontalOptions="Fill"
+    xmlns:modalFlyout="clr-namespace:MauiLib1.Components.ModalFlyout;assembly=BaseMauiLib"
+    Title="Informações"
+    Command="{Binding CloseCommand}"
     x:Name="InformationFoodPopupViewModelRoot"
     x:DataType="infoPopup:InformationFoodPopupViewModel"
-    VerticalOptions="Fill"
     x:Class="NutriApp.Views.Food.Detail.InfoPopup.InformationFoodPopup">
-    <Border
-        HorizontalOptions="Fill"
-        VerticalOptions="Fill"
-        StrokeShape="RoundRectangle 10"
-        BackgroundColor="{StaticResource PageColor}"
-        Margin="20,10">
 
-        <StackLayout>
 
-            <view:NewTitleView
-                VisibleBack="False"
-                TypeTitle="Close"
-                CommandParameter="{Binding Source={x:Reference InformationFoodPopupViewModelRoot}}"
-                Command="{Binding CloseCommand}"
-                TextTitle="Informações" />
-            
-            <StackLayout
-                Margin="10" >
-                
-                <Label
-                    TextColor="Black"
-                    FontSize="16">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="* As análises estão sendo reavaliadas &#x0a;  &#x0a;" />
-                            <Span Text="- Valores em branco nesta tabela: análises não solicitadas &#x0a; &#x0a;" />
-                            <Span Text="- Teores alcoólicos (g/100g): 1 Cana, aguardente: 31,1 e 2 Cerveja, pilsen: 3,6. &#x0a; &#x0a;" />
-                            <Span Text="- Abreviações: &#x0a; " FontAttributes="Bold" />
-                            <Span Text=" g: grama; &#x0a;  µg: micrograma; &#x0a;  kcal: quilocaloria; &#x0a;  mg: miligrama; &#x0a;  NA: não aplicável;  &#x0a;  Tr: traço. Adotou-se traço nas seguintes situações: " />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+    <StackLayout
+        Margin="10">
 
-                <Label
-                    TextColor="Black"
-                    Margin="20,0"
-                    Padding="0"
-                    FontSize="16">
+        <Label
+            TextColor="Black"
+            FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="* As análises estão sendo reavaliadas &#x0a;  &#x0a;" />
+                    <Span Text="- Valores em branco nesta tabela: análises não solicitadas &#x0a; &#x0a;" />
+                    <Span
+                        Text="- Teores alcoólicos (g/100g): 1 Cana, aguardente: 31,1 e 2 Cerveja, pilsen: 3,6. &#x0a; &#x0a;" />
+                    <Span Text="- Abreviações: &#x0a; " FontAttributes="Bold" />
+                    <Span
+                        Text=" g: grama; &#x0a;  µg: micrograma; &#x0a;  kcal: quilocaloria; &#x0a;  mg: miligrama; &#x0a;  NA: não aplicável;  &#x0a;  Tr: traço. Adotou-se traço nas seguintes situações: " />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="a) valores de nutrientes arredondados para números que caiam entre 0 e 0,5;&#x0a;" />
-                            <Span Text="b) valores de nutrientes arredondados para números com uma casa decimal que caiam entre 0 e 0,05 ; &#x0a;" />
-                            <Span Text="c) valores de nutrientes arredondados para números com duas casas decimais que caiam entre 0 e 0,005 e ;&#x0a;" />
-                            <Span Text="d) valores abaixo dos limites de quantificação. &#x0a;" />
-                        </FormattedString>
-                    </Label.FormattedText>
+        <Label
+            TextColor="Black"
+            Margin="20,0"
+            Padding="0"
+            FontSize="16">
 
-                </Label>
-            </StackLayout>
-        </StackLayout>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="a) valores de nutrientes arredondados para números que caiam entre 0 e 0,5;&#x0a;" />
+                    <Span
+                        Text="b) valores de nutrientes arredondados para números com uma casa decimal que caiam entre 0 e 0,05 ; &#x0a;" />
+                    <Span
+                        Text="c) valores de nutrientes arredondados para números com duas casas decimais que caiam entre 0 e 0,005 e ;&#x0a;" />
+                    <Span Text="d) valores abaixo dos limites de quantificação. &#x0a;" />
+                </FormattedString>
+            </Label.FormattedText>
 
-    </Border>
-</toolkit:Popup>
+        </Label>
+    </StackLayout>
+</modalFlyout:FlyoutPage>
