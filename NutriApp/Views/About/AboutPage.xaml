@@ -105,6 +105,11 @@
 
                     <frame:TitleFrameView Margin="0,15,0,0"
                                           TextTitle="Agradecimento" />
+                    
+                    <Label Margin="0"
+                           TextColor="{StaticResource DarkGreyText}"
+                           HorizontalTextAlignment="Center"
+                           Text="Ayume Masuda" />
 
                     <Label Margin="0"
                            TextColor="{StaticResource DarkGreyText}"

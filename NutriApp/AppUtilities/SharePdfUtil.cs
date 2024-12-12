@@ -7,31 +7,21 @@ public static class SharePdfUtil
 {
     public static async Task CaptureAndSharePageAsPdf(Page page)
     {
-        // 1. Capturar a tela como imagem
-        var screenshotResult = await Screenshot.CaptureAsync();
+        // 1. Capturar a Page como imagem
+        byte[] imageData = await CapturePageAsync(page);
 
-        if (screenshotResult is null)
+        if (imageData == null)
         {
             await Application.Current.MainPage.DisplayAlert("Erro", "Falha ao capturar a página.", "OK");
             return;
         }
 
-        // 2. Obter os dados da imagem
-        byte[] imageData;
-        using (var stream = await screenshotResult.OpenReadAsync())
-        using (var memoryStream = new MemoryStream())
-        {
-            await stream.CopyToAsync(memoryStream);
-            imageData = memoryStream.ToArray();
-        }
-
-        // 3. Converter a imagem em PDF
+        // 2. Converter a imagem em PDF
         Stream pdfStream = CreatePdfFromImage(imageData);
 
-        // 4. Compartilhar o PDF
+        // 3. Compartilhar o PDF
         await SharePdfAsync(pdfStream, "RelatorioNutricional.pdf");
     }
-    
     
     public static async Task CaptureAndShareViewAsPdf(View view)
     {
@@ -66,6 +56,21 @@ public static class SharePdfUtil
         return null;
     }
     
+    public static async Task<byte[]> CapturePageAsync(Page page)
+    {
+        IScreenshotResult screenshot = await page.CaptureAsync();
+
+        if (screenshot != null)
+        {
+            using Stream stream = await screenshot.OpenReadAsync();
+            using MemoryStream ms = new MemoryStream();
+            await stream.CopyToAsync(ms);
+            return ms.ToArray();
+        }
+
+        return null;
+    }
+    
     public static Stream CreatePdfFromImage(byte[] imageData)
     {
         using MemoryStream imageStream = new MemoryStream(imageData);
@@ -87,6 +92,7 @@ public static class SharePdfUtil
 
         return pdfStream;
     }
+    
     
     public static async Task SharePdfAsync(Stream pdfStream, string fileName)
     {

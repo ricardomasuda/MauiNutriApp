@@ -67,7 +67,6 @@
 
     <ItemGroup>
       <AdditionalFiles Include="Resource\Styles\Colors.xaml" />
-      <AdditionalFiles Include="Resource\Styles\Styles.xaml" />
     </ItemGroup>
 
 </Project>

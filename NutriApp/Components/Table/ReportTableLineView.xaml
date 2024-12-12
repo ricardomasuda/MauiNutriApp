@@ -20,6 +20,7 @@
             
             <Label
                 Margin="3,0"
+                TextColor="{StaticResource DarkBlue}"
                 VerticalTextAlignment="Center"
                 x:Name="PercentageLabel"
                 FontSize="12" />
