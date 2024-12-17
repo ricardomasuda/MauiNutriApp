@@ -27,6 +27,7 @@
             
             <Label
                 x:Name="NutrientLabel"
+                TextColor="{StaticResource DarkBlue}"
                 FontSize="15" />
             
         </StackLayout>

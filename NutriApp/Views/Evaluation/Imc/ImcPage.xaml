@@ -30,7 +30,7 @@
                     KeyboardType="Numeric"
                     HasError="{Binding HasErrorWeight}"
                     ErrorText="Peso não informado"
-                    Text="{Binding Imc.Peso}" />
+                    Text="{Binding Imc.Peso, Mode=TwoWay}" />
                 
                 <entries:CustomEntry
                     HeightRequest="80"

@@ -91,10 +91,17 @@ public static class Utils
 
     public static double ParseToDoubleWithCommaSeparator(string height)
     {
-        NumberFormatInfo format = new()
+        if (double.TryParse(height, NumberStyles.Any, CultureInfo.InvariantCulture, out double result))
         {
-            NumberDecimalSeparator = ","
-        };
-        return double.Parse(height, format);
+            return result;
+        }
+
+        var brCulture = new CultureInfo("pt-BR");
+        if (double.TryParse(height, NumberStyles.Any, brCulture, out result))
+        {
+            return result;
+        }
+
+        return 0;
     }
 }

@@ -38,7 +38,8 @@ public partial class ImcPageViewModel :  BaseViewModel
             return;
         }
 
-        Result = EvaluationCalculations.Imc(Utils.ParseToDoubleWithCommaSeparator(Imc.Altura), Convert.ToDouble(Imc.Peso)).ToString();
+        var teste = Utils.ParseToDoubleWithCommaSeparator(Imc.Altura);
+        Result = EvaluationCalculations.Imc(teste, Convert.ToDouble(Imc.Peso)).ToString();
         if (!string.IsNullOrEmpty(Result))
         {
             var pessoa = CheckedAdult ? PersonAgeType.Adulto : PersonAgeType.Idoso;
