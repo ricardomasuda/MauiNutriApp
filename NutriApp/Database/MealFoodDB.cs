@@ -25,20 +25,24 @@ public class MealFoodDB
         {
             var mealFoodModel = new MealFoodModel()
             {
-                Id = food.MealFoodId, FoodId = food.Id,
-                Medida = Convert.ToDouble(Utils.RemoveUnityMeasure(food.Medida)), MealId = mealId
+                Id = food.MealFoodId,
+                FoodId = food.Id,
+                Medida = Convert.ToDouble(Utils.RemoveUnityMeasure(food.Medida)),
+                MealId = mealId
             };
             await SalvarAsync(mealFoodModel);
         }
     }
 
-    private async Task SalvarAsync(MealFoodModel food)
+    private async Task SalvarAsync(MealFoodModel mealFood)
     {
-        if (food.MealId == 0) throw new ArgumentException("Não se pode cadastrar um alimento sem refeição");
-        if (food.Id == 0)
-            await CadastrarAsync(food);
+        if (mealFood.MealId == 0) throw new ArgumentException("Não se pode cadastrar um alimento sem refeição");
+        if (mealFood.Id == 0)
+        { 
+            await CadastrarAsync(mealFood);
+        }
         else
-            await AtualizarAsync(food);
+            await AtualizarAsync(mealFood);
     }
 
     public async Task<int> CadastrarAsync(MealFoodModel mealFoodModel)

@@ -73,9 +73,9 @@ public class MealDB
                 id = await AtualizarAsync(meal);
             }
 
-            foreach (var foodModel in listFood)
+            foreach (FoodModel foodModel in listFood)
             {
-                foodModel.Id = id;
+                foodModel.MealId = id;
             }
             //listFood.ForEach(x => x.MealId = meal.Id);
 

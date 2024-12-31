@@ -1,8 +1,9 @@
+using NutriApp.Database.Configuration;
 using SQLite;
 
 namespace NutriApp.Models;
 
-public class MealModel
+public class MealModel : IEntityAuditableBase<int>
 {
     [PrimaryKey,AutoIncrement]
     public int Id { get; set; }
@@ -13,6 +14,12 @@ public class MealModel
     public string Proteinas { get; set; }
     public string Lipidios { get; set; } 
     public string ValorTotal { get; set; }
+    public bool Active { get; set; }
+    public string ReturnMessage { get; set; }
+    public bool Visible { get; set; }
+    public DateTimeOffset? LastSync { get; set; }
+    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset? LastUpdatedAt { get; set; }
     [Ignore]
     public List<FoodModel> ListFood { get; set; }
 

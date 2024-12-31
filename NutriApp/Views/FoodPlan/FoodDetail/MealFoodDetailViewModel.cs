@@ -54,6 +54,7 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
             _mealFoodDetailPage.OnItemSelected(_meal.Nome);
             CanSeeReport = HaveList;
             CalculateHeightList();
+            TotalValue();
         }
         else
         {
@@ -63,9 +64,6 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
         }
 
         FooterWidth = (DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density) - 52;
-
-        TotalValue();
-        FoodService.AddUnitMeasureList(ListFood);
     }
 
     public void SaveFoodList(FoodModel food)
@@ -111,7 +109,6 @@ public partial class MealFoodDetailViewModel : BaseViewModel, IQueryAttributable
             { "Title", SelectedItemMeal.Nome}
         };
         await App.NavPage.GoToAsync(nameof(ReportPage), navigationParameter);
-        //App.NavPage.PushAsync(new ReportPage(listFood, ItemMeal.Nome));
     }
 
     [RelayCommand]
