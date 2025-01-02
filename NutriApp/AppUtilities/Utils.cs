@@ -89,15 +89,16 @@ public static class Utils
         });
     }
 
-    public static double ParseToDoubleWithCommaSeparator(string height)
+    public static double ParseToDoubleWithCommaSeparator(string input)
     {
-        if (double.TryParse(height, NumberStyles.Any, CultureInfo.InvariantCulture, out double result))
+        var style = NumberStyles.Float;
+        if (double.TryParse(input, style, CultureInfo.InvariantCulture, out double result))
         {
             return result;
         }
 
         var brCulture = new CultureInfo("pt-BR");
-        if (double.TryParse(height, NumberStyles.Any, brCulture, out result))
+        if (double.TryParse(input, style, brCulture, out result))
         {
             return result;
         }

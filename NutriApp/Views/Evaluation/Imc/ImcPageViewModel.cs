@@ -38,7 +38,7 @@ public partial class ImcPageViewModel :  BaseViewModel
             return;
         }
 
-        var teste = Utils.ParseToDoubleWithCommaSeparator(Imc.Altura);
+        double teste = Utils.ParseToDoubleWithCommaSeparator(Imc.Altura);
         Result = EvaluationCalculations.Imc(teste, Convert.ToDouble(Imc.Peso)).ToString();
         if (!string.IsNullOrEmpty(Result))
         {
