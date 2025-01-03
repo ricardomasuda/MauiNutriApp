@@ -55,6 +55,7 @@
                         HorizontalTextAlignment="Center"
                         FontAttributes="Bold"
                         FontSize="14"
+                        TextColor="{StaticResource DarkBlue}"
                         TextChanged="InputView_OnTextChanged"
                         BackgroundColor="{StaticResource LightBlueGrey}"
                         Text="{Binding Measure}"
@@ -124,6 +125,7 @@
                            VerticalTextAlignment="Center"
                            HorizontalOptions="Center"
                            FontAttributes="Bold"
+                           TextColor="{StaticResource DarkBlue}"
                            FontSize="15"
                            Text="{Binding CalorificValue}"
                            HeightRequest="40" />

@@ -32,9 +32,11 @@
 
                 <StackLayout Margin="20,20">
 
-                    <Frame CornerRadius="30"
-                           HasShadow="False"
-                           BackgroundColor="{StaticResource LightBlue}">
+                    <Border 
+                        Padding="10,20"
+                        StrokeThickness="0" 
+                        StrokeShape="RoundRectangle 30" 
+                        BackgroundColor="{StaticResource LightBlue}">
 
                         <Label
                             Text="O Guia do Nutricionista é um aplicativo de apoio aos Estudantes e Profissionais da área da Nutrição com o objetivo de auxiliar com ferramentas e informações."
@@ -43,7 +45,7 @@
                             HorizontalTextAlignment="Center"
                             TextColor="{StaticResource DarkBlue}" />
 
-                    </Frame>
+                    </Border>
 
                     <frame:TitleFrameView Margin="0,15,0,0"
                                           TextTitle="Desenvolvimento" />
@@ -56,7 +58,7 @@
                     <Label Margin="0"
                            TextColor="{StaticResource DarkGreyText}"
                            HorizontalTextAlignment="Center"
-                           Text="Ayume Masuda - Design" />
+                           Text="Anna Júlia Rodrigues de Andrade - Design" />
 
                     <Label Margin="0"
                            TextColor="{StaticResource DarkGreyText}"
@@ -93,20 +95,6 @@
                            TextColor="{StaticResource DarkGreyText}">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Ayume Masuda - Desing&#x0a;" />
-                                <components:HyperlinkSpan Text="linkedin: ayume-masuda-175486198/"
-                                                          FontSize="11"
-                                                          Url=" https://www.linkedin.com/in/ayume-masuda-175486198/" />
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-
-                    <Label FontAttributes="None"
-                           HorizontalTextAlignment="Center"
-                           LineBreakMode="CharacterWrap"
-                           TextColor="{StaticResource DarkGreyText}">
-                        <Label.FormattedText>
-                            <FormattedString>
                                 <Span Text="Anna Júlia M. Araki Rabelo - Nutricionista&#x0a;" />
                                 <components:HyperlinkSpan Text="Instagram: annajuliaaraki/"
                                                           FontSize="11"
@@ -117,6 +105,11 @@
 
                     <frame:TitleFrameView Margin="0,15,0,0"
                                           TextTitle="Agradecimento" />
+                    
+                    <Label Margin="0"
+                           TextColor="{StaticResource DarkGreyText}"
+                           HorizontalTextAlignment="Center"
+                           Text="Ayume Masuda" />
 
                     <Label Margin="0"
                            TextColor="{StaticResource DarkGreyText}"

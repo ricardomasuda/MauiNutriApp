@@ -20,14 +20,26 @@ public static class FoodService
     public static async Task<FoodModel> ChangeUnitMeasure(int foodId, double measure)
     {
         FoodModel food = RemoveNotApplicable(await new FoodDb().ConsultarAsync(foodId));
-        food.Carboidratos = $"{CommonCalculations.Proportion(food.Carboidratos, measure)} {GetUnitMeasure(food.Carboidratos, NutrientsTypes.CARBOIDRATO)}";
-        food.Proteinas = $"{CommonCalculations.Proportion(food.Proteinas, measure)} {GetUnitMeasure(food.Proteinas, NutrientsTypes.PROTEINA)}";
-        food.Lipidios = $"{CommonCalculations.Proportion(food.Lipidios, measure)} {GetUnitMeasure(food.Lipidios, NutrientsTypes.LIPIDIO)}";
-        food.Sodio = $"{CommonCalculations.Proportion(food.Sodio, measure)} {GetUnitMeasure(food.Sodio, NutrientsTypes.SODIO)}";
-        food.FibraAlimentar = $"{CommonCalculations.Proportion(food.FibraAlimentar, measure)} {GetUnitMeasure(food.FibraAlimentar, NutrientsTypes.FIBRA_ALIMENTAR)}";
-        food.ValorCalorico = $"{CommonCalculations.Proportion(food.ValorCalorico, measure)} {GetUnitMeasure(food.ValorCalorico, NutrientsTypes.VALOR_CALORICO)}";
+    
+        //TODO - Adiciona parametros para arrendondar 
+        food.Carboidratos = $"{RoundToTwoDecimals(CommonCalculations.Proportion(food.Carboidratos, measure))} {GetUnitMeasure(food.Carboidratos, NutrientsTypes.CARBOIDRATO)}";
+        food.Proteinas = $"{RoundToTwoDecimals(CommonCalculations.Proportion(food.Proteinas, measure))} {GetUnitMeasure(food.Proteinas, NutrientsTypes.PROTEINA)}";
+        food.Lipidios = $"{RoundToTwoDecimals(CommonCalculations.Proportion(food.Lipidios, measure))} {GetUnitMeasure(food.Lipidios, NutrientsTypes.LIPIDIO)}";
+        food.Sodio = $"{RoundToTwoDecimals(CommonCalculations.Proportion(food.Sodio, measure))} {GetUnitMeasure(food.Sodio, NutrientsTypes.SODIO)}";
+        food.FibraAlimentar = $"{RoundToTwoDecimals(CommonCalculations.Proportion(food.FibraAlimentar, measure))} {GetUnitMeasure(food.FibraAlimentar, NutrientsTypes.FIBRA_ALIMENTAR)}";
+        food.ValorCalorico = $"{RoundToTwoDecimals(CommonCalculations.Proportion(food.ValorCalorico, measure))} {GetUnitMeasure(food.ValorCalorico, NutrientsTypes.VALOR_CALORICO)}";
+    
         food.Medida = $"{measure}";
         return food;
+    }
+
+    private static string RoundToTwoDecimals(string value)
+    {
+        if (double.TryParse(value, out double numericValue))
+        {
+            return Math.Round(numericValue, 2).ToString("F2");
+        }
+        return value;
     }
 
     public static ObservableCollection<FoodModel> AddUnitMeasureList(IEnumerable<FoodModel> listFood)

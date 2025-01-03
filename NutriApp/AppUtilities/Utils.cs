@@ -89,12 +89,20 @@ public static class Utils
         });
     }
 
-    public static double ParseToDoubleWithCommaSeparator(string height)
+    public static double ParseToDoubleWithCommaSeparator(string input)
     {
-        NumberFormatInfo format = new()
+        var style = NumberStyles.Float;
+        if (double.TryParse(input, style, CultureInfo.InvariantCulture, out double result))
         {
-            NumberDecimalSeparator = ","
-        };
-        return double.Parse(height, format);
+            return result;
+        }
+
+        var brCulture = new CultureInfo("pt-BR");
+        if (double.TryParse(input, style, brCulture, out result))
+        {
+            return result;
+        }
+
+        return 0;
     }
 }

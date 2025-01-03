@@ -1,5 +1,3 @@
-using NutriApp.Models;
-
 namespace NutriApp.Database;
 
 public class FoodPlanDB

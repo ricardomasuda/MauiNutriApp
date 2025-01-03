@@ -40,9 +40,9 @@ public partial class ReportViewModel : BaseViewModel, IQueryAttributable
     }
     
     [RelayCommand]
-    private async Task ShareReportImage(View reportStackLayout)
+    private async Task ShareReportImage(Microsoft.Maui.Controls.Page reportStackLayout)
     {
-        await SharePdfUtil.CaptureAndShareViewAsPdf(reportStackLayout);
+        await SharePdfUtil.CaptureAndSharePageAsPdf(reportStackLayout);
     }
     
     [RelayCommand]

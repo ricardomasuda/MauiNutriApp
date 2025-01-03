@@ -1,8 +1,9 @@
+using NutriApp.Database.Configuration;
 using SQLite;
 
 namespace NutriApp.Models;
 
-public class ValueReferenceModel
+public class ValueReferenceModel : IEntityAuditableBase<int>
 {
     [PrimaryKey,AutoIncrement]
     public int Id { get; set; }
@@ -12,4 +13,11 @@ public class ValueReferenceModel
     public int Carboidratos { get; set; }
     public int Proteinas { get; set; }
     public int Lipidios { get; set; }
+    
+    public bool Active { get; set; }
+    public string ReturnMessage { get; set; }
+    public bool Visible { get; set; }
+    public DateTimeOffset? LastSync { get; set; }
+    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset? LastUpdatedAt { get; set; }
 }

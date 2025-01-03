@@ -9,8 +9,9 @@
     xmlns:contentPageCustomer="clr-namespace:NutriApp.Components.ContentPageCustomer"
     TypeTitle="Share"
     Command="{Binding ShareReportImageCommand}"
-    CommandParameter="{x:Reference ReportStackLayout}"
+    CommandParameter="{x:Reference ReportPageRoot}"
     TextTitle="{Binding Title}"
+    x:Name="ReportPageRoot"
     x:DataType="page:ReportViewModel"
     x:Class="NutriApp.Views.ReportPage.Page.ReportPage">
 

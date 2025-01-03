@@ -2,6 +2,7 @@ using NutriApp.Converters;
 using NutriApp.Resources.Strings;
 using NutriApp.Services.AnthropometricEvaluation;
 using NutriApp.Views.AnthropometricEvaluation.View.BoneDiameter;
+using Color = System.Drawing.Color;
 
 namespace NutriApp.Views.AnthropometricEvaluation;
 
@@ -29,7 +30,7 @@ public partial class AnthropometricEvaluationViewModel : BaseViewModel
     //         Color = value == ExpandState.Expanded ? Color.Black : Color.Gray;
     //         OnPropertyChanged("ExpandState"); } 
     // }
-    [ObservableProperty] private System.Drawing.Color _color;
+    [ObservableProperty] private Color _color;
     public ObservableCollection<Item> ListGender { get; set; }
     private AnthropometricEvaluationPage _anthropometricEvaluationPage;
 
@@ -43,7 +44,7 @@ public partial class AnthropometricEvaluationViewModel : BaseViewModel
     {
         BoneDiameterViewModel = new BoneDiameterViewModel();
         BodyCompositionPageModel = new AnthropometricEvaluationPageModel();
-        Color = System.Drawing.Color.MediumSpringGreen;
+        Color = Color.Gray;
         AnthropometricEvaluationTypeList = new List<string>();
         AnthropometricEvaluationTypeList.Add(AnthropometricEvaluationStrings.SevenPleatsJacksonPolloc);
         AnthropometricEvaluationTypeList.Add(AnthropometricEvaluationStrings.FourPleatsDurninWomersley);

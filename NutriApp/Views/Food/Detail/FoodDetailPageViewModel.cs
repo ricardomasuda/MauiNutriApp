@@ -1,5 +1,4 @@
 using System.Windows.Input;
-using CommunityToolkit.Maui.Views;
 using NutriApp.Views.Food.Detail.InfoPopup;
 
 namespace NutriApp.Views.Food.Detail;
@@ -29,7 +28,7 @@ public partial class FoodDetailPageViewModel : BaseViewModel, IQueryAttributable
 
     public FoodDetailPageViewModel()
     {
-        InfoCommand = new RelayCommand(() => Shell.Current.CurrentPage.ShowPopup(new InformationFoodPopup()));
+        InfoCommand = new RelayCommand(() => App.NavPage.GoToModalAsync(new InformationFoodPopup()));
         Fill();
     }
 
@@ -63,9 +62,11 @@ public partial class FoodDetailPageViewModel : BaseViewModel, IQueryAttributable
         var foodReport = await FoodService.ChangeUnitMeasure(Food.Id, Measure);
         List<FoodModel> listFood = new List<FoodModel> { foodReport };
         ShellNavigationQueryParameters navigationParameter = new() {
-            { "listFood", listFood },
+            { "FoodList", listFood },
+            { "Title", Food.Nome}
         };
         await App.NavPage.GoToAsync(nameof(ReportPage), navigationParameter);
+        
         //await App.NavPage.PushAsync(new ReportPage(listFood));
     }
     

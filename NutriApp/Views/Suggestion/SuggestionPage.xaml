@@ -16,15 +16,31 @@
         <ScrollView VerticalOptions="FillAndExpand">
 
             <StackLayout>
+                
+                <inputLayout:InputLayoutView
+                    CornerRadius="8"
+                    BorderColor="{StaticResource DarkBlue}"
+                    Hint="Perfil">
+                
+                    <Picker
+                        BackgroundColor="{StaticResource EntryBackgroundColor}"
+                        TextColor="Black"
+                        ItemsSource="{Binding Profile}"
+                        ItemDisplayBinding="{Binding Nome}"
+                        SelectedItem="{Binding SelectedProfile, Mode=TwoWay}" />
+                
+                </inputLayout:InputLayoutView>
+                
                 <inputLayout:InputLayoutView
                     CornerRadius="8"
                     HeightRequest="350"
-                    Hint="Adicione uma sugestão"
+                    Hint="Adicione uma sugestão ou dúvida"
                     Margin="0,20,0,0"
                     HasError="{Binding HasErrorBodyText}"
                     ErrorText="Sugestão não informada"
                     BorderColor="{StaticResource DarkBlue}">
                     <Editor HeightRequest="350"
+                            TextColor="{StaticResource DarkBlue}"
                             Text="{Binding BodyText}"
                             BackgroundColor="{StaticResource PageColor}" />
                 </inputLayout:InputLayoutView>

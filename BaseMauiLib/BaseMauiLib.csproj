@@ -20,7 +20,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Maui" Version="9.0.0" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="9.1.1" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.92" />
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.92" />
@@ -35,6 +35,9 @@
         <SubType>Designer</SubType>
       </MauiXaml>
       <MauiXaml Update="Components\Title\View\SearchTitleView.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Resource\Styles\Colors.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
     </ItemGroup>
@@ -60,6 +63,10 @@
         <DependentUpon>SearchTitleView.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Resource\Styles\Colors.xaml" />
     </ItemGroup>
 
 </Project>

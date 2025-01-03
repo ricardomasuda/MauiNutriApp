@@ -7,6 +7,6 @@ public partial class InformationFoodPopupViewModel
     [RelayCommand]
     private void Close(Popup popup)
     {
-        popup.Close();
+        App.NavPage.GoBackModal();
     }
 }

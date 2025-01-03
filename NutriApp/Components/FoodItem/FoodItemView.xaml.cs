@@ -6,13 +6,13 @@ public partial class FoodItemView : ContentView
         BindableProperty.Create(nameof(Nome), typeof(string), typeof(FoodItemView), default(string));
     
     public static readonly BindableProperty ProteinasProperty =
-        BindableProperty.Create(nameof(Proteinas), typeof(double), typeof(FoodItemView), default(double));
+        BindableProperty.Create(nameof(Proteinas), typeof(string), typeof(FoodItemView), default(string));
     
     public static readonly BindableProperty LipidiosProperty =
-        BindableProperty.Create(nameof(Lipidios), typeof(double), typeof(FoodItemView), default(double));
+        BindableProperty.Create(nameof(Lipidios), typeof(string), typeof(FoodItemView), default(string));
     
     public static readonly BindableProperty CarboidratosProperty =
-        BindableProperty.Create(nameof(Carboidratos), typeof(double), typeof(FoodItemView), default(double));
+        BindableProperty.Create(nameof(Carboidratos), typeof(string), typeof(FoodItemView), default(string));
     
     public static readonly BindableProperty CommandProperty =
         BindableProperty.Create(nameof(Command), typeof(Command), typeof(FoodItemView));
@@ -22,21 +22,21 @@ public partial class FoodItemView : ContentView
         get => (string)GetValue(NomeProperty);
         set => SetValue(NomeProperty, value);
     }
-    public double Proteinas
+    public string Proteinas
     {
-        get => (double)GetValue(ProteinasProperty);
+        get => (string)GetValue(ProteinasProperty);
         set => SetValue(ProteinasProperty, value);
     }
     
-    public double Lipidios
+    public string Lipidios
     {
-        get => (double)GetValue(LipidiosProperty);
+        get => (string)GetValue(LipidiosProperty);
         set => SetValue(LipidiosProperty, value);
     }
     
-    public double Carboidratos
+    public string Carboidratos
     {
-        get => (double)GetValue(CarboidratosProperty);
+        get => (string)GetValue(CarboidratosProperty);
         set => SetValue(CarboidratosProperty, value);
     }
     
@@ -70,17 +70,17 @@ public partial class FoodItemView : ContentView
 
         if (propertyName == ProteinasProperty.PropertyName)
         {
-            ProteinasLabel.Text = Math.Round(Proteinas, 2).ToString();
+            ProteinasLabel.Text = Proteinas;
         }
         
         if (propertyName == CarboidratosProperty.PropertyName)
         {
-            CarboidratosLabel.Text = Math.Round(Carboidratos, 2).ToString();
+            CarboidratosLabel.Text = Carboidratos;
         }
         
         if (propertyName == LipidiosProperty.PropertyName)
         {
-            LipidiosLabel.Text = Math.Round(Lipidios, 2).ToString();
+            LipidiosLabel.Text = Lipidios;
         }
         
         if (propertyName == NomeProperty.PropertyName)

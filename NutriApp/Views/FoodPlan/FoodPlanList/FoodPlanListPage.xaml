@@ -21,10 +21,10 @@
             BackgroundColor="{StaticResource PageColor}">
 
             <CollectionView.EmptyView>
-                <StackLayout
-                    Margin="0,180,0,0">
+                <StackLayout>
 
                     <Label
+                        Margin="0,180,0,0"
                         Opacity="0.3"
                         TextColor="{StaticResource DarkOrange}"
                         HorizontalOptions="Center"

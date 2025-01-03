@@ -5,6 +5,24 @@ namespace NutriApp.AppUtilities;
 
 public static class SharePdfUtil
 {
+    public static async Task CaptureAndSharePageAsPdf(Page page)
+    {
+        // 1. Capturar a Page como imagem
+        byte[] imageData = await CapturePageAsync(page);
+
+        if (imageData == null)
+        {
+            await Application.Current.MainPage.DisplayAlert("Erro", "Falha ao capturar a página.", "OK");
+            return;
+        }
+
+        // 2. Converter a imagem em PDF
+        Stream pdfStream = CreatePdfFromImage(imageData);
+
+        // 3. Compartilhar o PDF
+        await SharePdfAsync(pdfStream, "RelatorioNutricional.pdf");
+    }
+    
     public static async Task CaptureAndShareViewAsPdf(View view)
     {
         // 1. Capturar a View como imagem
@@ -23,11 +41,24 @@ public static class SharePdfUtil
         await SharePdfAsync(pdfStream, "RelatorioNutricinal.pdf");
     }
     
-    
-    
     public static async Task<byte[]> CaptureViewAsync(View view)
     {
         IScreenshotResult screenshot = await view.CaptureAsync();
+
+        if (screenshot != null)
+        {
+            using Stream stream = await screenshot.OpenReadAsync();
+            using MemoryStream ms = new MemoryStream();
+            await stream.CopyToAsync(ms);
+            return ms.ToArray();
+        }
+
+        return null;
+    }
+    
+    public static async Task<byte[]> CapturePageAsync(Page page)
+    {
+        IScreenshotResult screenshot = await page.CaptureAsync();
 
         if (screenshot != null)
         {
@@ -61,6 +92,7 @@ public static class SharePdfUtil
 
         return pdfStream;
     }
+    
     
     public static async Task SharePdfAsync(Stream pdfStream, string fileName)
     {
