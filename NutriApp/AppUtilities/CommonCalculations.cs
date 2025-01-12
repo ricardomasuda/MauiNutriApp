@@ -14,7 +14,7 @@ public static class CommonCalculations
     {
         try
         {
-            if (value == "0" || string.IsNullOrEmpty(value)) return 0;
+            if (string.IsNullOrWhiteSpace(value) || value == "0" || value == "-") return 0;
             
             value = RemoveLetters(value);
             var replace = value.Replace(",", ".");

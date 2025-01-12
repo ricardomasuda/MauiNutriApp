@@ -31,22 +31,25 @@
             </StackLayout>
             <StackLayout>
 
-                <newItemMenu:NewItemMenuView TextTitle="Avaliação Nutricional"
-                                             Command="{Binding EvaluationCommand}" />
+                <newItemMenu:NewItemMenuView 
+                    TextTitle="Avaliação Nutricional"
+                    Command="{Binding EvaluationCommand}" />
 
-                <newItemMenu:NewItemMenuView IsVisible="True"
-                                             TextTitle="Avaliação Antropométrica"
-                                             Command="{Binding AnthropometricEvaluationCommand}" />
+                <newItemMenu:NewItemMenuView 
+                    TextTitle="Avaliação Antropométrica"
+                    Command="{Binding AnthropometricEvaluationCommand}" />
 
-                <newItemMenu:NewItemMenuView TextTitle="Lista de Alimentos"
-                                             Command="{Binding ListFoodCommand}" />
+                <newItemMenu:NewItemMenuView 
+                    TextTitle="Lista de Alimentos"
+                    Command="{Binding ListFoodCommand}" />
 
-                <newItemMenu:NewItemMenuView IsVisible="True"
-                                             TextTitle="Plano Alimentar"
-                                             Command="{Binding FoodPlanCommand}" />
+                <newItemMenu:NewItemMenuView 
+                    TextTitle="Plano Alimentar"
+                    Command="{Binding FoodPlanCommand}" />
 
-                <newItemMenu:NewItemMenuView TextTitle="Nos envie uma sugestão"
-                                             Command="{Binding SuggestionCommand}" />
+                <newItemMenu:NewItemMenuView 
+                    TextTitle="Nos envie uma sugestão"
+                    Command="{Binding SuggestionCommand}" />
 
             </StackLayout>
 
